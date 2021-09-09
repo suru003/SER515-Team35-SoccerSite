@@ -2,11 +2,17 @@
 SER515 Fall 2021 academic project
 
 Members:
-Sahithi Boddupalli
-Shantanu Girishkumar Ojha
-Divya Poluri
-Jennifer Sarfo
-Suraj Madhukar Suryawanshi
+
+-- Sahithi Boddupalli
+
+-- Shantanu Girishkumar Ojha
+
+-- Divya Poluri
+
+-- Jennifer Sarfo
+
+-- Suraj Madhukar Suryawanshi
+
 
 
 Taiga: 
