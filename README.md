@@ -15,7 +15,7 @@ Members:
 
 
 
-Taiga: 
+Taiga: https://tree.taiga.io/project/sahithiboddupalli-ser-515-soccer-tournament-website/timeline
 
 Google Drive: https://drive.google.com/drive/folders/1h8NpizZ2ZNU4Tgh_CkPMXjXV6ZydZmP_?usp=sharing
 
