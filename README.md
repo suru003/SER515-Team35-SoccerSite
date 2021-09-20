@@ -21,7 +21,7 @@ Google Drive: https://drive.google.com/drive/folders/1h8NpizZ2ZNU4Tgh_CkPMXjXV6Z
 -----------------------------------------------------------------------------------------------
 
 ```
-**App Uses Java 17**
+**App uses Java 17**
 Install Postgres
 psql -U <username> 
 
@@ -38,7 +38,14 @@ psql -U <username> soccersite
 To send requests to server: http://localhost:8090/coaches/<method_names>
 ```
 
+```
+**App uses Angular 11**
+- create new temp project elsewhere to generate node_module files and copy them to parent folder
+ng new temp
 
+-To generate a service
+ng g s services\coach --skipTests=true
+```
 
 
 
