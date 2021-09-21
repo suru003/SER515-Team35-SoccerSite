@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class CoachService {
-  private serverUrl = `${environment.apiBaseUrl}/coach`;
+  private serverUrl = `${environment.apiBaseUrl}/coaches`;
   constructor(private http: HttpClient) { }
 
   public getCoach(id: String):Observable<Coach>{
