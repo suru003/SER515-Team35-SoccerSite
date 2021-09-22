@@ -40,8 +40,6 @@ To send requests to server: http://localhost:8090/coaches/<method_names>
 
 ```
 **App uses Angular 11**
-You have to add node_modules dependency to the project, you can get that folder by:
-ng new temp_project
 
 -To generate a service
 ng g s services\coach --skipTests=true
