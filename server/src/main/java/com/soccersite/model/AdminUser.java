@@ -1,5 +1,6 @@
 package com.soccersite.model;
-import java.io.Serializable;
+
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,10 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import org.springframework.stereotype.Component;
-
 @Entity
-public class Coach implements Serializable{
+public class AdminUser {
+	
 	@Id
 	@Column(nullable= false, updatable= false)
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,54 +18,85 @@ public class Coach implements Serializable{
 	String firstName;
 	String lastName;
 	String email;
-	String imageUrl;
+//	String imageUrl;
+	String username;
+	String password;
+//	Set<Roles> role;
 	
+	public AdminUser() {
+		
+	}
 	
-	public Coach() {}
-	
-	public Coach(int iD, String firstName, String lastName, String email, String imageUrl) {
+	public AdminUser(int id, String firstName, String lastName, String email, String username,
+			String password) {
 		super();
-		id = iD;
+		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-		this.imageUrl = imageUrl;
+		this.username = username;
+		this.password = password;
+//		this.role = role;
 	}
-	
-	public int getID() {
+
+	public int getId() {
 		return id;
 	}
-	public void setID(int iD) {
-		id = iD;
+
+	public void setId(int id) {
+		this.id = id;
 	}
+
 	public String getFirstName() {
 		return firstName;
 	}
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
 	public String getLastName() {
 		return lastName;
 	}
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getImageUrl() {
-		return imageUrl;
+
+	public String getUsername() {
+		return username;
 	}
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
-	@Override
-	public String toString() {
-		return "Coach [ID=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", imageUrl=" + imageUrl + "]";
+
+	public String getPassword() {
+		return password;
 	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+//	public Set<Roles> getRole() {
+//		return role;
+//	}
+//
+//	public void setRole(Set<Roles> role) {
+//		this.role = role;
+//	}
+	
+
+
+	
 	
 }

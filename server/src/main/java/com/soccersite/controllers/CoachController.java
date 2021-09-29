@@ -35,7 +35,7 @@ public class CoachController {
 	}
 	
 	@GetMapping("/find/{id}")
-	public ResponseEntity<Coach> findCoachById(@PathVariable("id") String id){
+	public ResponseEntity<Coach> findCoachById(@PathVariable("id") int id){
 		Coach coach = coachService.findCoachById(id);
 		return new ResponseEntity<Coach>(coach, HttpStatus.OK) ;
 	}
@@ -53,8 +53,8 @@ public class CoachController {
 		return new ResponseEntity<Coach>(response, HttpStatus.OK) ;
 	}
 	
-	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<?> deleteCoach(@PathVariable("id") String id){
+	@GetMapping("/delete/{id}")
+	public ResponseEntity<?> deleteCoach(@PathVariable("id") int id){
 		coachService.deleteCoach(id);
 		return new ResponseEntity<>("Deleted Coach:"+id,HttpStatus.OK) ;
 	}
