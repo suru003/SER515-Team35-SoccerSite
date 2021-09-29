@@ -38,9 +38,9 @@ public class AdminController {
 		return new ResponseEntity<List<AdminUser>>(list, HttpStatus.OK) ;
 	}
 	
-	@GetMapping("/find/{id}")
-	public ResponseEntity<AdminUser> findAdminById(@PathVariable("id") int id){
-		AdminUser admin = adminService.findAdminById(id);
+	@GetMapping("/find/{adminID}")
+	public ResponseEntity<AdminUser> findAdminById(@PathVariable("adminID") int adminID){
+		AdminUser admin = adminService.findAdminById(adminID);
 		return new ResponseEntity<AdminUser>(admin, HttpStatus.OK) ;
 	}
 	
@@ -56,10 +56,10 @@ public class AdminController {
 		return new ResponseEntity<AdminUser>(response, HttpStatus.OK) ;
 	}
 	
-	@GetMapping("/delete/{id}")
-	public ResponseEntity<?> deleteAdmin(@PathVariable("id") int id){
-		adminService.deleteAdmin(id);
-		return new ResponseEntity<>("Admin deleted:"+id,HttpStatus.OK) ;
+	@GetMapping("/delete/{adminID}")
+	public ResponseEntity<?> deleteAdmin(@PathVariable("adminID") int adminID){
+		adminService.deleteAdmin(adminID);
+		return new ResponseEntity<>("Admin deleted:"+adminID,HttpStatus.OK) ;
 	}
 	
 }

@@ -36,8 +36,8 @@ public class AdminService {
 		 repo.deleteById(id);
 	}
 	
-	public AdminUser findAdminById(int id) {
-		 return repo.findAdminById(id).orElseThrow(()->new EntryNotFoundExcemption("Admin with id: "+id+" not found in the repositiory")); 
+	public AdminUser findAdminById(int adminID) {
+		 return repo.findAdminById(adminID).orElseThrow(()->new EntryNotFoundExcemption("Admin with id: "+adminID+" not found in the repositiory")); 
 	}
 
 }
