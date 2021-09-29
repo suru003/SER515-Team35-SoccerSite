@@ -13,7 +13,7 @@ public class AdminUser {
 	@Id
 	@Column(nullable= false, updatable= false)
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	int adminID;
+	int id;
 	String firstName;
 	String lastName;
 	String email;
@@ -27,7 +27,7 @@ public class AdminUser {
 	public AdminUser(int adminID, String firstName, String lastName, String email, String username, String password,
 			int roleID) {
 		super();
-		this.adminID = adminID;
+		this.id = adminID;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
@@ -37,13 +37,13 @@ public class AdminUser {
 	}
 
 	public int getAdminID() {
-		return adminID;
+		return id;
 	}
 
 
 
 	public void setAdminID(int adminID) {
-		this.adminID = adminID;
+		this.id = adminID;
 	}
 
 

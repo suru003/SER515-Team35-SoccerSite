@@ -13,6 +13,6 @@ import com.soccersite.model.AdminUser;
 @CrossOrigin(origins = "http://localhost:4200")
 public interface AdminRepo extends JpaRepository<AdminUser, Integer>{
 	
-	Optional<AdminUser> findAdminById(int id);
+	Optional<AdminUser> findAdminById(int adminID);
 
 }

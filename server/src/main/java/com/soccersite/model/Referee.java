@@ -12,7 +12,7 @@ public class Referee {
 	@Id
 	@Column(nullable= false, updatable= false)
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	int refID;
+	int id;
 	String firstName;
 	String lastName;
 	String email;
@@ -29,7 +29,7 @@ public class Referee {
 	public Referee(int refID, String firstName, String lastName, String email, long contactNo, String username,
 			String password, String address, String city, String country, int roleID) {
 		super();
-		this.refID = refID;
+		this.id = refID;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
@@ -43,11 +43,11 @@ public class Referee {
 	}
 
 	public int getId() {
-		return refID;
+		return id;
 	}
 
 	public void setId(int refID) {
-		this.refID = refID;
+		this.id = refID;
 	}
 
 	public String getFirstName() {
