@@ -12,27 +12,24 @@ public class Referee {
 	@Id
 	@Column(nullable= false, updatable= false)
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	int id;
+	int refID;
 	String firstName;
 	String lastName;
 	String email;
-//	String imageUrl;
 	long contactNo;
 	String username;
 	String password;
 	String address;
 	String city;
 	String country;
+	int roleID;
+	
+	public Referee() {}
 
-	
-	private Referee() {
-		
-	}
-	
-	public Referee(int id, String firstName, String lastName, String email, long contactNo, String username,
-			String password, String address, String city, String country) {
+	public Referee(int refID, String firstName, String lastName, String email, long contactNo, String username,
+			String password, String address, String city, String country, int roleID) {
 		super();
-		this.id = id;
+		this.refID = refID;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
@@ -42,14 +39,15 @@ public class Referee {
 		this.address = address;
 		this.city = city;
 		this.country = country;
+		this.roleID = roleID;
 	}
 
 	public int getId() {
-		return id;
+		return refID;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setId(int refID) {
+		this.refID = refID;
 	}
 
 	public String getFirstName() {
@@ -124,13 +122,8 @@ public class Referee {
 		this.country = country;
 	}
 	
-//	public int getRole() {
-//		return roleID;
-//	}
-//
-//
-//	public void setRole(int roleID) {
-//		this.roleID = roleID;
-//	}
+	
+	
+	
 
 }

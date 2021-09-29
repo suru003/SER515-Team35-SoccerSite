@@ -1,6 +1,5 @@
 package com.soccersite.model;
 
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,38 +13,52 @@ public class AdminUser {
 	@Id
 	@Column(nullable= false, updatable= false)
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	int id;
+	int adminID;
 	String firstName;
 	String lastName;
 	String email;
-//	String imageUrl;
 	String username;
 	String password;
-//	Set<Roles> role;
+	int roleID;
+
 	
-	public AdminUser() {
-		
-	}
+	public AdminUser() {}
 	
-	public AdminUser(int id, String firstName, String lastName, String email, String username,
-			String password) {
+	public AdminUser(int adminID, String firstName, String lastName, String email, String username, String password,
+			int roleID) {
 		super();
-		this.id = id;
+		this.adminID = adminID;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.username = username;
 		this.password = password;
-//		this.role = role;
+		this.roleID = roleID;
 	}
 
-	public int getId() {
-		return id;
+	public int getAdminID() {
+		return adminID;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+
+
+	public void setAdminID(int adminID) {
+		this.adminID = adminID;
 	}
+
+
+
+	public int getRoleID() {
+		return roleID;
+	}
+
+
+
+	public void setRoleID(int roleID) {
+		this.roleID = roleID;
+	}
+
+
 
 	public String getFirstName() {
 		return firstName;
@@ -86,17 +99,8 @@ public class AdminUser {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-//	public Set<Roles> getRole() {
-//		return role;
-//	}
-//
-//	public void setRole(Set<Roles> role) {
-//		this.role = role;
-//	}
-	
 
-
+	
 	
 	
 }
