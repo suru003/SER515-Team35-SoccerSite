@@ -16,7 +16,9 @@ public class AdminUser {
 	int id;
 	String firstName;
 	String lastName;
+	@Column(unique= true)
 	String email;
+	@Column(unique= true)
 	String username;
 	String password;
 	int roleID;

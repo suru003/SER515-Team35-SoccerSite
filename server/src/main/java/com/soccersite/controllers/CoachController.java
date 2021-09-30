@@ -53,7 +53,7 @@ public class CoachController {
 		return new ResponseEntity<Coach>(response, HttpStatus.OK) ;
 	}
 	
-	@GetMapping("/delete/{id}")
+	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<?> deleteCoach(@PathVariable("id") int id){
 		coachService.deleteCoach(id);
 		return new ResponseEntity<>("Deleted Coach:"+id,HttpStatus.OK) ;

@@ -17,6 +17,7 @@ public class Coach implements Serializable{
 	int id;
 	String firstName;
 	String lastName;
+	@Column(unique= true)
 	String email;
 	String imageUrl;
 	

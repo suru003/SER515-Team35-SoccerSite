@@ -15,8 +15,10 @@ public class Referee {
 	int id;
 	String firstName;
 	String lastName;
+	@Column(unique= true)
 	String email;
 	long contactNo;
+	@Column(unique= true)
 	String username;
 	String password;
 	String address;
