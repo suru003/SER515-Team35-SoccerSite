@@ -1,0 +1,18 @@
+<button>Add referee</button>
+<button>Add coach</button>
+<button>Add admin</button>
+<div>
+    <p>Admins: </p>
+    <div *ngFor="let admin of admins; let i = index">
+        {{i}} {{admin.username}}:{{admin.email}}-->{{admin.firstName}}
+    </div>
+    <p>Coaches: </p>
+    <div *ngFor="let coach of coaches; let i = index">
+        {{i}} {{coach.firstName}} {{coach.lastName}}-->{{coach.email}}
+    </div>
+    <p>Referees: </p>
+    <div *ngFor="let referee of referees; let i = index">
+        {{i}} {{referee.firstName}} {{referee.lastName}}-->{{referee.email}}
+    </div>
+</div>
+
