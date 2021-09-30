@@ -28,10 +28,10 @@ public class Referee {
 	
 	public Referee() {}
 
-	public Referee(int refID, String firstName, String lastName, String email, long contactNo, String username,
+	public Referee(int id, String firstName, String lastName, String email, long contactNo, String username,
 			String password, String address, String city, String country, int roleID) {
 		super();
-		this.id = refID;
+		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
@@ -122,6 +122,14 @@ public class Referee {
 
 	public void setCountry(String country) {
 		this.country = country;
+	}
+
+	public int getRoleID() {
+		return roleID;
+	}
+
+	public void setRoleID(int roleID) {
+		this.roleID = roleID;
 	}
 	
 	
