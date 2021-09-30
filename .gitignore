@@ -1,3 +1,7 @@
+# Metadata file
+*.metadata
+
+
 # Compiled class file
 *.class
 
