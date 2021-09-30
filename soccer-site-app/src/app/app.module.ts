@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { CoachComponent } from './coach/coach.component';
 import { CoachService } from './services/coach.service';
 import { HomepageComponent } from './homepage/homepage.component';
-
+import { AdminModule } from './admin/admin.module'
 
 @NgModule({
   declarations: [
@@ -17,7 +17,8 @@ import { HomepageComponent } from './homepage/homepage.component';
   imports: [
     HttpClientModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AdminModule
   ],
   providers: [CoachService],
   bootstrap: [AppComponent]

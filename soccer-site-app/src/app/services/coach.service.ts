@@ -15,6 +15,10 @@ export class CoachService {
     return this.http.get<Coach>(`${this.serverUrl}/find/${id}`);
   }
   
+  public getAllCoaches():Observable<Coach[]>{
+    return this.http.get<Coach[]>(`${this.serverUrl}/all`);
+  }
+  
   public addCoach(coach: Coach):Observable<Coach>{
     return this.http.post<Coach>(`${this.serverUrl}/insert`,coach);
   }
