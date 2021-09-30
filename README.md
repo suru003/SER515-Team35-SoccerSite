@@ -33,7 +33,7 @@ ALTER USER test WITH SUPERUSER;
 ```
 **To check**
 ```
-psql -U <username> soccersite
+psql -U test soccersite
 
 To send requests to server: http://localhost:8090/coaches/<method_names>
 ```

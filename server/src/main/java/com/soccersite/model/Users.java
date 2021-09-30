@@ -13,6 +13,7 @@ public class Users {
 	@Column(nullable= false, updatable= false)
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	int id;
+	@Column(unique= true)
 	int userID;
 	int roleID;
 	String firstName;
