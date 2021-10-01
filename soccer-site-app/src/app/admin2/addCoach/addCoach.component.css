@@ -23,8 +23,30 @@ body{
 	background-color: rgba(255, 193, 8, 0.4);
 }
 
+.btn-primary {
+	background-color: #D8282B;
+	border-color: #D8282B;
+}
+
+.btn{
+	width: 100%;
+}
+
 .container{
 	padding: 0;
+}
+
+.content-row{
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	
+}
+
+
+.content-row .card-title{
+	text-align: center;
+	font-weight: bold;
+
 }
 
 .second-row .icon-col{
