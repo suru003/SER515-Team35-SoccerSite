@@ -1,0 +1,19 @@
+<mat-nav-list>
+    <div class="profile-card">
+        <div class="header">
+            <h2>{{account_name}}</h2>
+            <h4>{{account_email}}</h4>
+        </div>
+        <img src="{{account_profile}}" alt="{{account_name}}">
+    </div>
+</mat-nav-list>
+
+<mat-divider></mat-divider>
+<h2 matSubehader>Options</h2>
+<div class="options">
+    <div class="menu-buttons"> <button mat-raised-button (click)="sendUpdate(0)" color="primary">Dashboard</button> </div>
+    <div class="menu-buttons"> <button mat-raised-button (click)="sendUpdate(1)" color="primary">Admins</button> </div>
+    <div class="menu-buttons"> <button mat-raised-button (click)="sendUpdate(2)" color="primary">Coaches</button> </div>
+    <div class="menu-buttons"> <button mat-raised-button (click)="sendUpdate(3)" color="primary">Referees</button> </div>
+</div>
+<mat-divider></mat-divider>

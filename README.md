@@ -40,6 +40,13 @@ To send requests to server: http://localhost:8090/coaches/<method_names>
 
 ```
 **App uses Angular 11**
+- Install angular material 
+ng add @angular/material
+- Install angular flex-layout and cdk
+npm i @angular/flex-layout @angular/cdk --save
+
+-( I had to open command promt as administrator to do the following command, it might not be needed on your end)
+npm audit fix -f
 
 -To generate a service
 ng g s services\coach --skipTests=true
