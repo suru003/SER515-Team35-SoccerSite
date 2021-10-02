@@ -52,8 +52,8 @@ npm audit fix -f
 ng g s services\coach --skipTests=true
 ```
 
-
-
+Frontend
+The frontend was developed from scratch using components and elements from the Bootstrap framework and icons from fontawesome. 
 
 
 
