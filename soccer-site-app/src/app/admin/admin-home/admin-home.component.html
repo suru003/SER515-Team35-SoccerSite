@@ -1,18 +1,65 @@
-<button>Add referee</button>
-<button>Add coach</button>
-<button>Add admin</button>
-<div>
-    <p>Admins: </p>
-    <div *ngFor="let admin of admins; let i = index">
-        {{i}} {{admin.username}}:{{admin.email}}-->{{admin.firstName}}
-    </div>
-    <p>Coaches: </p>
-    <div *ngFor="let coach of coaches; let i = index">
-        {{i}} {{coach.firstName}} {{coach.lastName}}-->{{coach.email}}
-    </div>
-    <p>Referees: </p>
-    <div *ngFor="let referee of referees; let i = index">
-        {{i}} {{referee.firstName}} {{referee.lastName}}-->{{referee.email}}
-    </div>
-</div>
+<div fullscreen>
+    <app-header></app-header>
+        
+    <mat-drawer-container>
+            <mat-drawer mode="side" opened>
+                <app-sidebar></app-sidebar>
+            </mat-drawer>
 
+
+            <mat-drawer-content>
+                <h2>{{list_of}}</h2>
+                <div *ngIf="this.displayList[0]">
+                    <div class="container">
+                        <ng-container *ngFor="let admin of admins; let i = index">
+                            <div class="row">
+                                <div style="padding: 10px; text-align: center;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;" class="col-md-4">
+                                    <img src="{{admin_profile}}" alt="{{i}}">
+                                    <h3>{{admin.username}}</h3>
+                                    <h5>{{admin.email}}</h5>
+                                    <button>Edit</button>
+                                    <button (click)="removeAdmin(i)">Delete</button>                        
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+                <div *ngIf="this.displayList[1]">
+                    <div class="container">
+                        <ng-container *ngFor="let coach of coaches; let i = index">
+                            <div class="row">
+                                <div style="padding: 10px; text-align: center;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;" class="col-md-4">
+                                    <img src="{{coach_profile}}" alt="{{i}}">
+                                    <h3>{{coach.firstName}}</h3>
+                                    <h5>{{coach.email}}</h5>
+                                    <button>Edit</button>
+                                    <button (click)="removeCoach(i)">Delete</button>                        
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+                <div *ngIf="this.displayList[2]">
+                    <div class="container">
+                        <ng-container *ngFor="let referee of referees; let i = index">
+                            <div class="row">
+                                <div style="padding: 10px; text-align: center;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;" class="col-md-4">
+                                    <img src="{{referee_profile}}" alt="{{i}}">
+                                    <h3>{{referee.username}}</h3>
+                                    <h5>{{referee.email}}</h5>
+                                    <button>Edit</button>
+                                    <button (click)="removeReferee(i)">Delete</button>                        
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </mat-drawer-content>
+    </mat-drawer-container>
+    <!-- <app-footer></app-footer> -->
+    <mat-divider></mat-divider>
+
+    <footer>
+        &copy; All rights are reserved 2021
+    </footer>
+</div>
