@@ -19,7 +19,7 @@ import com.soccersite.model.AdminUser;
 import com.soccersite.services.AdminService;
 
 @RestController
-@CrossOrigin()
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/admin")
 public class AdminController {
 	

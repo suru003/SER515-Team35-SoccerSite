@@ -18,16 +18,17 @@ public class Users {
 	int roleID;
 	String firstName;
 	String lastName;
-	
+	String email;
 	
 	public Users() {}
-	public Users(int id, int userID, int roleID, String firstName, String lastName) {
+	public Users(int id, int userID, int roleID, String firstName, String lastName, String email) {
 		super();
 		this.id = id;
 		this.userID = userID;
 		this.roleID = roleID;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.email = email;
 	}
 
 
@@ -67,6 +68,12 @@ public class Users {
 	}
 	public void setUserID(int userID) {
 		this.userID = userID;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	
