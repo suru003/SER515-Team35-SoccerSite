@@ -1,11 +1,16 @@
 package com.soccersite.controllers;
 
+import java.util.List;
+
 import org.aspectj.lang.annotation.Before;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.soccersite.model.Referee;
 import com.soccersite.model.Roles;
 import com.soccersite.services.RoleService;
 
@@ -38,5 +43,11 @@ public class RolesController {
 		Roles response4 = rolesService.addRoles(role4);
 //		return new ResponseEntity<Roles>(response, HttpStatus.CREATED) ;
 		return "Roles inserted into table";
+	}
+	
+	@GetMapping("/all")
+	public ResponseEntity<List<Roles>> findAllRoles(){
+		List<Roles> list = rolesService.findAllRoles();
+		return new ResponseEntity<List<Roles>>(list, HttpStatus.OK) ;
 	}
 }

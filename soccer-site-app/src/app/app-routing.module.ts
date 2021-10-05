@@ -3,9 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { CoachComponent } from './coach/coach.component';
 import { HomepageComponent } from './homepage/homepage.component';
+
 // import { HeaderComponent } from './admin/header/header.component';
 // import { FooterComponent } from './admin/footer/footer.component';
 // import { SidebarComponent } from './admin/sidebar/sidebar.component';
+
+import { UserListComponent } from './user-list/user-list.component';
+import { AddRefereeComponent } from './addReferee/addReferee.component';
 
 const routes: Routes = [
   {path:'app-coach', component: CoachComponent},
@@ -17,6 +21,8 @@ const routes: Routes = [
       // { path:'admin-sidebar', component: SidebarComponent }
     ]
   }, 
+  {path:'allusers', component: UserListComponent},
+  {path:'add-referee', component: AddRefereeComponent},
   {path:'', component:HomepageComponent}
 ];
 

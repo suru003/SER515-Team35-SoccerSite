@@ -55,6 +55,8 @@ public class ServerApplication {
 			roleRepo.save(role2);
 			roleRepo.save(role3);
 			roleRepo.save(role4);
+			
+			
 		};
 		
 	}

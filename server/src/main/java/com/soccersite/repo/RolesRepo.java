@@ -10,7 +10,7 @@ import com.soccersite.model.Roles;
 @Repository
 public interface RolesRepo extends JpaRepository<Roles, Integer>{
 	
-	Optional<Roles> findRolesById(int id);
+	Optional<Roles> findRoleById(int id);
 
 
 }

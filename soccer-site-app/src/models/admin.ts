@@ -5,4 +5,6 @@ export interface Admin{
 	imageUrl: String;
     username: String;
 	password: String;	
+
+	
 }
