@@ -6,13 +6,26 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.Parameter;
+import org.hibernate.annotations.GenericGenerator;
+
+import com.soccersite.custom.generators.CustomGenerator;
+
 @Entity
 public class Referee {
 	
 	@Id
 	@Column(nullable= false, updatable= false)
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	int id;
+//	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_id")
+    @GenericGenerator(
+        name = "user_id", 
+        strategy = "com.soccersite.custom.generators.CustomGenerator", 
+        parameters = {
+            @Parameter(name = CustomGenerator.INCREMENT_PARAM, value = "50"),
+            @Parameter(name = CustomGenerator.SEQUENCE_PREFIX_PARAMETER, value = "REF_"),
+            @Parameter(name = CustomGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })
+	String id;
 	String firstName;
 	String lastName;
 	@Column(unique= true)
@@ -28,7 +41,7 @@ public class Referee {
 	
 	public Referee() {}
 
-	public Referee(int id, String firstName, String lastName, String email, long contactNo, String username,
+	public Referee(String id, String firstName, String lastName, String email, long contactNo, String username,
 			String password, String address, String city, String country, int roleID) {
 		super();
 		this.id = id;
@@ -44,11 +57,11 @@ public class Referee {
 		this.roleID = roleID;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int refID) {
+	public void setId(String refID) {
 		this.id = refID;
 	}
 

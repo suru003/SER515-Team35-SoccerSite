@@ -36,7 +36,7 @@ public class RefereeService {
 		 repo.deleteById(id);
 	}
 	
-	public Referee findRefereeById(int id) {
+	public Referee findRefereeById(String id) {
 		 return repo.findRefereeById(id).orElseThrow(()->new EntryNotFoundExcemption("Referee with id: "+id+" not found in the repositiory")); 
 	}
 
