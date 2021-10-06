@@ -41,7 +41,7 @@ public class RefereeController {
 	}
 	
 	@GetMapping("/find/{id}")
-	public ResponseEntity<Referee> findRefereeById(@PathVariable("id") int id){
+	public ResponseEntity<Referee> findRefereeById(@PathVariable("id") String id){
 		Referee referee = refereeService.findRefereeById(id);
 		return new ResponseEntity<Referee>(referee, HttpStatus.OK) ;
 	}
