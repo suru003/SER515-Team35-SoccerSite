@@ -23,7 +23,7 @@ export class UserListComponent implements OnInit {
   admins: Admin2[] = [];
   referee: Referee[] = [];
   title: string;
-  deleteRef: Referee[] = [];
+  deleteRef: any;
   deleteUserID!:String;
   updateUserID!:String;
   roles: Roles[] = [];
@@ -75,7 +75,8 @@ export class UserListComponent implements OnInit {
     this.adminService.findRefereeByID(id) 
     .subscribe(  
       data => {  
-        this.deleteRef = data; 
+        this.deleteRef = data;
+        this.deleteRef = Array.of(this.deleteRef);  
       },  
       error => console.log(error));  
 

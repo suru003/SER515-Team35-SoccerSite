@@ -71,76 +71,115 @@
           </button>
         </div>
         <div class="modal-body" >
-          Are you sure you want to delete user
-          <!-- : {{deleteRef.firstName}} {{deleteRef.lastName}} - ID: {{deleteRef.id}}  -->
-          ?
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          <button type="submit" class="btn btn-primary" (click)="deleteReferee()">Confirm</button>
-        </div>
-
+          Are you sure you want to delete user: 
+          <table class="table table-striped">
+            <thead >
+              <tr>
+                <th scope="col">User ID</th>
+                <th scope="col">Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let d of deleteRef ">
+                <th scope="row">{{d.id}}</th>
+                <td>{{d.firstName}} {{d.lastName}}</td>
+              </tr>
+            </tbody>
+          </table>
+          
+       <!--    <p>Name: {{d.firstName}} {{d.lastName}}</p>
+        <p>ID: {{d.id}} ?</p> -->
+        <!-- : {{deleteRef.firstName}} {{deleteRef.lastName}} - ID: {{deleteRef.id}}  -->
+        
       </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-primary" (click)="deleteReferee()">Confirm</button>
+      </div>
+
     </div>
   </div>
+</div>
 
 
-  <!-- Update user modal -->
-  <div class="modal fade" id="update-user-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <form [formGroup]="formdata" #updateForm (ngSubmit)="onSubmit()" >
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Update User</h5>
-            <button type="button" class="close" #close data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body" *ngFor="let newReferee of newRefereelist ">
-            <!-- <form [formGroup]="formdata" #updateForm (ngSubmit)="onSubmit(updateForm)" > -->
-              <div class="container">
-                <div class="row">
-                  <div class="col-lg-12">
-                    <div class="row">
-                      <div class="col-lg-6 ">
-                       <div class="input-group mb-3">
+<!-- Update user modal -->
+<div class="modal fade" id="update-user-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <form [formGroup]="formdata" #updateForm (ngSubmit)="onSubmit()" >
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Update User</h5>
+          <button type="button" class="close" #close data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" *ngFor="let newReferee of newRefereelist ">
+          <!-- <form [formGroup]="formdata" #updateForm (ngSubmit)="onSubmit(updateForm)" > -->
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="row">
+                    <div class="col-lg-6 ">
+                     <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="firstN-input">
+                          <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                        </div>
+
+                        <input type="text" class="form-control" id="firstName" formControlName="firstName" placeholder="First Name" aria-label="Firstname" aria-describedby="basic-addon1" [(ngModel)]="newReferee.firstName" required >
+                      </div>
+                    </div>
+
+                    <div class="col-lg-6 ">
+                      <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                          <span class="input-group-text" id="firstN-input">
+                          <span class="input-group-text" id="lastN-input">
                             <i class="fa fa-user-circle" aria-hidden="true"></i></span>
                           </div>
-
-                          <input type="text" class="form-control" id="firstName" formControlName="firstName" placeholder="First Name" aria-label="Firstname" aria-describedby="basic-addon1" [(ngModel)]="newReferee.firstName" required >
+                          <input type="text" class="form-control" id="lastName" formControlName="lastName" placeholder="Last Name" aria-label="Lastname" aria-describedby="basic-addon1" [(ngModel)]="newReferee.lastName" required >
                         </div>
                       </div>
+                    </div>
 
+                    <div class="row">
                       <div class="col-lg-6 ">
                         <div class="input-group mb-3">
                           <div class="input-group-prepend">
-                            <span class="input-group-text" id="lastN-input">
-                              <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                            <span class="input-group-text" id="email-input-2">
+                              <i class="fa fa-envelope" aria-hidden="true"></i></span>
                             </div>
-                            <input type="text" class="form-control" id="lastName" formControlName="lastName" placeholder="Last Name" aria-label="Lastname" aria-describedby="basic-addon1" [(ngModel)]="newReferee.lastName" required >
+                            <input type="email" class="form-control" id="email" formControlName="email" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" [(ngModel)]="newReferee.email" required >
                           </div>
                         </div>
-                      </div>
-
-                      <div class="row">
                         <div class="col-lg-6 ">
                           <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                              <span class="input-group-text" id="email-input-2">
-                                <i class="fa fa-envelope" aria-hidden="true"></i></span>
+                              <span class="input-group-text" id="phone">
+                                <i class="fa fa-phone" aria-hidden="true"></i></span>
                               </div>
-                              <input type="email" class="form-control" id="email" formControlName="email" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" [(ngModel)]="newReferee.email" required >
+                              <input type="text" class="form-control" id="contactNo" formControlName="contactNo" placeholder="Contact" aria-label="Contact #" aria-describedby="basic-addon1" [(ngModel)]="newReferee.contactNo"required>
                             </div>
                           </div>
+                        </div>
+
+                        <div class="row">
+                         <div class="col-lg-6 ">
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="username-2">
+                                <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                              </div>
+                              <input type="text" class="form-control" id="username" formControlName="username" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="newReferee.username" required >
+                            </div>
+                          </div>
+
                           <div class="col-lg-6 ">
                             <div class="input-group mb-3">
                               <div class="input-group-prepend">
-                                <span class="input-group-text" id="phone">
-                                  <i class="fa fa-phone" aria-hidden="true"></i></span>
+                                <span class="input-group-text" id="password">
+                                  <i class="fa fa-key" aria-hidden="true"></i></span>
                                 </div>
-                                <input type="text" class="form-control" id="contactNo" formControlName="contactNo" placeholder="Contact" aria-label="Contact #" aria-describedby="basic-addon1" [(ngModel)]="newReferee.contactNo"required>
+                                <input type="password" class="form-control" id="password" formControlName="password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" [(ngModel)]="newReferee.password" required >
                               </div>
                             </div>
                           </div>
@@ -149,20 +188,20 @@
                            <div class="col-lg-6 ">
                             <div class="input-group mb-3">
                               <div class="input-group-prepend">
-                                <span class="input-group-text" id="username-2">
-                                  <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                                <span class="input-group-text" id="address">
+                                  <i class="fa fa-map-marker" aria-hidden="true"></i></span>
                                 </div>
-                                <input type="text" class="form-control" id="username" formControlName="username" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="newReferee.username" required >
+                                <input type="text" class="form-control" id="address" formControlName="address" placeholder="Address" aria-label="Address" aria-describedby="basic-addon1" [(ngModel)]="newReferee.address" required >
                               </div>
                             </div>
 
                             <div class="col-lg-6 ">
                               <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                  <span class="input-group-text" id="password">
-                                    <i class="fa fa-key" aria-hidden="true"></i></span>
+                                  <span class="input-group-text" id="country">
+                                    <i class="fa fa-globe" aria-hidden="true"></i></span>
                                   </div>
-                                  <input type="password" class="form-control" id="password" formControlName="password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" [(ngModel)]="newReferee.password" required >
+                                  <input type="text" class="form-control" id="country" formControlName="country" placeholder="Country" aria-label="Country" aria-describedby="basic-addon1" [(ngModel)]="newReferee.country" required >
                                 </div>
                               </div>
                             </div>
@@ -171,70 +210,48 @@
                              <div class="col-lg-6 ">
                               <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                  <span class="input-group-text" id="address">
+                                  <span class="input-group-text" id="city">
                                     <i class="fa fa-map-marker" aria-hidden="true"></i></span>
                                   </div>
-                                  <input type="text" class="form-control" id="address" formControlName="address" placeholder="Address" aria-label="Address" aria-describedby="basic-addon1" [(ngModel)]="newReferee.address" required >
+                                  <input type="text" class="form-control" id="city" formControlName="city" placeholder="City" aria-label="City" aria-describedby="basic-addon1" [(ngModel)]="newReferee.city" required >
                                 </div>
                               </div>
 
                               <div class="col-lg-6 ">
                                 <div class="input-group mb-3">
                                   <div class="input-group-prepend">
-                                    <span class="input-group-text" id="country">
-                                      <i class="fa fa-globe" aria-hidden="true"></i></span>
+                                    <span class="input-group-text" id="role">
+                                      <i class="fa fa-user-circle" aria-hidden="true"></i></span>
                                     </div>
-                                    <input type="text" class="form-control" id="country" formControlName="country" placeholder="Country" aria-label="Country" aria-describedby="basic-addon1" [(ngModel)]="newReferee.country" required >
+                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" formControlName="roleID" [(ngModel)]="newReferee.roleID" required >
+                                      <!-- <option selected>Role</option> -->
+                                      <option *ngFor="let r of roles" [ngValue]="r.id" style="color: black">{{r.roles}}</option>
+
+                                    </select>
+
+                                    <!--   <input type="text" class="form-control" id="roleID" formControlName="roleID" placeholder="Role" aria-label="Role" aria-describedby="basic-addon1" [(ngModel)]="newReferee.roleID" required > -->
                                   </div>
                                 </div>
                               </div>
 
-                              <div class="row">
-                               <div class="col-lg-6 ">
-                                <div class="input-group mb-3">
-                                  <div class="input-group-prepend">
-                                    <span class="input-group-text" id="city">
-                                      <i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                                    </div>
-                                    <input type="text" class="form-control" id="city" formControlName="city" placeholder="City" aria-label="City" aria-describedby="basic-addon1" [(ngModel)]="newReferee.city" required >
-                                  </div>
-                                </div>
-
-                                <div class="col-lg-6 ">
-                                  <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                      <span class="input-group-text" id="role">
-                                        <i class="fa fa-user-circle" aria-hidden="true"></i></span>
-                                      </div>
-                                      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" formControlName="roleID" [(ngModel)]="newReferee.roleID" required >
-                                        <!-- <option selected>Role</option> -->
-                                        <option *ngFor="let r of roles" [ngValue]="r.id" style="color: black">{{r.roles}}</option>
-
-                                      </select>
-
-                                      <!--   <input type="text" class="form-control" id="roleID" formControlName="roleID" placeholder="Role" aria-label="Role" aria-describedby="basic-addon1" [(ngModel)]="newReferee.roleID" required > -->
-                                    </div>
-                                  </div>
-                                </div>
-
-                                <br>
-
-                              </div>
+                              <br>
 
                             </div>
+
                           </div>
-
-
-                          <!-- </form> -->
                         </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                          <button type="submit" class="btn btn-primary">Confirm</button>
-                        </div>
-                      </form>
-                    </div>
 
+
+                        <!-- </form> -->
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Confirm</button>
+                      </div>
+                    </form>
                   </div>
+
                 </div>
+              </div>
 
 
