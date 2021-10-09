@@ -40,6 +40,7 @@ export class AddRefereeComponent {
 
 
   onSubmit(refereeForm: NgForm) {
+    this.referee.status = 'NEW';
     this.adminService.createReferee(this.referee).subscribe(
       data => {
         this.createReferee = data;
@@ -62,6 +63,7 @@ export class AddRefereeComponent {
   }
 
   viewAllUsers() {
+    $('#user-creation-modal').modal('close');
     this.router.navigate(['/allusers']);
   }
 }

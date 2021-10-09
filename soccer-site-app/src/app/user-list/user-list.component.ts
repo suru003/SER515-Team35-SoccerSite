@@ -17,7 +17,6 @@ import { Admin2Service } from '../services/admin2.service';
 })
 export class UserListComponent implements OnInit {
   @ViewChild('close') close: ElementRef;
-  // @ViewChild('closeDeleteModal') closeDeleteModal: ElementRef;
 
   user: Users[] = [];
   admins: Admin2[] = [];
@@ -31,17 +30,13 @@ export class UserListComponent implements OnInit {
   refs: Referee[];  
   newReferee: Referee = new Referee();
   newRefereelist:any; 
-  // formdata: FormGroup;
-  // refereeFound: Referee[] = [];
-
-
   
 
   constructor(
     private route: ActivatedRoute, 
     private router: Router, 
     private adminService: Admin2Service) {
-   this.title = 'All Users';
+   this.title = 'All Referees';
      // this.newReferee = new Referee();
    }
 

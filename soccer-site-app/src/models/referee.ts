@@ -11,4 +11,5 @@ export class Referee{
     city!: String;
     country!: String;	
     roleID!: Number;
+    status!:String;
 }

@@ -2,6 +2,8 @@ package com.soccersite.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -10,6 +12,7 @@ import org.hibernate.annotations.Parameter;
 import org.hibernate.annotations.GenericGenerator;
 
 import com.soccersite.custom.generators.CustomGenerator;
+import com.soccersite.model.Status.ApplicationStatus;
 
 @Entity
 public class Referee {
@@ -38,11 +41,13 @@ public class Referee {
 	String city;
 	String country;
 	int roleID;
+	String status;
+
 	
 	public Referee() {}
 
 	public Referee(String id, String firstName, String lastName, String email, long contactNo, String username,
-			String password, String address, String city, String country, int roleID) {
+			String password, String address, String city, String country, int roleID, String status) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -55,6 +60,8 @@ public class Referee {
 		this.city = city;
 		this.country = country;
 		this.roleID = roleID;
+		this.status = status;
+//		this.status = Status.setNewStatus();
 	}
 
 	public String getId() {
@@ -144,8 +151,14 @@ public class Referee {
 	public void setRoleID(int roleID) {
 		this.roleID = roleID;
 	}
-	
-	
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	
 	
 

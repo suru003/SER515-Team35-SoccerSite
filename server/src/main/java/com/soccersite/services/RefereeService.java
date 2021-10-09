@@ -37,7 +37,14 @@ public class RefereeService {
 	}
 	
 	public Referee findRefereeById(String id) {
-		 return repo.findRefereeById(id).orElseThrow(()->new EntryNotFoundExcemption("Referee with id: "+id+" not found in the repositiory")); 
+		 return repo.findRefereeById(id).orElseThrow(
+				 ()->new EntryNotFoundExcemption(
+						 "Referee with id: "+id+" not found in the repositiory")); 
 	}
+	
+	public List<Referee> findByStatus(String status){
+		return repo.findByStatus(status);
+	}
+	
 
 }

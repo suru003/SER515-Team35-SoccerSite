@@ -9,6 +9,7 @@ import { Referee } from 'src/models/referee';
 })
 export class RefereeService {
   private serverUrl = `${environment.apiBaseUrl}/referees`;
+
   constructor(private http: HttpClient) { }
 
   public getReferee(id: String):Observable<Referee>{
@@ -29,6 +30,10 @@ export class RefereeService {
   
   public deleteReferee(id: String):Observable<void>{
     return this.http.delete<void>(`${this.serverUrl}/delete/${id}`);
+  }
+
+  public findByStatus(status: String):Observable<Referee[]>{
+    return this.http.get<Referee[]>(`${this.serverUrl}/status/${status}`);
   }
 
 }

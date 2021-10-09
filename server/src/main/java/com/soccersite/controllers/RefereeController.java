@@ -40,6 +40,12 @@ public class RefereeController {
 		return new ResponseEntity<List<Referee>>(list, HttpStatus.OK) ;
 	}
 	
+	@GetMapping("/status/{status}")
+	public ResponseEntity<List<Referee>> findByStatus(@PathVariable("status") String status){
+		List<Referee> list = refereeService.findByStatus(status);
+		return new ResponseEntity<List<Referee>>(list, HttpStatus.OK) ;
+	}
+	
 	@GetMapping("/find/{id}")
 	public ResponseEntity<Referee> findRefereeById(@PathVariable("id") String id){
 		Referee referee = refereeService.findRefereeById(id);
@@ -58,32 +64,14 @@ public class RefereeController {
 		Referee response = refereeService.addReferee(referee);
 		return new ResponseEntity<Referee>(response, HttpStatus.OK) ;
 	}
-	
-//	@PutMapping("/update")
-//	public ResponseEntity<Referee> updateReferee(@RequestBody Referee referee){
-//		Referee refUpdated = refereeService.findRefereeById(referee.getId());
-//		
-////		Referee refUpdated = ref.get();
-//		refUpdated.setFirstName(referee.getFirstName());
-//		refUpdated.setLastName(referee.getLastName());
-//		refUpdated.setEmail(referee.getEmail());
-//		refUpdated.setContactNo(referee.getContactNo());
-//		refUpdated.setUsername(referee.getUsername());
-//		refUpdated.setPassword(referee.getPassword());
-//		refUpdated.setAddress(referee.getAddress());
-//		refUpdated.setCity(referee.getCity());
-//		refUpdated.setCountry(referee.getCountry());
-//		refUpdated.setRoleID(referee.getRoleID());
-//		Referee update = refereeService.updateReferee(refUpdated);
-//	    return new ResponseEntity<>(update, HttpStatus.OK);
-//	}
-	
-	
+
 	
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<?> deleteReferee(@PathVariable("id") int id){
 		refereeService.deleteReferee(id);
 		return new ResponseEntity<>("Referee deleted:"+id,HttpStatus.OK) ;
 	}
+	
+
 
 }
