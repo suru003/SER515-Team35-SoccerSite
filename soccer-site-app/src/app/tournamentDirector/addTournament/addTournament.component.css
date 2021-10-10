@@ -23,17 +23,30 @@ body{
 	background-color: rgba(255, 193, 8, 0.4);
 }
 
+.btn-primary {
+	background-color: #D8282B;
+	border-color: #D8282B;
+}
+
+.btn{
+	width: 100%;
+}
+
 .container{
 	padding: 0;
 }
 
-.edit-user-btn{
-	color: green;
-	padding-right: 20px;
+.content-row{
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	
 }
 
-.delete-user-btn, .pending-icon{
-	color: #AF272F;
+
+.content-row .card-title{
+	text-align: center;
+	font-weight: bold;
+
 }
 
 .second-row .icon-col{
@@ -81,7 +94,7 @@ body{
 }
 
 .profile-image{
-	/*background-image: url("../../../assets/images/profile.jpeg");*/
+	/*background-image: url("../../assets/images/profile.jpeg");*/
 	width: 50px;
 	height: 50px;
 	background-color: blue;
@@ -134,7 +147,6 @@ body{
 	transform: translate(-50%, -50%);*/
 	background-color: blue;
 }
-
 
 
 .sidebar{
@@ -206,6 +218,7 @@ body{
 .top-bar .row{
 	height: 4rem;
 	padding-left: 1rem;
+	position: relative;
 }
 
 .top-bar .topbar-icon-col{
