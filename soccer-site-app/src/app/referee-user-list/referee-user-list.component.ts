@@ -65,6 +65,7 @@ export class RefereeUserListComponent implements OnInit {
 
   confirmDeletion(id: String) {  
     this.deleteUserID = id;
+    console.log("delete id is" + this.deleteUserID);  
     this.refereeService.findRefereeByID(id) 
     .subscribe(  
       data => {  
@@ -90,9 +91,9 @@ export class RefereeUserListComponent implements OnInit {
         console.log(data);             
       },  
       error => console.log(error));  
-
-
   }
+
+  
 
   formdata=new FormGroup({  
     id:new FormControl(),  
@@ -188,10 +189,6 @@ export class RefereeUserListComponent implements OnInit {
   closeModal(){
     this.close.nativeElement.click();
   }
-
-  // closeDeleteModal(){
-  //   this.closeDeleteModal.nativeElement.click();
-  // }
 
   refreshPage(){
     window.location.reload();

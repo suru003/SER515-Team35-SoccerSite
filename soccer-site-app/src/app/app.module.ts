@@ -22,6 +22,8 @@ import { AddRefereeComponent } from './addReferee/addReferee.component';
 import { LoginPageComponent } from './loginPage/loginPage.component';
 import { RefereeDirectorComponent } from './refereeDirector/refereeDirectorHomepage.component';
 import { RefereeUserListComponent } from './referee-user-list/referee-user-list.component';
+import { RefereeNewApplicationListComponent } from './referee-new-application-list/referee-new-application-list.component';
+
 
 
 
@@ -35,7 +37,8 @@ import { RefereeUserListComponent } from './referee-user-list/referee-user-list.
     AddRefereeComponent,
     LoginPageComponent,
     RefereeDirectorComponent,
-    RefereeUserListComponent
+    RefereeUserListComponent,
+    RefereeNewApplicationListComponent
   ],
   imports: [
     FormsModule,

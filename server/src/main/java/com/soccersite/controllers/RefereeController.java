@@ -46,6 +46,12 @@ public class RefereeController {
 		return new ResponseEntity<List<Referee>>(list, HttpStatus.OK) ;
 	}
 	
+//	@GetMapping("/find/{id}")
+//	public ResponseEntity<Referee> findRefereeById(@PathVariable("id") int id){
+//		Referee referee = refereeService.findRefereeById(id);
+//		return new ResponseEntity<Referee>(referee, HttpStatus.OK) ;
+//	}
+	
 	@GetMapping("/find/{id}")
 	public ResponseEntity<Referee> findRefereeById(@PathVariable("id") String id){
 		Referee referee = refereeService.findRefereeById(id);
@@ -65,10 +71,16 @@ public class RefereeController {
 		return new ResponseEntity<Referee>(response, HttpStatus.OK) ;
 	}
 
+//	
+//	@DeleteMapping("/delete/{id}")
+//	public ResponseEntity<?> deleteReferee(@PathVariable("id") int id){
+//		refereeService.deleteReferee(id);
+//		return new ResponseEntity<>("Referee deleted:"+id,HttpStatus.OK) ;
+//	}
 	
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<?> deleteReferee(@PathVariable("id") int id){
-		refereeService.deleteReferee(id);
+	public ResponseEntity<?> deleteReferee(@PathVariable("id") String id){
+		refereeService.deleteById(id);
 		return new ResponseEntity<>("Referee deleted:"+id,HttpStatus.OK) ;
 	}
 	

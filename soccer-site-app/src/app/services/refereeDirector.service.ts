@@ -29,8 +29,12 @@ public createReferee(referee: Referee) {
 }
 
 
-public findRefereeByID(id: String): Observable<Referee[]> {
-  return this.http.get<Referee[]>(`${this.serverUrl}/find/${id}`);
+// public findRefereeByID(id: String): Observable<Referee[]> {
+//   return this.http.get<Referee[]>(`${this.serverUrl}/find/${id}`);
+// }
+
+public findRefereeByID(id: String): Observable<Referee> {
+  return this.http.get<Referee>(`${this.serverUrl}/find/${id}`);
 }
 
 public deleteReferee(id: String):Observable<void>{

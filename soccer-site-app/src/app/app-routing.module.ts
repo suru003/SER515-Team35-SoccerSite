@@ -13,6 +13,7 @@ import { AddRefereeComponent } from './addReferee/addReferee.component';
 import { LoginPageComponent } from './loginPage/loginPage.component';
 import { RefereeDirectorComponent } from './refereeDirector/refereeDirectorHomepage.component';
 import { RefereeUserListComponent } from './referee-user-list/referee-user-list.component';
+import { RefereeNewApplicationListComponent } from './referee-new-application-list/referee-new-application-list.component';
 
 const routes: Routes = [
   {path:'app-coach', component: CoachComponent},
@@ -34,6 +35,9 @@ const routes: Routes = [
       },
       {
         path:'add-referee', component: AddRefereeComponent
+      },
+      {
+        path:'referee-new-application-list', component: RefereeNewApplicationListComponent
       }
     ]
 
@@ -48,4 +52,4 @@ const routes: Routes = [
 export class AppRoutingModule { }
 export const ArrayOfComponents = [RefereeDirectorComponent, 
   UserListComponent, LoginPageComponent,
-  AddRefereeComponent,RefereeUserListComponent]
+  AddRefereeComponent,RefereeUserListComponent, RefereeNewApplicationListComponent]

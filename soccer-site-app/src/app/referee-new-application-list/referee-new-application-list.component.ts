@@ -10,25 +10,28 @@ import { Roles  } from '../../models/roles';
 import { RefereeDirectorService } from '../services/refereeDirector.service';
 
 @Component({
-  selector: 'referee-user-list',
-  templateUrl: './referee-user-list.component.html',
-  styleUrls: ['./referee-user-list.component.css']
+  selector: 'referee-new-application-list',
+  templateUrl: './referee-new-application-list.component.html',
+  styleUrls: ['./referee-new-application-list.component.css']
 })
-export class RefereeUserListComponent implements OnInit {
+export class RefereeNewApplicationListComponent implements OnInit {
   @ViewChild('close') close: ElementRef;
 
-  // admins: Admin2[] = [];
   referee: Referee[] = [];
   title: string;
   deleteRef: any;
   deleteUserID!:String;
-  updateUserID!:String;
+  viewUserID!:String;
+  
   roles: Roles[] = [];
 
   refs: Referee[];  
   newReferee: Referee = new Referee();
   newRefereelist:any; 
-  
+
+  verifyUserID!:String;
+  verifyUser: Referee = new Referee();
+  findRef!:Referee;
 
   constructor(
     private route: ActivatedRoute, 
@@ -40,7 +43,7 @@ export class RefereeUserListComponent implements OnInit {
 
    ngOnInit() {
 
-    this.refereeService.findAllReferees().subscribe(data => {
+    this.refereeService.findByStatus("NEW").subscribe(data => {
       this.referee = data;
       console.log(data);
     });
@@ -77,20 +80,21 @@ export class RefereeUserListComponent implements OnInit {
 
 
 
-  updateReferee(id: String){
-    this.updateUserID = id;
+  viewReferee(id: String){
+    this.viewUserID = id;
     console.log("id is:" + id);
-    this.getRoles();
+    // this.getRoles();
     
     this.refereeService.findRefereeByID(id)  
     .subscribe(  
       data => {  
-        this.newRefereelist = data;
+        this.newRefereelist = data; 
+        console.log("firstname" + this.newRefereelist.lastName); 
         this.newRefereelist = Array.of(this.newRefereelist); 
-        console.log(data);             
+        console.log(data); 
+
       },  
       error => console.log(error));  
-
 
   }
 
@@ -109,7 +113,7 @@ export class RefereeUserListComponent implements OnInit {
   });  
 
   get refereeID(){  
-    return this.updateUserID;  
+    return this.viewUserID;  
   }  
   
   get refereeFirstN(){  
@@ -180,14 +184,58 @@ export class RefereeUserListComponent implements OnInit {
   }
 
 
+  verifyReferee(){
+   // this.verifyUserID = id;
+   console.log("verify id is" + this.viewUserID);
+   this.verifyUser=new Referee();
+   console.log("trying to verify");
 
-  viewAllUsers() {
-    this.router.navigate(['/allusers']);
-  }
+   this.refereeService.findRefereeByID(this.viewUserID)  
+   .subscribe(  
+    data => {  
+      this.findRef = data;
+      console.log("firstname" + this.findRef.email); 
+        // this.newRefereelist = Array.of(this.newRefereelist);
+        // console.log(data);   
 
-  closeModal(){
-    this.close.nativeElement.click();
-  }
+        this.verifyUser.id = this.viewUserID;
+        this.verifyUser.firstName = this.findRef.firstName;
+        console.log("verifyuser firstname" + this.findRef.firstName);  
+        this.verifyUser.lastName = this.findRef.lastName;
+        this.verifyUser.email = this.findRef.email;
+        this.verifyUser.contactNo = this.findRef.contactNo;
+        this.verifyUser.username = this.findRef.username;
+        this.verifyUser.password = this.findRef.password;
+        this.verifyUser.address = this.findRef.address;
+        this.verifyUser.city = this.findRef.city;
+        this.verifyUser.country = this.findRef.country;
+        this.verifyUser.roleID = this.findRef.roleID;
+        this.verifyUser.status = "VERIFIED"; 
+
+        this.refereeService.updateReferee(this.verifyUser).subscribe(  
+          data => {       
+            console.log(data);
+            this.closeModal();
+            this.refreshPage(); 
+
+          }, error => console.log(error));
+
+      },  
+      error => console.log(error)); 
+
+
+
+ }
+
+
+
+ viewAllUsers() {
+  this.router.navigate(['/allusers']);
+}
+
+closeModal(){
+  this.close.nativeElement.click();
+}
 
   // closeDeleteModal(){
   //   this.closeDeleteModal.nativeElement.click();
