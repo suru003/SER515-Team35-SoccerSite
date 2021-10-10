@@ -1,117 +1,158 @@
 package com.soccersite.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+
+import com.soccersite.custom.generators.CustomGenerator;
 
 @Entity
 public class TournamentManager {
 	
 	@Id
 	@Column(nullable= false, updatable= false)
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	int id;
+//	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_id")
+    @GenericGenerator(
+        name = "user_id", 
+        strategy = "com.soccersite.custom.generators.CustomGenerator", 
+        parameters = {
+            @Parameter(name = CustomGenerator.INCREMENT_PARAM, value = "50"),
+            @Parameter(name = CustomGenerator.SEQUENCE_PREFIX_PARAMETER, value = "TMAN_"),
+            @Parameter(name = CustomGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })
+	String id;
 	String firstName;
 	String lastName;
 	@Column(unique= true)
 	String email;
 	long contactNo;
-	@Column(unique= true)
-	String username;
-	String password;
 	String address;
 	String city;
 	String country;
-	int roleID;
+	
+	@OneToOne(mappedBy = "tournamentManager", cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+	Tournament tournament;
+	
+
+	
 	
 	public TournamentManager() {}
-	
-	public TournamentManager(int id, String firstName, String lastName, String email, long contactNo, String username,
-			String password, String address, String city, String country, int roleID) {
+
+
+	public TournamentManager(String id, String firstName, String lastName, String email, long contactNo, String address,
+			String city, String country, Tournament tournament) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.contactNo = contactNo;
-		this.username = username;
-		this.password = password;
 		this.address = address;
 		this.city = city;
 		this.country = country;
-		this.roleID = roleID;
+		this.tournament = tournament;
 	}
-	public int getId() {
+
+
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+
+
+	public void setId(String id) {
 		this.id = id;
 	}
+
+
 	public String getFirstName() {
 		return firstName;
 	}
+
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
+
 	public String getLastName() {
 		return lastName;
 	}
+
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
+
 	public String getEmail() {
 		return email;
 	}
+
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+
 	public long getContactNo() {
 		return contactNo;
 	}
+
+
 	public void setContactNo(long contactNo) {
 		this.contactNo = contactNo;
 	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
+
+
 	public String getAddress() {
 		return address;
 	}
+
+
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
+
 	public String getCity() {
 		return city;
 	}
+
+
 	public void setCity(String city) {
 		this.city = city;
 	}
+
+
 	public String getCountry() {
 		return country;
 	}
+
+
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	public int getRoleID() {
-		return roleID;
+
+
+	public Tournament getTournament() {
+		return tournament;
 	}
-	public void setRoleID(int roleID) {
-		this.roleID = roleID;
+
+
+	public void setTournament(Tournament tournament) {
+		this.tournament = tournament;
 	}
-	
-	
-	
-	
+
+
+
 
 }

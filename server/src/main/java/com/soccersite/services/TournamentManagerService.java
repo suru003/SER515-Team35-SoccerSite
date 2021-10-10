@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.soccersite.exceptions.EntryNotFoundExcemption;
+import com.soccersite.model.Tournament;
 import com.soccersite.model.TournamentManager;
 import com.soccersite.repo.TournamentManagerRepo;
 
@@ -20,24 +21,26 @@ public class TournamentManagerService {
 		this.repo = repo;
 	}
 	
-	public TournamentManager addCoach(TournamentManager manager) {
-		return repo.save(manager);
+	public Tournament addTournament(Tournament tournament) {
+		return repo.save(tournament);
 	}
 	
-	public List<TournamentManager> findAllManagers(){
+	public List<Tournament> findAllTournaments(){
 		return repo.findAll();
 	}
 	
-	public TournamentManager updateManager(TournamentManager manager) {
-		return repo.save(manager);
+	public Tournament updateTournament(Tournament tournament) {
+		return repo.save(tournament);
 	}
 	
-	public void deleteManager(int id) {
+	public void deleteTournament(String id) {
 		 repo.deleteById(id);
 	}
 	
-	public TournamentManager findManagerById(int id) {
-		 return repo.findManagerById(id).orElseThrow(()->new EntryNotFoundExcemption("Tournament Manager with id: "+id+" not found in the repositiory")); 
+	public Tournament findTournamentById(String id) {
+		 return repo.findTournamentById(id).orElseThrow(
+				 ()->new EntryNotFoundExcemption(
+						 "Tournament Manager with id: "+id+" not found in the repositiory")); 
 	}
 
 }
