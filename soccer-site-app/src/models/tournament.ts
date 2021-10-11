@@ -1,9 +1,12 @@
+
+import { TournamentDirector } from './tournamentDirector';
+
 export class Tournament{
 	id!:String;
 	tournamentName!:String;
 	category!:String;
 	startDate!:Date;
 	endDate!:Date;
-  	// tournamentManager!:TournamentManager;
+  	manager_id!:String ;
 }
 	

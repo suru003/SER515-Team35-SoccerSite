@@ -1,7 +1,72 @@
     <h5 class="card-title">{{ title }}</h5>
     <br>
 
-    <form [formGroup]="formdata" #tournamentForm (ngSubmit)="onSubmit()" >
+    <form #tournamentForm="ngForm" (ngSubmit)="onSubmit()" >
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-2"></div>
+          <div class="col-lg-8">
+            <div class="row">
+
+              <div class="col-lg-6 ">
+               <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="firstname-input">
+                    <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                  </div>
+                  <input type="text" class="form-control" id="tournamentName" name="tournamentName" placeholder="Tournament Name" aria-label="TournamentName" aria-describedby="basic-addon1" [(ngModel)]="tournament.tournamentName" ng-change="tournament.tournamentName" required #tournamentName="ngModel">
+                </div>
+              </div>
+
+              <div class="col-lg-6 ">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="role">
+                      <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                    </div>
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="category" [(ngModel)]="tournament.category" required #category="ngModel">
+
+                      <option [ngValue]="null" disabled selected>Category</option>
+                      <option *ngFor="let c of categories" [ngValue]="c.id" style="color: black">{{c.categoryName}} => ({{c.minAge}} - {{c.maxAge}})</option>
+                    </select>
+                  </div>
+                </div>
+</div>
+
+                <div class="row">
+                 <div class="col-lg-6 ">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="username">
+                        <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                      </div>
+                      <input type="text" class="form-control" id="startDate" name="startDate" placeholder="Start Date" aria-label="startDate" aria-describedby="basic-addon1" [(ngModel)]="tournament.startDate" required #startDate="ngModel">
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6 ">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="password">
+                          <i class="fa fa-key" aria-hidden="true"></i></span>
+                        </div>
+                        <input type="text" class="form-control" id="endDate" name="endDate" placeholder="End Date" aria-label="endDate" aria-describedby="basic-addon1" [(ngModel)]="tournament.endDate" required #endDate="ngModel">
+                      </div>
+                    </div>
+                  </div>
+                    <br>
+
+                    <button type="submit" [disabled]="!tournamentForm.form.valid" 
+                    class="btn btn-secondary">Create Tournament</button>
+
+                    <!--  <a href="#" class="btn btn-primary ">Create Referee</a> -->
+                  </div>
+                  <div class="col-lg-2"></div>
+                </div>
+              </div>
+            </form>
+
+    <!-- <form [formGroup]="formdata" #tournamentForm (ngSubmit)="onSubmit()" >
       <div class="container">
         <div class="row">
           <div class="col-lg-2"></div>
@@ -25,9 +90,9 @@
                   <span class="input-group-text" id="role">
                     <i class="fa fa-user-circle" aria-hidden="true"></i></span>
                   </div>
-                  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" formControlName="category" [(ngModel)]="tournament.category" required >
+                  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="category" formControlName="category" [(ngModel)]="tournament.category" required >
 
-                   <!--  <option *ngFor="let c of category" [ngValue]="c.id" style="color: black">{{c.roles}}</option> -->
+                    <option *ngFor="let c of categories" [ngValue]="c.id" style="color: black">{{c.categoryName}}</option>
 
                   </select>
                 </div>
@@ -62,12 +127,11 @@
               <button type="submit" [disabled]="!tournamentForm.form.valid" 
               class="btn btn-primary">Create Tournament</button>
 
-              <!--  <a href="#" class="btn btn-primary ">Create Referee</a> -->
             </div>
             <div class="col-lg-2"></div>
           </div>
         </div>
-      </form>
+      </form> -->
 
 
 

@@ -32,10 +32,6 @@ allTournaments(){
     this.router.navigate(['tournament-list'], {relativeTo:this.route});
   }
 
-allNewApplications(){
-    this.router.navigate(['referee-new-application-list'], {relativeTo:this.route});
-  }
-
 addTournament(){
     this.router.navigate(['addTournament'], {relativeTo:this.route});
   }

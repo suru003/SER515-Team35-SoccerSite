@@ -15,14 +15,14 @@ import com.soccersite.model.TournamentManager;
 
 @Repository
 @CrossOrigin(origins = "http://localhost:4200")
-public interface TournamentManagerRepo extends JpaRepository<Tournament, Integer> {
+public interface TournamentManagerRepo extends JpaRepository<TournamentManager, Integer> {
 	
-	 @Query("SELECT t FROM Tournament t WHERE t.id = :id")
-	Optional<Tournament> findTournamentById(@Param("id") String id);
+	 @Query("SELECT t FROM TournamentManager t WHERE t.id = :id")
+	Optional<TournamentManager> findTournamentManagerById(@Param("id") String id);
 	 
 	 
 	 @Transactional
 		@Modifying
-		 @Query("DELETE FROM Tournament t WHERE t.id = :id")
+		 @Query("DELETE FROM TournamentManager t WHERE t.id = :id")
 		void deleteById(@Param("id") String id);
 }

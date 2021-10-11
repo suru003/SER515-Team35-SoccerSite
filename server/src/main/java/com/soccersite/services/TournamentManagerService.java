@@ -21,26 +21,27 @@ public class TournamentManagerService {
 		this.repo = repo;
 	}
 	
-	public Tournament addTournament(Tournament tournament) {
-		return repo.save(tournament);
+	public TournamentManager addTournamentManager(TournamentManager tournamentManager) {
+		return repo.save(tournamentManager);
 	}
 	
-	public List<Tournament> findAllTournaments(){
+	public List<TournamentManager> findAllTournamentManager(){
 		return repo.findAll();
 	}
 	
-	public Tournament updateTournament(Tournament tournament) {
-		return repo.save(tournament);
+	public TournamentManager updateTournamentManager(TournamentManager tournamentManager) {
+		return repo.save(tournamentManager);
 	}
 	
-	public void deleteTournament(String id) {
+	public void deleteTournamentManager(String id) {
 		 repo.deleteById(id);
 	}
 	
-	public Tournament findTournamentById(String id) {
-		 return repo.findTournamentById(id).orElseThrow(
+	public TournamentManager findTournamentManagerById(String id) {
+		 return repo.findTournamentManagerById(id).orElseThrow(
 				 ()->new EntryNotFoundExcemption(
 						 "Tournament Manager with id: "+id+" not found in the repositiory")); 
 	}
+	
 
 }

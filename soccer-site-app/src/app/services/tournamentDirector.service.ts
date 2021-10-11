@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Tournament } from '../../models/tournament';
+import { TournamentDirector } from '../../models/tournamentDirector';
+import { Category } from '../../models/category';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -8,26 +10,27 @@ import { environment } from 'src/environments/environment';
 @Injectable()
 export class TournamentDirectorService {
   private serverUrl = `${environment.apiBaseUrl}/tournament`;
-
+  private categoryUrl = `${environment.apiBaseUrl}/category`;
+  private managerUrl = `${environment.apiBaseUrl}/tournamentManager`;
 
   constructor(private http: HttpClient) {
 
   }
 
 
-// Referees
+// Tournaments
 public findAllTournaments(): Observable<Tournament[]> {
   return this.http.get<Tournament[]>(`${this.serverUrl}/all`);
 } 
 
-public createTournament(tournament: Tournament) {
-  return this.http.post<Tournament>(`${this.serverUrl}/insert`, tournament);
+public createTournament(tournament: Tournament, manager_id: string) {
+  const params = new HttpParams()
+      .append('manager_id', manager_id);
+  return this.http.post<Tournament>(`${this.serverUrl}/insert`, tournament,{
+        params: params,
+      });
 }
 
-
-// public findRefereeByID(id: String): Observable<Referee[]> {
-//   return this.http.get<Referee[]>(`${this.serverUrl}/find/${id}`);
-// }
 
 public findTournamentByID(id: String): Observable<Tournament> {
   return this.http.get<Tournament>(`${this.serverUrl}/find/${id}`);
@@ -41,9 +44,14 @@ public updateTournament(tournament: Tournament):Observable<Tournament>{
   return this.http.put<Tournament>(`${this.serverUrl}/update`,tournament);
 }
 
+// Category
+public findAllCategories(): Observable<Category[]> {
+  return this.http.get<Category[]>(`${this.categoryUrl}/all`);
+} 
 
- // public findByStatus(status: String):Observable<Referee[]>{
- //    return this.http.get<Referee[]>(`${this.serverUrl}/status/${status}`);
- //  }
+// tournament manager
+public findTournamentDirectorByID(id: String): Observable<TournamentDirector> {
+  return this.http.get<TournamentDirector>(`${this.managerUrl}/find/${id}`);
+}
  
 }

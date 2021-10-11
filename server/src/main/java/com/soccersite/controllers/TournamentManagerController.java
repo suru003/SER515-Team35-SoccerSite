@@ -15,12 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.soccersite.model.Tournament;
+import com.soccersite.model.TournamentManager;
 import com.soccersite.repo.TournamentManagerRepo;
 import com.soccersite.services.TournamentManagerService;
 
 @RestController
 @CrossOrigin()
-@RequestMapping("/tournament")
+@RequestMapping("/tournamentManager")
 public class TournamentManagerController {
 	
 	
@@ -35,47 +36,36 @@ public class TournamentManagerController {
 	}
 		
 	@GetMapping("/all")
-	public ResponseEntity<List<Tournament>> findAllTournaments(){
-		List<Tournament> list = tournamentManagerService.findAllTournaments();
-		return new ResponseEntity<List<Tournament>>(list, HttpStatus.OK) ;
+	public ResponseEntity<List<TournamentManager>> findAllTournamentManagers(){
+		List<TournamentManager> list = tournamentManagerService.findAllTournamentManager();
+		return new ResponseEntity<List<TournamentManager>>(list, HttpStatus.OK) ;
 	}
-	
-//	@GetMapping("/status/{status}")
-//	public ResponseEntity<List<Referee>> findByStatus(@PathVariable("status") String status){
-//		List<Referee> list = tournamentManagerService.findByStatus(status);
-//		return new ResponseEntity<List<Referee>>(list, HttpStatus.OK) ;
-//	}
+
 
 	@GetMapping("/find/{id}")
-	public ResponseEntity<Tournament> findTournamentById(@PathVariable("id") String id){
-		Tournament tournament = tournamentManagerService.findTournamentById(id);
-		return new ResponseEntity<Tournament>(tournament, HttpStatus.OK) ;
+	public ResponseEntity<TournamentManager> findTournamentById(@PathVariable("id") String id){
+		TournamentManager tournament = tournamentManagerService.findTournamentManagerById(id);
+		return new ResponseEntity<TournamentManager>(tournament, HttpStatus.OK) ;
 	}
 	
 	
 	@PostMapping("/insert")
-	public ResponseEntity<Tournament> insertTournament(@RequestBody Tournament tournament){
-		Tournament response = tournamentManagerService.addTournament(tournament);
-		return new ResponseEntity<Tournament>(response, HttpStatus.CREATED) ;
+	public ResponseEntity<TournamentManager> insertTournament(@RequestBody TournamentManager tournamentManager){
+		TournamentManager response = tournamentManagerService.addTournamentManager(tournamentManager);
+		return new ResponseEntity<TournamentManager>(response, HttpStatus.CREATED) ;
 	}
 	
 	@PutMapping("/update")
-	public ResponseEntity<Tournament> updateReferee(@RequestBody Tournament tournament){
-		Tournament response = tournamentManagerService.addTournament(tournament);
-		return new ResponseEntity<Tournament>(response, HttpStatus.OK) ;
+	public ResponseEntity<TournamentManager> updateTournamentManager(@RequestBody TournamentManager tournamentManager){
+		TournamentManager response = tournamentManagerService.addTournamentManager(tournamentManager);
+		return new ResponseEntity<TournamentManager>(response, HttpStatus.OK) ;
 	}
 
-//	
-//	@DeleteMapping("/delete/{id}")
-//	public ResponseEntity<?> deleteReferee(@PathVariable("id") int id){
-//		refereeService.deleteReferee(id);
-//		return new ResponseEntity<>("Referee deleted:"+id,HttpStatus.OK) ;
-//	}
 	
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<?> deleteTournament(@PathVariable("id") String id){
-		tournamentManagerService.deleteTournament(id);
-		return new ResponseEntity<>("Tournament deleted:"+id,HttpStatus.OK) ;
+	public ResponseEntity<?> deleteTournamentManager(@PathVariable("id") String id){
+		tournamentManagerService.deleteTournamentManager(id);
+		return new ResponseEntity<>("TournamentManager deleted:"+id,HttpStatus.OK) ;
 	}
 	
 

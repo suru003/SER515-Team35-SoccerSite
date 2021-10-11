@@ -110,6 +110,7 @@
                                 <i class="fa fa-user-circle" aria-hidden="true"></i></span>
                               </div>
                               <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="roleID" [(ngModel)]="referee.roleID" required #roleID="ngModel">
+                                
                                 <option [ngValue]="null" disabled selected>Role</option>
                                 <option *ngFor="let r of roles" [ngValue]="r.id" style="color: black">{{r.roles}}</option>
                               </select>

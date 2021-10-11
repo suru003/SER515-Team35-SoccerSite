@@ -14,8 +14,7 @@ import com.soccersite.model.Referee;
 
 @Repository
 public interface RefereeRepo extends JpaRepository<Referee, Integer>{
-//	@Transactional
-//	@Modifying
+
 	 @Query("SELECT r FROM Referee r WHERE r.id = :id")
 	Optional<Referee> findRefereeById(@Param("id") String id);
 	

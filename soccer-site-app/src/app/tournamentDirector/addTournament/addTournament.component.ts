@@ -2,12 +2,20 @@ import { HttpErrorResponse } from '@angular/common/http';
 import {NgForm} from '@angular/forms';
 import {FormControl,FormGroup,Validators} from '@angular/forms';  
 import { Component, OnInit } from '@angular/core';
-
-import { Tournament } from '../../../models/tournament';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TournamentDirectorService } from '../../services/tournamentDirector.service';
 
-declare var $: any;
+// models
+import { Tournament } from '../../../models/tournament';
+import { TournamentDirector } from '../../../models/tournamentDirector';
+import { Category } from '../../../models/category';
+import { Roles } from '../../../models/roles';
+
+// services
+import { TournamentDirectorService } from '../../services/tournamentDirector.service';
+import { SharedService } from "../../services/shared.service";
+
+
+// declare var $: any;
 
 @Component({
   selector: 'addTournament',
@@ -16,42 +24,72 @@ declare var $: any;
 })
 export class AddTournamentComponent implements OnInit{
 
-  title!:String;
-  tournament: Tournament = new Tournament();
-  // referee: Referee;
-  // roles: Roles[] = [];
-  // title: string;
-  // showMsg: boolean = false;
-  // selectedRole = null;
-  // createReferee:any;
+  title:String='';
+  tournament: Tournament;
+  categories: Category[] = [];
+  roles: Roles[] = [];
+  tournamentDirectorID!:string;
+  tournamentDirector!:TournamentDirector;
+
+  retrieveDirector!:TournamentDirector;
+  tournament2:any;
+
 
   constructor(
     private route: ActivatedRoute, 
     private router: Router, 
-    private tournamentDirectorService: TournamentDirectorService) {
-    // this.referee = new Referee();
-    // this.user = new Users();
+    private tournamentDirectorService: TournamentDirectorService,
+    private sharedService: SharedService) {
+
     this.title = 'Add Tournament';
+    this.tournament=new Tournament();
+    this.tournamentDirector=new TournamentDirector();
     
   }
 
 
   ngOnInit() {
 
+    this.tournamentDirectorService.findAllCategories().subscribe(data => {
+      this.categories = data;
+      console.log(data);
+    });
+
+    this.sharedService.sharedManagerID.subscribe(
+      data => {
+        this.tournamentDirectorID= data;
+        console.log("tournamen ID on addTournament is"+this.tournamentDirectorID);
+      },
+      error => console.log(error));
+
+    this.tournamentDirectorService.findTournamentDirectorByID(
+      this.tournamentDirectorID).subscribe(
+      data => {
+        this.retrieveDirector = data;
+        console.log("retrieveDirector: "+data);
+      });
+
     }
 
 
-onSubmit(){
+    onSubmit(){
+      // this.tournament.manager_id=this.tournamentDirectorID;
+      // console.log("on submit id is"+this.tournament.tournamentManager);
+      this.tournamentDirectorService.createTournament(
+        this.tournament,this.tournamentDirectorID).subscribe(
+        data => {
+          this.tournament2 = data;
+          console.log(data);
+        });
+    }
 
-}
 
-
-  formdata=new FormGroup({  
-    id:new FormControl(),  
-    tournamentName:new FormControl(),
-    category:new FormControl(),  
-    startDate:new FormControl(),
-    endDate:new FormControl(),
+    formdata=new FormGroup({  
+      id:new FormControl(),  
+      tournamentName:new FormControl(),
+      category:new FormControl(),  
+      startDate:new FormControl(),
+      endDate:new FormControl(),
     // username:new FormControl(),  
     // password:new FormControl(),
     // address:new FormControl(),
@@ -64,21 +102,21 @@ onSubmit(){
   //   return this.updateUserID;  
   // }  
   
-  get tournamentName(){  
-    return this.formdata.get('tournamentName');  
-  }  
+  // get tournamentName(){  
+  //   return this.formdata.get('tournamentName');  
+  // }  
   
-  get startDate(){  
-    return this.formdata.get('startDate');  
-  }  
+  // get startDate(){  
+  //   return this.formdata.get('startDate');  
+  // }  
   
-  get endDate(){  
-    return this.formdata.get('endDate');  
-  }  
+  // get endDate(){  
+  //   return this.formdata.get('endDate');  
+  // }  
 
-  get category(){  
-    return this.formdata.get('category');  
-  }
+  // get category(){  
+  //   return this.formdata.get('category');  
+  // }
 
   // get tournamentManagerID(){  
   //   return this.formdata.get('username');  

@@ -28,6 +28,11 @@ body{
 	border-color: #D8282B;
 }
 
+.btn-secondary {
+	background-color: #AF272F;
+	border-color: #AF272F;
+}
+
 .btn{
 	width: 100%;
 }

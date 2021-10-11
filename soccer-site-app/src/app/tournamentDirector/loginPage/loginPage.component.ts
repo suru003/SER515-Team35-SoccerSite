@@ -29,9 +29,7 @@ export class TournamentDirectorLoginPageComponent implements OnInit{
     ) {
    }
 
-  // constructor() {
-  // }
-
+ 
   ngOnInit(){
       this.sharedService.sharedManagerID.subscribe(
       data => (this.tournamentDirectorID = data));
