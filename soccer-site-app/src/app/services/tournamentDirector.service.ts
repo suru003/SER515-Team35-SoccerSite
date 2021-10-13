@@ -28,6 +28,7 @@ public createTournament(tournament: Tournament, manager_id: string) {
       .append('manager_id', manager_id);
   return this.http.post<Tournament>(`${this.serverUrl}/insert`, tournament,{
         params: params,
+        responseType: 'json',
       });
 }
 
