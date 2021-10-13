@@ -3,25 +3,54 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
 import { AppComponent } from './app.component';
 import { CoachComponent } from './coach/coach.component';
 import { CoachService } from './services/coach.service';
-import { HomepageComponent } from './homepage/homepage.component';
 import { AdminModule } from './admin/admin.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
+// services
+import { Admin2Service } from './services/admin2.service';
+import { RefereeDirectorService } from './services/refereeDirector.service';
+import { TournamentDirectorService } from './services/tournamentDirector.service';
+import { SharedService } from './services/shared.service';
+
+// components
 import { UserListComponent } from './user-list/user-list.component';
 import { AddRefereeComponent } from './addReferee/addReferee.component';
-import { Admin2Service } from './services/admin2.service';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoginPageComponent } from './loginPage/loginPage.component';
+
+// Referee Director
+import { RefereeDirectorComponent } from './refereeDirector/refereeDirectorHomepage.component';
+import { RefereeUserListComponent } from './referee-user-list/referee-user-list.component';
+import { RefereeNewApplicationListComponent } from './referee-new-application-list/referee-new-application-list.component';
+
+// Tournament Director
+import { TournamentDirectorLoginPageComponent } from './tournamentDirector/loginPage/loginPage.component';
+import { TournamentDirectorDashboardComponent } from './tournamentDirector/dashboard/dashboard.component';
+import { AddTournamentComponent } from './tournamentDirector/addTournament/addTournament.component';
+import { TournamentListComponent } from './tournamentDirector/tournament-list/tournament-list.component';
+
+
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CoachComponent,
-    HomepageComponent,
     UserListComponent,
-    AddRefereeComponent
+    AddRefereeComponent,
+    LoginPageComponent,
+    RefereeDirectorComponent,
+    RefereeUserListComponent,
+    RefereeNewApplicationListComponent,
+    TournamentDirectorLoginPageComponent,
+    TournamentDirectorDashboardComponent,
+    AddTournamentComponent
   ],
   imports: [
     FormsModule,
@@ -33,7 +62,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserAnimationsModule,
     NgbModule
   ],
-  providers: [CoachService, Admin2Service],
+  providers: [CoachService, Admin2Service, RefereeDirectorService, TournamentDirectorService, SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

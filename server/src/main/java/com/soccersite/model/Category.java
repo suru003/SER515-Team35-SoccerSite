@@ -1,0 +1,70 @@
+package com.soccersite.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+
+import com.soccersite.custom.generators.CustomGenerator;
+
+
+@Entity
+public class Category {
+	@Id
+	@Column(nullable= false, updatable= false)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_id")
+    @GenericGenerator(
+        name = "user_id", 
+        strategy = "com.soccersite.custom.generators.CustomGenerator", 
+        parameters = {
+            @Parameter(name = CustomGenerator.INCREMENT_PARAM, value = "50"),
+            @Parameter(name = CustomGenerator.SEQUENCE_PREFIX_PARAMETER, value = "CAT_"),
+            @Parameter(name = CustomGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })
+	String id;
+	String categoryName;
+	int minAge;
+	int maxAge;
+	
+	
+	public Category() {}
+	public Category(String id, String categoryName, int minAge, int maxAge) {
+		super();
+		this.id = id;
+		this.categoryName = categoryName;
+		this.minAge = minAge;
+		this.maxAge = maxAge;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getCategoryName() {
+		return categoryName;
+	}
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
+	public int getMinAge() {
+		return minAge;
+	}
+	public void setMinAge(int minAge) {
+		this.minAge = minAge;
+	}
+	public int getMaxAge() {
+		return maxAge;
+	}
+	public void setMaxAge(int maxAge) {
+		this.maxAge = maxAge;
+	}
+	
+	
+	
+	
+	
+}

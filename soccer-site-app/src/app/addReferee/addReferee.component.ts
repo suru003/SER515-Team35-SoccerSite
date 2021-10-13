@@ -7,6 +7,8 @@ import { Roles } from '../../models/roles';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Admin2Service } from '../services/admin2.service';
 
+declare var $: any;
+
 @Component({
   selector: 'app-add-referee',
   templateUrl: './addReferee.component.html',
@@ -14,12 +16,13 @@ import { Admin2Service } from '../services/admin2.service';
 })
 export class AddRefereeComponent {
 
-  // referees: Referee[] = [];
+  // declare var $: any;
   referee: Referee;
   roles: Roles[] = [];
   title: string;
   showMsg: boolean = false;
   selectedRole = null;
+  createReferee:any;
 
   constructor(
     private route: ActivatedRoute, 
@@ -37,7 +40,15 @@ export class AddRefereeComponent {
 
 
   onSubmit(refereeForm: NgForm) {
-    this.adminService.createReferee(this.referee).subscribe(result => this.viewAllUsers());
+    this.referee.status = 'NEW';
+    this.adminService.createReferee(this.referee).subscribe(
+      data => {
+        this.createReferee = data;
+        this.createReferee = Array.of(this.createReferee);
+        // this.viewAllUsers();
+      });
+
+    $('#user-creation-modal').modal('show');
 
   }
 
@@ -52,6 +63,7 @@ export class AddRefereeComponent {
   }
 
   viewAllUsers() {
+    $('#user-creation-modal').modal('close');
     this.router.navigate(['/allusers']);
   }
 }

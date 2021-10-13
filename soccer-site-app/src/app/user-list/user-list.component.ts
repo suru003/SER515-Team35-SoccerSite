@@ -17,13 +17,12 @@ import { Admin2Service } from '../services/admin2.service';
 })
 export class UserListComponent implements OnInit {
   @ViewChild('close') close: ElementRef;
-  // @ViewChild('closeDeleteModal') closeDeleteModal: ElementRef;
 
   user: Users[] = [];
   admins: Admin2[] = [];
   referee: Referee[] = [];
   title: string;
-  deleteRef: Referee[] = [];
+  deleteRef: any;
   deleteUserID!:String;
   updateUserID!:String;
   roles: Roles[] = [];
@@ -31,17 +30,13 @@ export class UserListComponent implements OnInit {
   refs: Referee[];  
   newReferee: Referee = new Referee();
   newRefereelist:any; 
-  // formdata: FormGroup;
-  // refereeFound: Referee[] = [];
-
-
   
 
   constructor(
     private route: ActivatedRoute, 
     private router: Router, 
     private adminService: Admin2Service) {
-   this.title = 'All Users';
+   this.title = 'All Referees';
      // this.newReferee = new Referee();
    }
 
@@ -75,7 +70,8 @@ export class UserListComponent implements OnInit {
     this.adminService.findRefereeByID(id) 
     .subscribe(  
       data => {  
-        this.deleteRef = data; 
+        this.deleteRef = data;
+        this.deleteRef = Array.of(this.deleteRef);  
       },  
       error => console.log(error));  
 
