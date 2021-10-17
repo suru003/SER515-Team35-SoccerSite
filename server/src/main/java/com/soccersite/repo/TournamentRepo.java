@@ -1,6 +1,9 @@
 package com.soccersite.repo;
 
+import java.util.List;
 import java.util.Optional;
+
+import javax.persistence.TypedQuery;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -19,6 +22,11 @@ public interface TournamentRepo extends JpaRepository<Tournament, Integer> {
 	
 	 @Query("SELECT t FROM Tournament t WHERE t.id = :id")
 	Optional<Tournament> findTournamentById(@Param("id") String id);
+	 
+	
+//	 @Query(value = "SELECT ts.category, ts.start_date FROM Tournament ts WHERE ts.id = :TN_00852", nativeQuery = true)
+	 List<Tournament> findTournamentByTournamentManager(@Param("manager_id") TournamentManager manager_id);
+
 	 
 	 @Query("SELECT tm FROM TournamentManager tm WHERE tm.id = :id")
 	Optional<TournamentManager> findTournamentManagerById(@Param("id") String id);

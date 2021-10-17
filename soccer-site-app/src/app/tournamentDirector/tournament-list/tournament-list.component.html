@@ -8,25 +8,32 @@
         <th scope="col">Category</th>
         <th scope="col">Start Date</th>
         <th scope="col">End Date</th>
-        <th scope="col">Tournament Manage</th>
+        <th scope="col">Tournament </th>
         <th scope="col">Status</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-      <tr *ngFor="let t of tournaments">
-        <th scope="row">{{t.id}}</th>
-        <td>{{t.tournamentName}}</td>
-        <td>{{t.category}}</td>
-        <td>{{t.startDate}}</td>
-        <td>{{t.endDate}}</td>
+      <tr *ngFor="let tournaments of tournaments">
+       <!-- <tr > -->
+        <th scope="row">There we go</th>
+        <td>There</td>
+        <td>There</td>
+        <td>There</td>
+        <!-- <th scope="row">{{tournament.id}}</th>
+        <td>{{tournament.tournamentName}}</td>
+        <td>{{tournament.category}}</td>
+        <td>{{tournament.endDate}}</td> -->
+        <td></td>
         <td>
+          <!-- {{tournament.endDate}} -->
          <!--  <a data-toggle="modal" data-target="#update-user-modal" (click)="updateReferee(referee.id)"><i class="fa fa-pencil edit-user-btn" aria-hidden="true" id="{{referee.id}}" ></i></a> 
           <a data-toggle="modal" data-target="#delete-user-modal" (click)="confirmDeletion(referee.id)"> <i class="fa fa-trash delete-user-btn" aria-hidden="true" id="{{referee.id}}" ></i> </a>
  -->
         </td>
         <td >
           <!-- <i class="fa fa-spinner pending-icon" aria-hidden="true"></i> pending -->
+          <!-- {{tournament.endDate}} -->
         </td>
       </tr>
     </tbody>

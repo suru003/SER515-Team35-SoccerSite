@@ -4,9 +4,14 @@ import {NgForm} from '@angular/forms';
 import {FormControl,FormGroup,Validators} from '@angular/forms';  
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal, NgbModalRef, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
-import { Tournament } from '../../../models/tournament';
 
+// models
+import { Tournament } from '../../../models/tournament';
+import { TournamentDirector } from '../../../models/tournamentDirector';
+
+// services
 import { TournamentDirectorService } from '../../services/tournamentDirector.service';
+import { SharedService } from "../../services/shared.service";
 
 @Component({
   selector: 'tournament-list',
@@ -30,28 +35,45 @@ export class TournamentListComponent implements OnInit {
   // newRefereelist:any; 
 
   title!:String;
-  tournaments!: any;
+  tournaments: Tournament[] = [];
+  tournamentDirectorID!:string;
+  director!:TournamentDirector;
   
 
   constructor(
     private route: ActivatedRoute, 
     private router: Router, 
-    private tournamentDirectorService: TournamentDirectorService) {
+    private tournamentDirectorService: TournamentDirectorService,
+    private sharedService: SharedService) {
    this.title = 'All Tournaments';
      // this.newReferee = new Referee();
    }
 
    ngOnInit() {
 
-    this.tournamentDirectorService.findAllTournaments().subscribe(data => {
+      // get tournament director id
+    this.sharedService.sharedManagerID.subscribe(
+      data => {
+        this.tournamentDirectorID= data;
+        console.log("tournamen ID on addTournament is"+this.tournamentDirectorID);
+      },
+      error => console.log(error));
+
+    this.tournamentDirectorService.findTournamentDirectorByID(this.tournamentDirectorID).subscribe(data => {
+      this.director = data;
+      console.log(this.director);
+    });
+
+    this.tournamentDirectorService.findAllTournaments(this.tournamentDirectorID).subscribe(data => {
       this.tournaments = data;
-      this.tournaments = Array.of(this.tournaments);  
-      console.log(data);
+      // this.tournaments = Array.of(this.tournaments);  
+      console.log(this.tournaments);
     });
 
 
 
   }
+
 
   // deleteReferee() {  
   //   this.adminService.deleteReferee(this.deleteUserID) 

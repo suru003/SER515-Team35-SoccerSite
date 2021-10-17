@@ -8,19 +8,24 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.soccersite.custom.generators.CustomGenerator;
+
 
 @Entity
 public class Tournament {
 	
+	
 	@Id
-	@Column(nullable= false, updatable= false, name="tournament_id")
+//	@Column(nullable= false, updatable= false, name="tournament_id")
+	@Column(nullable= false, updatable= false)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_id")
     @GenericGenerator(
         name = "user_id", 
@@ -40,8 +45,8 @@ public class Tournament {
 //  @MapsId
 //  @JoinColumn(name = "tournament_id")
 	
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "manager_id", referencedColumnName = "id")
+	@ManyToOne(optional = false)
+    @JoinColumn(name = "manager_id", referencedColumnName = "id",nullable = false)
   private TournamentManager tournamentManager;
 	
 	

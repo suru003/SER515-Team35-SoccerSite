@@ -1,6 +1,7 @@
 package com.soccersite.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,8 +27,9 @@ public class TournamentService {
 		return repo.save(tournament);
 	}
 	
-	public List<Tournament> findAllTournament(){
-		return repo.findAll();
+	public List<Tournament> findAllTournament(TournamentManager manager_id){
+//		return repo.findAll();
+		return repo.findTournamentByTournamentManager(manager_id);
 	}
 	
 	public Tournament updateTournament(Tournament tournament) {

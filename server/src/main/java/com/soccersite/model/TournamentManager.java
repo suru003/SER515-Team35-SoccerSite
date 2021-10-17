@@ -3,6 +3,7 @@ package com.soccersite.model;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -40,9 +41,10 @@ public class TournamentManager {
 	String country;
 	
 	
+	
 //    @PrimaryKeyJoinColumn
-	@OneToOne(mappedBy = "tournamentManager", cascade = CascadeType.ALL)
-	Tournament tournament;
+//	@OneToOne(mappedBy = "tournamentManager", fetch = FetchType.LAZY,cascade =  CascadeType.ALL)
+//	Tournament tournament;
 	
 
 	
@@ -51,9 +53,9 @@ public class TournamentManager {
 
 
 	public TournamentManager(String id, String firstName, String lastName, String email, long contactNo, String address,
-			String city, String country, Tournament tournament) {
+			String city, String country) {
 		super();
-		this.id = id;
+		this.id = id; 
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
@@ -61,7 +63,7 @@ public class TournamentManager {
 		this.address = address;
 		this.city = city;
 		this.country = country;
-		this.tournament = tournament;
+//		this.tournament = tournament;
 	}
 
 
@@ -144,15 +146,15 @@ public class TournamentManager {
 		this.country = country;
 	}
 
-
-	public Tournament getTournament() {
-		return tournament;
-	}
-
-
-	public void setTournament(Tournament tournament) {
-		this.tournament = tournament;
-	}
+//
+//	public Tournament getTournament() {
+//		return tournament;
+//	}
+//
+//
+//	public void setTournament(Tournament tournament) {
+//		this.tournament = tournament;
+//	}
 
 
 
