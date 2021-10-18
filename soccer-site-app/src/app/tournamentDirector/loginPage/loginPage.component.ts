@@ -20,6 +20,8 @@ export class TournamentDirectorLoginPageComponent implements OnInit{
 
   tournamentDirectorID!:String;
   tournamentDirector: TournamentDirector = new TournamentDirector();
+  isLoggedIn: boolean = false;
+  director!:TournamentDirector;
 
   constructor(
     private route: ActivatedRoute, 
@@ -27,40 +29,42 @@ export class TournamentDirectorLoginPageComponent implements OnInit{
     private tournamentDirectorService: TournamentDirectorService,
     private sharedService: SharedService
     ) {
-   }
-
- 
-  ngOnInit(){
-      this.sharedService.sharedManagerID.subscribe(
-      data => (this.tournamentDirectorID = data));
-
-      console.log(this.tournamentDirectorID);
   }
 
 
-   formdata=new FormGroup({  
+  ngOnInit(){
+    this.sharedService.sharedManagerID.subscribe(
+      data => (this.tournamentDirectorID = data));
+
+    // console.log(this.tournamentDirectorID);
+  }
+
+
+  formdata=new FormGroup({  
     tournamentDirectorID:new FormControl(),  
   }); 
 
-    get managerID(){  
+  get managerID(){  
     return this.formdata.get('tournamentDirectorID');  
   } 
 
 
   onSubmit(){
-    this.sharedService.setTournamentDirectorID(this.managerID!.value);
-    // this.sharedService.sharedManagerID.subscribe(
-    //   data => {
-    //     this.tournamentDirectorID = data;
-    //     console.log(this.tournamentDirectorID);
-    //   },
-    //   error => console.log(error));
-      
-    this.viewAllUsers();
+   this.tournamentDirectorService.findTournamentDirectorByID(
+    this.managerID!.value).subscribe(
+    data => {
+      this.director = data;
+      this.sharedService.setTournamentDirectorID(this.managerID!.value);
+      this.isLoggedIn = true;
+      this.directorDashboard();
+    },
+    error => console.log(error));
+
+    // this.directorDashboard();
 
   }
 
-  viewAllUsers() {
+  directorDashboard() {
     this.router.navigate(['/tournamentDirectorDashboard']);
   }
 
@@ -71,5 +75,5 @@ export class TournamentDirectorLoginPageComponent implements OnInit{
 
 
 
-}
+ }
 

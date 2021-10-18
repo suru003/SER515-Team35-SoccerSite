@@ -19,8 +19,8 @@ export class TournamentDirectorService {
 
 
 // Tournaments
-public findAllTournaments(): Observable<Tournament[]> {
-  return this.http.get<Tournament[]>(`${this.serverUrl}/all`);
+public findAllTournaments(manager_id: String): Observable<Tournament[]> {
+  return this.http.get<Tournament[]>(`${this.serverUrl}/all/${manager_id}`);
 } 
 
 public createTournament(tournament: Tournament, manager_id: string) {
@@ -31,7 +31,6 @@ public createTournament(tournament: Tournament, manager_id: string) {
         responseType: 'json',
       });
 }
-
 
 public findTournamentByID(id: String): Observable<Tournament> {
   return this.http.get<Tournament>(`${this.serverUrl}/find/${id}`);
@@ -50,8 +49,17 @@ public findAllCategories(): Observable<Category[]> {
   return this.http.get<Category[]>(`${this.categoryUrl}/all`);
 } 
 
+public findCategoryByID(id: String): Observable<Category> {
+  return this.http.get<Category>(`${this.categoryUrl}/find/${id}`);
+} 
+
 // tournament manager
 public findTournamentDirectorByID(id: String): Observable<TournamentDirector> {
+  return this.http.get<TournamentDirector>(`${this.managerUrl}/find/${id}`);
+}
+
+// Login
+public login(id: String): Observable<TournamentDirector> {
   return this.http.get<TournamentDirector>(`${this.managerUrl}/find/${id}`);
 }
  

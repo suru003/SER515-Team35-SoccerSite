@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.soccersite.model.Category;
 import com.soccersite.model.Tournament;
 import com.soccersite.model.TournamentManager;
 import com.soccersite.repo.TournamentManagerRepo;
@@ -38,12 +39,21 @@ public class TournamentController {
 		this.tournamentRepo = tournamentRepo;
 	}
 		
-	@GetMapping("/all")
-	public ResponseEntity<List<Tournament>> findAllTournaments(){
-		List<Tournament> list = tournamentService.findAllTournament();
+//	@GetMapping("/all")
+//	public ResponseEntity<List<Tournament>> findAllTournaments(){
+//		List<Tournament> list = tournamentService.findAllTournament();
+//		return new ResponseEntity<List<Tournament>>(list, HttpStatus.OK) ;
+//	}
+	
+	@GetMapping("/all/{manager_id}")
+	public ResponseEntity<List<Tournament>> findAllTournaments(@PathVariable("manager_id") String manager_id){
+		TournamentManager tournamentManager = tournamentService.findTournamentManagerById(manager_id);
+//        tournament.setTournamentManager(tournamentManager);		
+//		Tournament response = tournamentService.addTournament(tournament);
+		List<Tournament> list = tournamentService.findAllTournament(tournamentManager);
 		return new ResponseEntity<List<Tournament>>(list, HttpStatus.OK) ;
 	}
-
+	
 
 	@GetMapping("/find/{id}")
 	public ResponseEntity<Tournament> findTournamentById(@PathVariable("id") String id){
@@ -51,12 +61,6 @@ public class TournamentController {
 		return new ResponseEntity<Tournament>(tournament, HttpStatus.OK) ;
 	}
 	
-//	
-//	@PostMapping("/insert")
-//	public ResponseEntity<Tournament> insertTournament(@RequestBody Tournament tournament){
-//		Tournament response = tournamentService.addTournament(tournament);
-//		return new ResponseEntity<Tournament>(response, HttpStatus.CREATED) ;
-//	}
 	
 	@PostMapping("/insert")
 	public ResponseEntity<Tournament> insertTournament(@RequestBody Tournament tournament, @RequestParam("manager_id") String manager_id ){

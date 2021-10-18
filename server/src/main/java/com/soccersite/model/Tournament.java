@@ -8,19 +8,25 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.soccersite.custom.generators.CustomGenerator;
+
 
 @Entity
 public class Tournament {
 	
+	
 	@Id
-	@Column(nullable= false, updatable= false, name="tournament_id")
+//	@Column(nullable= false, updatable= false, name="tournament_id")
+	@Column(nullable= false, updatable= false)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_id")
     @GenericGenerator(
         name = "user_id", 
@@ -31,7 +37,12 @@ public class Tournament {
             @Parameter(name = CustomGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })
 	String id;
 	String tournamentName;
-	String category;
+	
+	@OneToOne()
+    @JoinColumn(name = "category", referencedColumnName = "id",nullable = false)
+	private Category category;
+	
+//	String category;
 	String startDate;
 	String endDate;
 	
@@ -40,14 +51,14 @@ public class Tournament {
 //  @MapsId
 //  @JoinColumn(name = "tournament_id")
 	
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "manager_id", referencedColumnName = "id")
+	@ManyToOne(optional = false)
+    @JoinColumn(name = "manager_id", referencedColumnName = "id",nullable = false)
   private TournamentManager tournamentManager;
 	
 	
 	public Tournament() {}
 	
-	public Tournament(String id, String tournamentName, String category, String startDate, String endDate) {
+	public Tournament(String id, String tournamentName, Category category, String startDate, String endDate) {
 		super();
 		this.id = id;
 		this.tournamentName = tournamentName;
@@ -73,11 +84,11 @@ public class Tournament {
 		this.tournamentName = tournamentName;
 	}
 
-	public String getCategory() {
+	public Category getCategory() {
 		return category;
 	}
 
-	public void setCategory(String category) {
+	public void setCategory(Category category) {
 		this.category = category;
 	}
 

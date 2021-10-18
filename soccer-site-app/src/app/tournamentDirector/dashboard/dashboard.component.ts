@@ -22,7 +22,6 @@ export class TournamentDirectorDashboardComponent implements OnInit{
     this.sharedService.sharedManagerID.subscribe(
       data => {
         this.tournamentDirectorID= data;
-        console.log("tournamenID is"+this.tournamentDirectorID);
       },
       error => console.log(error));
       this.allTournaments();

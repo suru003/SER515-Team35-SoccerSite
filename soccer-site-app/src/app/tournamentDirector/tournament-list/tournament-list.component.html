@@ -8,29 +8,32 @@
         <th scope="col">Category</th>
         <th scope="col">Start Date</th>
         <th scope="col">End Date</th>
-        <th scope="col">Tournament Manage</th>
+        <th scope="col">Tournament </th>
         <th scope="col">Status</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-      <tr *ngFor="let t of tournaments">
+      <tr >
+        <tr *ngFor="let t of tournaments">
         <th scope="row">{{t.id}}</th>
         <td>{{t.tournamentName}}</td>
-        <td>{{t.category}}</td>
+        <td>{{t.category.categoryName}}</td>
         <td>{{t.startDate}}</td>
         <td>{{t.endDate}}</td>
         <td>
+          <!-- {{tournament.endDate}} -->
          <!--  <a data-toggle="modal" data-target="#update-user-modal" (click)="updateReferee(referee.id)"><i class="fa fa-pencil edit-user-btn" aria-hidden="true" id="{{referee.id}}" ></i></a> 
           <a data-toggle="modal" data-target="#delete-user-modal" (click)="confirmDeletion(referee.id)"> <i class="fa fa-trash delete-user-btn" aria-hidden="true" id="{{referee.id}}" ></i> </a>
  -->
         </td>
         <td >
           <!-- <i class="fa fa-spinner pending-icon" aria-hidden="true"></i> pending -->
+          <!-- {{tournament.endDate}} -->
         </td>
       </tr>
     </tbody>
   </table>
+
 
   <!-- Delete Modal -->
   <!-- <div class="modal fade" id="delete-user-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

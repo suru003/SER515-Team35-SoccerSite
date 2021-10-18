@@ -1,36 +1,47 @@
 
- <form [formGroup]="formdata" #loginForm (ngSubmit)="onSubmit()" >
-<div class="container1" style="background: blue;">
-  <div class="card register-card align-vertically">
-    <div class="card-body">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-5 left-col"></div>
+<form [formGroup]="formdata" #loginForm (ngSubmit)="onSubmit()" >
+  <div class="container1" style="background: blue;">
+    <div class="card register-card align-vertically">
+      <div class="card-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-5 left-col"></div>
 
-          <div class="col-lg-7 right-col">
-            <h5 class="card-title">TOURNAMENT MANAGER - LOGIN</h5>
-            <p class="card-text"></p>
+            <div class="col-lg-7 right-col">
+              <h5 class="card-title">TOURNAMENT MANAGER - LOGIN</h5>
+              <p class="card-text"></p>
 
-            <br>
-
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="tournamentDirectorID">
-                  <i class="fa fa-user-circle" aria-hidden="true"></i></span>
-                </div>
-                <input type="text" class="form-control" id="tournamentDirectorID" formControlName="tournamentDirectorID" placeholder="MANAGER ID" aria-label="tournamentDirectorID" aria-describedby="basic-addon1" [(ngModel)]="tournamentDirector.id" required >
-              </div>
               <br>
 
-              <!-- <a href="#" class="btn btn-primary ">Login</a> -->
-              <button type="submit">Login</button>
-            </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="tournamentDirectorID">
+                    <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                  </div>
+                  <input type="text" class="form-control" id="tournamentDirectorID" formControlName="tournamentDirectorID" placeholder="MANAGER ID" aria-label="tournamentDirectorID" aria-describedby="basic-addon1" [(ngModel)]="tournamentDirector.id" required >
+                </div>
+                <br>
 
+                <!-- <a href="#" class="btn btn-primary ">Login</a> -->
+                <button type="submit">Login</button>
+                <br>
+                <div *ngIf="isLoggedIn; else loggedOut">
+                  Logging in .
+                </div>
+
+                <ng-template #loggedOut>
+                  <div>
+
+                  Please login.
+                </div>
+                </ng-template>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-  </div>
-</form>
+    </div>
+  </form>
   <router-outlet></router-outlet>

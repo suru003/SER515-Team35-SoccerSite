@@ -1,12 +1,23 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Observable } from 'rxjs';
+// import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+// import { Observable } from 'rxjs';
+// import {NgForm} from '@angular/forms';
+// import {FormControl,FormGroup,Validators} from '@angular/forms';  
+// import { ActivatedRoute, Router } from '@angular/router';
+// import { NgbModal, NgbModalRef, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
+import { HttpErrorResponse } from '@angular/common/http';
 import {NgForm} from '@angular/forms';
 import {FormControl,FormGroup,Validators} from '@angular/forms';  
+import { Component, OnInit,  ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NgbModal, NgbModalRef, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
-import { Tournament } from '../../../models/tournament';
 
+// models
+import { Tournament } from '../../../models/tournament';
+import { TournamentDirector } from '../../../models/tournamentDirector';
+import { Category } from '../../../models/category';
+
+// services
 import { TournamentDirectorService } from '../../services/tournamentDirector.service';
+import { SharedService } from "../../services/shared.service";
 
 @Component({
   selector: 'tournament-list',
@@ -16,42 +27,56 @@ import { TournamentDirectorService } from '../../services/tournamentDirector.ser
 export class TournamentListComponent implements OnInit {
   @ViewChild('close') close: ElementRef;
 
-  // user: Users[] = [];
-  // admins: Admin2[] = [];
-  // referee: Referee[] = [];
-  // title: string;
-  // deleteRef: any;
-  // deleteUserID!:String;
-  // updateUserID!:String;
-  // roles: Roles[] = [];
-
-  // refs: Referee[];  
-  // newReferee: Referee = new Referee();
-  // newRefereelist:any; 
 
   title!:String;
-  tournaments!: any;
+  tournaments: Tournament[] = [];
+  categories: Category[] = [];
+  tournamentDirectorID!:string;
+  director!:TournamentDirector;
+
   
 
   constructor(
     private route: ActivatedRoute, 
     private router: Router, 
-    private tournamentDirectorService: TournamentDirectorService) {
+    private tournamentDirectorService: TournamentDirectorService,
+    private sharedService: SharedService) {
    this.title = 'All Tournaments';
      // this.newReferee = new Referee();
    }
 
    ngOnInit() {
 
-    this.tournamentDirectorService.findAllTournaments().subscribe(data => {
-      this.tournaments = data;
-      this.tournaments = Array.of(this.tournaments);  
+      // get tournament director id
+      this.sharedService.sharedManagerID.subscribe(
+        data => {
+          this.tournamentDirectorID= data;
+          // console.log("tournamen ID on addTournament is"+this.tournamentDirectorID);
+        },
+        error => console.log(error));
+
+      this.tournamentDirectorService.findAllCategories().subscribe(data => {
+      this.categories = data;
       console.log(data);
+    });
+
+      this.tournamentDirectorService.findTournamentDirectorByID(
+        this.tournamentDirectorID).subscribe(data => {
+          this.director = data;
+          // console.log(this.director);
+        });
+
+        this.tournamentDirectorService.findAllTournaments(
+          this.tournamentDirectorID).subscribe(data => {
+            this.tournaments = data;
+      // this.tournaments = Array.of(this.tournaments);  
+      console.log(this.tournaments);
     });
 
 
 
-  }
+        }
+
 
   // deleteReferee() {  
   //   this.adminService.deleteReferee(this.deleteUserID) 
@@ -85,7 +110,7 @@ export class TournamentListComponent implements OnInit {
   //   this.updateUserID = id;
   //   console.log("id is:" + id);
   //   this.getRoles();
-    
+
   //   this.adminService.findRefereeByID(id)  
   //   .subscribe(  
   //     data => {  
