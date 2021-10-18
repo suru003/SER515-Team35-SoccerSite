@@ -49,6 +49,10 @@ public findAllCategories(): Observable<Category[]> {
   return this.http.get<Category[]>(`${this.categoryUrl}/all`);
 } 
 
+public findCategoryByID(id: String): Observable<Category> {
+  return this.http.get<Category>(`${this.categoryUrl}/find/${id}`);
+} 
+
 // tournament manager
 public findTournamentDirectorByID(id: String): Observable<TournamentDirector> {
   return this.http.get<TournamentDirector>(`${this.managerUrl}/find/${id}`);

@@ -36,7 +36,7 @@ export class TournamentDirectorLoginPageComponent implements OnInit{
     this.sharedService.sharedManagerID.subscribe(
       data => (this.tournamentDirectorID = data));
 
-    console.log(this.tournamentDirectorID);
+    // console.log(this.tournamentDirectorID);
   }
 
 
@@ -59,9 +59,6 @@ export class TournamentDirectorLoginPageComponent implements OnInit{
       this.directorDashboard();
     },
     error => console.log(error));
-
-    
-
 
     // this.directorDashboard();
 

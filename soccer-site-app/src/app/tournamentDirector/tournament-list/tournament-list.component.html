@@ -13,18 +13,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-      <tr *ngFor="let tournaments of tournaments">
-       <!-- <tr > -->
-        <th scope="row">There we go</th>
-        <td>There</td>
-        <td>There</td>
-        <td>There</td>
-        <!-- <th scope="row">{{tournament.id}}</th>
-        <td>{{tournament.tournamentName}}</td>
-        <td>{{tournament.category}}</td>
-        <td>{{tournament.endDate}}</td> -->
-        <td></td>
+      <tr >
+        <tr *ngFor="let t of tournaments">
+        <th scope="row">{{t.id}}</th>
+        <td>{{t.tournamentName}}</td>
+        <td>{{t.category.categoryName}}</td>
+        <td>{{t.startDate}}</td>
+        <td>{{t.endDate}}</td>
         <td>
           <!-- {{tournament.endDate}} -->
          <!--  <a data-toggle="modal" data-target="#update-user-modal" (click)="updateReferee(referee.id)"><i class="fa fa-pencil edit-user-btn" aria-hidden="true" id="{{referee.id}}" ></i></a> 
@@ -38,6 +33,7 @@
       </tr>
     </tbody>
   </table>
+
 
   <!-- Delete Modal -->
   <!-- <div class="modal fade" id="delete-user-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

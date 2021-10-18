@@ -26,6 +26,7 @@ export class AddTournamentComponent implements OnInit{
 
   title:String='';
   tournament: Tournament;
+  categoryChosen: Category;
   categories: Category[] = [];
   roles: Roles[] = [];
   tournamentDirectorID!:string;
@@ -43,6 +44,7 @@ export class AddTournamentComponent implements OnInit{
 
     this.title = 'Add Tournament';
     this.tournament=new Tournament();
+    this.categoryChosen = new Category();
     this.tournamentDirector=new TournamentDirector();
     
   }
@@ -58,7 +60,7 @@ export class AddTournamentComponent implements OnInit{
     this.sharedService.sharedManagerID.subscribe(
       data => {
         this.tournamentDirectorID= data;
-        console.log("tournamen ID on addTournament is"+this.tournamentDirectorID);
+        // console.log("tournamen ID on addTournament is"+this.tournamentDirectorID);
       },
       error => console.log(error));
 
@@ -66,15 +68,23 @@ export class AddTournamentComponent implements OnInit{
       this.tournamentDirectorID).subscribe(
       data => {
         this.retrieveDirector = data;
-        console.log("retrieveDirector: "+data);
+        // console.log("retrieveDirector: "+data);
       });
 
     }
 
 
     onSubmit(){
-      // this.tournament.manager_id=this.tournamentDirectorID;
-      // console.log("on submit id is"+this.tournament.tournamentManager);
+     
+      this.tournamentDirectorService.findCategoryByID(
+        this.categoryChosen.id).subscribe(data => {
+      this.categoryChosen = data;
+      console.log(this.categoryChosen);
+    });
+
+      this.tournament.category = this.categoryChosen;
+      console.log( this.tournament.category);
+
       this.tournamentDirectorService.createTournament(
         this.tournament,this.tournamentDirectorID).subscribe(
         data => {

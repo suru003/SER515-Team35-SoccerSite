@@ -24,7 +24,7 @@
                     <span class="input-group-text" id="role">
                       <i class="fa fa-user-circle" aria-hidden="true"></i></span>
                     </div>
-                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="category" [(ngModel)]="tournament.category" required #category="ngModel">
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="id" [(ngModel)]="categoryChosen.id" required #id="ngModel">
 
                       <option [ngValue]="null" disabled selected>Category</option>
                       <option *ngFor="let c of categories" [ngValue]="c.id" style="color: black">{{c.categoryName}} => ({{c.minAge}} - {{c.maxAge}})</option>
@@ -50,7 +50,7 @@
                       <span class="input-group-text" id="password">
                         <i class="fa fa-key" aria-hidden="true"></i></span>
                       </div>
-                      <input type="password" class="form-control" id="endDate" name="endDate" placeholder="End Date" aria-label="endDate" aria-describedby="basic-addon1" [(ngModel)]="tournament.endDate" required #endDate="ngModel">
+                      <input type="text" class="form-control" id="endDate" name="endDate" placeholder="End Date" aria-label="endDate" aria-describedby="basic-addon1" [(ngModel)]="tournament.endDate" required #endDate="ngModel">
                     </div>
                   </div>
                 </div>

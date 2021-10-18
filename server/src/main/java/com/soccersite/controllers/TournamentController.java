@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.soccersite.model.Category;
 import com.soccersite.model.Tournament;
 import com.soccersite.model.TournamentManager;
 import com.soccersite.repo.TournamentManagerRepo;

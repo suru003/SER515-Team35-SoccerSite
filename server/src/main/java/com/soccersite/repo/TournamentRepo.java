@@ -24,7 +24,7 @@ public interface TournamentRepo extends JpaRepository<Tournament, Integer> {
 	Optional<Tournament> findTournamentById(@Param("id") String id);
 	 
 	
-//	 @Query(value = "SELECT ts.category, ts.start_date FROM Tournament ts WHERE ts.id = :TN_00852", nativeQuery = true)
+//	 @Query(value = "SELECT ts.id, ts.manager_id, ts.category, ts.start_date, ts.end_date FROM Tournament ts WHERE ts.manager_id = 'TMN_00100'", nativeQuery = true)
 	 List<Tournament> findTournamentByTournamentManager(@Param("manager_id") TournamentManager manager_id);
 
 	 

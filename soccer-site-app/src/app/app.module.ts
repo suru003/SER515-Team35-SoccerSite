@@ -50,7 +50,8 @@ import { TournamentListComponent } from './tournamentDirector/tournament-list/to
     RefereeNewApplicationListComponent,
     TournamentDirectorLoginPageComponent,
     TournamentDirectorDashboardComponent,
-    AddTournamentComponent
+    AddTournamentComponent,
+    TournamentListComponent
   ],
   imports: [
     FormsModule,
