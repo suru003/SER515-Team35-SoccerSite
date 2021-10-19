@@ -4,19 +4,21 @@ import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { CoachComponent } from './coach/coach.component';
 
 import { UserListComponent } from './user-list/user-list.component';
-import { AddRefereeComponent } from './addReferee/addReferee.component';
-import { LoginPageComponent } from './loginPage/loginPage.component';
+
 
 // Referee Director
-import { RefereeDirectorComponent } from './refereeDirector/refereeDirectorHomepage.component';
-import { RefereeUserListComponent } from './referee-user-list/referee-user-list.component';
-import { RefereeNewApplicationListComponent } from './referee-new-application-list/referee-new-application-list.component';
+import { RefereeDirectorComponent } from './refereeDirector/dashboard/refereeDirectorHomepage.component';
+import { RefereeUserListComponent } from './refereeDirector/referee-user-list/referee-user-list.component';
+import { RefereeNewApplicationListComponent } from './refereeDirector/referee-new-application-list/referee-new-application-list.component';
+import { AddRefereeComponent } from './refereeDirector/addReferee/addReferee.component';
+import { LoginPageComponent } from './refereeDirector/loginPage/loginPage.component';
 
 // Tournament Director
 import { TournamentDirectorLoginPageComponent } from './tournamentDirector/loginPage/loginPage.component';
 import { TournamentDirectorDashboardComponent } from './tournamentDirector/dashboard/dashboard.component';
 import { AddTournamentComponent } from './tournamentDirector/addTournament/addTournament.component';
 import { TournamentListComponent } from './tournamentDirector/tournament-list/tournament-list.component';
+import { TeamsDashboardComponent } from './tournamentDirector/teams/teamsDashboard.component';
 
 
 
@@ -50,6 +52,9 @@ const routes: Routes = [
 
     ]
   },
+  {
+    path:'teamsDashboard', component: TeamsDashboardComponent
+  },
   {path:'refereeDirectorHomepage', component: RefereeDirectorComponent,
   children: [
   {
@@ -76,4 +81,5 @@ const routes: Routes = [
   UserListComponent, LoginPageComponent,
   AddRefereeComponent,RefereeUserListComponent, 
   RefereeNewApplicationListComponent,TournamentDirectorLoginPageComponent,
-  TournamentDirectorDashboardComponent,AddTournamentComponent,TournamentListComponent]
+  TournamentDirectorDashboardComponent,AddTournamentComponent,TournamentListComponent,
+  TeamsDashboardComponent]

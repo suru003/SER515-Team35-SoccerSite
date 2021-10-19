@@ -31,6 +31,7 @@ allTournaments(){
     this.router.navigate(['tournament-list'], {relativeTo:this.route});
   }
 
+
 addTournament(){
     this.router.navigate(['addTournament'], {relativeTo:this.route});
   }

@@ -19,19 +19,20 @@ import { SharedService } from './services/shared.service';
 
 // components
 import { UserListComponent } from './user-list/user-list.component';
-import { AddRefereeComponent } from './addReferee/addReferee.component';
-import { LoginPageComponent } from './loginPage/loginPage.component';
+import { AddRefereeComponent } from './refereeDirector/addReferee/addReferee.component';
+import { LoginPageComponent } from './refereeDirector/loginPage/loginPage.component';
 
 // Referee Director
-import { RefereeDirectorComponent } from './refereeDirector/refereeDirectorHomepage.component';
-import { RefereeUserListComponent } from './referee-user-list/referee-user-list.component';
-import { RefereeNewApplicationListComponent } from './referee-new-application-list/referee-new-application-list.component';
+import { RefereeDirectorComponent } from './refereeDirector/dashboard/refereeDirectorHomepage.component';
+import { RefereeUserListComponent } from './refereeDirector/referee-user-list/referee-user-list.component';
+import { RefereeNewApplicationListComponent } from './refereeDirector/referee-new-application-list/referee-new-application-list.component';
 
 // Tournament Director
 import { TournamentDirectorLoginPageComponent } from './tournamentDirector/loginPage/loginPage.component';
 import { TournamentDirectorDashboardComponent } from './tournamentDirector/dashboard/dashboard.component';
 import { AddTournamentComponent } from './tournamentDirector/addTournament/addTournament.component';
 import { TournamentListComponent } from './tournamentDirector/tournament-list/tournament-list.component';
+import { TeamsDashboardComponent } from './tournamentDirector/teams/teamsDashboard.component';
 
 
 
@@ -51,7 +52,8 @@ import { TournamentListComponent } from './tournamentDirector/tournament-list/to
     TournamentDirectorLoginPageComponent,
     TournamentDirectorDashboardComponent,
     AddTournamentComponent,
-    TournamentListComponent
+    TournamentListComponent,
+    TeamsDashboardComponent
   ],
   imports: [
     FormsModule,

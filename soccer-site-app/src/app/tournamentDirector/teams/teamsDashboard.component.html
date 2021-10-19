@@ -1,0 +1,141 @@
+ <div class="sidebar">
+
+  <div class="logo-section">
+    <div class="logo-name">Soccer Web App</div>
+  </div>
+
+  <div class="navbar">
+
+    <a href="#"><i class="fa fa-fw fa-home"></i> Dashboard</a>
+    <a href="#"><i class="fa fa-fw fa-search"></i> Coaches</a>
+    <a href="#"><i class="fa fa-fw fa-envelope"></i> Referees</a>
+    <a href="#"><i class="fa fa-fw fa-user"></i> Teams</a>
+
+  </div>
+
+</div>
+
+<div class="main-page align-vertically">
+
+  <div class="top-bar shadow rounded">
+
+    <div class="row">
+      <div class="col-lg-2 topbar-icon-col">
+       <a (click)='allTournaments()'> <button class="shadow" >Dashboard</button> </a>
+     </div>
+      <div class="col-lg-4 ">
+       </div>
+      <!--  <div class="col-lg-2 topbar-icon-col">
+         <a (click)='addTournament()'> <button class="shadow" >Add Tournament</button> </a>
+       </div> -->
+      <!--  <div class="col-lg-2 topbar-icon-col">
+        <a ><button class="shadow">Pending Applications</button></a>
+      </div> -->
+      <div class="col-lg-3"></div>
+
+      <div class="col-lg-3 topbar-icon-col">
+        <div class="row no-gutters">
+          <div class="col-lg-6 profile-text">
+            <div class="profile-child">
+             <p class="profile-text-title">Jane Doe</p>
+             <p class="profile-text-subtitle">Admin</p>
+           </div>
+         </div>
+
+         <div class="col-lg-3">
+          <div class="profile-image"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<br>
+<ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+  <li *ngFor="let c of categories; let i = index" [ngbNavItem]="i+1" >
+    <a ngbNavLink>{{c.categoryName}} => ({{c.minAge}} - {{c.maxAge}})</a>
+    <ng-template ngbNavContent>
+      <div >
+        <br>
+        <div class="row">
+          <div *ngFor="let tournament of tournaments" class="col-lg-4 teams-tab">
+            <div class="card mb-3 shadow rounded" *ngIf="(tournament.category.categoryName == c.categoryName)" >
+              <div class="row no-gutters">
+                <div class="col-md-4 icon-col">
+                  <div class="icon-circle background-color-2 icon-color-2">
+                    <i class="fa fa-fw fa-user "></i>
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title"> 
+
+                      Team Name: {{tournament.tournamentName}}
+
+                    </h5>
+                    <p class="card-text">End Date: {{tournament.endDate}}</p>
+                    <p class="card-text">End Date: {{tournament.startDate}}</p>
+                    <div class="col-lg-2 ">
+                      <a routerLink="/teamsDashboard"> <button class="shadow" >View All</button> </a>
+                    </div>
+                    <!-- <p class="card-subtext">Total users registered and active</p> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </ng-template>
+  </li>
+
+ <!--  <li [ngbNavItem]="1">
+    <a ngbNavLink>One</a>
+    <ng-template ngbNavContent>
+      <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth
+        master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro
+        keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat
+        salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="2">
+    <a ngbNavLink>Two</a>
+    <ng-template ngbNavContent>
+      <p>Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko
+        farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts
+        ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar
+        helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson
+        8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester
+        stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="3">
+    <a ngbNavLink>Three</a>
+    <ng-template ngbNavContent>
+      <p>Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi.
+        Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue et odio.
+        Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed diam urna,
+        egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus faucibus nisl enim, nec
+        tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque penatibus et
+        magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet ultricies in eget
+        neque. Phasellus nec tortor vel tellus pulvinar feugiat.</p>
+    </ng-template>
+  </li> -->
+</ul>
+
+<div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+<!-- <pre>Active: {{ active }}</pre>
+-->
+</div>
+
+
+<script>
+  var firstTabEl = document.querySelector('#myTab li:last-child a')
+  var firstTab = new bootstrap.Tab(firstTabEl)
+
+  firstTab.show()
+</script>
+
+
