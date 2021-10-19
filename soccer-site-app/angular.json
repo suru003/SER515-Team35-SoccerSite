@@ -35,7 +35,9 @@
               "src/assets/font-awesome-4.7.0/css/font-awesome.min.css",
               "src/assets/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
