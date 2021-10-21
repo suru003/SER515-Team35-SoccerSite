@@ -43,7 +43,7 @@ public class Tournament {
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "manager_id", referencedColumnName = "id")
   private TournamentManager tournamentManager;
-	
+	 
 	
 	public Tournament() {}
 	

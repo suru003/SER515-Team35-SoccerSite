@@ -2,6 +2,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Coach } from 'src/models/coach';
 import { CoachService } from '../services/coach.service';
+import { TeamService } from '../services/team.service';
+import { FormBuilder, FormGroup } from '@angular/forms'
 
 @Component({
   selector: 'app-coach',
@@ -11,11 +13,22 @@ import { CoachService } from '../services/coach.service';
 export class CoachComponent implements OnInit {
   public coach: Coach | undefined;
   private id: String = "test3";
-  constructor(private coachService:CoachService) { }
+  formValue !: FormGroup;
+  public teams!: any;
+  constructor(private coachService:CoachService, private teamService: TeamService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    console.log("got here");
-    this.getCoach(this.id);
+    this.teamService.getAllTeams().subscribe(data => {
+      this.teams = data;
+      console.log("Got teams "+this.teams);
+    });
+    this.formValue = this.formBuilder.group({
+      tournamentID : [''],
+      categoryId : [''],
+      teamName : [''],
+      coachID : ['']
+    })
+    
   }
 
   public getCoach(id: String): void{
@@ -24,6 +37,5 @@ export class CoachComponent implements OnInit {
       (error: HttpErrorResponse) => { alert(error.message) }
     );
   }
-  
 
 }

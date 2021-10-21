@@ -40,28 +40,27 @@ const routes: Routes = [
   },
   {
     path:'tournamentDirectorDashboard', component: TournamentDirectorDashboardComponent,
-    children:[
-    {
-      path:'addTournament', component: AddTournamentComponent
-    },
-    {
-      path:'tournament-list', component: TournamentListComponent
-    }
-
-    ]
+        children:[
+        {
+          path:'addTournament', component: AddTournamentComponent
+        },
+        {
+          path:'tournament-list', component: TournamentListComponent
+        }
+      ]
   },
   {path:'refereeDirectorHomepage', component: RefereeDirectorComponent,
-  children: [
-  {
-    path:'referee-user-list', component: RefereeUserListComponent
-  },
-  {
-    path:'add-referee', component: AddRefereeComponent
-  },
-  {
-    path:'referee-new-application-list', component: RefereeNewApplicationListComponent
-  }
-  ]
+        children: [
+        {
+          path:'referee-user-list', component: RefereeUserListComponent
+        },
+        {
+          path:'add-referee', component: AddRefereeComponent
+        },
+        {
+          path:'referee-new-application-list', component: RefereeNewApplicationListComponent
+        }
+      ]
 
 }
   // {path:'', component:HomepageComponent}
