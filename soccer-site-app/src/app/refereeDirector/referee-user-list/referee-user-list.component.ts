@@ -101,8 +101,8 @@ export class RefereeUserListComponent implements OnInit {
     lastName:new FormControl(),  
     email:new FormControl(),
     contactNo:new FormControl(),
-    username:new FormControl(),  
-    password:new FormControl(),
+    // username:new FormControl(),  
+    // password:new FormControl(),
     address:new FormControl(),
     city:new FormControl(), 
     country:new FormControl(), 
@@ -129,13 +129,13 @@ export class RefereeUserListComponent implements OnInit {
     return this.formdata.get('contactNo');  
   }
 
-  get refereeUsername(){  
-    return this.formdata.get('username');  
-  }
+  // get refereeUsername(){  
+  //   return this.formdata.get('username');  
+  // }
 
-  get refereePassword(){  
-    return this.formdata.get('password');  
-  }
+  // get refereePassword(){  
+  //   return this.formdata.get('password');  
+  // }
 
   get refereeAddress(){  
     return this.formdata.get('address');  
@@ -161,12 +161,13 @@ export class RefereeUserListComponent implements OnInit {
    this.newReferee.lastName=this.refereeLastN!.value;  
    this.newReferee.email=this.refereeEmail!.value; 
    this.newReferee.contactNo=this.refereeContactNo!.value; 
-   this.newReferee.username=this.refereeUsername!.value;   
-   this.newReferee.password=this.refereePassword!.value; 
+   // this.newReferee.username=this.refereeUsername!.value;   
+   // this.newReferee.password=this.refereePassword!.value; 
    this.newReferee.address=this.refereeAddress!.value; 
    this.newReferee.city=this.refereeCity!.value; 
    this.newReferee.country=this.refereeCountry!.value; 
    this.newReferee.roleID=this.refereeRoleID!.value; 
+   this.newReferee.status="VERIFIED"; 
     // console.log(this.StudentBranch.value);  
 
 

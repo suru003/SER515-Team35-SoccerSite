@@ -5,8 +5,8 @@ export class Referee{
 	lastName!: String;
 	email!: String;
 	contactNo!: Number;
-    username!: String;
-	password!: String;
+ //    username!: String;
+	// password!: String;
     address!: String;
     city!: String;
     country!: String;	

@@ -104,8 +104,8 @@ export class RefereeNewApplicationListComponent implements OnInit {
     lastName:new FormControl(),  
     email:new FormControl(),
     contactNo:new FormControl(),
-    username:new FormControl(),  
-    password:new FormControl(),
+    // username:new FormControl(),  
+    // password:new FormControl(),
     address:new FormControl(),
     city:new FormControl(), 
     country:new FormControl(), 
@@ -132,13 +132,13 @@ export class RefereeNewApplicationListComponent implements OnInit {
     return this.formdata.get('contactNo');  
   }
 
-  get refereeUsername(){  
-    return this.formdata.get('username');  
-  }
+  // get refereeUsername(){  
+  //   return this.formdata.get('username');  
+  // }
 
-  get refereePassword(){  
-    return this.formdata.get('password');  
-  }
+  // get refereePassword(){  
+  //   return this.formdata.get('password');  
+  // }
 
   get refereeAddress(){  
     return this.formdata.get('address');  
@@ -164,8 +164,8 @@ export class RefereeNewApplicationListComponent implements OnInit {
    this.newReferee.lastName=this.refereeLastN!.value;  
    this.newReferee.email=this.refereeEmail!.value; 
    this.newReferee.contactNo=this.refereeContactNo!.value; 
-   this.newReferee.username=this.refereeUsername!.value;   
-   this.newReferee.password=this.refereePassword!.value; 
+   // this.newReferee.username=this.refereeUsername!.value;   
+   // this.newReferee.password=this.refereePassword!.value; 
    this.newReferee.address=this.refereeAddress!.value; 
    this.newReferee.city=this.refereeCity!.value; 
    this.newReferee.country=this.refereeCountry!.value; 
@@ -200,12 +200,12 @@ export class RefereeNewApplicationListComponent implements OnInit {
 
         this.verifyUser.id = this.viewUserID;
         this.verifyUser.firstName = this.findRef.firstName;
-        console.log("verifyuser firstname" + this.findRef.firstName);  
+        // console.log("verifyuser firstname" + this.findRef.firstName);  
         this.verifyUser.lastName = this.findRef.lastName;
         this.verifyUser.email = this.findRef.email;
         this.verifyUser.contactNo = this.findRef.contactNo;
-        this.verifyUser.username = this.findRef.username;
-        this.verifyUser.password = this.findRef.password;
+        // this.verifyUser.username = this.findRef.username;
+        // this.verifyUser.password = this.findRef.password;
         this.verifyUser.address = this.findRef.address;
         this.verifyUser.city = this.findRef.city;
         this.verifyUser.country = this.findRef.country;
