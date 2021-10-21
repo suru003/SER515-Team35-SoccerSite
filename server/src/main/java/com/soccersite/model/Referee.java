@@ -35,8 +35,8 @@ public class Referee {
 	String email;
 	long contactNo;
 	@Column(unique= true)
-	String username;
-	String password;
+//	String username;
+//	String password;
 	String address;
 	String city;
 	String country;
@@ -46,16 +46,15 @@ public class Referee {
 	
 	public Referee() {}
 
-	public Referee(String id, String firstName, String lastName, String email, long contactNo, String username,
-			String password, String address, String city, String country, int roleID, String status) {
+	public Referee(String id, String firstName, String lastName, String email, long contactNo, String address, String city, String country, int roleID, String status) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.contactNo = contactNo;
-		this.username = username;
-		this.password = password;
+//		this.username = username;
+//		this.password = password;
 		this.address = address;
 		this.city = city;
 		this.country = country;
@@ -104,21 +103,21 @@ public class Referee {
 		this.contactNo = contactNo;
 	}
 
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
+//	public String getUsername() {
+//		return username;
+//	}
+//
+//	public void setUsername(String username) {
+//		this.username = username;
+//	}
+//
+//	public String getPassword() {
+//		return password;
+//	}
+//
+//	public void setPassword(String password) {
+//		this.password = password;
+//	}
 
 	public String getAddress() {
 		return address;
@@ -159,7 +158,7 @@ public class Referee {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
+
 	
 
 }

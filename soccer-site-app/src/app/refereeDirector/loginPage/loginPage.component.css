@@ -1,3 +1,7 @@
+body{
+	background-color: #1f1f1f;
+}
+
 .register-card{
 	width: 50rem;
 	margin: auto;
@@ -5,7 +9,7 @@
 }
 
 .register-card .left-col{
-	/*background-color: blue;*/
+	/*background-color: red;*/
 	background-image: url("../../../assets/images/3.jpg");
 	background-size: COVER;
 	background-repeat: no-repeat;
@@ -20,7 +24,9 @@
 	transform: translateX(-50%) translateY(-50%);
 	margin-top: 3rem;
 }
-
+.container1{
+	padding: 10px;
+}
 
 .card-body{
 	padding: 0;
@@ -47,5 +53,9 @@
 
 .btn{
 	width: 100%;
+}
+
+.card-body{
+	padding: 30px;
 }
 
