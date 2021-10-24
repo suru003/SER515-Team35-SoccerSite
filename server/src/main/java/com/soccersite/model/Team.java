@@ -67,11 +67,11 @@ public class Team implements Serializable{
 		this.teamName = teamName;
 	}
 
-	public String getCategoryId() {
+	public String getCategoryID() {
 		return categoryID;
 	}
 
-	public void setCategoryId(String categoryId) {
+	public void setCategoryID(String categoryId) {
 		this.categoryID = categoryId;
 	}
 

@@ -12,7 +12,7 @@ import com.soccersite.model.Team;
 
 @Repository
 @CrossOrigin(origins = "http://localhost:4200")
-public interface TeamRepo extends JpaRepository<Team, Integer> {
+public interface TeamRepo extends JpaRepository<Team, String> {
 	
 	@Query("SELECT t FROM Team t WHERE t.teamID = :id")
 	Optional<Team> findTeamById(@Param("id") String id);

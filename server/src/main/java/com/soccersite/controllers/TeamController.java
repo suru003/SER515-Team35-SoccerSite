@@ -63,7 +63,7 @@ public class TeamController {
 	 
 	@PutMapping("/update")
 	public ResponseEntity<Team> updateTeam(@RequestBody Team team){
-		Team response = teamService.addTeam(team);
+		Team response = teamService.save(team);
 		return new ResponseEntity<Team>(response, HttpStatus.OK) ;
 	}
 
@@ -71,7 +71,7 @@ public class TeamController {
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<?> deleteTeam(@PathVariable("id") String id){
 		teamService.deleteTeam(id);
-		return new ResponseEntity<>("Team deleted:"+id,HttpStatus.OK) ;
+		return new ResponseEntity<>(HttpStatus.OK) ;
 	}
 	
 

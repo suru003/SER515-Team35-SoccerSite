@@ -24,7 +24,7 @@ export class TeamService {
   }
 
   public updateTeam(team: Team):Observable<Team>{
-    return this.http.put<Team>(`${this.serverUrl}/insert`,team);
+    return this.http.put<Team>(`${this.serverUrl}/update`,team);
   }
   
   public deleteTeam(id: String):Observable<void>{
