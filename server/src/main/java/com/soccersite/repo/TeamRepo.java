@@ -21,4 +21,12 @@ public interface TeamRepo extends JpaRepository<Team, String> {
 		@Modifying
 		 @Query("DELETE FROM Team t WHERE t.teamID = :id")
 		void deleteById(@Param("id") String id);
+	 
+	 @Transactional
+		@Modifying
+		 @Query("UPDATE Team t set t.teamName= :teamName, "
+		 		+ "t.categoryID= :categoryID, "
+		 		+ "t.tournamentID= :tournamentID,"
+		 		+ "t.status = :status WHERE t.teamID = :id")
+		Team updateById(@Param("id") String id, String teamName, String categoryID, String tournamentID, boolean status);
 }

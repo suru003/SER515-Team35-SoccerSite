@@ -2,6 +2,7 @@ package com.soccersite.controllers;
 
 import java.util.List;
 
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -63,7 +64,7 @@ public class TeamController {
 	 
 	@PutMapping("/update")
 	public ResponseEntity<Team> updateTeam(@RequestBody Team team){
-		Team response = teamService.save(team);
+		Team response = teamService.addTeam(team);
 		return new ResponseEntity<Team>(response, HttpStatus.OK) ;
 	}
 

@@ -125,6 +125,7 @@ export class CoachComponent implements OnInit {
   public getAllTeams():void{
     this.teamService.getAllTeams().subscribe(data => {
       this.teams = data;
+      console.log(this.teams);
     });
     this.add_update = true;
   }
