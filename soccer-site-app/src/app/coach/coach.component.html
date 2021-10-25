@@ -1,6 +1,99 @@
+<br>
+<hr>
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <h1 style="color: aliceblue;">
+            {{PAGE_HEADER}}
+        </h1>
+        <div class="d-fkex">
+            <button type="button" (click)= "onAdd()" data-toggle="modal" data-target="#exampleModalLong" class="btn btn-success"> ADD TEAM </button>
+        </div>
+    </div>
+</nav>
 
-<p>TESTINGGGGGG</p>
-<div *ngIf="coach">
-    <div>{{coach.firstName}}</div>
-    <div>{{coach.lastName}}</div>
-</div>
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th scope="col">NO.</th>
+            <th scope="col">TOURNAMENT</th>
+            <th scope="col">CATEGORY</th>
+            <th scope="col">TEAM ID</th>
+            <th scope="col">TEAM NAME</th>
+            <th scope="col">COACH ID</th>
+            <th scope="col">ACTION</th>
+            <th scope="col">STATUS</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let team of teams; let i = index">
+            <td>{{i+1}}</td>
+
+            <td>{{team.tournamentID}}</td>
+            <td>{{team.categoryID}}</td>
+            <td>{{team.teamID}}</td>
+            <td>{{team.teamName}}</td>
+            <td>{{team.coachID}}</td>
+            <td>
+                <button (click)="onEdit(i)" class="btn btn-info" data-toggle="modal" data-target="#exampleModalLong">Edit</button>
+                <button (click)="deleteTeam(team.teamID)" class="btn btn-danger mx-3">Delete</button>
+            </td>
+            <td>
+              <div [hidden]="!team.status"> 
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
+                <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
+                <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
+                </svg>
+              </div>
+              
+              <div [hidden]="team.status">
+               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                </svg>
+              </div>
+            </td>
+        </tr>
+      
+    </tbody>
+</table>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Add New Team</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="formValue">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Tournament</label>
+                  <input type="text" formControlName="tournamentID" class="form-control"  placeholder="Enter Tournament ID" required>          
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Category</label>
+                    <input type="text" formControlName="categoryId" class="form-control" placeholder="Enter Team Category" required>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Team Name</label>
+                    <input type="text" formControlName="teamName" class="form-control" placeholder="Enter Team Name" required>
+                </div>
+                <div [hidden] = "!this.add_update" class="form-group">
+                    <label for="exampleInputPassword1">Coach ID</label>
+                    <input type="text" formControlName="coachID" class="form-control" placeholder="Enter Your ID" required> 
+                </div>
+                <div class="modal-footer">
+                  <button type="button" id="cancel" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                 
+                  <button  [hidden] = "!this.add_update" type="submit" (click)="addTeam()" class="btn btn-primary">Register</button>
+                  <button  [hidden] = "this.add_update" type="submit" (click)="updateTeam()" class="btn btn-primary">Update</button>
+                </div>
+              </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

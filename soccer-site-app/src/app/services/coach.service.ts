@@ -24,7 +24,7 @@ export class CoachService {
   }
 
   public updateCoach(coach: Coach):Observable<Coach>{
-    return this.http.put<Coach>(`${this.serverUrl}/insert`,coach);
+    return this.http.put<Coach>(`${this.serverUrl}/update`,coach);
   }
   
   public deleteCoach(id: String):Observable<void>{

@@ -54,7 +54,7 @@ public class Tournament {
 	@ManyToOne(optional = false)
     @JoinColumn(name = "manager_id", referencedColumnName = "id",nullable = false)
   private TournamentManager tournamentManager;
-	
+	 
 	
 	public Tournament() {}
 	
