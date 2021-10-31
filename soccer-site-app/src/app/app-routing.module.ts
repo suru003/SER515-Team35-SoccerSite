@@ -20,6 +20,9 @@ import { AddTournamentComponent } from './tournamentDirector/addTournament/addTo
 import { TournamentListComponent } from './tournamentDirector/tournament-list/tournament-list.component';
 import { TeamsDashboardComponent } from './tournamentDirector/teams/teamsDashboard.component';
 
+//F.A.Q. 
+import { FAQPageComponent } from './faqpage/faqpage.component';
+
 
 
 const routes: Routes = [
@@ -67,7 +70,10 @@ const routes: Routes = [
         }
       ]
 
-}
+	},
+	{
+		path:'F.A.Q.', component:FAQPageComponent
+	}
   // {path:'', component:HomepageComponent}
   ];
 
@@ -81,4 +87,4 @@ const routes: Routes = [
   AddRefereeComponent,RefereeUserListComponent, 
   RefereeNewApplicationListComponent,TournamentDirectorLoginPageComponent,
   TournamentDirectorDashboardComponent,AddTournamentComponent,TournamentListComponent,
-  TeamsDashboardComponent]
+  TeamsDashboardComponent, FAQPageComponent ]
