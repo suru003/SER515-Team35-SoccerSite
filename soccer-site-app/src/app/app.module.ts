@@ -34,6 +34,9 @@ import { AddTournamentComponent } from './tournamentDirector/addTournament/addTo
 import { TournamentListComponent } from './tournamentDirector/tournament-list/tournament-list.component';
 import { TeamsDashboardComponent } from './tournamentDirector/teams/teamsDashboard.component';
 
+//F.A.Q. 
+import { FAQPageComponent } from './faqpage/faqpage.component';
+
 
 
 
@@ -53,7 +56,8 @@ import { TeamsDashboardComponent } from './tournamentDirector/teams/teamsDashboa
     TournamentDirectorDashboardComponent,
     AddTournamentComponent,
     TournamentListComponent,
-    TeamsDashboardComponent
+    TeamsDashboardComponent,
+    FAQPageComponent
   ],
   imports: [
     FormsModule,
