@@ -31,4 +31,8 @@ allNewApplications(){
 addRef(){
     this.router.navigate(['add-referee'], {relativeTo:this.route});
   }
+
+  viewMatches(){
+    this.router.navigate(['app-view-matches'], {relativeTo:this.route});
+  }
 }
