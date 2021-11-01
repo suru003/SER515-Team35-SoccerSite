@@ -11,6 +11,7 @@ import { RefereeDirectorComponent } from './refereeDirector/dashboard/refereeDir
 import { RefereeUserListComponent } from './refereeDirector/referee-user-list/referee-user-list.component';
 import { RefereeNewApplicationListComponent } from './refereeDirector/referee-new-application-list/referee-new-application-list.component';
 import { AddRefereeComponent } from './refereeDirector/addReferee/addReferee.component';
+import { ViewMatches } from './refereeDirector/viewMatches/viewMatches';
 import { LoginPageComponent } from './refereeDirector/loginPage/loginPage.component';
 
 // Tournament Director
@@ -67,6 +68,9 @@ const routes: Routes = [
         },
         {
           path:'referee-new-application-list', component: RefereeNewApplicationListComponent
+        },
+        {
+          path:'app-view-matches', component: ViewMatches
         }
       ]
 
