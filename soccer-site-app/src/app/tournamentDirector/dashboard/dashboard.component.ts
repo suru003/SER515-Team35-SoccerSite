@@ -28,7 +28,7 @@ export class TournamentDirectorDashboardComponent implements OnInit{
   }
 
 allTournaments(){
-    this.router.navigate(['tournament-list'], {relativeTo:this.route});
+    this.router.navigate(['tournamentList'], {relativeTo:this.route});
   }
 
 

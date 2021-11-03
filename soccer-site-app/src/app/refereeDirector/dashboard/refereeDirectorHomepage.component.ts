@@ -21,18 +21,18 @@ export class RefereeDirectorComponent implements OnInit{
   }
 
 allRefs(){
-    this.router.navigate(['referee-user-list'], {relativeTo:this.route});
+    this.router.navigate(['refereeUserList'], {relativeTo:this.route});
   }
 
 allNewApplications(){
-    this.router.navigate(['referee-new-application-list'], {relativeTo:this.route});
+    this.router.navigate(['refereeNewApplicationList'], {relativeTo:this.route});
   }
 
 addRef(){
-    this.router.navigate(['add-referee'], {relativeTo:this.route});
+    this.router.navigate(['addReferee'], {relativeTo:this.route});
   }
 
   viewMatches(){
-    this.router.navigate(['app-view-matches'], {relativeTo:this.route});
+    this.router.navigate(['viewMatches'], {relativeTo:this.route});
   }
 }

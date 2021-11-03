@@ -11,9 +11,9 @@ import { Roles  } from '../../models/roles';
 import { Admin2Service } from '../services/admin2.service';
 
 @Component({
-  selector: 'app-user-list',
-  templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.css']
+  selector: 'userList',
+  templateUrl: './userList.component.html',
+  styleUrls: ['./userList.component.css']
 })
 export class UserListComponent implements OnInit {
   @ViewChild('close') close: ElementRef;

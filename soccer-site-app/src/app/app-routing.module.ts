@@ -3,13 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { CoachComponent } from './coach/coach.component';
 
-import { UserListComponent } from './user-list/user-list.component';
+import { UserListComponent } from './userList/userList.component';
 
 
 // Referee Director
 import { RefereeDirectorComponent } from './refereeDirector/dashboard/refereeDirectorHomepage.component';
-import { RefereeUserListComponent } from './refereeDirector/referee-user-list/referee-user-list.component';
-import { RefereeNewApplicationListComponent } from './refereeDirector/referee-new-application-list/referee-new-application-list.component';
+import { RefereeUserListComponent } from './refereeDirector/refereeUserList/refereeUserList.component';
+import { RefereeNewApplicationListComponent } from './refereeDirector/refereeNewApplicationList/refereeNewApplicationList.component';
 import { AddRefereeComponent } from './refereeDirector/addReferee/addReferee.component';
 import { ViewMatches } from './refereeDirector/viewMatches/viewMatches';
 import { LoginPageComponent } from './refereeDirector/loginPage/loginPage.component';
@@ -18,7 +18,7 @@ import { LoginPageComponent } from './refereeDirector/loginPage/loginPage.compon
 import { TournamentDirectorLoginPageComponent } from './tournamentDirector/loginPage/loginPage.component';
 import { TournamentDirectorDashboardComponent } from './tournamentDirector/dashboard/dashboard.component';
 import { AddTournamentComponent } from './tournamentDirector/addTournament/addTournament.component';
-import { TournamentListComponent } from './tournamentDirector/tournament-list/tournament-list.component';
+import { TournamentListComponent } from './tournamentDirector/tournamentList/tournamentList.component';
 import { TeamsDashboardComponent } from './tournamentDirector/teams/teamsDashboard.component';
 
 //F.A.Q. 
@@ -51,7 +51,7 @@ const routes: Routes = [
           path:'addTournament', component: AddTournamentComponent
         },
         {
-          path:'tournament-list', component: TournamentListComponent
+          path:'tournamentList', component: TournamentListComponent
         }
       ]
   },
@@ -61,16 +61,16 @@ const routes: Routes = [
   {path:'refereeDirectorHomepage', component: RefereeDirectorComponent,
         children: [
         {
-          path:'referee-user-list', component: RefereeUserListComponent
+          path:'refereeUserList', component: RefereeUserListComponent
         },
         {
-          path:'add-referee', component: AddRefereeComponent
+          path:'addReferee', component: AddRefereeComponent
         },
         {
-          path:'referee-new-application-list', component: RefereeNewApplicationListComponent
+          path:'refereeNewApplicationList', component: RefereeNewApplicationListComponent
         },
         {
-          path:'app-view-matches', component: ViewMatches
+          path:'viewMatches', component: ViewMatches
         }
       ]
 

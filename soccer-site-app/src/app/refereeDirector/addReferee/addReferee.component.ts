@@ -10,7 +10,7 @@ import { RefereeDirectorService } from '../../services/refereeDirector.service';
 declare var $: any;
 
 @Component({
-  selector: 'app-add-referee',
+  selector: 'addReferee',
   templateUrl: './addReferee.component.html',
   styleUrls: ['./addReferee.component.css']
 })
@@ -41,6 +41,7 @@ export class AddRefereeComponent {
 
   onSubmit(refereeForm: NgForm) {
     this.referee.status = 'NEW';
+    this.referee.roleID = 2;
     this.adminService.createReferee(this.referee).subscribe(
       data => {
         this.createReferee = data;
@@ -63,7 +64,7 @@ export class AddRefereeComponent {
   }
 
   viewAllUsers() {
-    $('#user-creation-modal').modal('close');
+    $('#user-creation-modal').modal('hide');
     this.router.navigate(['/allusers']);
   }
 }
