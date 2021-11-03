@@ -109,13 +109,13 @@
                               <span class="input-group-text" id="role">
                                 <i class="fa fa-user-circle" aria-hidden="true"></i></span>
                               </div>
-                              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="roleID" [(ngModel)]="referee.roleID" required #roleID="ngModel">
+                              <!-- <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="roleID" [(ngModel)]="referee.roleID" required #roleID="ngModel">
                                 
                                 <option [ngValue]="null" disabled selected>Role</option>
                                 <option *ngFor="let r of roles" [ngValue]="r.id" style="color: black">{{r.roles}}</option>
-                              </select>
+                              </select> -->
 
-                              <!--  <input type="text" class="form-control" id="roleID" name="roleID" placeholder="Role: Referee" aria-label="Role" aria-describedby="basic-addon1" value="2" readonly="true" [(ngModel)]="referee.roleID"  #roleID="ngModel"> -->
+                               <input type="text" class="form-control" id="roleID" name="roleID" placeholder="Role: Referee" aria-label="Role" aria-describedby="basic-addon1" value="2" readonly="true" [(ngModel)]="referee.roleID"  #roleID="ngModel">
 
                               <!--  <input type="text" class="form-control" id="roleID" name="roleID" placeholder="Role" aria-label="Role" aria-describedby="basic-addon1" [(ngModel)]="referee.roleID" ng-change="user.roleID" required #roleID="ngModel"> -->
                             </div>
@@ -165,7 +165,7 @@
                       <div class="modal-footer">
                         <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Okay</button> -->
                         <!-- <button type="button" class="btn btn-primary"  (click)="viewAllUsers()">Okay</button> -->
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Okay</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="viewAllUsers()">Okay</button>
                       </div>
 
                     </div>

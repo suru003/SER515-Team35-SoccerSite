@@ -1,9 +1,4 @@
-// import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-// import { Observable } from 'rxjs';
-// import {NgForm} from '@angular/forms';
-// import {FormControl,FormGroup,Validators} from '@angular/forms';  
-// import { ActivatedRoute, Router } from '@angular/router';
-// import { NgbModal, NgbModalRef, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
+
 import { HttpErrorResponse } from '@angular/common/http';
 import {NgForm} from '@angular/forms';
 import {FormControl,FormGroup,Validators} from '@angular/forms';  
@@ -21,8 +16,8 @@ import { SharedService } from "../../services/shared.service";
 
 @Component({
   selector: 'tournament-list',
-  templateUrl: './tournament-list.component.html',
-  styleUrls: ['./tournament-list.component.css']
+  templateUrl: './tournamentList.component.html',
+  styleUrls: ['./tournamentList.component.css']
 })
 export class TournamentListComponent implements OnInit {
   @ViewChild('close') close: ElementRef;

@@ -18,20 +18,20 @@ import { TournamentDirectorService } from './services/tournamentDirector.service
 import { SharedService } from './services/shared.service';
 
 // components
-import { UserListComponent } from './user-list/user-list.component';
+import { UserListComponent } from './userList/userList.component';
 import { AddRefereeComponent } from './refereeDirector/addReferee/addReferee.component';
 import { LoginPageComponent } from './refereeDirector/loginPage/loginPage.component';
 
 // Referee Director
 import { RefereeDirectorComponent } from './refereeDirector/dashboard/refereeDirectorHomepage.component';
-import { RefereeUserListComponent } from './refereeDirector/referee-user-list/referee-user-list.component';
-import { RefereeNewApplicationListComponent } from './refereeDirector/referee-new-application-list/referee-new-application-list.component';
+import { RefereeUserListComponent } from './refereeDirector/refereeUserList/refereeUserList.component';
+import { RefereeNewApplicationListComponent } from './refereeDirector/refereeNewApplicationList/refereeNewApplicationList.component';
 
 // Tournament Director
 import { TournamentDirectorLoginPageComponent } from './tournamentDirector/loginPage/loginPage.component';
 import { TournamentDirectorDashboardComponent } from './tournamentDirector/dashboard/dashboard.component';
 import { AddTournamentComponent } from './tournamentDirector/addTournament/addTournament.component';
-import { TournamentListComponent } from './tournamentDirector/tournament-list/tournament-list.component';
+import { TournamentListComponent } from './tournamentDirector/tournamentList/tournamentList.component';
 import { TeamsDashboardComponent } from './tournamentDirector/teams/teamsDashboard.component';
 
 //F.A.Q. 

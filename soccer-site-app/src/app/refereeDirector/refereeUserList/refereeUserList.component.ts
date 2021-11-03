@@ -10,9 +10,9 @@ import { Roles  } from '../../../models/roles';
 import { RefereeDirectorService } from '../../services/refereeDirector.service';
 
 @Component({
-  selector: 'referee-user-list',
-  templateUrl: './referee-user-list.component.html',
-  styleUrls: ['./referee-user-list.component.css']
+  selector: 'refereeUserList',
+  templateUrl: './refereeUserList.component.html',
+  styleUrls: ['./refereeUserList.component.css']
 })
 export class RefereeUserListComponent implements OnInit {
   @ViewChild('close') close: ElementRef;
