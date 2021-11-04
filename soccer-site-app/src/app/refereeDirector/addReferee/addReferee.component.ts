@@ -6,6 +6,7 @@ import { Users } from '../../../models/users';
 import { Roles } from '../../../models/roles';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RefereeDirectorService } from '../../services/refereeDirector.service';
+import { NgbModal, NgbModalRef, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 
 declare var $: any;
 
@@ -15,7 +16,6 @@ declare var $: any;
   styleUrls: ['./addReferee.component.css']
 })
 export class AddRefereeComponent {
-
   // declare var $: any;
   referee: Referee;
   roles: Roles[] = [];
@@ -54,6 +54,7 @@ export class AddRefereeComponent {
   }
 
 
+
   getRoles() {
     this.adminService.findAllRoles().subscribe(
       data => {
@@ -63,8 +64,18 @@ export class AddRefereeComponent {
 
   }
 
-  viewAllUsers() {
+  viewAllReferees() {
     $('#user-creation-modal').modal('hide');
-    this.router.navigate(['/allusers']);
+    // this.router.navigate(['/refereeNewApplicationList']);
+    this.refreshPage();
+  }
+
+//   closeModal(){
+//   this.close.nativeElement.click();
+// }
+
+
+  refreshPage(){
+    window.location.reload();
   }
 }
