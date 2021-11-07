@@ -35,4 +35,8 @@ allTournaments(){
 addTournament(){
     this.router.navigate(['addTournament'], {relativeTo:this.route});
   }
+
+  viewRefereeDirectorDashboard(){
+    this.router.navigate(['refereeDirectorHomepage'], {relativeTo:this.route});
+  }
 }

@@ -5,6 +5,8 @@ import { CoachComponent } from './coach/coach.component';
 
 import { UserListComponent } from './userList/userList.component';
 
+//App Component
+import { AppComponent } from './app.component';
 
 // Referee Director
 import { RefereeDirectorComponent } from './refereeDirector/dashboard/refereeDirectorHomepage.component';
@@ -24,16 +26,24 @@ import { TeamsDashboardComponent } from './tournamentDirector/teams/teamsDashboa
 //F.A.Q. 
 import { FAQPageComponent } from './faqpage/faqpage.component';
 
+//Team Application
+import { TeamApplicationComponent } from './teamApplication/teamApplication/teamApplication.component';
+
 
 
 const routes: Routes = [
+{
+    path:'app-root', component: AppComponent,
+        children:[
+        {
+           path:'teamApplication', component:TeamApplicationComponent
+        },
+      ]
+  },
 {path:'app-coach', component: CoachComponent},
   // {path:'app-homepage', component: HomepageComponent},
   {path:'admin-home', children:[
   { path:'', component: AdminHomeComponent },
-      // { path:'admin-header', component: HeaderComponent },
-      // { path:'admin-footer', component: FooterComponent },
-      // { path:'admin-sidebar', component: SidebarComponent }
       ]
     }, 
   // {path:'allusers', component: UserListComponent},
@@ -77,8 +87,11 @@ const routes: Routes = [
 	},
 	{
 		path:'F.A.Q.', component:FAQPageComponent
-	}
-  // {path:'', component:HomepageComponent}
+	},
+  {
+    path:'teamApplication', component:TeamApplicationComponent
+  }
+
   ];
 
   @NgModule({
@@ -91,4 +104,4 @@ const routes: Routes = [
   AddRefereeComponent,RefereeUserListComponent, 
   RefereeNewApplicationListComponent,TournamentDirectorLoginPageComponent,
   TournamentDirectorDashboardComponent,AddTournamentComponent,TournamentListComponent,
-  TeamsDashboardComponent, FAQPageComponent ]
+  TeamsDashboardComponent, FAQPageComponent, TeamApplicationComponent ]
