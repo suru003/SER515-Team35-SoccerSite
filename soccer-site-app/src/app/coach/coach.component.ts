@@ -27,7 +27,7 @@ export class CoachComponent implements OnInit {
     this.getAllTeams();
     this.formValue = this.formBuilder.group({
       tournamentID : ['', Validators.required],
-      categoryId : ['', Validators.required],
+      categoryID : ['', Validators.required],
       teamName : ['', Validators.required],
       coachID : ['', Validators.required]
     })
@@ -44,10 +44,10 @@ export class CoachComponent implements OnInit {
     this.selectedTeams.teamName = this.formValue.value.teamName;
     this.selectedTeams.coachID = this.formValue.value.coachID;
     this.selectedTeams.categoryID = this.formValue.value.categoryID;
+          
     this.teamService.addTeam(this.selectedTeams)
       .subscribe(res=> 
         {
-          console.log("Adding team: "+res.teamName);
           alert("Team added successfully");
           this.formValue.reset();
           let formCancel = document.getElementById("cancel");
@@ -84,7 +84,7 @@ export class CoachComponent implements OnInit {
     this.formValue.controls['tournamentID'].setValue(this.selectedTeams.tournamentID);
     this.formValue.controls['teamName'].setValue(this.selectedTeams.teamName);
     this.formValue.controls['coachID'].setValue(this.selectedTeams.coachID);
-    this.formValue.controls['categoryDd'].setValue(this.selectedTeams.categoryID);
+    this.formValue.controls['categoryID'].setValue(this.selectedTeams.categoryID);
     this.selectedTeams.status = false;
   }
 
@@ -94,7 +94,7 @@ export class CoachComponent implements OnInit {
     this.formValue.controls['tournamentID'].reset();
     this.formValue.controls['teamName'].reset();
     this.formValue.controls['coachID'].reset();
-    this.formValue.controls['categoryDd'].reset();
+    this.formValue.controls['categoryID'].reset();
   }
 
   public updateTeam(): void{
@@ -137,6 +137,5 @@ export class CoachComponent implements OnInit {
       (error: HttpErrorResponse) => { alert(error.message) }
     );
   }
-
 
 }

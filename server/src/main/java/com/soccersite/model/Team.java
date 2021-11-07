@@ -6,6 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -28,27 +31,39 @@ public class Team implements Serializable{
 	
 	@Column(unique= true)
 	String teamName;
+	
 	// Foreign key
-	String categoryID;
+//	String categoryID;
+	@OneToOne()
+    @JoinColumn(name = "cat_fk", referencedColumnName = "id",nullable = false)
+    private Category category;
+	
 	// Foreign key
-	String coachID;
+//	String coachID;
+	@OneToOne()
+    @JoinColumn(name = "coach_fk", referencedColumnName = "id",nullable = false)
+    private Coach coach;
+	
 	// Foreign key
-	String tournamentID;
+//	String tournamentID;
+	@OneToOne()
+    @JoinColumn(name = "tourn_fk", referencedColumnName = "id",nullable = false)
+    private Tournament tournament;
+	
+	
 	boolean status;
 
-	
-	
 	
 
 	public Team() {}
 	
-	public Team(String teamID, String teamName, String categoryId, String coachID, String tournamentID, boolean status) {
+	public Team(String teamID, String teamName, Category category, Coach coach, Tournament tournament, boolean status) {
 		super();
 		this.teamID = teamID;
-		this.categoryID = categoryId;
+		this.category = category;
 		this.teamName = teamName;
-		this.coachID = coachID;
-		this.tournamentID = tournamentID;
+		this.coach = coach;
+		this.tournament = tournament;
 		this.status = status;
 	}
 	public String getTeamID() {
@@ -67,28 +82,28 @@ public class Team implements Serializable{
 		this.teamName = teamName;
 	}
 
-	public String getCategoryID() {
-		return categoryID;
+	public Category getCategory() {
+		return category;
 	}
 
-	public void setCategoryID(String categoryId) {
-		this.categoryID = categoryId;
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
-	public String getCoachID() {
-		return coachID;
+	public Coach getCoach() {
+		return coach;
 	}
 
-	public void setCoachID(String coachID) {
-		this.coachID = coachID;
+	public void setCoachID(Coach coach) {
+		this.coach = coach;
 	}
 
-	public String getTournamentID() {
-		return tournamentID;
+	public Tournament getTournament() {
+		return tournament;
 	}
 
-	public void setTournamentID(String tournamentID) {
-		this.tournamentID = tournamentID;
+	public void setTournament(Tournament tournament) {
+		this.tournament = tournament;
 	}
 
 	public boolean isStatus() {
@@ -101,8 +116,8 @@ public class Team implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Team [teamName=" + teamName + ", categoryId=" + categoryID + ", coachID=" + coachID + ", tournamentID="
-				+ tournamentID + ", status=" + status + ", teamID=" + teamID + "]";
+		return "Team [teamName=" + teamName + ", categoryId=" + category.id + ", coachID=" + coach.id + ", tournamentID="
+				+ tournament.id + ", status=" + status + ", teamID=" + teamID + "]";
 	}	
 	
 

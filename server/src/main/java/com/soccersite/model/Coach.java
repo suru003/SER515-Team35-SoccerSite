@@ -7,14 +7,25 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 import org.springframework.stereotype.Component;
+
+import com.soccersite.custom.generators.CustomGenerator;
 
 @Entity
 public class Coach implements Serializable{
 	@Id
 	@Column(nullable= false, updatable= false)
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	int id;
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_id")
+    @GenericGenerator(
+        name = "user_id", 
+        strategy = "com.soccersite.custom.generators.CustomGenerator", 
+        parameters = {
+            @Parameter(name = CustomGenerator.INCREMENT_PARAM, value = "50"),
+            @Parameter(name = CustomGenerator.SEQUENCE_PREFIX_PARAMETER, value = "TMN_"),
+            @Parameter(name = CustomGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })
+	String id;
 	String firstName;
 	String lastName;
 	@Column(unique= true)
@@ -24,7 +35,7 @@ public class Coach implements Serializable{
 	
 	public Coach() {}
 	
-	public Coach(int iD, String firstName, String lastName, String email, String imageUrl) {
+	public Coach(String iD, String firstName, String lastName, String email, String imageUrl) {
 		super();
 		id = iD;
 		this.firstName = firstName;
@@ -33,10 +44,10 @@ public class Coach implements Serializable{
 		this.imageUrl = imageUrl;
 	}
 	
-	public int getID() {
+	public String getID() {
 		return id;
 	}
-	public void setID(int iD) {
+	public void setID(String iD) {
 		id = iD;
 	}
 	public String getFirstName() {

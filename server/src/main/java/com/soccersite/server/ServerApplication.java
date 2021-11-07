@@ -26,8 +26,6 @@ public class ServerApplication {
 	@Autowired
 	RolesRepo roleRepo;
 	
-	
-	
 	ServerApplication(){}
 	public static void main(String[] args) {
 		SpringApplication app = new SpringApplication(ServerApplication.class);
@@ -59,7 +57,6 @@ public class ServerApplication {
 			
 		};
 		
-	}
-	
+	}	
 
 }
