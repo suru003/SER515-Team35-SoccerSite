@@ -38,6 +38,9 @@ import { TeamsDashboardComponent } from './tournamentDirector/teams/teamsDashboa
 import { FAQPageComponent } from './faqpage/faqpage.component';
 
 
+//Team Application
+import { TeamApplicationComponent } from './teamApplication/teamApplication/teamApplication.component';
+
 
 
 
@@ -57,7 +60,8 @@ import { FAQPageComponent } from './faqpage/faqpage.component';
     AddTournamentComponent,
     TournamentListComponent,
     TeamsDashboardComponent,
-    FAQPageComponent
+    FAQPageComponent,
+    TeamApplicationComponent
   ],
   imports: [
     FormsModule,
