@@ -16,6 +16,12 @@ import { AddRefereeComponent } from './refereeDirector/addReferee/addReferee.com
 import { ViewMatches } from './refereeDirector/viewMatches/viewMatches';
 import { LoginPageComponent } from './refereeDirector/loginPage/loginPage.component';
 
+//Referees
+import { LoginOrRegisterComponent } from './refereeDirector/loginOrRegister/loginOrRegister.component';
+import { RegisterRefereeComponent } from './refereeDirector/register/registerReferee.component';
+
+
+
 // Tournament Director
 import { TournamentDirectorLoginPageComponent } from './tournamentDirector/loginPage/loginPage.component';
 import { TournamentDirectorDashboardComponent } from './tournamentDirector/dashboard/dashboard.component';
@@ -28,24 +34,29 @@ import { FAQPageComponent } from './faqpage/faqpage.component';
 
 //Team Application
 import { TeamApplicationComponent } from './teamApplication/teamApplication/teamApplication.component';
+import { TeamLoginOrRegisterComponent } from './teamApplication/loginOrRegister/loginOrRegister.component';
+
 
 
 
 const routes: Routes = [
 {
-    path:'app-root', component: AppComponent,
-        children:[
-        {
-           path:'teamApplication', component:TeamApplicationComponent
-        },
-      ]
-  },
+  path:'app-root', component: AppComponent,
+  children:[
+  {
+   path:'teamApplication', component:TeamApplicationComponent,
+ },
+ {
+   path:'refereeLoginOrRegister', component:LoginOrRegisterComponent
+ },
+ ]
+},
 {path:'app-coach', component: CoachComponent},
   // {path:'app-homepage', component: HomepageComponent},
   {path:'admin-home', children:[
   { path:'', component: AdminHomeComponent },
-      ]
-    }, 
+  ]
+}, 
   // {path:'allusers', component: UserListComponent},
   // {path:'add-referee', component: AddRefereeComponent},
   {
@@ -56,52 +67,62 @@ const routes: Routes = [
   },
   {
     path:'tournamentDirectorDashboard', component: TournamentDirectorDashboardComponent,
-        children:[
-        {
-          path:'addTournament', component: AddTournamentComponent
-        },
-        {
-          path:'tournamentList', component: TournamentListComponent
-        }
-      ]
+    children:[
+    {
+      path:'addTournament', component: AddTournamentComponent
+    },
+    {
+      path:'tournamentList', component: TournamentListComponent
+    }
+    ]
   },
   {
     path:'teamsDashboard', component: TeamsDashboardComponent
   },
   {path:'refereeDirectorHomepage', component: RefereeDirectorComponent,
-        children: [
-        {
-          path:'refereeUserList', component: RefereeUserListComponent
-        },
-        {
-          path:'addReferee', component: AddRefereeComponent
-        },
-        {
-          path:'refereeNewApplicationList', component: RefereeNewApplicationListComponent
-        },
-        {
-          path:'viewMatches', component: ViewMatches
-        }
-      ]
-
-	},
-	{
-		path:'F.A.Q.', component:FAQPageComponent
-	},
+  children: [
   {
-    path:'teamApplication', component:TeamApplicationComponent
+    path:'refereeUserList', component: RefereeUserListComponent
+  },
+  {
+    path:'addReferee', component: AddRefereeComponent
+  },
+  {
+    path:'refereeNewApplicationList', component: RefereeNewApplicationListComponent
+  },
+  {
+    path:'viewMatches', component: ViewMatches
   }
+  ]
 
-  ];
+},
+{
+  path:'F.A.Q.', component:FAQPageComponent
+},
+{
+  path:'teamApplication', component:TeamApplicationComponent
+},
+{
+ path:'refereeLoginOrRegister', component:LoginOrRegisterComponent
+},
+{
+ path:'registerReferee', component:RegisterRefereeComponent
+},
+{
+ path:'teamLoginOrRegister', component:TeamLoginOrRegisterComponent
+}
 
-  @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
-  })
-  export class AppRoutingModule { }
-  export const ArrayOfComponents = [RefereeDirectorComponent, 
-  UserListComponent, LoginPageComponent,
-  AddRefereeComponent,RefereeUserListComponent, 
-  RefereeNewApplicationListComponent,TournamentDirectorLoginPageComponent,
-  TournamentDirectorDashboardComponent,AddTournamentComponent,TournamentListComponent,
-  TeamsDashboardComponent, FAQPageComponent, TeamApplicationComponent ]
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+export const ArrayOfComponents = [RefereeDirectorComponent, 
+UserListComponent, LoginPageComponent,
+AddRefereeComponent,RefereeUserListComponent, 
+RefereeNewApplicationListComponent,TournamentDirectorLoginPageComponent,
+TournamentDirectorDashboardComponent,AddTournamentComponent,TournamentListComponent,
+TeamsDashboardComponent, FAQPageComponent, TeamApplicationComponent, 
+LoginOrRegisterComponent,RegisterRefereeComponent, TeamLoginOrRegisterComponent]

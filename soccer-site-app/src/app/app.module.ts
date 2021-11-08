@@ -27,6 +27,12 @@ import { RefereeDirectorComponent } from './refereeDirector/dashboard/refereeDir
 import { RefereeUserListComponent } from './refereeDirector/refereeUserList/refereeUserList.component';
 import { RefereeNewApplicationListComponent } from './refereeDirector/refereeNewApplicationList/refereeNewApplicationList.component';
 
+// Referee
+//Referees
+import { LoginOrRegisterComponent } from './refereeDirector/loginOrRegister/loginOrRegister.component';
+import { RegisterRefereeComponent } from './refereeDirector/register/registerReferee.component';
+
+
 // Tournament Director
 import { TournamentDirectorLoginPageComponent } from './tournamentDirector/loginPage/loginPage.component';
 import { TournamentDirectorDashboardComponent } from './tournamentDirector/dashboard/dashboard.component';
@@ -40,6 +46,7 @@ import { FAQPageComponent } from './faqpage/faqpage.component';
 
 //Team Application
 import { TeamApplicationComponent } from './teamApplication/teamApplication/teamApplication.component';
+import { TeamLoginOrRegisterComponent } from './teamApplication/loginOrRegister/loginOrRegister.component';
 
 
 
@@ -61,7 +68,10 @@ import { TeamApplicationComponent } from './teamApplication/teamApplication/team
     TournamentListComponent,
     TeamsDashboardComponent,
     FAQPageComponent,
-    TeamApplicationComponent
+    TeamApplicationComponent,
+    LoginOrRegisterComponent,
+    RegisterRefereeComponent,
+    TeamLoginOrRegisterComponent
   ],
   imports: [
     FormsModule,
