@@ -1,7 +1,7 @@
    <div class="sidebar">
 
     <div class="logo-section">
-      <div class="logo-name" style="text-align:center; font-size: 1rem;">2021 Highlights</div>
+      <div class="logo-name" style="text-align:center; font-size: 1rem;">2020 Highlights</div>
     </div>
 <br>
     <div class="navbar">
@@ -30,7 +30,7 @@
      <div class="col-lg-12 ">
        <div class="card mb-3 shadow rounded" >
         <br>
-        <h4> Appy to the 2021 ASU Sparky Soccer Tournament</h4>
+        <h4> Apply to the 2021 ASU Sparky Soccer Tournament</h4>
         <p> <b>WHEN:</b> </p>
         <p> <b>WHERE:</b> </p>
         <p> <b>FEES:</b> </p>
@@ -52,7 +52,7 @@
        <div class="card mb-3 shadow rounded" >
         <br>
         <p> <b>TEAM APPLICATION</b> </p>
-        <form #TeamApplicationForm="ngForm" (ngSubmit)="onSubmit(TeamApplicationForm)" >
+        <form #teamApplicationForm="ngForm" (ngSubmit)="onSubmit(teamApplicationForm)" >
 
           <div class="row" style="padding-bottom: 10px;"> 
             <div class="col-lg-2 tournamentApplicationForm">
@@ -279,7 +279,9 @@
   </div>
 </div>
 
-
+<br>
+<button type="submit" [disabled]="!teamApplicationForm.form.valid" 
+                                      class="btn btn-primary">Register</button>
 </form>
 <br>
 </div>
