@@ -32,6 +32,13 @@ body{
 	width: 100%;
 }
 
+.btn-primary-2{
+	background-color: #D8282B;
+	border-color: #D8282B;
+	color: white;
+	width: 30%;
+}
+
 .card{
 	padding-left: 2rem;
 	padding-right: 2rem;
