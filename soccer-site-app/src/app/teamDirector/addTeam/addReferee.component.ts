@@ -1,26 +1,22 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import {NgForm} from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-
-
-// models
 import { Referee } from '../../../models/referee';
+import { Users } from '../../../models/users';
 import { Roles } from '../../../models/roles';
-
-// services
+import { ActivatedRoute, Router } from '@angular/router';
 import { RefereeDirectorService } from '../../services/refereeDirector.service';
+import { NgbModal, NgbModalRef, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 
 declare var $: any;
 
 @Component({
-  selector: 'searchMatchSchedule',
-  templateUrl: './searchMatchSchedule.component.html',
-  styleUrls: ['./searchMatchSchedule.component.css']
+  selector: 'addReferee',
+  templateUrl: './addReferee.component.html',
+  styleUrls: ['./addReferee.component.css']
 })
-export class SearchMatchScheduleComponent {
-  // title: string;
-
+export class AddRefereeComponent {
+  // declare var $: any;
   referee: Referee;
   roles: Roles[] = [];
   title: string;
@@ -42,9 +38,10 @@ export class SearchMatchScheduleComponent {
     this.getRoles();
   }
 
+
   onSubmit(refereeForm: NgForm) {
     this.referee.status = 'NEW';
-    this.referee.roleID=2;
+    this.referee.roleID = 2;
     this.adminService.createReferee(this.referee).subscribe(
       data => {
         this.createReferee = data;
@@ -57,6 +54,7 @@ export class SearchMatchScheduleComponent {
   }
 
 
+
   getRoles() {
     this.adminService.findAllRoles().subscribe(
       data => {
@@ -66,8 +64,18 @@ export class SearchMatchScheduleComponent {
 
   }
 
-  viewAllUsers() {
-    $('#user-creation-modal').modal('close');
-    this.router.navigate(['/allusers']);
+  viewAllReferees() {
+    $('#user-creation-modal').modal('hide');
+    // this.router.navigate(['/refereeNewApplicationList']);
+    this.refreshPage();
+  }
+
+//   closeModal(){
+//   this.close.nativeElement.click();
+// }
+
+
+  refreshPage(){
+    window.location.reload();
   }
 }

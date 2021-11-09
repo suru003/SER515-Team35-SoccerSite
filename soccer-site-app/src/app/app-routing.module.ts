@@ -23,13 +23,19 @@ import { LoginOrRegisterComponent } from './refereeDirector/loginOrRegister/logi
 import { RegisterRefereeComponent } from './refereeDirector/register/registerReferee.component';
 
 
-
 // Tournament Director
 import { TournamentDirectorLoginPageComponent } from './tournamentDirector/loginPage/loginPage.component';
 import { TournamentDirectorDashboardComponent } from './tournamentDirector/dashboard/dashboard.component';
 import { AddTournamentComponent } from './tournamentDirector/addTournament/addTournament.component';
 import { TournamentListComponent } from './tournamentDirector/tournamentList/tournamentList.component';
 import { TeamsDashboardComponent } from './tournamentDirector/teams/teamsDashboard.component';
+
+//Team Director
+import { TeamDirectorComponent } from './teamDirector/dashboard/teamDirectorDashboard.component';
+import { TeamsListComponent } from './teamDirector/teamsList/teamsList.component';
+import { TeamNewApplicationListComponent } from './teamDirector/teamNewApplicationList/teamNewApplicationList.component';
+
+
 
 //F.A.Q. 
 import { FAQPageComponent } from './faqpage/faqpage.component';
@@ -121,6 +127,17 @@ const routes: Routes = [
 {
    path:'searchMatchSchedule', component:SearchMatchScheduleComponent
  },
+ {
+   path:'teamDirectorDashboard', component:TeamDirectorComponent,
+   children: [
+   {
+    path:'teamsList', component: TeamsListComponent
+  },
+  {
+    path:'teamNewApplicationList', component: TeamNewApplicationListComponent
+  }
+   ]
+ },
 
 ];
 
@@ -135,4 +152,5 @@ AddRefereeComponent,RefereeUserListComponent,
 RefereeNewApplicationListComponent,TournamentDirectorLoginPageComponent,
 TournamentDirectorDashboardComponent,AddTournamentComponent,TournamentListComponent,
 TeamsDashboardComponent, FAQPageComponent, TeamApplicationComponent, 
-LoginOrRegisterComponent,RegisterRefereeComponent, TeamLoginOrRegisterComponent, SearchMatchScheduleComponent]
+LoginOrRegisterComponent,RegisterRefereeComponent, TeamLoginOrRegisterComponent, 
+SearchMatchScheduleComponent,TeamDirectorComponent, TeamsListComponent, TeamNewApplicationListComponent]
