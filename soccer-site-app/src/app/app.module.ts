@@ -48,6 +48,8 @@ import { FAQPageComponent } from './faqpage/faqpage.component';
 import { TeamApplicationComponent } from './teamApplication/teamApplication/teamApplication.component';
 import { TeamLoginOrRegisterComponent } from './teamApplication/loginOrRegister/loginOrRegister.component';
 
+//Teams, Schedules, Scores
+import { SearchMatchScheduleComponent } from './matchSchedules/searchMatchSchedule/searchMatchSchedule.component';
 
 
 
@@ -71,7 +73,8 @@ import { TeamLoginOrRegisterComponent } from './teamApplication/loginOrRegister/
     TeamApplicationComponent,
     LoginOrRegisterComponent,
     RegisterRefereeComponent,
-    TeamLoginOrRegisterComponent
+    TeamLoginOrRegisterComponent,
+    SearchMatchScheduleComponent
   ],
   imports: [
     FormsModule,

@@ -38,6 +38,8 @@ import { FAQPageComponent } from './faqpage/faqpage.component';
 import { TeamApplicationComponent } from './teamApplication/teamApplication/teamApplication.component';
 import { TeamLoginOrRegisterComponent } from './teamApplication/loginOrRegister/loginOrRegister.component';
 
+//Teams, Schedules, Scores
+import { SearchMatchScheduleComponent } from './matchSchedules/searchMatchSchedule/searchMatchSchedule.component';
 
 
 
@@ -50,6 +52,9 @@ const routes: Routes = [
  },
  {
    path:'refereeLoginOrRegister', component:LoginOrRegisterComponent
+ },
+ {
+   path:'searchMatchSchedule', component:SearchMatchScheduleComponent
  },
  ]
 },
@@ -112,7 +117,10 @@ const routes: Routes = [
 },
 {
  path:'teamLoginOrRegister', component:TeamLoginOrRegisterComponent
-}
+},
+{
+   path:'searchMatchSchedule', component:SearchMatchScheduleComponent
+ },
 
 ];
 
@@ -127,4 +135,4 @@ AddRefereeComponent,RefereeUserListComponent,
 RefereeNewApplicationListComponent,TournamentDirectorLoginPageComponent,
 TournamentDirectorDashboardComponent,AddTournamentComponent,TournamentListComponent,
 TeamsDashboardComponent, FAQPageComponent, TeamApplicationComponent, 
-LoginOrRegisterComponent,RegisterRefereeComponent, TeamLoginOrRegisterComponent]
+LoginOrRegisterComponent,RegisterRefereeComponent, TeamLoginOrRegisterComponent, SearchMatchScheduleComponent]
