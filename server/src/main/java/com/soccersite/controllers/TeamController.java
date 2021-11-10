@@ -93,4 +93,5 @@ public class TeamController {
 		List<Team> list = teamService.findByisVerifiedFalse();
 		return new ResponseEntity<List<Team>>(list, HttpStatus.OK) ;
 	}
+	
 }

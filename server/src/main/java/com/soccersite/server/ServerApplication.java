@@ -59,7 +59,7 @@ public class ServerApplication {
 			roleRepo.save(role2);
 			roleRepo.save(role3);
 			roleRepo.save(role4);
-			
+			teamRepo.deleteAll();
 			Team team1 = new Team("TEAM_50500","The Rocks Boy Team", "U-18", "COACH-15", "TURN-11", false);
 			Team team2 = new Team("TEAM_50100","Fireflight Girls Team", "U-10", "COACH_12", "TURN-11", true);
 			teamRepo.save(team1);		
