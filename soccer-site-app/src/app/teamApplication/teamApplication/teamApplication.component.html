@@ -3,7 +3,7 @@
     <div class="logo-section">
       <div class="logo-name" style="text-align:center; font-size: 1rem;">2020 Highlights</div>
     </div>
-<br>
+    <br>
     <div class="navbar">
       <!-- <div class="highlights"></div> -->
       <div class="highlightsImage">
@@ -59,10 +59,9 @@
               <p class="label"> <b>Where did you hear about this Soccer tournament?</b> </p>
             </div>
             <div class="col-lg-10 ">
-             <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="hearAboutUs" [(ngModel)]="referee.roleID" required #hearAboutUs="ngModel">
+             <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="hearAboutUs" >
 
-              <option [ngValue]="null" disabled selected>Category</option>
-              <!-- <option *ngFor="let r of roles" [ngValue]="r.id" style="color: black">{{r.roles}}</option> -->
+              <option [ngValue]="null" disabled selected>How did you hear about us?</option>
             </select>
           </div>
         </div>
@@ -72,10 +71,18 @@
             <p class="label"> <b>Application Group</b> </p>
           </div>
           <div class="col-lg-10">
-           <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="category" [(ngModel)]="referee.roleID" required #category="ngModel">
+           <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="applicationCategory" [(ngModel)]="team.applicationCategory" required #applicationCategory="ngModel">
 
             <option [ngValue]="null" disabled selected>Category</option>
-            <!-- <option *ngFor="let r of roles" [ngValue]="r.id" style="color: black">{{r.roles}}</option> -->
+            <option value="Boys U08 ($500)" >Boys U08 ($500)</option>  
+            <option value="Boys U09 ($510)" >Boys U09 ($510)</option> 
+            <option value="Boys U10 ($520)" >Boys U10 ($520)</option> 
+            <option value="Boys U11 ($530)" >Boys U11 ($530)</option> 
+
+            <option value="Girls U08 ($500)" >Girls U08 ($500)</option>  
+            <option value="Girls U09 ($510)" >Girls U09 ($510)</option> 
+            <option value="Girls U10 ($520)" >Girls U10 ($520)</option> 
+            <option value="Girls U11 ($530)" >Girls U11 ($530)</option> 
           </select>
         </div>
       </div>
@@ -92,7 +99,7 @@
             <span class="input-group-text" id="teamName">
               <i class="fa fa-user-circle" aria-hidden="true"></i></span>
             </div>
-            <input type="text" class="form-control" placeholder="Rocky Boys Team" aria-label="teamName" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" id="teamName" name="teamName" placeholder="" aria-label="teamName" aria-describedby="basic-addon1" [(ngModel)]="team.teamName" ng-change="user.firstName" required #teamName="ngModel">
           </div>
         </div>
       </div>
@@ -102,17 +109,26 @@
           <p class="label"> <b>Team Category</b> </p>
         </div>
         <div class="col-lg-5">
-         <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="gender" [(ngModel)]="referee.roleID" required #gender="ngModel">
+         <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="gender" [(ngModel)]="team.gender" required #gender="ngModel">
 
           <!-- <option [ngValue]="null" disabled selected>Category</option> -->
-          <option [value]="0" disabled selected>Gender</option>          
+          <option value="" disabled selected>Gender</option>   
+          <option value="Boys" >Boys</option>  
+          <option value="Girls" >Girls</option> 
+          <option value="Women" >Women</option> 
+          <option value="Men" >Men</option> 
+
           <!-- <option *ngFor="let r of roles" [ngValue]="r.id" style="color: black">{{r.roles}}</option> -->
         </select>
       </div>
       <div class="col-lg-5">
-       <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="age" [(ngModel)]="referee.roleID" required #age="ngModel">
+       <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="age" [(ngModel)]="team.age" required #age="ngModel">
 
         <option value="" disabled selected>Age</option>
+        <option value="1" >U08</option>  
+        <option value="U09" >U09</option> 
+        <option value="U10" >U10</option> 
+        <option value="U11" >U11</option> 
         <!-- <option *ngFor="let r of roles" [ngValue]="r.id" style="color: black">{{r.roles}}</option> -->
       </select>
     </div>
@@ -123,23 +139,48 @@
       <p class="label"> <b>DOB of Oldest Player</b> </p>
     </div>
     <div class="col-lg-3">
-     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="dayDOB" [(ngModel)]="referee.roleID" required #dayDOB="ngModel">
+     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="dayDOB" [(ngModel)]="dayDOB" required >
 
       <option [ngValue]="null" disabled selected>Day</option>
+      <option value="" disabled selected>Gender</option>   
+      <option value="1" >1</option>  
+      <option value="2" >2</option> 
+      <option value="3" >3</option> 
+      <option value="4" >4</option> 
+      <option value="5" >5</option>  
+      <option value="6" >6</option> 
+      <option value="7" >7</option> 
+      <option value="8" >8</option> 
+      <option value="9" >9</option>  
+      <option value="10" >10</option> 
+      <option value="11" >11</option> 
+      <option value="12" >12</option> 
       <!-- <option *ngFor="let r of roles" [ngValue]="r.id" style="color: black">{{r.roles}}</option> -->
     </select>
   </div>
   <div class="col-lg-3">
-   <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="monthDOB" [(ngModel)]="referee.roleID" required #monthDOB="ngModel">
+   <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="monthDOB" [(ngModel)]="monthDOB" required>
 
     <option value="" disabled selected>Month</option>
+    <option value="January" >January</option>  
+    <option value="February" >February</option> 
+    <option value="March" >March</option> 
+    <option value="April" >April</option> 
+    <option value="May" >May</option>  
+    <option value="June" >June</option> 
+    <option value="July" >July</option> 
+    <option value="August" >August</option> 
     <!-- <option *ngFor="let r of roles" [ngValue]="r.id" style="color: black">{{r.roles}}</option> -->
   </select>
 </div>
 <div class="col-lg-4">
-  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="yearDOB" [(ngModel)]="referee.roleID" required #yearDOB="ngModel">
+  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="yearDOB" [(ngModel)]="yearDOB" required >
 
     <option value="" disabled selected>Year</option>
+    <option value="2000" >2000</option>  
+    <option value="2001" >2001</option> 
+    <option value="2002" >2002</option> 
+    <option value="2003" >2003</option> 
     <!-- <option *ngFor="let r of roles" [ngValue]="r.id" style="color: black">{{r.roles}}</option> -->
   </select>
 </div>
@@ -152,10 +193,10 @@
   <div class="col-lg-10">
    <div class="input-group mb-3">
     <div class="input-group-prepend">
-      <span class="input-group-text" id="coachName">
+      <span class="input-group-text" id="teamCoachName">
         <i class="fa fa-user-circle" aria-hidden="true"></i></span>
       </div>
-      <input type="text" class="form-control" placeholder="" aria-label="teamName" aria-describedby="basic-addon1">
+      <input type="text" class="form-control" id="coachName" name="coachName" placeholder="" aria-label="coachName" aria-describedby="basic-addon1" [(ngModel)]="team.coachName" required #coachName="ngModel">
     </div>
   </div>
 
@@ -168,19 +209,19 @@
   <div class="col-lg-5">
     <div class="input-group mb-3">
       <div class="input-group-prepend">
-        <span class="input-group-text" id="city">
+        <span class="input-group-text" id="teamcity">
           <i class="fa fa-map-marker" aria-hidden="true"></i></span>
         </div>
-        <input type="text" class="form-control" placeholder="City" aria-label="city" aria-describedby="basic-addon1">
+        <input type="text" class="form-control" id="city" name="city" placeholder="" aria-label="city" aria-describedby="basic-addon1" [(ngModel)]="team.city" required #city="ngModel">
       </div>
     </div>
     <div class="col-lg-5">
      <div class="input-group mb-3">
       <div class="input-group-prepend">
-        <span class="input-group-text" id="state">
+        <span class="input-group-text" id="teamstate">
           <i class="fa fa-map-marker" aria-hidden="true"></i></span>
         </div>
-        <input type="text" class="form-control" placeholder="State" aria-label="state" aria-describedby="basic-addon1">
+        <input type="text" class="form-control" id="state" name="state" placeholder="" aria-label="state" aria-describedby="basic-addon1" [(ngModel)]="team.state" required #state="ngModel">
       </div>
     </div>
   </div>
@@ -192,10 +233,10 @@
     <div class="col-lg-5">
       <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="clubName">
+          <span class="input-group-text" id="teamClubName">
             <i class="fa fa-map-marker" aria-hidden="true"></i></span>
           </div>
-          <input type="text" class="form-control" placeholder="" aria-label="clubName" aria-describedby="basic-addon1">
+          <input type="text" class="form-control" id="clubName" name="clubName" placeholder="" aria-label="clubName" aria-describedby="basic-addon1" [(ngModel)]="team.clubName" required #clubName="ngModel">
         </div>
       </div>
 <!--     <div class="col-lg-5">
@@ -214,74 +255,91 @@
       <p class="label"> <b>Association</b> </p>
     </div>
     <div class="col-lg-5">
-     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="association" [(ngModel)]="referee.roleID" required #association="ngModel">
+     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="association" [(ngModel)]="team.association" required #association="ngModel">
 
       <!-- <option [ngValue]="null" disabled selected>Category</option> -->
-      <option [value]="0" disabled selected>Association</option>          
-      <!-- <option *ngFor="let r of roles" [ngValue]="r.id" style="color: black">{{r.roles}}</option> -->
-    </select>
-  </div>
-</div>
+      <option [value]="0" disabled selected>Association</option>
+      <option value="Alaska" >Alaska</option>  
+      <option value="Alabama" >Alabama</option> 
+      <option value="Georgia" >Georgia</option> 
+      <option value="Arizona" >Arizona</option> 
+      <option value="Arizona" >Arkansas</option>
 
- <div class="row" style="padding-bottom: 10px;"> 
-    <div class="col-lg-2 tournamentApplicationForm">
-      <p class="label"> <b>League</b> </p>
-    </div>
-    <div class="col-lg-5">
-     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="league" [(ngModel)]="referee.roleID" required #league="ngModel">
-
-      <!-- <option [ngValue]="null" disabled selected>Category</option> -->
-      <option [value]="0" disabled selected>League</option>          
-      <!-- <option *ngFor="let r of roles" [ngValue]="r.id" style="color: black">{{r.roles}}</option> -->
     </select>
   </div>
 </div>
 
 <div class="row" style="padding-bottom: 10px;"> 
-    <div class="col-lg-2 tournamentApplicationForm">
-      <p class="label"> <b>Play Level Desired</b> </p>
-    </div>
-    <div class="col-lg-5">
-     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="playLevel" [(ngModel)]="referee.roleID" required #playLevel="ngModel">
-
-      <!-- <option [ngValue]="null" disabled selected>Category</option> -->
-      <option [value]="0" disabled selected>Play Level</option>          
-      <!-- <option *ngFor="let r of roles" [ngValue]="r.id" style="color: black">{{r.roles}}</option> -->
-    </select>
+  <div class="col-lg-2 tournamentApplicationForm">
+    <p class="label"> <b>League</b> </p>
   </div>
+  <div class="col-lg-5">
+   <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="league" [(ngModel)]="team.league" required #league="ngModel">
+
+    <!-- <option [ngValue]="null" disabled selected>Category</option> -->
+    <option [value]="0" disabled selected>League</option>      
+    <option value="Premier League (Boys U10)" >Premier League (Boys U10)</option> 
+    <option value="Premier League (Boys U11)" >Premier League (Boys U11)</option> 
+    <option value="Champions League (Girls U10)" >Premier League (Girls U10)</option> 
+    <option value="Champions League (Girls U11)" >Champions League (Girls U11)</option>    
+  </select>
+</div>
 </div>
 
 <div class="row" style="padding-bottom: 10px;"> 
-    <div class="col-lg-2 tournamentApplicationForm">
-      <p class="label"> <b>Primary Jersey Color</b> </p>
-    </div>
-    <div class="col-lg-5">
-     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="primaryJerseyColor" [(ngModel)]="referee.roleID" required #primaryJerseyColor="ngModel">
-
-      <!-- <option [ngValue]="null" disabled selected>Category</option> -->
-      <option [value]="0" disabled selected>Color</option>          
-      <!-- <option *ngFor="let r of roles" [ngValue]="r.id" style="color: black">{{r.roles}}</option> -->
-    </select>
+  <div class="col-lg-2 tournamentApplicationForm">
+    <p class="label"> <b>Play Level Desired</b> </p>
   </div>
+  <div class="col-lg-5">
+   <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="playLevel" [(ngModel)]="team.playLevel" required #playLevel="ngModel">
+
+    <!-- <option [ngValue]="null" disabled selected>Category</option> -->
+    <option [value]="0" disabled selected>Play Level</option>  
+    <option value="Classic" >Classic</option> 
+    <option value="Premier" >Premier</option> 
+    <option value="Champions " >Champions</option> 
+    <option value="Super Hero" >Super Hero</option>         
+  </select>
+</div>
 </div>
 
 <div class="row" style="padding-bottom: 10px;"> 
-    <div class="col-lg-2 tournamentApplicationForm">
-      <p class="label"> <b>Alternative Jersey Color</b> </p>
-    </div>
-    <div class="col-lg-5">
-     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="alternativeJerseyColor" [(ngModel)]="referee.roleID" required #alternativeJerseyColor="ngModel">
-
-      <!-- <option [ngValue]="null" disabled selected>Category</option> -->
-      <option [value]="0" disabled selected>Color</option>          
-      <!-- <option *ngFor="let r of roles" [ngValue]="r.id" style="color: black">{{r.roles}}</option> -->
-    </select>
+  <div class="col-lg-2 tournamentApplicationForm">
+    <p class="label"> <b>Primary Jersey Color</b> </p>
   </div>
+  <div class="col-lg-5">
+   <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="primaryJerseyColor" [(ngModel)]="team.primaryJerseyColor" required #primaryJerseyColor="ngModel">
+
+    <!-- <option [ngValue]="null" disabled selected>Category</option> -->
+    <option [value]="0" disabled selected>Color</option> 
+    <option value="Black" >Black</option> 
+          <option value="White" >White</option> 
+          <option value="Red " >Red</option> 
+          <option value="Blue" >Blue</option>          
+  </select>
+</div>
+</div>
+
+<div class="row" style="padding-bottom: 10px;"> 
+  <div class="col-lg-2 tournamentApplicationForm">
+    <p class="label"> <b>Alternative Jersey Color</b> </p>
+  </div>
+  <div class="col-lg-5">
+   <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="alternativeJerseyColor" [(ngModel)]="team.altJerseyColor" required #alternativeJerseyColor="ngModel">
+
+    <!-- <option [ngValue]="null" disabled selected>Category</option> -->
+    <option [value]="0" disabled selected>Color</option>   
+    <option value="Black" >Black</option> 
+          <option value="White" >White</option> 
+          <option value="Red " >Red</option> 
+          <option value="Blue" >Blue</option>        
+  </select>
+</div>
 </div>
 
 <br>
 <button type="submit" [disabled]="!teamApplicationForm.form.valid" 
-                                      class="btn btn-primary">Register</button>
+class="btn btn-primary">Register</button>
 </form>
 <br>
 </div>

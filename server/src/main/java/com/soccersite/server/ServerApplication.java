@@ -60,11 +60,21 @@ public class ServerApplication {
 			roleRepo.save(role3);
 			roleRepo.save(role4);
 			teamRepo.deleteAll();
-			Team team1 = new Team("TEAM_50500","The Rocks Boy Team", "U-18", "COACH-15", "TURN-11", false);
+//			Team team1 = new Team("TEAM_50500","All Star Boys Soccer Team", "", "", "", false, "Boys", "10",
+//					"John Easel","Gunners FC", "Arizona", "Alabama", "Premier League (Boys U10)", "Classic",
+//					"Black", "Red", "12-06-2000", "Boys U08 ($500)");
+			Team team3 = new Team("TEAM_50500","All Star Boys Soccer Team", "", "", "", false, "Boys", "10",
+					"John Easel","Gunners FC", "Arizona", "Arizona", "Alabama", "Classic League (Boys U10)", "Classic",
+					"Black", "Red", "12-06-2000", "Boys U08 ($500)");
+			Team team4 = new Team("TEAM_50100","Super Girls Soccer Team", "", "", "", true, "Girls", "11",
+					"Daisy Little","Gunners FC", "Georgia", "Georgia", "Georgia", "Premier League (Girls U11)", "Premier",
+					"White", "Blue", "1-07-2000", "Girls U11 ($530)");
 			Team team2 = new Team("TEAM_50100","Fireflight Girls Team", "U-10", "COACH_12", "TURN-11", true);
-			teamRepo.save(team1);		
+			teamRepo.save(team3);		
 			teamRepo.save(team2);
+			teamRepo.save(team4);
 		};
+		
 		
 	}
 	

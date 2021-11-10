@@ -5,11 +5,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 
 // models
-import { Referee } from '../../../models/referee';
-import { Roles } from '../../../models/roles';
+import { Team } from '../../../models/team';
 
 // services
-import { RefereeDirectorService } from '../../services/refereeDirector.service';
+import { TeamService } from '../../services/team.service';
 
 declare var $: any;
 
@@ -21,34 +20,48 @@ declare var $: any;
 export class TeamApplicationComponent {
   // title: string;
 
-  referee: Referee;
-  roles: Roles[] = [];
+  team: Team;
   title: string;
   showMsg: boolean = false;
   selectedRole = null;
-  createReferee:any;
+  createdTeam:any;
+
+  dayDOB: string = '';
+  monthDOB: string = '';
+  yearDOB: string = '';
 
   constructor(
     private route: ActivatedRoute, 
     private router: Router, 
-    private adminService: RefereeDirectorService) {
-    this.referee = new Referee();
+    private teamService: TeamService) {
+    this.team = new Team();
     // this.user = new Users();
     this.title = 'Register Referee';
     
   }
 
   ngOnInit() {
-    this.getRoles();
+    // this.getRoles();
   }
 
-  onSubmit(refereeForm: NgForm) {
-    this.referee.status = 'NEW';
-    this.referee.roleID=2;
-    this.adminService.createReferee(this.referee).subscribe(
+  onSubmit(teamApplicationForm: NgForm) {
+    // this.referee.status = 'NEW';
+    // this.referee.roleID=2;
+    // this.adminService.createReferee(this.referee).subscribe(
+    //   data => {
+    //     this.createReferee = data;
+    //     this.createReferee = Array.of(this.createReferee);
+    //     // this.viewAllUsers();
+    //   });
+
+    // $('#user-creation-modal').modal('show');
+    this.team.status = false;
+    this.team.oldestDOB= this.dayDOB + "-" + this.monthDOB + "-" + this.yearDOB;
+    // this.referee.roleID=2;
+    this.teamService.addTeam(this.team).subscribe(
       data => {
-        this.createReferee = data;
-        this.createReferee = Array.of(this.createReferee);
+        this.createdTeam = data;
+        this.createdTeam = Array.of(this.createdTeam);
         // this.viewAllUsers();
       });
 
@@ -57,17 +70,17 @@ export class TeamApplicationComponent {
   }
 
 
-  getRoles() {
-    this.adminService.findAllRoles().subscribe(
-      data => {
-        this.roles = data;
-        // console.log(data);
-      });
+  // getRoles() {
+  //   this.adminService.findAllRoles().subscribe(
+  //     data => {
+  //       this.roles = data;
+  //       // console.log(data);
+  //     });
 
-  }
+  // }
 
-  viewAllUsers() {
-    $('#user-creation-modal').modal('close');
-    this.router.navigate(['/allusers']);
-  }
+  // viewAllUsers() {
+  //   $('#user-creation-modal').modal('close');
+  //   this.router.navigate(['/allusers']);
+  // }
 }
