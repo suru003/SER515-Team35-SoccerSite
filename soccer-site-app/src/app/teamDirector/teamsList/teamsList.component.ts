@@ -18,9 +18,9 @@ export class TeamsListComponent implements OnInit {
   // admins: Admin2[] = [];
   teams: Team[] = [];
   title: string;
-  deleteRef: any;
-  deleteUserID!:String;
-  updateUserID!:String;
+  deleteTeamFound: any;
+  deleteTeamID!:String;
+  updateTeamID!:String;
   // roles: Roles[] = [];
 
   team: Team[];  
@@ -45,49 +45,49 @@ export class TeamsListComponent implements OnInit {
 
   }
 
-  // deleteReferee() {  
-  //   this.teamService.deleteReferee(this.deleteUserID) 
-  //   .subscribe(  
-  //     data => {  
-  //       console.log(data);  
-  //       this.viewAllUsers();
+  deleteTeam() {  
+    this.teamService.deleteTeam(this.deleteTeamID) 
+    .subscribe(  
+      data => {  
+        // console.log(data);  
+        // this.viewPendingTeams();
 
-  //     },  
-  //     error => console.log(error)); 
-  //   this.closeModal();
-  //   this.refreshPage();
-  // }
-
-
-  // confirmDeletion(id: String) {  
-  //   this.deleteUserID = id;
-  //   console.log("delete id is" + this.deleteUserID);  
-  //   this.refereeService.findRefereeByID(id) 
-  //   .subscribe(  
-  //     data => {  
-  //       this.deleteRef = data;
-  //       this.deleteRef = Array.of(this.deleteRef);  
-  //     },  
-  //     error => console.log(error));  
-
-  // }
+      },  
+      error => console.log(error)); 
+    this.closeModal();
+    this.refreshPage();
+   }
 
 
+   confirmDeletion(id: String) {  
+    this.deleteTeamID = id;
+    // console.log("delete id is" + this.deleteTeamID);  
+    this.teamService.getTeam(id) 
+    .subscribe(  
+      data => {  
+        this.deleteTeamFound = data;
+        this.deleteTeamFound = Array.of(this.deleteTeamFound);  
+      },  
+      error => console.log(error));  
 
-  // updateReferee(id: String){
-  //   this.updateUserID = id;
-  //   console.log("id is:" + id);
-  //   this.getRoles();
+  }
+
+
+
+  updateReferee(id: String){
+    // this.updateUserID = id;
+    // console.log("id is:" + id);
+    // this.getRoles();
     
-  //   this.refereeService.findRefereeByID(id)  
-  //   .subscribe(  
-  //     data => {  
-  //       this.newRefereelist = data;
-  //       this.newRefereelist = Array.of(this.newRefereelist); 
-  //       console.log(data);             
-  //     },  
-  //     error => console.log(error));  
-  // }
+    // this.refereeService.findRefereeByID(id)  
+    // .subscribe(  
+    //   data => {  
+    //     this.newRefereelist = data;
+    //     this.newRefereelist = Array.of(this.newRefereelist); 
+    //     console.log(data);             
+    //   },  
+    //   error => console.log(error));  
+  }
 
   
 
@@ -170,17 +170,17 @@ export class TeamsListComponent implements OnInit {
 
 
 
-  // viewAllUsers() {
-  //   this.router.navigate(['/allusers']);
+  // viewVerifiedTeams() {
+  //   this.router.navigate(['/teamNewApplicationList']);
   // }
 
-  // closeModal(){
-  //   this.close.nativeElement.click();
-  // }
+  closeModal(){
+    this.close.nativeElement.click();
+  }
 
-  // refreshPage(){
-  //   window.location.reload();
-  // }
+  refreshPage(){
+    window.location.reload();
+  }
 
   // getRoles() {
   //   this.refereeService.findAllRoles().subscribe(

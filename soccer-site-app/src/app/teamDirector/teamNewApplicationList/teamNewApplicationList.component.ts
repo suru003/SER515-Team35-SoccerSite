@@ -17,9 +17,9 @@ export class TeamNewApplicationListComponent implements OnInit {
 
   teams: Team[] = [];
   title: string;
-  deleteRef: any;
-  deleteUserID!:String;
-  updateUserID!:String;
+  deleteTeamFound: any;
+  deleteTeamID!:String;
+  updateTeamID!:String;
   
 
   // refs: Referee[];  
@@ -50,29 +50,30 @@ export class TeamNewApplicationListComponent implements OnInit {
 
   }
 
-  deleteReferee() {  
-    // this.refereeService.deleteReferee(this.deleteUserID) 
-    // .subscribe(  
-    //   data => {  
-    //     // console.log(data);  
-    //     this.viewAllUsers();
+   deleteTeam() {  
+    this.teamService.deleteTeam(this.deleteTeamID) 
+    .subscribe(  
+      data => {  
+        // console.log(data);  
+        this.viewPendingTeams();
 
-    //   },  
-    //   error => console.log(error)); 
-    // this.closeModal();
-    // this.refreshPage();
-  }
+      },  
+      error => console.log(error)); 
+    this.closeModal();
+    this.refreshPage();
+   }
 
 
-  confirmDeletion(id: String) {  
-    // this.deleteUserID = id;
-    // this.refereeService.findRefereeByID(id) 
-    // .subscribe(  
-    //   data => {  
-    //     this.deleteRef = data;
-    //     this.deleteRef = Array.of(this.deleteRef);  
-    //   },  
-    //   error => console.log(error));  
+   confirmDeletion(id: String) {  
+    this.deleteTeamID = id;
+    // console.log("delete id is" + this.deleteTeamID);  
+    this.teamService.getTeam(id) 
+    .subscribe(  
+      data => {  
+        this.deleteTeamFound = data;
+        this.deleteTeamFound = Array.of(this.deleteTeamFound);  
+      },  
+      error => console.log(error));  
 
   }
 
@@ -261,6 +262,8 @@ closeModal(){
 
 //   }
 
-
+viewPendingTeams() {
+    this.router.navigate(['/teamNewApplicationList']);
+  }
 
 }

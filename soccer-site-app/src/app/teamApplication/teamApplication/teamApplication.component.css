@@ -213,6 +213,10 @@ body{
 	border: none;
 }
 
+select, input{
+	font-size: 0.8rem;
+}
+
 .subtitle {
 	font-size: 0.8rem;
 }
