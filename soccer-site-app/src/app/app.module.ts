@@ -40,6 +40,12 @@ import { AddTournamentComponent } from './tournamentDirector/addTournament/addTo
 import { TournamentListComponent } from './tournamentDirector/tournamentList/tournamentList.component';
 import { TeamsDashboardComponent } from './tournamentDirector/teams/teamsDashboard.component';
 
+//Team Director
+import { TeamDirectorComponent } from './teamDirector/dashboard/teamDirectorDashboard.component';
+import { TeamsListComponent } from './teamDirector/teamsList/teamsList.component';
+import { TeamNewApplicationListComponent } from './teamDirector/teamNewApplicationList/teamNewApplicationList.component';
+
+
 //F.A.Q. 
 import { FAQPageComponent } from './faqpage/faqpage.component';
 
@@ -74,7 +80,10 @@ import { SearchMatchScheduleComponent } from './matchSchedules/searchMatchSchedu
     LoginOrRegisterComponent,
     RegisterRefereeComponent,
     TeamLoginOrRegisterComponent,
-    SearchMatchScheduleComponent
+    SearchMatchScheduleComponent,
+    TeamDirectorComponent,
+    TeamsListComponent,
+    TeamNewApplicationListComponent
   ],
   imports: [
     FormsModule,

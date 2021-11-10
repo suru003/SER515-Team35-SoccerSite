@@ -22,7 +22,7 @@ public class Team implements Serializable{
         strategy = "com.soccersite.custom.generators.CustomGenerator", 
         parameters = {
             @Parameter(name = CustomGenerator.INCREMENT_PARAM, value = "50"),
-            @Parameter(name = CustomGenerator.SEQUENCE_PREFIX_PARAMETER, value = "TMN_"),
+            @Parameter(name = CustomGenerator.SEQUENCE_PREFIX_PARAMETER, value = "TEAM_"),
             @Parameter(name = CustomGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })
 	String teamID;
 	
@@ -34,9 +34,7 @@ public class Team implements Serializable{
 	String coachID;
 	// Foreign key
 	String tournamentID;
-	boolean status;
-
-	
+	boolean isVerified;	
 	
 	
 
@@ -49,7 +47,7 @@ public class Team implements Serializable{
 		this.teamName = teamName;
 		this.coachID = coachID;
 		this.tournamentID = tournamentID;
-		this.status = status;
+		this.isVerified = status;
 	}
 	public String getTeamID() {
 		return teamID;
@@ -91,20 +89,19 @@ public class Team implements Serializable{
 		this.tournamentID = tournamentID;
 	}
 
-	public boolean isStatus() {
-		return status;
+	public boolean isVerified() {
+		return isVerified;
 	}
 
-	public void setStatus(boolean status) {
-		this.status = status;
+	public void setVerified(boolean status) {
+		this.isVerified = status;
 	}
 
 	@Override
 	public String toString() {
 		return "Team [teamName=" + teamName + ", categoryId=" + categoryID + ", coachID=" + coachID + ", tournamentID="
-				+ tournamentID + ", status=" + status + ", teamID=" + teamID + "]";
+				+ tournamentID + ", status=" + isVerified + ", teamID=" + teamID + "]";
 	}	
 	
-
 	
 }

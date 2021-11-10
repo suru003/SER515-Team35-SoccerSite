@@ -14,7 +14,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import com.soccersite.model.Roles;
+import com.soccersite.model.Team;
 import com.soccersite.repo.RolesRepo;
+import com.soccersite.repo.TeamRepo;
 
 @Configuration
 @ComponentScan({"com.soccersite"})
@@ -25,6 +27,8 @@ public class ServerApplication {
 	
 	@Autowired
 	RolesRepo roleRepo;
+	@Autowired
+	TeamRepo teamRepo;
 	
 	
 	
@@ -56,7 +60,10 @@ public class ServerApplication {
 			roleRepo.save(role3);
 			roleRepo.save(role4);
 			
-			
+			Team team1 = new Team("TEAM_50500","The Rocks Boy Team", "U-18", "COACH-15", "TURN-11", false);
+			Team team2 = new Team("TEAM_50100","Fireflight Girls Team", "U-10", "COACH_12", "TURN-11", true);
+			teamRepo.save(team1);		
+			teamRepo.save(team2);
 		};
 		
 	}
