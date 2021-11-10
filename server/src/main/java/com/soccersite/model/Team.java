@@ -103,5 +103,4 @@ public class Team implements Serializable{
 				+ tournamentID + ", status=" + isVerified + ", teamID=" + teamID + "]";
 	}	
 	
-	
 }
