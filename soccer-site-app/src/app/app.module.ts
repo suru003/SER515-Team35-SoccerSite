@@ -40,6 +40,7 @@ import { FAQPageComponent } from './faqpage/faqpage.component';
 
 //Team Application
 import { TeamApplicationComponent } from './teamApplication/teamApplication/teamApplication.component';
+import { ViewMatches } from './refereeDirector/viewMatches/viewMatches';
 
 
 
@@ -61,7 +62,8 @@ import { TeamApplicationComponent } from './teamApplication/teamApplication/team
     TournamentListComponent,
     TeamsDashboardComponent,
     FAQPageComponent,
-    TeamApplicationComponent
+    TeamApplicationComponent,
+    ViewMatches
   ],
   imports: [
     FormsModule,

@@ -32,7 +32,7 @@ addRef(){
     this.router.navigate(['addReferee'], {relativeTo:this.route});
   }
 
-  viewMatches(){
+viewMatches(){
     this.router.navigate(['viewMatches'], {relativeTo:this.route});
   }
 }
