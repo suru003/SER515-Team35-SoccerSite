@@ -14,28 +14,51 @@ public class AdminUser {
 	@Column(nullable= false, updatable= false)
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	int id;
+	String userID;
 	String firstName;
 	String lastName;
 	@Column(unique= true)
 	String email;
-	@Column(unique= true)
-	String username;
-	String password;
 	int roleID;
+	String roleName;
 
 	
 	public AdminUser() {}
 	
-	public AdminUser(int adminID, String firstName, String lastName, String email, String username, String password,
-			int roleID) {
+	public AdminUser(int id, String userID, String firstName, String lastName, String email,
+			int roleID, String roleName) {
 		super();
-		this.id = adminID;
+		this.id = id;
+		this.userID = userID;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-		this.username = username;
-		this.password = password;
 		this.roleID = roleID;
+		this.roleName = roleName;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getUserID() {
+		return userID;
+	}
+
+	public void setUserID(String userID) {
+		this.userID = userID;
+	}
+
+	public String getRoleName() {
+		return roleName;
+	}
+
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
 	}
 
 	public int getAdminID() {
@@ -86,21 +109,6 @@ public class AdminUser {
 		this.email = email;
 	}
 
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
 
 	
 	

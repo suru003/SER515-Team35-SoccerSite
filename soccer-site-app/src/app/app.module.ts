@@ -11,6 +11,9 @@ import { CoachComponent } from './coach/coach.component';
 import { CoachService } from './services/coach.service';
 import { AdminModule } from './admin/admin.module';
 
+//Admin Login Component
+import { AllDirectorLoginPageComponent } from './admin2/loginPage/loginPage.component';
+
 // services
 import { Admin2Service } from './services/admin2.service';
 import { RefereeDirectorService } from './services/refereeDirector.service';
@@ -90,8 +93,8 @@ import { SearchMatchScheduleComponent } from './matchSchedules/searchMatchSchedu
     TeamDirectorComponent,
     TeamsListComponent,
     TeamNewApplicationListComponent,
-    ViewMatches
-
+    ViewMatches,
+    AllDirectorLoginPageComponent
   ],
     imports: [
         FormsModule,

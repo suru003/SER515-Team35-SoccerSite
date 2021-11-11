@@ -39,5 +39,8 @@ public class AdminService {
 	public AdminUser findAdminById(int adminID) {
 		 return repo.findAdminById(adminID).orElseThrow(()->new EntryNotFoundExcemption("Admin with id: "+adminID+" not found in the repositiory")); 
 	}
+	public AdminUser findAdminByUserID(String userID) {
+		 return repo.findAdminUserByUserID(userID); 
+	}
 
 }

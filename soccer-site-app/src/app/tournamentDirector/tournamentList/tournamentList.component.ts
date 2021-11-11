@@ -43,7 +43,7 @@ export class TournamentListComponent implements OnInit {
    ngOnInit() {
 
       // get tournament director id
-      this.sharedService.sharedManagerID.subscribe(
+      this.sharedService.sharedDirectorID.subscribe(
         data => {
           this.tournamentDirectorID= data;
           // console.log("tournamen ID on addTournament is"+this.tournamentDirectorID);

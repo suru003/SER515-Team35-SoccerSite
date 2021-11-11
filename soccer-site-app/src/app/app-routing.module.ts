@@ -8,7 +8,8 @@ import { UserListComponent } from './userList/userList.component';
 //App Component
 import { AppComponent } from './app.component';
 
-
+//Admin Login Component
+import { AllDirectorLoginPageComponent } from './admin2/loginPage/loginPage.component';
 
 // Referee Director
 import { RefereeDirectorComponent } from './refereeDirector/dashboard/refereeDirectorHomepage.component';
@@ -69,7 +70,10 @@ const routes: Routes = [
     path:'home', component: AppComponent
   },
 
-{path:'app-coach', component: CoachComponent},
+ {
+   path:'allDirectorLoginPage', component:AllDirectorLoginPageComponent
+ },
+ {path:'app-coach', component: CoachComponent},
   // {path:'app-homepage', component: HomepageComponent},
   {path:'admin-home', children:[
   { path:'', component: AdminHomeComponent },
@@ -158,4 +162,5 @@ RefereeNewApplicationListComponent,TournamentDirectorLoginPageComponent,
 TournamentDirectorDashboardComponent,AddTournamentComponent,TournamentListComponent,
 TeamsDashboardComponent, FAQPageComponent, TeamApplicationComponent, 
 LoginOrRegisterComponent,RegisterRefereeComponent, TeamLoginOrRegisterComponent, 
-SearchMatchScheduleComponent,TeamDirectorComponent, TeamsListComponent, TeamNewApplicationListComponent]
+SearchMatchScheduleComponent,TeamDirectorComponent, TeamsListComponent, TeamNewApplicationListComponent,
+AllDirectorLoginPageComponent]

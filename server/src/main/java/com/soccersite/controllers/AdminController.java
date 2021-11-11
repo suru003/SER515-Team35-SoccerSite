@@ -39,9 +39,15 @@ public class AdminController {
 		return new ResponseEntity<List<AdminUser>>(list, HttpStatus.OK) ;
 	}
 	
-	@GetMapping("/find/{adminID}")
-	public ResponseEntity<AdminUser> findAdminById(@PathVariable("adminID") int adminID){
-		AdminUser admin = adminService.findAdminById(adminID);
+//	@GetMapping("/find/{adminID}")
+//	public ResponseEntity<AdminUser> findAdminById(@PathVariable("adminID") int adminID){
+//		AdminUser admin = adminService.findAdminById(adminID);
+//		return new ResponseEntity<AdminUser>(admin, HttpStatus.OK) ;
+//	}
+	
+	@GetMapping("/find/{userID}")
+	public ResponseEntity<AdminUser> findAdminUserByUserID(@PathVariable("userID") String userID){
+		AdminUser admin = adminService.findAdminByUserID(userID);
 		return new ResponseEntity<AdminUser>(admin, HttpStatus.OK) ;
 	}
 	
