@@ -190,21 +190,6 @@ export class TeamNewApplicationListComponent implements OnInit {
    .subscribe(  
     data => {  
       this.teamFound2 = data;
-      // console.log("firstname" + this.findRef.email); 
-        // this.teamFound = Array.of(this.teamFound);
-        // console.log(data);   
-
-        // this.verifyTeam.teamID = this.viewUserID;
-        // this.verifyTeam.firstName = this.teamFound.firstName;
-        // this.verifyUser.lastName = this.findRef.lastName;
-        // this.verifyUser.email = this.findRef.email;
-        // this.verifyUser.contactNo = this.findRef.contactNo;
-        // // this.verifyUser.username = this.findRef.username;
-        // // this.verifyUser.password = this.findRef.password;
-        // this.verifyUser.address = this.findRef.address;
-        // this.verifyUser.city = this.findRef.city;
-        // this.verifyUser.country = this.findRef.country;
-        // this.verifyUser.roleID = this.findRef.roleID;
         let verify1Team = Object.assign({}, this.teamFound2, { verified: true });
         this.teamService.updateTeam(verify1Team).subscribe(  
           data => {       
@@ -215,22 +200,6 @@ export class TeamNewApplicationListComponent implements OnInit {
           }, error => console.log(error));
         },  
       error => console.log(error)); 
-        
-        // this.verifyTeam = this.teamFound2;
-        // this.verifyTeam = JSON.parse(JSON.stringify(this.teamFound2));
-        
-        // this.verify1Team.status = true; 
-
-        // this.teamService.updateTeam(verify1Team).subscribe(  
-        //   data => {       
-        //     console.log(data);
-        //     // this.closeModal();
-        //     // this.refreshPage(); 
-
-        //   }, error => console.log(error));
-
-      
-
 
 
  }
