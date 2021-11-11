@@ -52,7 +52,10 @@ import { FAQPageComponent } from './faqpage/faqpage.component';
 
 //Team Application
 import { TeamApplicationComponent } from './teamApplication/teamApplication/teamApplication.component';
+
 import { TeamLoginOrRegisterComponent } from './teamApplication/loginOrRegister/loginOrRegister.component';
+import { ViewMatches } from './refereeDirector/viewMatches/viewMatches';
+
 
 //Teams, Schedules, Scores
 import { SearchMatchScheduleComponent } from './matchSchedules/searchMatchSchedule/searchMatchSchedule.component';
@@ -77,13 +80,16 @@ import { SearchMatchScheduleComponent } from './matchSchedules/searchMatchSchedu
     TeamsDashboardComponent,
     FAQPageComponent,
     TeamApplicationComponent,
+
     LoginOrRegisterComponent,
     RegisterRefereeComponent,
     TeamLoginOrRegisterComponent,
     SearchMatchScheduleComponent,
     TeamDirectorComponent,
     TeamsListComponent,
-    TeamNewApplicationListComponent
+    TeamNewApplicationListComponent,
+    ViewMatches
+
   ],
   imports: [
     FormsModule,

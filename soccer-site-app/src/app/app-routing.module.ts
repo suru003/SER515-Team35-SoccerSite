@@ -51,6 +51,7 @@ import { SearchMatchScheduleComponent } from './matchSchedules/searchMatchSchedu
 
 const routes: Routes = [
 {
+
   path:'app-root', component: AppComponent,
   children:[
   {
@@ -64,6 +65,10 @@ const routes: Routes = [
  },
  ]
 },
+  {
+    path:'home', component: AppComponent
+  },
+
 {path:'app-coach', component: CoachComponent},
   // {path:'app-homepage', component: HomepageComponent},
   {path:'admin-home', children:[

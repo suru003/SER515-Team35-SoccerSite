@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Referee } from '../../../models/referee';
 import { Users } from '../../../models/users';
 import { Roles } from '../../../models/roles';
+import { Matches } from 'src/models/matches';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RefereeDirectorService } from '../../services/refereeDirector.service';
 
@@ -19,6 +20,7 @@ export class ViewMatches {
   // declare var $: any;
   referee: Referee;
   roles: Roles[] = [];
+  matches: Matches[]= [];
   title: string;
   showMsg: boolean = false;
   selectedRole = null;
@@ -29,29 +31,23 @@ export class ViewMatches {
     private router: Router, 
     private adminService: RefereeDirectorService) {
     this.referee = new Referee();
+    this.title="Matches Schedule";
   }
 
   ngOnInit() {
-   // this.getMatches();
-  }
-
-
-  onSubmit(refereeForm: NgForm) {
-    
-
-    $('#user-creation-modal').modal('show');
-
+     this.getMatches();
   }
 
 
   getMatches() {
-    this.adminService.findAllRoles().subscribe(
+    this.adminService.findAllMatches().subscribe(
       data => {
-        this.roles = data;
-        // console.log(data);
+        this.matches = data;
+        console.log(data);
       });
 
   }
+ 
 
  
 }
