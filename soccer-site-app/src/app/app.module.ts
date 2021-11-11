@@ -27,6 +27,12 @@ import { RefereeDirectorComponent } from './refereeDirector/dashboard/refereeDir
 import { RefereeUserListComponent } from './refereeDirector/refereeUserList/refereeUserList.component';
 import { RefereeNewApplicationListComponent } from './refereeDirector/refereeNewApplicationList/refereeNewApplicationList.component';
 
+// Referee
+//Referees
+import { LoginOrRegisterComponent } from './refereeDirector/loginOrRegister/loginOrRegister.component';
+import { RegisterRefereeComponent } from './refereeDirector/register/registerReferee.component';
+
+
 // Tournament Director
 import { TournamentDirectorLoginPageComponent } from './tournamentDirector/loginPage/loginPage.component';
 import { TournamentDirectorDashboardComponent } from './tournamentDirector/dashboard/dashboard.component';
@@ -34,14 +40,25 @@ import { AddTournamentComponent } from './tournamentDirector/addTournament/addTo
 import { TournamentListComponent } from './tournamentDirector/tournamentList/tournamentList.component';
 import { TeamsDashboardComponent } from './tournamentDirector/teams/teamsDashboard.component';
 
+//Team Director
+import { TeamDirectorComponent } from './teamDirector/dashboard/teamDirectorDashboard.component';
+import { TeamsListComponent } from './teamDirector/teamsList/teamsList.component';
+import { TeamNewApplicationListComponent } from './teamDirector/teamNewApplicationList/teamNewApplicationList.component';
+
+
 //F.A.Q. 
 import { FAQPageComponent } from './faqpage/faqpage.component';
 
 
 //Team Application
 import { TeamApplicationComponent } from './teamApplication/teamApplication/teamApplication.component';
+
+import { TeamLoginOrRegisterComponent } from './teamApplication/loginOrRegister/loginOrRegister.component';
 import { ViewMatches } from './refereeDirector/viewMatches/viewMatches';
 
+
+//Teams, Schedules, Scores
+import { SearchMatchScheduleComponent } from './matchSchedules/searchMatchSchedule/searchMatchSchedule.component';
 
 
 
@@ -63,7 +80,16 @@ import { ViewMatches } from './refereeDirector/viewMatches/viewMatches';
     TeamsDashboardComponent,
     FAQPageComponent,
     TeamApplicationComponent,
+
+    LoginOrRegisterComponent,
+    RegisterRefereeComponent,
+    TeamLoginOrRegisterComponent,
+    SearchMatchScheduleComponent,
+    TeamDirectorComponent,
+    TeamsListComponent,
+    TeamNewApplicationListComponent,
     ViewMatches
+
   ],
   imports: [
     FormsModule,

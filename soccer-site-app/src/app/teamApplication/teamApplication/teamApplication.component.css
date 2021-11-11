@@ -23,6 +23,15 @@ body{
 	background-color: rgba(255, 193, 8, 0.4);
 }
 
+.btn-primary {
+	background-color: #D8282B;
+	border-color: #D8282B;
+}
+
+.btn{
+	width: 100%;
+}
+
 .card{
 	padding-left: 2rem;
 	padding-right: 2rem;
@@ -202,6 +211,10 @@ body{
 
 .second-row .card{
 	border: none;
+}
+
+select, input{
+	font-size: 0.8rem;
 }
 
 .subtitle {

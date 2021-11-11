@@ -2,6 +2,7 @@ package com.soccersite.services;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.soccersite.exceptions.EntryNotFoundExcemption;
@@ -28,7 +29,7 @@ public class TeamService {
 	}
 	
 	public Team updateTeam(Team team) {
-		return repo.updateById(team.getTeamID(), team.getTeamName(), team.getCategoryID(), team.getTournamentID(), team.isStatus());
+		return repo.updateById(team.getTeamID(), team.getTeamName(), team.getCategoryID(), team.getTournamentID(), team.isVerified());
 	}
 	
 	public void deleteTeam(String teamID) {
@@ -38,5 +39,15 @@ public class TeamService {
 	public Team findTeamById(String teamID) {
 		 return repo.findTeamById(teamID).orElseThrow(()->new EntryNotFoundExcemption("Team with id: "+teamID+" not found in the repositiory")); 
 	}
-
+	
+//	public List<Team> findByStatus(boolean isVerified){
+//		return repo.findByisVerifiedTrue(isVerified);
+//	}
+	
+	public List<Team> findByisVerifiedTrue(){
+		return repo.findByisVerifiedTrue();
+	}
+	public List<Team> findByisVerifiedFalse(){
+		return repo.findByisVerifiedFalse();
+	}
 }

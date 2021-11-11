@@ -23,9 +23,32 @@ body{
 	background-color: rgba(255, 193, 8, 0.4);
 }
 
+.btn-primary {
+	background-color: #D8282B;
+	border-color: #D8282B;
+}
+
+.btn{
+	width: 100%;
+}
+
+.btn-primary-2{
+	background-color: #D8282B;
+	border-color: #D8282B;
+	color: white;
+	width: 30%;
+}
+
+.card{
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+
 .container{
 	padding: 0;
 }
+
+
 
 .edit-user-btn{
 	color: green;
@@ -52,10 +75,14 @@ body{
 	color: #FEDB00;
 }
 
-
+.line{
+	/*height: 0.2rem;*/
+	/*border: 1px solid black;*/
+	border-top: 0.05rem solid black;
+}
 .logo-name{
 	color: white;
-	font-size: 1.0rem;
+	font-size: 1.5rem;
 }
 
 .main-page{
@@ -78,6 +105,7 @@ body{
 	color: white;
 	text-decoration: none;
 }
+
 
 .profile-image{
 	/*background-image: url("../assets/images/profile.jpeg");*/
@@ -139,7 +167,10 @@ body{
 	width: 15rem;
 	height: 100%;
 	background-color: #AF272F;
-	padding: 2rem;
+	/*padding: 2rem;*/
+	padding-top: 2rem;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
 	z-index: -1;
 	float: left;
 	margin-top: 60px;
@@ -189,6 +220,9 @@ body{
 	border: none;
 }
 
+.subtitle {
+	font-size: 0.8rem;
+}
 
 .top-bar{
 	/*margin-top: 50px;*/
@@ -241,19 +275,23 @@ body{
 	font-size: 0.8rem;
 }
 
-.top-bar select{
-	/*border: 1px;
-	background: #db393c;
-	width: 150px;
-	height: 34px;
-	border-radius: 5px;
-	color: white;*/
-	display: table;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	font-size: 0.8rem;
+.tournamentDetails p{
+	font-size: 0.6rem;
+	margin-bottom: 0.5rem;
+
+}
+
+.tournamentApplicationForm p{
+	font-size: 0.6rem;
+	margin-bottom: 0.5rem;
+}
+
+.tournamentApplicationForm .label{
+	text-align: right;
+}
+
+.input-group i{
+	font-size: 14px;
 }
 
 .align-vertically{
@@ -267,5 +305,26 @@ body{
 	margin-top: 3rem;*/
 }
 
+input, select {
+	height: 30px;
+}
 
+/*.highlightsImage{
+	height: 1rem;
+	background-color: blue;
+}*/
 
+.highlightsImage{
+	height: 10rem;
+	width: 80rem;
+	/*background-image: url("../../../assets/images/1.jpg");*/
+	/*background: ;
+	content:url(../assets/images/1.jpg);*/
+	background-color: blue;
+	margin-bottom: 0.2rem;
+}
+.highlightsImage img{
+width: 100%; /* or any custom size */
+    height: 100%; 
+    object-fit: fill;
+}

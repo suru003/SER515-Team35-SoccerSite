@@ -29,9 +29,10 @@ body{
 
 .edit-user-btn{
 	color: green;
+	padding-right: 20px;
 }
 
-.delete-user-btn{
+.delete-user-btn, .pending-icon{
 	color: #AF272F;
 }
 
@@ -55,14 +56,14 @@ body{
 
 .logo-name{
 	color: white;
-	font-size: 1.0rem;
+	font-size: 1.5rem;
 }
 
 .main-page{
 	width: calc(100vw - 15rem);
 	margin-left: 15rem; 
 	padding: 0.4rem 1rem 0 1rem;
-	/*margin-top: 80px;*/
+	/*background-color: yellow;*/
 	
 }
 
@@ -80,7 +81,7 @@ body{
 }
 
 .profile-image{
-	/*background-image: url("../assets/images/profile.jpeg");*/
+	background-image: url("../../../assets/images/profile.jpeg");
 	width: 50px;
 	height: 50px;
 	background-color: blue;
@@ -127,6 +128,10 @@ body{
 }
 
 .profile-image-row{
+	/*position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);*/
 	background-color: blue;
 }
 
@@ -140,9 +145,8 @@ body{
 	height: 100%;
 	background-color: #AF272F;
 	padding: 2rem;
-	z-index: -1;
+	z-index: 99;
 	float: left;
-	margin-top: 60px;
 }
 
 
@@ -169,10 +173,13 @@ body{
 }
 
 .second-row .icon-circle {
+	/*background-color: rgba(216, 40, 43, 0.4);*/
 	border-radius: 50%;
 	padding: 10px;
 	width: 50px;
 	height: 50px;
+	/*text-align: center;*/
+
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -191,7 +198,6 @@ body{
 
 
 .top-bar{
-	/*margin-top: 50px;*/
 	width: 100%;
 	height: 4rem;
 	background-color: white;
@@ -229,6 +235,7 @@ body{
 .top-bar button{
 	border: 1px;
 	background: #db393c;
+	/* padding: 2px; */
 	width: 150px;
 	height: 34px;
 	border-radius: 5px;
@@ -241,31 +248,8 @@ body{
 	font-size: 0.8rem;
 }
 
-.top-bar select{
-	/*border: 1px;
-	background: #db393c;
-	width: 150px;
-	height: 34px;
-	border-radius: 5px;
-	color: white;*/
-	display: table;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+tbody, th {
 	font-size: 0.8rem;
 }
-
-.align-vertically{
-	position: absolute;
-	margin-top: 4rem;
-	/*top: 30%;
-	left: 30%;
-	-moz-transform: translateX(-50%) translateY(-50%);
-	-webkit-transform: translateX(-50%) translateY(-50%);
-	transform: translateX(-50%) translateY(-50%);
-	margin-top: 3rem;*/
-}
-
 
 
