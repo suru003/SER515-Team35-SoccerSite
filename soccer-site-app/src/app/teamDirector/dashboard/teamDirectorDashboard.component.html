@@ -25,18 +25,45 @@
        <div class="col-lg-2 topbar-icon-col">
          <a (click)='addRef()'> <button class="shadow" >Add Team</button> </a>
        </div>
-       <div class="col-lg-2 topbar-icon-col">
+     <!--   <div class="col-lg-2 topbar-icon-col">
         <a (click)='allNewApplications()'><button class="shadow">Pending Applications</button></a>
-      </div>
-      <div class="col-lg-2 topbar-icon-col">
+      </div> -->
+      <!-- <div class="col-lg-2 topbar-icon-col"> -->
         <!-- <a (click)='viewMatches()'><button class="shadow">View Matches</button></a> -->
+      <!-- </div> -->
+            <div class="col-lg-5 topbar-icon-col">
+
+        <form #actionForm="ngForm" (ngSubmit)="onSubmit(actionForm)" >
+         <div class="row">
+          <div class="col-lg-6 ">
+           <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="actionChoice" [(ngModel)]="actionChoice">
+            <option value="" disabled selected>More</option>   
+            <option value="Build a Referee Listing" >Build a Team Listing</option>  
+            <option value="Assign Referees" >Team Referees</option> 
+            <option value="View Matches" >View Matches</option> 
+            <option value="Expor Referee Applications" >Export Team Applications</option> 
+            <option value="Manage Applications" >Manage Applications</option> 
+            <option value="Add Referees" >Add Team</option> 
+
+          </select>
+          
+        </div>
+        <div class="col-lg-2 "></div>
+        <div class="col-lg-2 ">
+          <button type="submit" [disabled]="!actionForm.form.valid" 
+          class="btn btn-primary">Go!</button>
+        </div>
       </div>
+    </form>
+
+  </div>
+
       <div class="col-lg-3 topbar-icon-col">
         <div class="row no-gutters">
-          <div class="col-lg-6 profile-text">
+          <div class="col-lg-8 profile-text">
             <div class="profile-child">
-             <p class="profile-text-title">Jane Doe</p>
-             <p class="profile-text-subtitle">Admin</p>
+             <p class="profile-text-title">Jonas Lang</p>
+             <p class="profile-text-subtitle">Team Director</p>
            </div>
          </div>
 

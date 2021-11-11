@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router} from '@angular/router'
+import { ActivatedRoute, Router} from '@angular/router';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'teamDirectorDashboard',
@@ -8,16 +9,25 @@ import { ActivatedRoute, Router} from '@angular/router'
 })
 export class TeamDirectorComponent implements OnInit{
   // title: string;
+  actionChoice: string = '';
 
   constructor(private route: ActivatedRoute, private router: Router) {
-
-
     // this.title = 'All Users';
   }
 
 
   ngOnInit(): void {
     this.allVerifiedTeams();
+  }
+
+  onSubmit(actionForm: NgForm){
+    if(this.actionChoice === 'View Matches') {
+      // this.viewMatches();
+    } else if(this.actionChoice === 'Manage Applications'){
+      this.allNewApplications();
+    } else if(this.actionChoice === 'Add Team'){
+      // this.addRef();
+    }
   }
 
 allVerifiedTeams(){

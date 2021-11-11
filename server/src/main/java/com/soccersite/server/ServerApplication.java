@@ -67,11 +67,11 @@ public class ServerApplication {
 					"John Easel","Gunners FC", "Arizona", "Arizona", "Alabama", "Classic League (Boys U10)", "Classic",
 					"Black", "Red", "12-06-2000", "Boys U08 ($500)");
 			Team team4 = new Team("TEAM_50100","Super Girls Soccer Team", "", "", "", true, "Girls", "11",
-					"Daisy Little","Gunners FC", "Georgia", "Georgia", "Georgia", "Premier League (Girls U11)", "Premier",
+					"Daisy Little","SuperHeroes", "Georgia", "Georgia", "Georgia", "Premier League (Girls U11)", "Premier",
 					"White", "Blue", "1-07-2000", "Girls U11 ($530)");
 			Team team2 = new Team("TEAM_50100","Fireflight Girls Team", "U-10", "COACH_12", "TURN-11", true);
 			teamRepo.save(team3);		
-			teamRepo.save(team2);
+//			teamRepo.save(team2);
 			teamRepo.save(team4);
 		};
 		
