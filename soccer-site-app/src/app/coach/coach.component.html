@@ -28,11 +28,11 @@
         <tr *ngFor="let team of teams; let i = index">
             <td>{{i+1}}</td>
 
-            <td>{{team.tournamentID}}</td>
-            <td>{{team.categoryID}}</td>
+            <td>{{team.tournament.id}}</td>
+            <td>{{team.category.id}}</td>
             <td>{{team.teamID}}</td>
             <td>{{team.teamName}}</td>
-            <td>{{team.coachID}}</td>
+            <td>{{team.coach.id}}</td>
             <td>
                 <button (click)="onEdit(i)" class="btn btn-info" data-toggle="modal" data-target="#exampleModalLong">Edit</button>
                 <button (click)="deleteTeam(team.teamID)" class="btn btn-danger mx-3">Delete</button>

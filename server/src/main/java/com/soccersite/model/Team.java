@@ -35,19 +35,19 @@ public class Team implements Serializable{
 	// Foreign key
 //	String categoryID;
 	@OneToOne()
-    @JoinColumn(name = "cat_fk", referencedColumnName = "id",nullable = false)
+    @JoinColumn(name = "category_id", referencedColumnName = "id",nullable = false)
     private Category category;
 	
 	// Foreign key
 //	String coachID;
 	@OneToOne()
-    @JoinColumn(name = "coach_fk", referencedColumnName = "id",nullable = false)
+    @JoinColumn(name = "coach_id", referencedColumnName = "id",nullable = false)
     private Coach coach;
 	
 	// Foreign key
 //	String tournamentID;
 	@OneToOne()
-    @JoinColumn(name = "tourn_fk", referencedColumnName = "id",nullable = false)
+    @JoinColumn(name = "tournament_id", referencedColumnName = "id",nullable = false)
     private Tournament tournament;
 	
 	

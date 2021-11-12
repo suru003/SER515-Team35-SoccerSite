@@ -1,5 +1,5 @@
-export interface Coach{
-	coachID: String;
+export class Coach{
+	id: String;
 	firstName: String; 
 	lastName: String;
 	email: String;

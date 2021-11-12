@@ -20,6 +20,7 @@ export class TeamService {
   }
   
   public addTeam(team: Team):Observable<Team>{
+    console.log("team "+JSON.stringify(team));
     return this.http.post<Team>(`${this.serverUrl}/insert`,team);
   }
 
