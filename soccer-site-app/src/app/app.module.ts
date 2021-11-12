@@ -34,8 +34,9 @@ import { AddTournamentComponent } from './tournamentDirector/addTournament/addTo
 import { TournamentListComponent } from './tournamentDirector/tournament-list/tournament-list.component';
 import { TeamsDashboardComponent } from './tournamentDirector/teams/teamsDashboard.component';
 
-//F.A.Q. 
+//F.A.Q.
 import { FAQPageComponent } from './faqpage/faqpage.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 
@@ -59,16 +60,17 @@ import { FAQPageComponent } from './faqpage/faqpage.component';
     TeamsDashboardComponent,
     FAQPageComponent
   ],
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    BrowserModule,
-    AppRoutingModule,
-    AdminModule,
-    BrowserAnimationsModule,
-    NgbModule
-  ],
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        BrowserModule,
+        AppRoutingModule,
+        AdminModule,
+        BrowserAnimationsModule,
+        NgbModule,
+        MatExpansionModule
+    ],
   providers: [CoachService, Admin2Service, RefereeDirectorService, TournamentDirectorService, SharedService],
   bootstrap: [AppComponent]
 })
