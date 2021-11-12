@@ -1,7 +1,7 @@
    <div class="sidebar">
 
     <div class="logo-section">
-      <div class="logo-name">Soccer Web App</div>
+      <div class="logo-name">Referee Director Dashboard</div>
     </div>
 
     <div class="navbar">
@@ -22,30 +22,60 @@
         <div class="col-lg-2 topbar-icon-col">
          <a (click)='allRefs()'> <button class="shadow" >Show All Refs</button> </a>
        </div>
-       <div class="col-lg-2 topbar-icon-col">
+      <!--  <div class="col-lg-2 topbar-icon-col">
          <a (click)='addRef()'> <button class="shadow" >Add Referee</button> </a>
-       </div>
-       <div class="col-lg-2 topbar-icon-col">
+       </div> -->
+       <!-- <div class="col-lg-2 topbar-icon-col">
         <a (click)='allNewApplications()'><button class="shadow">Pending Applications</button></a>
+      </div> -->
+      <div class="col-lg-2 topbar-icon-col">
+        <a (click)='viewMatches()'><button class="shadow">View Matches</button></a>
       </div>
-      <div class="col-lg-3"></div>
+      <div class="col-lg-5 topbar-icon-col">
 
-      <div class="col-lg-3 topbar-icon-col">
-        <div class="row no-gutters">
-          <div class="col-lg-6 profile-text">
-            <div class="profile-child">
-             <p class="profile-text-title">Jane Doe</p>
-             <p class="profile-text-subtitle">Admin</p>
-           </div>
-         </div>
+        <form #actionForm="ngForm" (ngSubmit)="onSubmit(actionForm)" >
+         <div class="row">
+          <div class="col-lg-6 ">
+           <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="actionChoice" [(ngModel)]="actionChoice">
+            <option value="" disabled selected>More</option>   
+            <option value="Build a Referee Listing" >Build a Referee Listing</option>  
+            <option value="Assign Referees" >Assign Referees</option> 
+            <option value="View Matches" >View Matches</option> 
+            <option value="Expor Referee Applications" >Export Referee Applications</option> 
+            <option value="Manage Applications" >Manage Applications</option> 
+            <option value="Add Referees" >Add Referees</option> 
+            <option value="Publish/Unpublish Referee Schedule" >Publish/Unpublish Referee Schedule</option> 
 
-         <div class="col-lg-3">
-          <div class="profile-image"></div>
+          </select>
+          
+        </div>
+        <div class="col-lg-2 "></div>
+        <div class="col-lg-2 ">
+          <button type="submit" [disabled]="!actionForm.form.valid" 
+          class="btn btn-primary">Go!</button>
         </div>
       </div>
-    </div>
+    </form>
 
   </div>
+  <div class="col-lg-3 topbar-icon-col">
+    <div class="row no-gutters">
+      <div class="col-lg-6 profile-text">
+        <div class="profile-child">
+         <p class="profile-text-title">Jane Doe</p>
+         <p class="profile-text-subtitle">Admin</p>
+       </div>
+     </div>
+
+     <div class="col-lg-3">
+      <div class="profile-image"></div>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
 </div>
 <br>
 <div class="container second-row">

@@ -31,4 +31,12 @@ export class TeamService {
     return this.http.delete<void>(`${this.serverUrl}/delete/${id}`);
   }
 
+  public findByisVerifiedTrue():Observable<Team[]>{
+    return this.http.get<Team[]>(`${this.serverUrl}/status/true`);
+  }
+
+  public findByisVerifiedFalse():Observable<Team[]>{
+    return this.http.get<Team[]>(`${this.serverUrl}/status/false`);
+  }
+
 }

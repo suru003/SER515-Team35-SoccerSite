@@ -18,27 +18,49 @@ import { TournamentDirectorService } from './services/tournamentDirector.service
 import { SharedService } from './services/shared.service';
 
 // components
-import { UserListComponent } from './user-list/user-list.component';
+import { UserListComponent } from './userList/userList.component';
 import { AddRefereeComponent } from './refereeDirector/addReferee/addReferee.component';
 import { LoginPageComponent } from './refereeDirector/loginPage/loginPage.component';
 
 // Referee Director
 import { RefereeDirectorComponent } from './refereeDirector/dashboard/refereeDirectorHomepage.component';
-import { RefereeUserListComponent } from './refereeDirector/referee-user-list/referee-user-list.component';
-import { RefereeNewApplicationListComponent } from './refereeDirector/referee-new-application-list/referee-new-application-list.component';
+import { RefereeUserListComponent } from './refereeDirector/refereeUserList/refereeUserList.component';
+import { RefereeNewApplicationListComponent } from './refereeDirector/refereeNewApplicationList/refereeNewApplicationList.component';
+
+// Referee
+//Referees
+import { LoginOrRegisterComponent } from './refereeDirector/loginOrRegister/loginOrRegister.component';
+import { RegisterRefereeComponent } from './refereeDirector/register/registerReferee.component';
+
 
 // Tournament Director
 import { TournamentDirectorLoginPageComponent } from './tournamentDirector/loginPage/loginPage.component';
 import { TournamentDirectorDashboardComponent } from './tournamentDirector/dashboard/dashboard.component';
 import { AddTournamentComponent } from './tournamentDirector/addTournament/addTournament.component';
-import { TournamentListComponent } from './tournamentDirector/tournament-list/tournament-list.component';
+import { TournamentListComponent } from './tournamentDirector/tournamentList/tournamentList.component';
 import { TeamsDashboardComponent } from './tournamentDirector/teams/teamsDashboard.component';
 
-//F.A.Q.
+
+//Team Director
+import { TeamDirectorComponent } from './teamDirector/dashboard/teamDirectorDashboard.component';
+import { TeamsListComponent } from './teamDirector/teamsList/teamsList.component';
+import { TeamNewApplicationListComponent } from './teamDirector/teamNewApplicationList/teamNewApplicationList.component';
+
+
+//F.A.Q. 
 import { FAQPageComponent } from './faqpage/faqpage.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 
 
+//Team Application
+import { TeamApplicationComponent } from './teamApplication/teamApplication/teamApplication.component';
+
+import { TeamLoginOrRegisterComponent } from './teamApplication/loginOrRegister/loginOrRegister.component';
+import { ViewMatches } from './refereeDirector/viewMatches/viewMatches';
+
+
+//Teams, Schedules, Scores
+import { SearchMatchScheduleComponent } from './matchSchedules/searchMatchSchedule/searchMatchSchedule.component';
 
 
 
@@ -58,7 +80,18 @@ import {MatExpansionModule} from '@angular/material/expansion';
     AddTournamentComponent,
     TournamentListComponent,
     TeamsDashboardComponent,
-    FAQPageComponent
+    FAQPageComponent,
+    TeamApplicationComponent,
+
+    LoginOrRegisterComponent,
+    RegisterRefereeComponent,
+    TeamLoginOrRegisterComponent,
+    SearchMatchScheduleComponent,
+    TeamDirectorComponent,
+    TeamsListComponent,
+    TeamNewApplicationListComponent,
+    ViewMatches
+
   ],
     imports: [
         FormsModule,

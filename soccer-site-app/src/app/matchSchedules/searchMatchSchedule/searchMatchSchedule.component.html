@@ -1,0 +1,182 @@
+   <div class="sidebar">
+
+    <div class="logo-section">
+      <div class="logo-name" style="text-align:center; font-size: 1rem;">2020 Highlights</div>
+    </div>
+    <br>
+    <div class="navbar">
+      <!-- <div class="highlights"></div> -->
+      <div class="highlightsImage">
+        <img src="../assets/images/6.jpeg">
+      </div>
+      <div class="highlightsImage">
+        <img src="../assets/images/5.jpeg">
+      </div>
+      <div class="highlightsImage">
+        <img src="../assets/images/4.jpeg">
+      </div>
+
+<!--       <a href="#"><i class="fa fa-fw fa-home"></i> Dashboard</a>
+      <a href="#"><i class="fa fa-fw fa-search"></i> Coaches</a>
+      <a href="#"><i class="fa fa-fw fa-envelope"></i> Referees</a>
+      <a href="#"><i class="fa fa-fw fa-user"></i> Teams</a> -->
+
+    </div>
+
+  </div>
+
+  <div class="main-page align-vertically">
+    <div class="tournamentDetails row">
+     <div class="col-lg-12 ">
+       <div class="card mb-3 shadow rounded" >
+        <br>
+        <h4> Teams, Scores & Schedules for the 2021 ASU Sparky Soccer Tournament</h4>
+        <!-- <p> <b>WHEN:</b> </p>
+        <p> <b>WHERE:</b> </p>
+        <p> <b>FEES:</b> </p>
+        <p> <b>APPLICATION DEADLINE:</b> </p>
+        <p> <b>PAY TO:</b> </p>
+        <br>
+        <div class="line"></div> -->
+        <br>
+        <p> <b>DISCLAIMER:</b> </p>
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+        <br>
+       <!--  <p> <b>Click on the button below to register or login in the next section:</b> </p>
+
+        <button type="submit" routerLink="/teamApplication" class="btn btn-primary-2">Start Registration</button> -->
+        <br>
+      </div>
+    </div>
+  </div>
+
+  <div class="container second-row">
+    <div class="row tournamentDetails">
+      <div class="col-lg-12 ">
+       <div class="card mb-3 shadow rounded" >
+        <br>
+<!--         <p> <b>APPLICATION INFORMATION </b> </p>
+         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p> -->
+
+         <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-link active" id="nav-schedules-tab" data-bs-toggle="tab" data-bs-target="#nav-schedules-pane" type="button" role="tab" aria-controls="nav-schedules-tab" aria-selected="true">Schedules, Scores and Standings</button>
+
+            <button class="nav-link" id="nav-accepted-tab" data-bs-toggle="tab" data-bs-target="#nav-accepted-pane" type="button" role="tab" aria-controls="nav-accepted-tab" aria-selected="false">Accepted Teams</button>
+
+          </div>
+        </nav>
+
+
+        <div class="tab-content" id="nav-tabContent">
+
+          <div class="tab-pane fade show active" id="nav-schedules-pane" role="tabpanel" aria-labelledby="nav-schedules-pane">
+            <form #searchMatchScheduleForm="ngForm" (ngSubmit)="onSubmit(searchMatchScheduleForm)" >
+              <br>
+              <div class="row" style="padding-bottom: 10px;"> 
+                <div class="col-lg-2 tournamentApplicationForm">
+                  <p class="label"> <b>Search by Division</b> </p>
+                </div>
+                <div class="col-lg-5">
+                 <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByDay" [(ngModel)]="referee.roleID" required #searchByDay="ngModel">
+
+                  <option [value]="0" disabled selected>Color</option>          
+
+                </select>
+              </div>
+            </div>
+
+            <div class="row" style="padding-bottom: 10px;"> 
+              <div class="col-lg-2 tournamentApplicationForm">
+                <p class="label"> <b>Search by Date</b> </p>
+              </div>
+              <div class="col-lg-5">
+               <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByDay" [(ngModel)]="referee.roleID" required #searchByDay="ngModel">
+
+                <option [value]="0" disabled selected>Color</option>          
+
+              </select>
+            </div>
+          </div>
+
+          <div class="row" style="padding-bottom: 10px;"> 
+            <div class="col-lg-2 tournamentApplicationForm">
+              <p class="label"> <b>Search by Venue</b> </p>
+            </div>
+            <div class="col-lg-5">
+             <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByDay" [(ngModel)]="referee.roleID" required #searchByDay="ngModel">
+
+              <option [value]="0" disabled selected>Color</option>          
+
+            </select>
+          </div>
+        </div>
+
+        <div class="row" style="padding-bottom: 10px;"> 
+          <div class="col-lg-2 tournamentApplicationForm">
+            <p class="label"> <b>Search by Team</b> </p>
+          </div>
+          <div class="col-lg-5">
+           <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByDay" [(ngModel)]="referee.roleID" required #searchByDay="ngModel">
+
+            <option [value]="0" disabled selected>Color</option>          
+
+          </select>
+        </div>
+      </div>
+
+      <div class="row" style="padding-bottom: 10px;"> 
+        <div class="col-lg-2 tournamentApplicationForm">
+          <p class="label"> <b>Search by Club</b> </p>
+        </div>
+        <div class="col-lg-5">
+         <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByDay" [(ngModel)]="referee.roleID" required #searchByDay="ngModel">
+
+          <option [value]="0" disabled selected>Color</option>          
+
+        </select>
+      </div>
+    </div>
+    <br>
+    <br>
+    <button type="submit" [disabled]="!searchMatchScheduleForm.form.valid" 
+    class="btn btn-primary">Search</button>
+  </form>
+
+</div>
+<div class="tab-pane fade" id="nav-accepted-pane" role="tabpanel" aria-labelledby="nav-accepted-pane">
+ <form #searchAcceptedTeamsForm="ngForm" (ngSubmit)="onSubmit(searchAcceptedTeamsForm)" >
+  <br>
+  <div class="row" style="padding-bottom: 10px;"> 
+    <div class="col-lg-2 tournamentApplicationForm">
+      <p class="label"> <b>Search by Division</b> </p>
+    </div>
+    <div class="col-lg-5">
+     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByDay" [(ngModel)]="referee.roleID" required #searchByDivision="ngModel">
+
+      <option [value]="0" disabled selected>Color</option>          
+
+    </select>
+  </div>
+</div>
+
+
+
+
+<br>
+<br>
+<button type="submit" [disabled]="!searchAcceptedTeamsForm.form.valid" 
+class="btn btn-primary">Search</button>
+</form>
+</div>
+</div>
+<br>
+</div>
+</div>
+
+
+</div>
+</div>
+
+</div>

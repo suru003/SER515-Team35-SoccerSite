@@ -28,11 +28,15 @@ export class TournamentDirectorDashboardComponent implements OnInit{
   }
 
 allTournaments(){
-    this.router.navigate(['tournament-list'], {relativeTo:this.route});
+    this.router.navigate(['tournamentList'], {relativeTo:this.route});
   }
 
 
 addTournament(){
     this.router.navigate(['addTournament'], {relativeTo:this.route});
+  }
+
+  viewRefereeDirectorDashboard(){
+    this.router.navigate(['refereeDirectorHomepage'], {relativeTo:this.route});
   }
 }

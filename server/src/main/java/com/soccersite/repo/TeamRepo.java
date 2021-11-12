@@ -1,5 +1,6 @@
 package com.soccersite.repo;
 
+import java.util.List;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -8,6 +9,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.CrossOrigin;
+
+import com.soccersite.model.Referee;
 import com.soccersite.model.Team;
 
 @Repository
@@ -27,6 +30,9 @@ public interface TeamRepo extends JpaRepository<Team, String> {
 		 @Query("UPDATE Team t set t.teamName= :teamName, "
 		 		+ "t.categoryID= :categoryID, "
 		 		+ "t.tournamentID= :tournamentID,"
-		 		+ "t.status = :status WHERE t.teamID = :id")
-		Team updateById(@Param("id") String id, String teamName, String categoryID, String tournamentID, boolean status);
+		 		+ "t.isVerified = :isVerified WHERE t.teamID = :id")
+		Team updateById(@Param("id") String id, String teamName, String categoryID, String tournamentID, boolean isVerified);
+	 
+	 List<Team> findByisVerifiedTrue();
+	 List<Team> findByisVerifiedFalse();
 }

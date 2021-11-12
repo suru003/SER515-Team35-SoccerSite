@@ -35,5 +35,4 @@ export class RefereeService {
   public findByStatus(status: String):Observable<Referee[]>{
     return this.http.get<Referee[]>(`${this.serverUrl}/status/${status}`);
   }
-
 }

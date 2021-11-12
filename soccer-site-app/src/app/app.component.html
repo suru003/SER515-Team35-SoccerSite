@@ -1,28 +1,37 @@
-  <div class="navbar">
+<div class="navbar">
       <div class="container">
         <div class="row">
-          <div class="col-lg-3 logo-col">
-            <h5 >Logo Name</h5>
+          <div class="col-lg-4 logo-col">
+            
+            <h5 style="text-align: left;" >ASU Sparky Soccer Tournament</h5><br>
           </div>
 
-          <div class="col-lg-6 menu-col">
+          <div class="col-lg-8 menu-col">
+            
 
-            <a > Home</a>
+            <a routerLink="/home"> Home</a>
 
-            <a routerLink="/tournamentDirectorLoginPage">Tournament Director</a>
-            <a routerLink="/app-coach">Coach</a>
-            <a routerLink="/loginPage" href="#"> Referees</a>
+
+            <a routerLink="/tournamentDirectorLoginPage">Tournament Dir.</a>
+            <a routerLink="/teamDirectorDashboard">Team Dir.</a>
+            <a routerLink="/refereeLoginOrRegister" href="#"> Referees</a>
+            <a routerLink="/searchMatchSchedule">Teams,Schedules,Scores</a> 
             <a routerLink="/F.A.Q." > F.A.Q</a>
-            <a href="#">Teams</a>            
-          </div>
+            <a routerLink="/teamLoginOrRegister">Apply</a>            
 
-          <div class="col-lg-3 right-col">
-            <a href="#"><i class="fa fa-user-circle"></i> Login/Register</a>
           </div>
+        
+        
+
+          <!-- <div class="col-lg-3 right-col">
+            <a href="#"><i class="fa fa-user-circle"></i> Login/Register</a>
+          </div> -->
 
         </div>
       </div>
     </div>
+
+  
 
      <router-outlet></router-outlet>
  
