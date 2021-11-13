@@ -66,6 +66,9 @@ public class Team implements Serializable{
 	String altJerseyColor;
 	String oldestDOB;
 	String applicationCategory;
+	String teamContactName;
+	String emailAddress;
+	
 
 	
 
@@ -87,7 +90,7 @@ public class Team implements Serializable{
 	public Team(String teamID, String teamName, String categoryID, String coachID, String tournamentID,
 			boolean isVerified, String gender, String age, String coachName, String clubName, String city, String state,
 			String association, String league, String playLevel, String primaryJerseyColor, String altJerseyColor,
-			String oldestDOB, String applicationCategory) {
+			String oldestDOB, String applicationCategory, String teamContactName, String emailAddress) {
 		super();
 		this.teamID = teamID;
 		this.teamName = teamName;
@@ -108,6 +111,8 @@ public class Team implements Serializable{
 		this.altJerseyColor = altJerseyColor;
 		this.oldestDOB = oldestDOB;
 		this.applicationCategory = applicationCategory;
+		this.teamContactName = teamContactName;
+		this.emailAddress = emailAddress;
 	}
 
 	public String getTeamID() {
@@ -266,6 +271,22 @@ public class Team implements Serializable{
 
 	public void setApplicationCategory(String applicationCategory) {
 		this.applicationCategory = applicationCategory;
+	}
+
+	public String getTeamContactName() {
+		return teamContactName;
+	}
+
+	public void setTeamContactName(String teamContactName) {
+		this.teamContactName = teamContactName;
+	}
+
+	public String getEmailAddress() {
+		return emailAddress;
+	}
+
+	public void setEmailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
 	}	
 	
 	

@@ -74,7 +74,7 @@
            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="applicationCategory" [(ngModel)]="team.applicationCategory" required #applicationCategory="ngModel">
 
             <option [ngValue]="null" disabled selected>Category</option>
-            <option value="Boys U08 ($500)" >Boys U08 ($500)</option>  
+          <!--   <option value="Boys U08 ($500)" >Boys U08 ($500)</option>  
             <option value="Boys U09 ($510)" >Boys U09 ($510)</option> 
             <option value="Boys U10 ($520)" >Boys U10 ($520)</option> 
             <option value="Boys U11 ($530)" >Boys U11 ($530)</option> 
@@ -82,7 +82,8 @@
             <option value="Girls U08 ($500)" >Girls U08 ($500)</option>  
             <option value="Girls U09 ($510)" >Girls U09 ($510)</option> 
             <option value="Girls U10 ($520)" >Girls U10 ($520)</option> 
-            <option value="Girls U11 ($530)" >Girls U11 ($530)</option> 
+            <option value="Girls U11 ($530)" >Girls U11 ($530)</option>  -->
+            <option *ngFor="let d of divisions" [ngValue]="d.categoryName" style="color: black">{{d.categoryName}} ({{d.price}})</option> 
           </select>
         </div>
       </div>
@@ -115,8 +116,8 @@
           <option value="" disabled selected>Gender</option>   
           <option value="Boys" >Boys</option>  
           <option value="Girls" >Girls</option> 
-          <option value="Women" >Women</option> 
-          <option value="Men" >Men</option> 
+         <!--  <option value="Women" >Women</option> 
+          <option value="Men" >Men</option>  -->
 
           <!-- <option *ngFor="let r of roles" [ngValue]="r.id" style="color: black">{{r.roles}}</option> -->
         </select>
@@ -125,8 +126,8 @@
        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="age" [(ngModel)]="team.age" required #age="ngModel">
 
         <option value="" disabled selected>Age</option>
-        <option value="1" >U08</option>  
-        <option value="U09" >U09</option> 
+       <!--  <option value="1" >U08</option>  
+        <option value="U09" >U09</option>  -->
         <option value="U10" >U10</option> 
         <option value="U11" >U11</option> 
         <!-- <option *ngFor="let r of roles" [ngValue]="r.id" style="color: black">{{r.roles}}</option> -->
@@ -297,8 +298,8 @@
     <option [value]="0" disabled selected>Play Level</option>  
     <option value="Classic" >Classic</option> 
     <option value="Premier" >Premier</option> 
-    <option value="Champions " >Champions</option> 
-    <option value="Super Hero" >Super Hero</option>         
+   <!--  <option value="Champions " >Champions</option> 
+    <option value="Super Hero" >Super Hero</option>  -->        
   </select>
 </div>
 </div>
@@ -336,6 +337,57 @@
   </select>
 </div>
 </div>
+
+<br>
+
+<p class="subtitle"> <b>PRIMARY CONTACT INFORMATION</b> </p>
+
+<div class="row" style="padding-bottom: 10px;"> 
+  <div class="col-lg-2 tournamentApplicationForm">
+    <p class="label"> <b>Contact Name</b> </p>
+  </div>
+  <div class="col-lg-5">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="teamContactName">
+          <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+        </div>
+        <input type="text" class="form-control" id="teamContactName" name="teamContactName" placeholder="Name" aria-label="teamContactName" aria-describedby="basic-addon1" [(ngModel)]="team.teamContactName" required #teamContactName="ngModel">
+      </div>
+    </div>
+<!--     <div class="col-lg-5">
+     <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="teamContactLastName">
+          <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+        </div>
+        <input type="text" class="form-control" id="contactLastName" name="contactLastName" placeholder="Last Name" aria-label="contactLastName" aria-describedby="basic-addon1" [(ngModel)]="team.contactLastName" required #contactLastName="ngModel">
+      </div>
+    </div> -->
+  </div>
+  <div class="row" style="padding-bottom: 10px;"> 
+  <div class="col-lg-2 tournamentApplicationForm">
+    <p class="label"> <b>Email Address</b> </p>
+  </div>
+  <div class="col-lg-5">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="emailAddress">
+          <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+        </div>
+        <input type="text" class="form-control" id="emailAddress" name="emailAddress" placeholder="" aria-label="emailAddress" aria-describedby="basic-addon1" [(ngModel)]="team.emailAddress" required #emailAddress="ngModel">
+      </div>
+    </div>
+<!--     <div class="col-lg-5">
+     <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="teamContactLastName">
+          <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+        </div>
+        <input type="text" class="form-control" id="contactLastName" name="contactLastName" placeholder="Last Name" aria-label="contactLastName" aria-describedby="basic-addon1" [(ngModel)]="team.contactLastName" required #contactLastName="ngModel">
+      </div>
+    </div> -->
+  </div>
 
 <br>
 <button type="submit" [disabled]="!teamApplicationForm.form.valid" 

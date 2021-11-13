@@ -74,6 +74,7 @@ export class AllDirectorLoginPageComponent implements OnInit{
       this.adminFound = data;
       
       this.sharedService.setDirectorID(this.adminFound.userID);
+      this.sharedService.setDirectorFound(this.adminFound);
       console.log("User id: " + this.adminFound.userID);
       // this.isLoggedIn = true;
       if(this.adminFound.roleName == 'Tournament Director'){

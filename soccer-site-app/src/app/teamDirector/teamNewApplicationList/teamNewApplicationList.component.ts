@@ -4,8 +4,16 @@ import {NgForm} from '@angular/forms';
 import {FormControl,FormGroup,Validators} from '@angular/forms';  
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal, NgbModalRef, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
+// import * as jsPDF from 'jspdf'; 
+
 import { Team  } from '../../../models/team';
+
+
+// services
+import { SharedService } from "../../services/shared.service";
 import { TeamService } from '../../services/team.service';
+
+declare var $: any;
 
 @Component({
   selector: 'teamNewApplicationList',
@@ -14,12 +22,14 @@ import { TeamService } from '../../services/team.service';
 })
 export class TeamNewApplicationListComponent implements OnInit {
   @ViewChild('close') close: ElementRef;
+  // @ViewChild('teamApplicationsTable') teamApplicationsTable: ElementRef;
 
   teams: Team[] = [];
   title: string;
   deleteTeamFound: any;
   deleteTeamID!:String;
   updateTeamID!:String;
+  director!:any;
   
 
   // refs: Referee[];  
@@ -34,19 +44,24 @@ export class TeamNewApplicationListComponent implements OnInit {
   constructor(
     private route: ActivatedRoute, 
     private router: Router, 
-    private teamService: TeamService) {
+    private teamService: TeamService,
+    private sharedService: SharedService,) {
    this.title = 'Pending Applications';
      // this.newReferee = new Referee();
    }
 
    ngOnInit() {
 
+    this.sharedService.sharedDirector.subscribe(
+          data => {
+            this.director= data;
+          },
+          error => console.log(error));
+
    this.teamService.findByisVerifiedFalse().subscribe(data => {
       this.teams = data;
       console.log(data);
     });
-
-
 
   }
 
@@ -60,7 +75,8 @@ export class TeamNewApplicationListComponent implements OnInit {
       },  
       error => console.log(error)); 
     this.closeModal();
-    this.refreshPage();
+    // this.refreshPage();
+    this.reloadComponent();
    }
 
 
@@ -196,6 +212,9 @@ export class TeamNewApplicationListComponent implements OnInit {
             console.log(data);
             this.closeModal();
             this.refreshPage(); 
+            // this.router.navigate([this.router.url]);
+            // this.viewPendingTeams();
+            // this.allVerifiedTeams();
 
           }, error => console.log(error));
         },  
@@ -233,6 +252,40 @@ closeModal(){
 
 viewPendingTeams() {
     this.router.navigate(['/teamNewApplicationList']);
+  }
+
+  allNewApplications(){
+    this.router.navigate(['teamNewApplicationList'], {relativeTo:this.route});
+  }
+
+  allVerifiedTeams(){
+    this.router.navigate(['teamsList'], {relativeTo:this.route});
+  }
+
+  // public SavePDF(): void {  
+  //   let teamApplicationsTable=this.teamApplicationsTable.nativeElement;  
+  //   let doc = new jsPDF();  
+  //   let _elementHandlers =  
+  //   {  
+  //     '#editor':function(element,renderer){  
+  //       return true;  
+  //     }  
+  //   };  
+  //   doc.fromHTML(teamApplicationsTable.innerHTML,15,15,{  
+  
+  //     'width':190,  
+  //     'elementHandlers':_elementHandlers  
+  //   });  
+  
+  //   doc.save('test.pdf');  
+  // }
+
+  reloadComponent() {
+  let currentUrl = this.router.url;
+      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+      this.router.onSameUrlNavigation = 'reload';
+      this.router.navigate([currentUrl]);
+
   }
 
 }

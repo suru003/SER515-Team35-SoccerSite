@@ -38,8 +38,8 @@
           <div class="col-lg-6 ">
            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="actionChoice" [(ngModel)]="actionChoice">
             <option value="" disabled selected>More</option>   
-            <option value="Build a Referee Listing" >Build a Team Listing</option>  
-            <option value="Assign Referees" >Team Referees</option> 
+            <!-- <option value="Build a Referee Listing" >Build a Team Listing</option>   -->
+            <!-- <option value="Assign Referees" >Team Referees</option>  -->
             <option value="View Matches" >View Matches</option> 
             <option value="Expor Referee Applications" >Export Team Applications</option> 
             <option value="Manage Applications" >Manage Applications</option> 
@@ -62,7 +62,8 @@
         <div class="row no-gutters">
           <div class="col-lg-8 profile-text">
             <div class="profile-child">
-             <p class="profile-text-title">Jonas Lang</p>
+             <p class="profile-text-title">{{director.firstName}} {{director.lastName}}</p>
+             <!-- <p class="profile-text-title">Chrissy Lane</p> -->
              <p class="profile-text-subtitle">Team Director</p>
            </div>
          </div>
@@ -73,7 +74,6 @@
       </div>
     </div>
 
-      
 
   </div>
 </div>
@@ -90,9 +90,9 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">8780</h5>
-            <p class="card-text">Users</p>
-            <p class="card-subtext">Total users registered and active</p>
+            <h5 class="card-title">{{newApplications.length}}</h5>
+            <p class="card-text">New Applications</p>
+            <p class="card-subtext">Total applications pending</p>
           </div>
         </div>
       </div>
@@ -109,9 +109,9 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">8780</h5>
-            <p class="card-text">Coaches</p>
-            <p class="card-subtext">Total coaches registered and active</p>
+            <h5 class="card-title">{{verifiedApplications.length}}</h5>
+            <p class="card-text">Verified Teams</p>
+            <p class="card-subtext">Total teams accepted </p>
           </div>
         </div>
       </div>
@@ -151,3 +151,4 @@
  </div>
 </div>
 </div>
+

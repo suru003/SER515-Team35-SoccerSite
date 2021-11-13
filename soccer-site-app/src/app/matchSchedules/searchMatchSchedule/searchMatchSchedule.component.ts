@@ -6,10 +6,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 // models
 import { Referee } from '../../../models/referee';
-import { Roles } from '../../../models/roles';
 
 // services
-import { RefereeDirectorService } from '../../services/refereeDirector.service';
+import { TeamService } from '../../services/team.service';
 
 declare var $: any;
 
@@ -21,53 +20,71 @@ declare var $: any;
 export class SearchMatchScheduleComponent {
   // title: string;
 
-  referee: Referee;
-  roles: Roles[] = [];
-  title: string;
-  showMsg: boolean = false;
-  selectedRole = null;
-  createReferee:any;
+  // referee: Referee;
+  // roles: Roles[] = [];
+  // title: string;
+  // showMsg: boolean = false;
+  // selectedRole = null;
+  // createReferee:any;
+
+   divisions:any;
+
+   searchByDivision: string = '';
+  searchByDate: string = '';
+  searchByVenue: string = '';
+  searchByTeam: string = '';
+  searchByClub: string = '';
 
   constructor(
     private route: ActivatedRoute, 
     private router: Router, 
-    private adminService: RefereeDirectorService) {
-    this.referee = new Referee();
+    private teamService: TeamService) {
+    // this.team = new Team();
     // this.user = new Users();
-    this.title = 'Register Referee';
+    // this.title = 'Register Referee';
     
   }
 
   ngOnInit() {
-    this.getRoles();
+    // this.getRoles();
+    this.getDivisions();
   }
 
-  onSubmit(refereeForm: NgForm) {
-    this.referee.status = 'NEW';
-    this.referee.roleID=2;
-    this.adminService.createReferee(this.referee).subscribe(
+    getDivisions() {
+    this.teamService.findAllDivisions().subscribe(
       data => {
-        this.createReferee = data;
-        this.createReferee = Array.of(this.createReferee);
-        // this.viewAllUsers();
-      });
-
-    $('#user-creation-modal').modal('show');
-
-  }
-
-
-  getRoles() {
-    this.adminService.findAllRoles().subscribe(
-      data => {
-        this.roles = data;
+        this.divisions = data;
         // console.log(data);
       });
 
   }
 
-  viewAllUsers() {
-    $('#user-creation-modal').modal('close');
-    this.router.navigate(['/allusers']);
+  onSubmit(searchMatchScheduleForm: NgForm) {
+    // this.referee.status = 'NEW';
+    // this.referee.roleID=2;
+    // this.adminService.createReferee(this.referee).subscribe(
+    //   data => {
+    //     this.createReferee = data;
+    //     this.createReferee = Array.of(this.createReferee);
+    //     // this.viewAllUsers();
+    //   });
+
+    // $('#user-creation-modal').modal('show');
+
   }
+
+
+  // getRoles() {
+  //   this.adminService.findAllRoles().subscribe(
+  //     data => {
+  //       this.roles = data;
+  //       // console.log(data);
+  //     });
+
+  // }
+
+  // viewAllUsers() {
+  //   $('#user-creation-modal').modal('close');
+  //   this.router.navigate(['/allusers']);
+  // }
 }

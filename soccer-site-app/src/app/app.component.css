@@ -44,7 +44,11 @@ body{
 }
 .navbar .container{
 	margin-left: 2rem;
-	
+}
+@media (min-width: 1200px){
+	.navbar .container{
+	max-width: 1200px;
+}
 }
 
 .row{

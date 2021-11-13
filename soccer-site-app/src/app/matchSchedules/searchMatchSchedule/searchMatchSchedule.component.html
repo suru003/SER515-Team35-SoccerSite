@@ -79,9 +79,11 @@
                   <p class="label"> <b>Search by Division</b> </p>
                 </div>
                 <div class="col-lg-5">
-                 <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByDay" [(ngModel)]="referee.roleID" required #searchByDay="ngModel">
+                 <!-- <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByDivision" [(ngModel)]="searchByDivision" > -->
+                  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByDivision" [(ngModel)]="searchByDivision" required >
 
-                  <option [value]="0" disabled selected>Color</option>          
+                  <option [value]="0" disabled selected>Search by Division</option>
+                  <option *ngFor="let d of divisions" [ngValue]="d.categoryName" style="color: black">{{d.categoryName}}</option>       
 
                 </select>
               </div>
@@ -92,9 +94,9 @@
                 <p class="label"> <b>Search by Date</b> </p>
               </div>
               <div class="col-lg-5">
-               <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByDay" [(ngModel)]="referee.roleID" required #searchByDay="ngModel">
+               <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByDate" [(ngModel)]="searchByDate" >
 
-                <option [value]="0" disabled selected>Color</option>          
+                <option [value]="0" disabled selected>searchByDate</option>          
 
               </select>
             </div>
@@ -105,9 +107,9 @@
               <p class="label"> <b>Search by Venue</b> </p>
             </div>
             <div class="col-lg-5">
-             <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByDay" [(ngModel)]="referee.roleID" required #searchByDay="ngModel">
+             <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByVenue" [(ngModel)]="searchByVenue">
 
-              <option [value]="0" disabled selected>Color</option>          
+              <option [value]="0" disabled selected>searchByVenue</option>          
 
             </select>
           </div>
@@ -118,9 +120,9 @@
             <p class="label"> <b>Search by Team</b> </p>
           </div>
           <div class="col-lg-5">
-           <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByDay" [(ngModel)]="referee.roleID" required #searchByDay="ngModel">
+           <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByTeam" [(ngModel)]="searchByTeam">
 
-            <option [value]="0" disabled selected>Color</option>          
+            <option [value]="0" disabled selected>Search by Team</option>          
 
           </select>
         </div>
@@ -131,9 +133,9 @@
           <p class="label"> <b>Search by Club</b> </p>
         </div>
         <div class="col-lg-5">
-         <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByDay" [(ngModel)]="referee.roleID" required #searchByDay="ngModel">
+         <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByClub" [(ngModel)]="searchByClub" >
 
-          <option [value]="0" disabled selected>Color</option>          
+          <option [value]="0" disabled selected>Search by Club</option>          
 
         </select>
       </div>
@@ -153,7 +155,7 @@
       <p class="label"> <b>Search by Division</b> </p>
     </div>
     <div class="col-lg-5">
-     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByDay" [(ngModel)]="referee.roleID" required #searchByDivision="ngModel">
+     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByDivision" [(ngModel)]="searchByDivision">
 
       <option [value]="0" disabled selected>Color</option>          
 

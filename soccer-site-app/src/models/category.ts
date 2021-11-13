@@ -4,4 +4,6 @@ export class Category{
     categoryName!: String; 
 	minAge!: number;
 	maxAge!: number;
+	playLevel!:String;
+	price!:String;
 }
