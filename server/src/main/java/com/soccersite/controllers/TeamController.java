@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.soccersite.model.Referee;
 import com.soccersite.model.Team;
 import com.soccersite.repo.TeamRepo;
 import com.soccersite.services.TeamService;
@@ -75,6 +76,22 @@ public class TeamController {
 		return new ResponseEntity<>(HttpStatus.OK) ;
 	}
 	
-
-
+//	@GetMapping("/status/{isVerified}")
+//	public ResponseEntity<List<Team>> findByStatus(@PathVariable("isVerified") boolean isVerified){
+//		List<Team> list = teamService.findByStatus(isVerified);
+//		return new ResponseEntity<List<Team>>(list, HttpStatus.OK) ;
+//	}
+	
+	@GetMapping("/status/true")
+	public ResponseEntity<List<Team>> findByisVerifiedTrue(){
+		List<Team> list = teamService.findByisVerifiedTrue();
+		return new ResponseEntity<List<Team>>(list, HttpStatus.OK) ;
+	}
+	
+	@GetMapping("/status/false")
+	public ResponseEntity<List<Team>> findByisVerifiedFalse(){
+		List<Team> list = teamService.findByisVerifiedFalse();
+		return new ResponseEntity<List<Team>>(list, HttpStatus.OK) ;
+	}
+	
 }
