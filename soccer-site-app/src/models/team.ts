@@ -22,4 +22,6 @@ export class Team{
     altJerseyColor!:String;
     oldestDOB!:String;
     applicationCategory!:String;
+    teamContactName!:String
+    emailAddress!:String;
 }

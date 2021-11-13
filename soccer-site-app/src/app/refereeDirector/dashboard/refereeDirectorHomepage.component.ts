@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router'
 import {NgForm} from '@angular/forms';
 
+
+//services
+import { RefereeDirectorService } from '../../services/refereeDirector.service';
+
+
 @Component({
   selector: 'refereeDirectorHomepage',
   templateUrl: './refereeDirectorHomepage.component.html',
@@ -10,13 +15,27 @@ import {NgForm} from '@angular/forms';
 export class RefereeDirectorComponent implements OnInit{
   // title: string;
   actionChoice: string = '';
+  newApplications!:any;
+  verifiedApplications!:any;
 
-  constructor(private route: ActivatedRoute, private router: Router) {
+  constructor(private route: ActivatedRoute, 
+    private router: Router,
+    private refereeService: RefereeDirectorService) {
     // this.title = 'All Users';
   }
 
 
   ngOnInit(): void {
+    this.refereeService.findByStatus("NEW").subscribe(data => {
+      this.newApplications = data;
+      // console.log(data);
+    });
+
+    this.refereeService.findByStatus("VERIFIED").subscribe(data => {
+      this.verifiedApplications = data;
+      // console.log(data);
+    });
+
     this.allRefs();
   }
 

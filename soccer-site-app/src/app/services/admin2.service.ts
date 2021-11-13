@@ -21,6 +21,10 @@ export class Admin2Service {
 
   }
 
+  public findDirectorByID(id: String): Observable<Admin2[]> {
+  return this.http.get<Admin2[]>(`${this.adminUrl}/find/${id}`);
+}
+
 // Admins
 public findAll(): Observable<Admin2[]> {
   return this.http.get<Admin2[]>(`${this.adminUrl}/all`);

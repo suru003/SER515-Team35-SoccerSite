@@ -26,17 +26,22 @@ public class Category {
             @Parameter(name = CustomGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })
 	String id;
 	String categoryName;
+	
 	int minAge;
 	int maxAge;
+	String playLevel;
+	String price;
 	
 	
 	public Category() {}
-	public Category(String id, String categoryName, int minAge, int maxAge) {
+	public Category(String id, String categoryName, int minAge, int maxAge, String playLevel, String price) {
 		super();
 		this.id = id;
 		this.categoryName = categoryName;
 		this.minAge = minAge;
 		this.maxAge = maxAge;
+		this.playLevel= playLevel;
+		this.price = price;
 	}
 	public String getId() {
 		return id;
@@ -62,9 +67,18 @@ public class Category {
 	public void setMaxAge(int maxAge) {
 		this.maxAge = maxAge;
 	}
-	
-	
-	
+	public String getPlayLevel() {
+		return playLevel;
+	}
+	public void setPlayLevel(String playLevel) {
+		this.playLevel = playLevel;
+	}
+	public String getPrice() {
+		return price;
+	}
+	public void setPrice(String price) {
+		this.price = price;
+	}
 	
 	
 }

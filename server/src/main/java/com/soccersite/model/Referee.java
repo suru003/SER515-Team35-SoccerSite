@@ -34,7 +34,7 @@ public class Referee {
 	@Column(unique= true)
 	String email;
 	long contactNo;
-	@Column(unique= true)
+//	@Column(unique= true)
 //	String username;
 //	String password;
 	String address;

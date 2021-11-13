@@ -3,8 +3,7 @@ export class Admin2{
 	 firstName!: string;
 	 lastName!: string;
 	 email!: string;
-	 username!: string;
-	 password!: string;
 	 roleID!: number;
+	 roleName!:String;
 
 }

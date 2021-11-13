@@ -38,13 +38,13 @@
           <div class="col-lg-6 ">
            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="actionChoice" [(ngModel)]="actionChoice">
             <option value="" disabled selected>More</option>   
-            <option value="Build a Referee Listing" >Build a Referee Listing</option>  
+            <!-- <option value="Build a Referee Listing" >Build a Referee Listing</option>   -->
             <option value="Assign Referees" >Assign Referees</option> 
             <option value="View Matches" >View Matches</option> 
             <option value="Expor Referee Applications" >Export Referee Applications</option> 
             <option value="Manage Applications" >Manage Applications</option> 
             <option value="Add Referees" >Add Referees</option> 
-            <option value="Publish/Unpublish Referee Schedule" >Publish/Unpublish Referee Schedule</option> 
+            <!-- <option value="Publish/Unpublish Referee Schedule" >Publish/Unpublish Referee Schedule</option>  -->
 
           </select>
           
@@ -60,10 +60,10 @@
   </div>
   <div class="col-lg-3 topbar-icon-col">
     <div class="row no-gutters">
-      <div class="col-lg-6 profile-text">
+      <div class="col-lg-8 profile-text">
         <div class="profile-child">
          <p class="profile-text-title">Jane Doe</p>
-         <p class="profile-text-subtitle">Admin</p>
+         <p class="profile-text-subtitle">Ref Director</p>
        </div>
      </div>
 
@@ -90,9 +90,9 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">8780</h5>
-            <p class="card-text">Users</p>
-            <p class="card-subtext">Total users registered and active</p>
+             <h5 class="card-title">{{newApplications.length}}</h5>
+            <p class="card-text">New Applications</p>
+            <p class="card-subtext">Total applications pending</p>
           </div>
         </div>
       </div>
@@ -109,9 +109,9 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">8780</h5>
-            <p class="card-text">Coaches</p>
-            <p class="card-subtext">Total coaches registered and active</p>
+            <h5 class="card-title">{{verifiedApplications.length}}</h5>
+            <p class="card-text">Verified Refs</p>
+            <p class="card-subtext">Total referees accepted </p>
           </div>
         </div>
       </div>

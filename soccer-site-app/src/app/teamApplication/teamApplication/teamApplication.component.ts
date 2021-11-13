@@ -25,6 +25,7 @@ export class TeamApplicationComponent {
   showMsg: boolean = false;
   selectedRole = null;
   createdTeam:any;
+  divisions:any;
 
   dayDOB: string = '';
   monthDOB: string = '';
@@ -41,20 +42,10 @@ export class TeamApplicationComponent {
   }
 
   ngOnInit() {
-    // this.getRoles();
+    this.getDivisions();
   }
 
   onSubmit(teamApplicationForm: NgForm) {
-    // this.referee.status = 'NEW';
-    // this.referee.roleID=2;
-    // this.adminService.createReferee(this.referee).subscribe(
-    //   data => {
-    //     this.createReferee = data;
-    //     this.createReferee = Array.of(this.createReferee);
-    //     // this.viewAllUsers();
-    //   });
-
-    // $('#user-creation-modal').modal('show');
     this.team.status = false;
     this.team.oldestDOB= this.dayDOB + "-" + this.monthDOB + "-" + this.yearDOB;
     // this.referee.roleID=2;
@@ -70,14 +61,15 @@ export class TeamApplicationComponent {
   }
 
 
-  // getRoles() {
-  //   this.adminService.findAllRoles().subscribe(
-  //     data => {
-  //       this.roles = data;
-  //       // console.log(data);
-  //     });
+  getDivisions() {
+    this.teamService.findAllDivisions().subscribe(
+      data => {
+        this.divisions = data;
+        // console.log(data);
+      });
 
-  // }
+  }
+
 
   // viewAllUsers() {
   //   $('#user-creation-modal').modal('close');
