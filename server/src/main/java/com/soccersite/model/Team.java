@@ -7,7 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -35,19 +34,19 @@ public class Team implements Serializable{
 	// Foreign key
 //	String categoryID;
 	@OneToOne()
-    @JoinColumn(name = "category_id", referencedColumnName = "id",nullable = false)
+    @JoinColumn(name = "category_id", referencedColumnName = "id",nullable = true)
     private Category category;
 	
 	// Foreign key
 //	String coachID;
 	@OneToOne()
-    @JoinColumn(name = "coach_id", referencedColumnName = "id",nullable = false)
+    @JoinColumn(name = "coach_id", referencedColumnName = "id",nullable = true)
     private Coach coach;
 	
 	// Foreign key
 
 	@OneToOne()
-    @JoinColumn(name = "tournament_id", referencedColumnName = "id",nullable = false)
+    @JoinColumn(name = "tournament_id", referencedColumnName = "id",nullable = true)
     private Tournament tournament;
 	
 
@@ -82,20 +81,20 @@ public class Team implements Serializable{
 		this.coach = coach;
 		this.tournament = tournament;
 // 		this.status = status;
-		this.coachID = coachID;
-		this.tournamentID = tournamentID;
+//		this.coachID = coachID;
+//		this.tournamentID = tournamentID;
 		this.isVerified = status;
 	}
 	
-	public Team(String teamID, String teamName, String categoryID, String coachID, String tournamentID,
+	public Team(String teamID, String teamName, Category category, Coach coach, String tournamentID,
 			boolean isVerified, String gender, String age, String coachName, String clubName, String city, String state,
 			String association, String league, String playLevel, String primaryJerseyColor, String altJerseyColor,
 			String oldestDOB, String applicationCategory, String teamContactName, String emailAddress) {
 		super();
 		this.teamID = teamID;
 		this.teamName = teamName;
-		this.categoryID = categoryID;
-		this.coachID = coachID;
+		this.category = category;
+		this.coach = coach;
 		this.tournamentID = tournamentID;
 		this.isVerified = isVerified;
 		this.gender = gender;
@@ -167,7 +166,7 @@ public class Team implements Serializable{
 	public String toString() {
 
 		return "Team [teamName=" + teamName + ", categoryId=" + category.id + ", coachID=" + coach.id + ", tournamentID="
-				+ tournament.id + ", status=" + status + ", teamID=" + teamID + "]";
+				+ tournament.id + ", status=" + isVerified + ", teamID=" + teamID + "]";}
 
 	public String getGender() {
 		return gender;

@@ -163,14 +163,14 @@
    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="monthDOB" [(ngModel)]="monthDOB" required>
 
     <option value="" disabled selected>Month</option>
-    <option value="January" >January</option>  
-    <option value="February" >February</option> 
-    <option value="March" >March</option> 
+    <option value="01" >January</option>  
+    <option value="02" >February</option> 
+    <option value="03" >March</option> 
     <option value="April" >April</option> 
-    <option value="May" >May</option>  
-    <option value="June" >June</option> 
-    <option value="July" >July</option> 
-    <option value="August" >August</option> 
+    <option value="04" >May</option>  
+    <option value="05" >June</option> 
+    <option value="05" >July</option> 
+    <option value="06" >August</option> 
     <!-- <option *ngFor="let r of roles" [ngValue]="r.id" style="color: black">{{r.roles}}</option> -->
   </select>
 </div>
@@ -265,6 +265,7 @@
       <option value="Georgia" >Georgia</option> 
       <option value="Arizona" >Arizona</option> 
       <option value="Arizona" >Arkansas</option>
+      <option value="Arizona" >Houston</option>
 
     </select>
   </div>
@@ -278,11 +279,18 @@
    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="league" [(ngModel)]="team.league" required #league="ngModel">
 
     <!-- <option [ngValue]="null" disabled selected>Category</option> -->
-    <option [value]="0" disabled selected>League</option>      
+    <option [value]="0" disabled selected>--- Premier League ---</option>      
     <option value="Premier League (Boys U10)" >Premier League (Boys U10)</option> 
     <option value="Premier League (Boys U11)" >Premier League (Boys U11)</option> 
     <option value="Champions League (Girls U10)" >Premier League (Girls U10)</option> 
-    <option value="Champions League (Girls U11)" >Champions League (Girls U11)</option>    
+    <option value="Champions League (Girls U11)" >Premier League (Girls U11)</option>
+    <br>
+    <option [value]="0" disabled selected>--- Classic League ---</option> 
+    <br>
+    <option value="Premier League (Boys U10)" >Classic League (Boys U10)</option> 
+    <option value="Premier League (Boys U11)" >Classic League (Boys U11)</option> 
+    <option value="Champions League (Girls U10)" >Classic League (Girls U10)</option> 
+    <option value="Champions League (Girls U11)" >Classic League (Girls U11)</option>    
   </select>
 </div>
 </div>

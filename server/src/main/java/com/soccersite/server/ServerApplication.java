@@ -91,14 +91,14 @@ public class ServerApplication {
 			
 //			add teams
 			teamRepo.deleteAll();
-			Team team2 = new Team("TEAM_00500","Minnesota Giants", "", "", "", false, "Boys", "11",
+			Team team2 = new Team("TEAM_00500","Minnesota Giants", null,null, "", false, "Boys", "11",
 					"David Chan","Minnesota Club", "Arizona", "Arizona", "Alabama", "Premier League (Boys U11)", "Premier",
 					"Black", "Red", "12-06-2000", "Boys U11 ($500)", "David Chan", "david@gmail.com");
 			
-			Team team3 = new Team("TEAM_50500","All Star Boys Soccer Team", "", "", "", false, "Boys", "10",
+			Team team3 = new Team("TEAM_50500","All Star Boys Soccer Team", null,null, "", false, "Boys", "10",
 					"John Easel","Gunners FC", "Arizona", "Arizona", "Alabama", "Classic League (Boys U10)", "Classic",
 					"Black", "Red", "12-06-2000", "Boys U10 ($500)", "John Easel", "");
-			Team team4 = new Team("TEAM_50100","Super Girls Soccer Team", "", "", "", true, "Girls", "11",
+			Team team4 = new Team("TEAM_50100","Super Girls Soccer Team", null,null, "", true, "Girls", "11",
 					"Daisy Little","SuperHeroes", "Georgia", "Georgia", "Georgia", "Premier League (Girls U11)", "Premier",
 					"White", "Blue", "1-07-2000", "Girls U11 ($530)", "Daisy Little", "");
 
@@ -135,6 +135,3 @@ public class ServerApplication {
 		
 	}
 	
-
-
-}

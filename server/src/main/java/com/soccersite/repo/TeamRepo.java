@@ -32,7 +32,7 @@ public interface TeamRepo extends JpaRepository<Team, String> {
 		 @Query("UPDATE Team t set t.teamName= :teamName, "
 		 		+ "t.category= :category, "
 		 		+ "t.tournament= :tournament,"
-		 		+ "t.status = :status WHERE t.teamID = :id")
+		 		+ "t.isVerified = :status WHERE t.teamID = :id")
 		Team updateById(@Param("id") String id, String teamName, Category category, Tournament tournament, boolean status);
 
 // 		 		+ "t.categoryID= :categoryID, "
