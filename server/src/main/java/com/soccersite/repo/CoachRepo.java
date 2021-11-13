@@ -10,8 +10,8 @@ import com.soccersite.model.Coach;
 
 @Repository
 @CrossOrigin(origins = "http://localhost:4200")
-public interface CoachRepo extends JpaRepository<Coach, Integer> {
+public interface CoachRepo extends JpaRepository<Coach, String> {
 
-	Optional<Coach> findCoachById(int id);
+	Optional<Coach> findCoachById(String id);
 
 }

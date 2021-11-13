@@ -11,8 +11,8 @@ export class CoachService {
   private serverUrl = `${environment.apiBaseUrl}/coaches`;
   constructor(private http: HttpClient) { }
 
-  public getCoach(id: String):Observable<Coach>{
-    return this.http.get<Coach>(`${this.serverUrl}/find/${id}`);
+  public getCoach(id: String):Promise<Coach>{
+    return this.http.get<Coach>(`${this.serverUrl}/find/${id}`).toPromise();
   }
   
   public getAllCoaches():Observable<Coach[]>{

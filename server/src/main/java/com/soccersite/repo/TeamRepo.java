@@ -10,8 +10,10 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-import com.soccersite.model.Referee;
+
+import com.soccersite.model.Category;
 import com.soccersite.model.Team;
+import com.soccersite.model.Tournament;
 
 @Repository
 @CrossOrigin(origins = "http://localhost:4200")
@@ -28,11 +30,17 @@ public interface TeamRepo extends JpaRepository<Team, String> {
 	 @Transactional
 		@Modifying
 		 @Query("UPDATE Team t set t.teamName= :teamName, "
-		 		+ "t.categoryID= :categoryID, "
-		 		+ "t.tournamentID= :tournamentID,"
-		 		+ "t.isVerified = :isVerified WHERE t.teamID = :id")
-		Team updateById(@Param("id") String id, String teamName, String categoryID, String tournamentID, boolean isVerified);
+		 		+ "t.category= :category, "
+		 		+ "t.tournament= :tournament,"
+		 		+ "t.status = :status WHERE t.teamID = :id")
+		Team updateById(@Param("id") String id, String teamName, Category category, Tournament tournament, boolean status);
+
+// 		 		+ "t.categoryID= :categoryID, "
+// 		 		+ "t.tournamentID= :tournamentID,"
+// 		 		+ "t.isVerified = :isVerified WHERE t.teamID = :id")
+// 		Team updateById(@Param("id") String id, String teamName, String categoryID, String tournamentID, boolean isVerified);
 	 
 	 List<Team> findByisVerifiedTrue();
 	 List<Team> findByisVerifiedFalse();
+
 }

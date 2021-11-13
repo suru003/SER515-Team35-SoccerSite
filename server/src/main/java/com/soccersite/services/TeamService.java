@@ -29,7 +29,9 @@ public class TeamService {
 	}
 	
 	public Team updateTeam(Team team) {
-		return repo.updateById(team.getTeamID(), team.getTeamName(), team.getCategoryID(), team.getTournamentID(), team.isVerified());
+		return repo.updateById(team.getTeamID(), team.getTeamName(), team.getCategory(), team.getTournament(), team.isVerified());
+// 		return repo.updateById(team.getTeamID(), team.getTeamName(), team.getCategoryID(), team.getTournamentID(), team.isVerified());
+
 	}
 	
 	public void deleteTeam(String teamID) {

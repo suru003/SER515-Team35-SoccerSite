@@ -30,8 +30,6 @@ public class ServerApplication {
 	@Autowired
 	TeamRepo teamRepo;
 	
-	
-	
 	ServerApplication(){}
 	public static void main(String[] args) {
 		SpringApplication app = new SpringApplication(ServerApplication.class);
@@ -75,8 +73,12 @@ public class ServerApplication {
 			teamRepo.save(team4);
 		};
 		
+
+	}	
+
 		
 	}
 	
+
 
 }
