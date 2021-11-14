@@ -36,7 +36,8 @@ import { TeamDirectorComponent } from './teamDirector/dashboard/teamDirectorDash
 import { TeamsListComponent } from './teamDirector/teamsList/teamsList.component';
 import { TeamNewApplicationListComponent } from './teamDirector/teamNewApplicationList/teamNewApplicationList.component';
 
-
+//sponsors
+import { sponsors } from './sponsors/sponsors';
 
 //F.A.Q. 
 import { FAQPageComponent } from './faqpage/faqpage.component';
@@ -122,6 +123,9 @@ const routes: Routes = [
   path:'F.A.Q.', component:FAQPageComponent
 },
 {
+  path:'sponsors', component:sponsors
+},
+{
   path:'teamApplication', component:TeamApplicationComponent
 },
 {
@@ -163,4 +167,4 @@ TournamentDirectorDashboardComponent,AddTournamentComponent,TournamentListCompon
 TeamsDashboardComponent, FAQPageComponent, TeamApplicationComponent, 
 LoginOrRegisterComponent,RegisterRefereeComponent, TeamLoginOrRegisterComponent, 
 SearchMatchScheduleComponent,TeamDirectorComponent, TeamsListComponent, TeamNewApplicationListComponent,
-AllDirectorLoginPageComponent]
+AllDirectorLoginPageComponent,sponsors]
