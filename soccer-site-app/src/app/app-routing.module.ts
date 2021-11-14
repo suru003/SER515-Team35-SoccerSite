@@ -39,6 +39,23 @@ import { TeamNewApplicationListComponent } from './teamDirector/teamNewApplicati
 //sponsors
 import { sponsors } from './sponsors/sponsors';
 
+
+// Volunteer Director
+import { VolunteerDirectorComponent } from './volunteerDirector/dashboard/volunteerDirectorHomepage.component';
+import { VolunteerUserListComponent } from './volunteerDirector/volunteerUserList/volunteerUserList.component';
+import { VolunteerNewApplicationListComponent } from './volunteerDirector/volunteerNewApplicationList/volunteerNewApplicationList.component';
+import { AddVolunteerComponent } from './volunteerDirector/addVolunteer/addVolunteer.component';
+//import { VolunteerDirectorComponent } from './volunteerDirector/dashboard/volunteerDirectorHomepage.component';
+//import { ViewMatchesComponent } from './volunteerDirector/viewMatches/viewMatches';
+import { VolunteerDirectorLoginPageComponent } from './volunteerDirector/loginpage/loginPage.component';
+
+//Volunteers
+import { VolunteerDirectorLoginOrRegisterComponent } from './volunteerDirector/loginOrRegister/loginOrRegister.component';
+import { RegisterVolunteerComponent } from './volunteerDirector/register/registerVolunteer.component';
+
+
+
+
 //F.A.Q. 
 import { FAQPageComponent } from './faqpage/faqpage.component';
 
@@ -62,6 +79,9 @@ const routes: Routes = [
  {
    path:'refereeLoginOrRegister', component:LoginOrRegisterComponent
  },
+ {
+  path:'volunteerLoginOrRegister', component:VolunteerDirectorLoginOrRegisterComponent
+},
  {
    path:'searchMatchSchedule', component:SearchMatchScheduleComponent
  },
@@ -119,6 +139,22 @@ const routes: Routes = [
   ]
 
 },
+
+{path:'volunteerDirectorHomepage', component: VolunteerDirectorComponent,
+  children: [
+  {
+    path:'volunteerUserList', component: VolunteerUserListComponent
+  },
+  {
+    path:'addVolunteer', component: AddVolunteerComponent
+  },
+  {
+    path:'volunteerNewApplicationList', component: VolunteerNewApplicationListComponent
+  }
+  ]
+
+},
+
 {
   path:'F.A.Q.', component:FAQPageComponent
 },
@@ -135,6 +171,14 @@ const routes: Routes = [
  path:'registerReferee', component:RegisterRefereeComponent
 },
 {
+
+  path:'registerVolunteer', component:RegisterVolunteerComponent
+ },
+{
+ path:'volunteerLoginOrRegister', component:VolunteerDirectorLoginOrRegisterComponent
+},
+{
+
  path:'teamLoginOrRegister', component:TeamLoginOrRegisterComponent
 },
 {
@@ -159,12 +203,13 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const ArrayOfComponents = [RefereeDirectorComponent, 
-UserListComponent, LoginPageComponent,
-AddRefereeComponent,RefereeUserListComponent, 
-RefereeNewApplicationListComponent,TournamentDirectorLoginPageComponent,
+
+export const ArrayOfComponents = [RefereeDirectorComponent, VolunteerDirectorComponent, 
+UserListComponent, LoginPageComponent, VolunteerDirectorLoginPageComponent, 
+AddRefereeComponent,RefereeUserListComponent, AddVolunteerComponent, VolunteerUserListComponent, 
+RefereeNewApplicationListComponent,TournamentDirectorLoginPageComponent, VolunteerNewApplicationListComponent, 
 TournamentDirectorDashboardComponent,AddTournamentComponent,TournamentListComponent,
-TeamsDashboardComponent, FAQPageComponent, TeamApplicationComponent, 
-LoginOrRegisterComponent,RegisterRefereeComponent, TeamLoginOrRegisterComponent, 
+TeamsDashboardComponent, FAQPageComponent, TeamApplicationComponent, RegisterVolunteerComponent, 
+LoginOrRegisterComponent,RegisterRefereeComponent, TeamLoginOrRegisterComponent, VolunteerDirectorLoginOrRegisterComponent, 
 SearchMatchScheduleComponent,TeamDirectorComponent, TeamsListComponent, TeamNewApplicationListComponent,
 AllDirectorLoginPageComponent,sponsors]

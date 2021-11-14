@@ -1,0 +1,333 @@
+   <div class="sidebar">
+
+    <div class="logo-section">
+      <div class="logo-name" style="text-align:center; font-size: 1rem;">2020 Highlights</div>
+    </div>
+    <br>
+    <div class="navbar">
+      <!-- <div class="highlights"></div> -->
+      <div class="highlightsImage">
+        <img src="../assets/images/6.jpeg">
+      </div>
+      <div class="highlightsImage">
+        <img src="../assets/images/5.jpeg">
+      </div>
+      <div class="highlightsImage">
+        <img src="../assets/images/4.jpeg">
+      </div>
+
+<!--       <a href="#"><i class="fa fa-fw fa-home"></i> Dashboard</a>
+      <a href="#"><i class="fa fa-fw fa-search"></i> Coaches</a>
+      <a href="#"><i class="fa fa-fw fa-envelope"></i> Volunteers</a>
+      <a href="#"><i class="fa fa-fw fa-user"></i> Teams</a> -->
+
+    </div>
+  </div>
+
+  <div class="main-page align-vertically">
+    <div class="tournamentDetails row">
+     <div class="col-lg-12 ">
+       <div class="card mb-3 shadow rounded" >
+        <br>
+        <h4> Volunteer Center for the 2021 ASU Sparky Soccer Tournament</h4>
+        <!-- <p> <b>WHEN:</b> </p>
+        <p> <b>WHERE:</b> </p>
+        <p> <b>FEES:</b> </p>
+        <p> <b>APPLICATION DEADLINE:</b> </p>
+        <p> <b>PAY TO:</b> </p> -->
+        <!-- <p> <b>APPLICATION INSTRUCTIONS:</b> </p> -->
+        <br>
+       <!--  <div class="line"></div>
+        <br> -->
+        <p> <b>APPLICATION INSTRUCTIONS:</b> </p>
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+        <br>
+
+       <!--  <p> <b>Click on the button below to register or login in the next section:</b> </p>
+
+        <button type="submit" class="btn btn-primary-2">Start Registration</button> -->
+        <br>
+      </div>
+    </div>
+  </div>
+
+  <div class="container second-row">
+    <div class="row">
+      <div class="col-lg-12 ">
+       <div class="card mb-3 shadow rounded" >
+        <br>
+        <p> <b>VOLUNTEER REGISTRATION</b> </p>
+        <form #volunteerApplicationForm="ngForm" (ngSubmit)="onSubmit(volunteerApplicationForm)" >
+
+          <div class="row"> 
+            <div class="col-lg-2 tournamentApplicationForm">
+              <p class="label"> <b>Name</b> </p>
+            </div>
+            <div class="col-lg-5">
+             <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="firstName">
+                  <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                </div>
+                <input type="text" class="form-control" placeholder="" aria-label="firstName" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="col-lg-5">
+             <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="lastName">
+                  <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                </div>
+                <input type="text" class="form-control" placeholder="" aria-label="lastName" aria-describedby="basic-addon1">
+              </div>
+            </div>
+          </div>
+
+          <div class="row" style="padding-bottom: 10px;"> 
+            <div class="col-lg-2 tournamentApplicationForm">
+              <p class="label"> <b> Address</b> </p>
+            </div>
+            <div class="col-lg-5">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="address">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="" aria-label="address" aria-describedby="basic-addon1">
+                </div>
+              </div>
+            </div>
+
+            <div class="row" style="padding-bottom: 10px;"> 
+              <div class="col-lg-2 tournamentApplicationForm">
+                <p class="label"> <b> City/State</b> </p>
+              </div>
+              <div class="col-lg-5">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="city">
+                      <i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="" aria-label="city" aria-describedby="basic-addon1">
+                  </div>
+                </div>
+                <div class="col-lg-5">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="state">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="" aria-label="state" aria-describedby="basic-addon1">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row" style="padding-bottom: 10px;"> 
+                  <div class="col-lg-2 tournamentApplicationForm">
+                    <p class="label"> <b> Email</b> </p>
+                  </div>
+                  <div class="col-lg-5">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="email">
+                          <i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="" aria-label="email" aria-describedby="basic-addon1">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row" style="padding-bottom: 10px;"> 
+                    <div class="col-lg-2 tournamentApplicationForm">
+                      <p class="label"> <b> Phone Number</b> </p>
+                    </div>
+                    <div class="col-lg-5">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="phoneNumber">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                          </div>
+                          <input type="text" class="form-control" placeholder="" aria-label="phoneNumber" aria-describedby="basic-addon1">
+                        </div>
+                      </div>
+                    </div>
+
+                    <p> <b>EXPERIENCE & AVAILABILITY</b> </p>
+
+                    <div class="row" style="padding-bottom: 10px;"> 
+                      <div class="col-lg-2 tournamentApplicationForm">
+                        <p class="label"> <b>VOLUNTEER Grade</b> </p>
+                      </div>
+                      <div class="col-lg-5">
+                       <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="alternativeJerseyColor" [(ngModel)]="volunteer.roleID" required #alternativeJerseyColor="ngModel">
+
+                        <option [value]="0" disabled selected>Color</option>          
+
+                      </select>
+                    </div>
+                  </div>
+
+                  <br>
+    <!--               <p class="subtitle"> <b>TEAM INFORMATION</b> </p>
+                  <div class="row"> 
+                    <div class="col-lg-2 tournamentApplicationForm">
+                      <p class="label"> <b>Team Name</b> </p>
+                    </div>
+                    <div class="col-lg-10">
+                     <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="teamName">
+                          <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Rocky Boys Team" aria-label="teamName" aria-describedby="basic-addon1">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row" style="padding-bottom: 10px;"> 
+                    <div class="col-lg-2 tournamentApplicationForm">
+                      <p class="label"> <b>Team Category</b> </p>
+                    </div>
+                    <div class="col-lg-5">
+                     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="gender" [(ngModel)]="volunteer.roleID" required #gender="ngModel">
+
+                      <option [value]="0" disabled selected>Gender</option>          
+
+                    </select>
+                  </div>
+                  <div class="col-lg-5">
+                   <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="age" [(ngModel)]="volunteer.roleID" required #age="ngModel">
+
+                    <option value="" disabled selected>Age</option>
+                    
+                  </select>
+                </div>
+              </div>
+
+              <div class="row" style="padding-bottom: 10px;"> 
+                <div class="col-lg-2 tournamentApplicationForm">
+                  <p class="label"> <b>DOB of Oldest Player</b> </p>
+                </div>
+                <div class="col-lg-3">
+                 <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="dayDOB" [(ngModel)]="volunteer.roleID" required #dayDOB="ngModel">
+
+                  <option [ngValue]="null" disabled selected>Day</option>
+                  
+                </select>
+              </div>
+              <div class="col-lg-3">
+               <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="monthDOB" [(ngModel)]="volunteer.roleID" required #monthDOB="ngModel">
+
+                <option value="" disabled selected>Month</option>
+                
+              </select>
+            </div>
+            <div class="col-lg-4">
+              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="yearDOB" [(ngModel)]="volunteer.roleID" required #yearDOB="ngModel">
+
+                <option value="" disabled selected>Year</option>
+                
+              </select>
+            </div>
+          </div>
+
+          <div class="row" style="padding-bottom: 10px;"> 
+            <div class="col-lg-2 tournamentApplicationForm">
+              <p class="label"> <b>Coach's Name</b> </p>
+            </div>
+            <div class="col-lg-10">
+             <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="coachName">
+                  <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                </div>
+                <input type="text" class="form-control" placeholder="" aria-label="teamName" aria-describedby="basic-addon1">
+              </div>
+            </div>
+
+          </div>
+
+
+
+          <div class="row" style="padding-bottom: 10px;"> 
+            <div class="col-lg-2 tournamentApplicationForm">
+              <p class="label"> <b>Club name</b> </p>
+            </div>
+            <div class="col-lg-5">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="clubName">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="" aria-label="clubName" aria-describedby="basic-addon1">
+                </div>
+              </div>
+            </div>
+
+            <div class="row" style="padding-bottom: 10px;"> 
+              <div class="col-lg-2 tournamentApplicationForm">
+                <p class="label"> <b>Association</b> </p>
+              </div>
+              <div class="col-lg-5">
+               <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="association" [(ngModel)]="referee.roleID" required #association="ngModel">
+
+                <option [value]="0" disabled selected>Association</option>          
+                
+              </select>
+            </div>
+          </div>
+
+          <div class="row" style="padding-bottom: 10px;"> 
+            <div class="col-lg-2 tournamentApplicationForm">
+              <p class="label"> <b>League</b> </p>
+            </div>
+            <div class="col-lg-5">
+             <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="league" [(ngModel)]="referee.roleID" required #league="ngModel">
+
+              <option [value]="0" disabled selected>League</option>          
+
+            </select>
+          </div>
+        </div>
+
+        <div class="row" style="padding-bottom: 10px;"> 
+          <div class="col-lg-2 tournamentApplicationForm">
+            <p class="label"> <b>Play Level Desired</b> </p>
+          </div>
+          <div class="col-lg-5">
+           <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="playLevel" [(ngModel)]="referee.roleID" required #playLevel="ngModel">
+
+            <option [value]="0" disabled selected>Play Level</option>          
+
+          </select>
+        </div>
+      </div>
+
+      <div class="row" style="padding-bottom: 10px;"> 
+        <div class="col-lg-2 tournamentApplicationForm">
+          <p class="label"> <b>Primary Jersey Color</b> </p>
+        </div>
+        <div class="col-lg-5">
+         <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="primaryJerseyColor" [(ngModel)]="volunteer.roleID" required #primaryJerseyColor="ngModel">
+
+          <option [value]="0" disabled selected>Color</option>          
+
+        </select>
+      </div>
+    </div> -->
+
+
+
+    <br>
+    <button type="submit" [disabled]="!volunteerApplicationForm.form.valid" 
+    class="btn btn-primary">Register</button>
+  </form>
+  <br>
+</div>
+</div>
+
+
+</div>
+</div>
+
+</div>

@@ -1,0 +1,153 @@
+   <div class="sidebar">
+
+    <div class="logo-section">
+      <div class="logo-name">Volunteer Director Dashboard</div>
+    </div>
+
+    <div class="navbar">
+
+      <a href="#"><i class="fa fa-fw fa-home"></i> Dashboard</a>
+      <a href="#"><i class="fa fa-fw fa-search"></i> Coaches</a>
+      <a href="#"><i class="fa fa-fw fa-envelope"></i> Volunteers</a>
+      <a href="#"><i class="fa fa-fw fa-user"></i> Teams</a>
+
+    </div>
+
+  </div>
+  <div class="main-page align-vertically">
+
+    <div class="top-bar shadow rounded">
+
+      <div class="row">
+        <div class="col-lg-2 topbar-icon-col">
+         <a (click)='allRefs()'> <button class="shadow" >Show All Refs</button> </a>
+       </div>
+      <!--  <div class="col-lg-2 topbar-icon-col">
+         <a (click)='addRef()'> <button class="shadow" >Add Volunteer</button> </a>
+       </div> -->
+       <!-- <div class="col-lg-2 topbar-icon-col">
+        <a (click)='allNewApplications()'><button class="shadow">Pending Applications</button></a>
+      </div> -->
+      <div class="col-lg-2 topbar-icon-col">
+        <a (click)='viewMatches()'><button class="shadow">View Matches</button></a>
+      </div>
+      <div class="col-lg-5 topbar-icon-col">
+
+        <form #actionForm="ngForm" (ngSubmit)="onSubmit(actionForm)" >
+         <div class="row">
+          <div class="col-lg-6 ">
+           <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="actionChoice" [(ngModel)]="actionChoice">
+            <option value="" disabled selected>More</option>   
+            <option value="Build a Volunteer Listing" >Build a Volunteer Listing</option>  
+            <option value="Assign Volunteers" >Assign Volunteers</option> 
+            <option value="View Matches" >View Matches</option> 
+            <option value="Export Volunteer Applications" >Export Volunteer Applications</option> 
+            <option value="Manage Applications" >Manage Applications</option> 
+            <option value="Add Volunteers" >Add Volunteers</option> 
+            <option value="Publish/Unpublish Volunteer Schedule" >Publish/Unpublish Volunteer Schedule</option> 
+
+          </select>
+          
+        </div>
+        <div class="col-lg-2 "></div>
+        <div class="col-lg-2 ">
+          <button type="submit" [disabled]="!actionForm.form.valid" 
+          class="btn btn-primary">Go!</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+  <div class="col-lg-3 topbar-icon-col">
+    <div class="row no-gutters">
+      <div class="col-lg-6 profile-text">
+        <div class="profile-child">
+         <p class="profile-text-title">Jane Doe</p>
+         <p class="profile-text-subtitle">Admin</p>
+       </div>
+     </div>
+
+     <div class="col-lg-3">
+      <div class="profile-image"></div>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+</div>
+<br>
+<div class="container second-row">
+  <div class="row">
+    <div class="col-lg-4 ">
+     <div class="card mb-3 shadow rounded" >
+      <div class="row no-gutters">
+        <div class="col-md-4 icon-col">
+          <div class="icon-circle background-color-2 icon-color-2">
+            <i class="fa fa-fw fa-user "></i>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">8780</h5>
+            <p class="card-text">Users</p>
+            <p class="card-subtext">Total users registered and active</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4 ">
+    <div class="card mb-3 shadow rounded" >
+      <div class="row no-gutters">
+        <div class="col-md-4 icon-col">
+          <div class="icon-circle background-color-1 icon-color-1">
+            <i class="fa fa-fw fa-user"></i>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">8780</h5>
+            <p class="card-text">Coaches</p>
+            <p class="card-subtext">Total coaches registered and active</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4 ">
+    <div class="card mb-3 shadow rounded" >
+      <div class="row no-gutters">
+        <div class="col-md-4 icon-col">
+          <div class="icon-circle background-color-3 icon-color-3 ">
+            <i class="fa fa-fw fa-user"></i>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">8780</h5>
+            <p class="card-text">Teams</p>
+            <p class="card-subtext">Total coaches registered and active</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+<div class="third-row">
+  <div class="card mb-3 shadow rounded">
+   <div class="card-body">
+
+     <router-outlet></router-outlet>
+
+   </div>
+ </div>
+</div>
+</div>

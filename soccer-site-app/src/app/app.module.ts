@@ -17,6 +17,7 @@ import { AllDirectorLoginPageComponent } from './admin2/loginPage/loginPage.comp
 // services
 import { Admin2Service } from './services/admin2.service';
 import { RefereeDirectorService } from './services/refereeDirector.service';
+import { VolunteerDirectorService } from './services/volunteerDirector.service';
 import { TournamentDirectorService } from './services/tournamentDirector.service';
 import { SharedService } from './services/shared.service';
 
@@ -25,15 +26,28 @@ import { UserListComponent } from './userList/userList.component';
 import { AddRefereeComponent } from './refereeDirector/addReferee/addReferee.component';
 import { LoginPageComponent } from './refereeDirector/loginPage/loginPage.component';
 
+import { AddVolunteerComponent } from './volunteerDirector/addVolunteer/addVolunteer.component';
+import { VolunteerDirectorLoginPageComponent } from './volunteerDirector/loginpage/loginPage.component';
+
 // Referee Director
 import { RefereeDirectorComponent } from './refereeDirector/dashboard/refereeDirectorHomepage.component';
 import { RefereeUserListComponent } from './refereeDirector/refereeUserList/refereeUserList.component';
 import { RefereeNewApplicationListComponent } from './refereeDirector/refereeNewApplicationList/refereeNewApplicationList.component';
 
+
+import { VolunteerDirectorComponent } from './volunteerDirector/dashboard/volunteerDirectorHomepage.component';
+import { VolunteerUserListComponent } from './volunteerDirector/volunteerUserList/volunteerUserList.component';
+import { VolunteerNewApplicationListComponent } from './volunteerDirector/volunteerNewApplicationList/volunteerNewApplicationList.component';
+
 // Referee
 //Referees
 import { LoginOrRegisterComponent } from './refereeDirector/loginOrRegister/loginOrRegister.component';
 import { RegisterRefereeComponent } from './refereeDirector/register/registerReferee.component';
+
+
+import { VolunteerDirectorLoginOrRegisterComponent } from './volunteerDirector/loginOrRegister/loginOrRegister.component';
+import { RegisterVolunteerComponent } from './volunteerDirector/register/registerVolunteer.component';
+
 
 
 // Tournament Director
@@ -75,11 +89,16 @@ import { SearchMatchScheduleComponent } from './matchSchedules/searchMatchSchedu
     AppComponent,
     CoachComponent,
     UserListComponent,
-    AddRefereeComponent,
-    LoginPageComponent,
-    RefereeDirectorComponent,
-    RefereeUserListComponent,
-    RefereeNewApplicationListComponent,
+    AddRefereeComponent, 
+    AddVolunteerComponent, 
+    LoginPageComponent, 
+    VolunteerDirectorLoginPageComponent, 
+    RefereeDirectorComponent, 
+    VolunteerDirectorComponent, 
+    RefereeUserListComponent, 
+    VolunteerUserListComponent, 
+    RefereeNewApplicationListComponent, 
+    VolunteerNewApplicationListComponent,  
     TournamentDirectorLoginPageComponent,
     TournamentDirectorDashboardComponent,
     AddTournamentComponent,
@@ -87,10 +106,14 @@ import { SearchMatchScheduleComponent } from './matchSchedules/searchMatchSchedu
     TeamsDashboardComponent,
     FAQPageComponent,
     sponsors,
-    TeamApplicationComponent,
+
+    TeamApplicationComponent, 
+    VolunteerDirectorLoginOrRegisterComponent, 
 
     LoginOrRegisterComponent,
-    RegisterRefereeComponent,
+    RegisterRefereeComponent, 
+    RegisterVolunteerComponent, 
+
     TeamLoginOrRegisterComponent,
     SearchMatchScheduleComponent,
     TeamDirectorComponent,
@@ -110,7 +133,9 @@ import { SearchMatchScheduleComponent } from './matchSchedules/searchMatchSchedu
         NgbModule,
         MatExpansionModule
     ],
-  providers: [CoachService, Admin2Service, RefereeDirectorService, TournamentDirectorService, SharedService],
+
+  providers: [CoachService, Admin2Service, RefereeDirectorService, TournamentDirectorService, VolunteerDirectorService, SharedService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

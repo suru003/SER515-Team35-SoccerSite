@@ -1,0 +1,175 @@
+    <h5 class="card-title">{{ title }}</h5>
+    <br>
+    <form #volunteerForm="ngForm" (ngSubmit)="onSubmit(volunteerForm)" >
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-2"></div>
+          <div class="col-lg-8">
+            <div class="row">
+              <div class="col-lg-6 ">
+               <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="firstname-input">
+                    <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                  </div>
+                  <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name" aria-label="Firstname" aria-describedby="basic-addon1" [(ngModel)]="volunteer.firstName" ng-change="user.firstName" required #firstname="ngModel">
+                </div>
+              </div>
+
+              <div class="col-lg-6 ">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="lastname-input">
+                      <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                    </div>
+                    <input type="text" class="form-control" id="lastName" name="lastname" placeholder="Last Name" aria-label="Lastname" aria-describedby="basic-addon1" [(ngModel)]="volunteer.lastName" ng-change="user.lastName" required #lastname="ngModel">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-6 ">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="email-input">
+                        <i class="fa fa-envelope" aria-hidden="true"></i></span>
+                      </div>
+                      <input type="email" class="form-control" id="email" name="email" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" [(ngModel)]="volunteer.email" required #email="ngModel">
+                    </div>
+                  </div>
+                  <div class="col-lg-6 ">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="phone">
+                          <i class="fa fa-phone" aria-hidden="true"></i></span>
+                        </div>
+                        <input type="text" class="form-control" id="contact" name="contact" placeholder="Contact" aria-label="Contact #" aria-describedby="basic-addon1" [(ngModel)]="volunteer.contactNo" ng-change="user.userID" required #contact="ngModel">
+                      </div>
+                    </div>
+                  </div>
+<!-- 
+                  <div class="row">
+                   <div class="col-lg-6 ">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="username">
+                          <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                        </div>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="referee.username" required #username="ngModel">
+                      </div>
+                    </div>
+
+                    <div class="col-lg-6 ">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="password">
+                            <i class="fa fa-key" aria-hidden="true"></i></span>
+                          </div>
+                          <input type="password" class="form-control" id="password" name="password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" [(ngModel)]="referee.password" required #password="ngModel">
+                        </div>
+                      </div>
+                    </div> -->
+
+                    <div class="row">
+                     <div class="col-lg-6 ">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="address">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                          </div>
+                          <input type="text" class="form-control" id="address" name="address" placeholder="Address" aria-label="Address" aria-describedby="basic-addon1" [(ngModel)]="volunteer.address" required #address="ngModel">
+                        </div>
+                      </div>
+
+                      <div class="col-lg-6 ">
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="country">
+                              <i class="fa fa-globe" aria-hidden="true"></i></span>
+                            </div>
+                            <input type="text" class="form-control" id="country" name="country" placeholder="Country" aria-label="Country" aria-describedby="basic-addon1" [(ngModel)]="volunteer.country" required #country="ngModel">
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                       <div class="col-lg-6 ">
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="city">
+                              <i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                            </div>
+                            <input type="text" class="form-control" id="city" name="city" placeholder="City" aria-label="City" aria-describedby="basic-addon1" [(ngModel)]="volunteer.city" required #city="ngModel">
+                          </div>
+                        </div>
+
+                        <div class="col-lg-6 ">
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="role">
+                                <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                              </div>
+                              <!-- <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="roleID" [(ngModel)]="volunteer.roleID" required #roleID="ngModel">
+                                
+                                <option [ngValue]="null" disabled selected>Role</option>
+                                <option *ngFor="let r of roles" [ngValue]="r.id" style="color: black">{{r.roles}}</option>
+                              </select> -->
+
+                               <input type="text" class="form-control" id="roleID" name="roleID" placeholder="Role: Volunteer" aria-label="Role" aria-describedby="basic-addon1" value="2" readonly="true" [(ngModel)]="volunteer.roleID"  #roleID="ngModel">
+
+                              <!--  <input type="text" class="form-control" id="roleID" name="roleID" placeholder="Role" aria-label="Role" aria-describedby="basic-addon1" [(ngModel)]="referee.roleID" ng-change="user.roleID" required #roleID="ngModel"> -->
+                            </div>
+                          </div>
+                        </div>
+
+                        <br>
+
+                        <button type="submit" [disabled]="!volunteerForm.form.valid" 
+                        class="btn btn-primary">Create Volunteer</button>
+
+                        <!--  <a href="#" class="btn btn-primary ">Create Referee</a> -->
+                      </div>
+                      <div class="col-lg-2"></div>
+                    </div>
+                  </div>
+                </form>
+
+                <!-- User Creation Modal -->
+                <div class="modal fade" id="user-creation-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Success!!</h5>
+                        <button type="button" #close data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body" >
+                        User Created: 
+                        <table class="table table-striped">
+                          <thead >
+                            <tr>
+                              <th scope="col">User ID</th>
+                              <th scope="col">Name</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let c of createVolunteer ">
+                              <th scope="row">{{c.id}}</th>
+                              <td>{{c.firstName}} {{c.lastName}}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+
+                      </div>
+                      <div class="modal-footer">
+                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Okay</button> -->
+                        <!-- <button type="button" class="btn btn-primary"  (click)="viewAllUsers()">Okay</button> -->
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="viewAllVolunteers()">Okay</button>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+

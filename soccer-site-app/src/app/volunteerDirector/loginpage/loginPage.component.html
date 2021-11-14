@@ -1,0 +1,249 @@
+
+
+<div class="container align-vertically" style="color:blue" >
+  <div class="row">
+    <div class="col-lg-6 ">
+      <div class="card">
+        <div class="card-body">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-1 left-col"></div>
+
+              <div class="col-lg-9 right-col">
+                <h5 class="card-title">LOGIN</h5>
+                <p class="card-text"></p>
+
+                <br>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="firstname-input">
+                      <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="REF ID" aria-label="Firstname" aria-describedby="basic-addon1">
+                  </div>
+
+                  <br>
+
+                  <a routerLink="/volunteerDirectorHomepage" href="#" class="btn btn-primary ">Login</a>
+                </div>
+
+                <div class="col-lg-1 left-col"></div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-lg-6 ">
+        <div class="card">
+          <div class="card-body">
+            <div class="container">
+              <div class="row">
+                <h5 class="card-title">REGISTER</h5>
+                <!-- <div class="col-lg-1 left-col"></div> -->
+
+                <!-- <div class="col-lg-9 right-col"> -->
+                  <form #volunteerForm="ngForm" (ngSubmit)="onSubmit(volunteerForm)" >
+                    <div class="container">
+                      <div class="row">
+                        <!-- <div class="col-lg-2"></div> -->
+                        <!-- <div class="col-lg-12"> -->
+                          <div class="row">
+                            <div class="col-lg-6 ">
+                             <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="firstname-input">
+                                  <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                                </div>
+                                <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name" aria-label="Firstname" aria-describedby="basic-addon1" [(ngModel)]="volunteer.firstName" ng-change="user.firstName" required #firstname="ngModel">
+                              </div>
+                            </div>
+
+                            <div class="col-lg-6 ">
+                              <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="lastname-input">
+                                    <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                                  </div>
+                                  <input type="text" class="form-control" id="lastName" name="lastname" placeholder="Last Name" aria-label="Lastname" aria-describedby="basic-addon1" [(ngModel)]="volunteer.lastName" ng-change="user.lastName" required #lastname="ngModel">
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="col-lg-6 ">
+                                <div class="input-group mb-3">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text" id="email-input">
+                                      <i class="fa fa-envelope" aria-hidden="true"></i></span>
+                                    </div>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" [(ngModel)]="volunteer.email" required #email="ngModel">
+                                  </div>
+                                </div>
+                                <div class="col-lg-6 ">
+                                  <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text" id="phone">
+                                        <i class="fa fa-phone" aria-hidden="true"></i></span>
+                                      </div>
+                                      <input type="text" class="form-control" id="contact" name="contact" placeholder="Contact" aria-label="Contact #" aria-describedby="basic-addon1" [(ngModel)]="volunteer.contactNo" ng-change="user.userID" required #contact="ngModel">
+                                    </div>
+                                  </div>
+                                </div>
+
+                              <!--   <div class="row">
+                                 <div class="col-lg-6 ">
+                                  <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text" id="username">
+                                        <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                                      </div>
+                                      <input type="text" class="form-control" id="username" name="username" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="referee.username" required #username="ngModel">
+                                    </div>
+                                  </div>
+
+                                  <div class="col-lg-6 ">
+                                    <div class="input-group mb-3">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="password">
+                                          <i class="fa fa-key" aria-hidden="true"></i></span>
+                                        </div>
+                                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" [(ngModel)]="referee.password" required #password="ngModel">
+                                      </div>
+                                    </div>
+                                  </div> -->
+
+                                  <div class="row">
+                                   <div class="col-lg-6 ">
+                                    <div class="input-group mb-3">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="address">
+                                          <i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" id="address" name="address" placeholder="Address" aria-label="Address" aria-describedby="basic-addon1" [(ngModel)]="volunteer.address" required #address="ngModel">
+                                      </div>
+                                    </div>
+
+                                    <div class="col-lg-6 ">
+                                      <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text" id="country">
+                                            <i class="fa fa-globe" aria-hidden="true"></i></span>
+                                          </div>
+                                          <input type="text" class="form-control" id="country" name="country" placeholder="Country" aria-label="Country" aria-describedby="basic-addon1" [(ngModel)]="volunteer.country" required #country="ngModel">
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="row">
+                                     <div class="col-lg-6 ">
+                                      <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text" id="city">
+                                            <i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                          </div>
+                                          <input type="text" class="form-control" id="city" name="city" placeholder="City" aria-label="City" aria-describedby="basic-addon1" [(ngModel)]="volunteer.city" required #city="ngModel">
+                                        </div>
+                                      </div>
+
+                                  <!--     <div class="col-lg-6 ">
+                                        <div class="input-group mb-3">
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="role">
+                                              <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                                            </div>
+                                             <input type="text" class="form-control" id="roleID" name="roleID" placeholder="Role: Referee" aria-label="Role" aria-describedby="basic-addon1" value="2" readonly="true" [(ngModel)]="referee.roleID"  #roleID="ngModel">
+
+                                          </div>
+                                        </div> -->
+                                      </div>
+
+                                      <br>
+
+                                      <button type="submit" [disabled]="!volunteerForm.form.valid" 
+                                      class="btn btn-primary">Register</button>
+
+                                      <!--  <a href="#" class="btn btn-primary ">Create Referee</a> -->
+                                    <!-- </div> -->
+                                    <!-- <div class="col-lg-2"></div> -->
+                                  </div>
+                                </div>
+                              </form>
+                            <!-- </div> -->
+
+                            <!-- <div class="col-lg-1 left-col"></div> -->
+
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+ <!--  <div class="card register-card align-vertically">
+    <div class="card-body">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-5 left-col"></div>
+
+          <div class="col-lg-7 right-col">
+            <h5 class="card-title">LOGIN</h5>
+            <p class="card-text"></p>
+
+            <br>
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="firstname-input">
+                  <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                </div>
+                <input type="text" class="form-control" placeholder="REF ID" aria-label="Firstname" aria-describedby="basic-addon1">
+              </div>
+
+              <br>
+
+              <a routerLink="/refereeDirectorHomepage" href="#" class="btn btn-primary ">Login</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+  </div>
+
+  <!-- User Creation Modal -->
+  <div class="modal fade" id="user-creation-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Success!!</h5>
+          <button type="button" #close data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" >
+          Success!!
+          <br>
+          Your application has been received.
+       
+
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Okay</button> -->
+          <!-- <button type="button" class="btn btn-primary"  (click)="viewAllUsers()">Okay</button> -->
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Okay</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <router-outlet></router-outlet>
