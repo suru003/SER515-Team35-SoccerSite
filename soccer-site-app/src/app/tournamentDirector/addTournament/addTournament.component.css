@@ -29,8 +29,9 @@ body{
 }
 
 .btn-secondary {
-	background-color: #AF272F;
-	border-color: #AF272F;
+	/*background-color: #AF272F;*/
+	background-color: #284c88;
+	border-color: ##284c88;
 }
 
 .btn{

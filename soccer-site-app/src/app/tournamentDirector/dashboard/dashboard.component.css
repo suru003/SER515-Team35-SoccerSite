@@ -1,3 +1,5 @@
+
+
 body{
 	background-color: #f3f3f3;
 }
@@ -60,7 +62,7 @@ body{
 
 .logo-name{
 	color: white;
-	font-size: 1.5rem;
+	font-size: 1.0rem;
 }
 
 .main-page{
@@ -145,6 +147,7 @@ body{
 	height: 100%;
 	/*background-color: #AF272F;*/
 	background-color:#284c88;
+	
 	padding: 2rem;
 	z-index: -1;
 	float: left;
@@ -154,7 +157,7 @@ body{
 
 .second-row .card-title{
 	margin-bottom: 0;
-	font-size: 1.85rem;
+	font-size: 1.25rem;
 }
 
 .second-row .card-text{

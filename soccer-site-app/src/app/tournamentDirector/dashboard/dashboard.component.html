@@ -1,7 +1,7 @@
    <div class="sidebar">
 
     <div class="logo-section">
-      <div class="logo-name">Soccer Web App</div>
+       <div class="logo-name">Tournament Director Dashboard</div>
     </div>
 
     <div class="navbar">
@@ -26,7 +26,7 @@
          <a (click)='addTournament()'> <button class="shadow" >Add Tournament</button> </a>
        </div>
        <div class="col-lg-2 topbar-icon-col">
-        <a ><button class="shadow">Pending Applications</button></a>
+       <!--  <a ><button class="shadow">Pending Applications</button></a> -->
       </div>
       <div class="col-lg-3"></div>
 
@@ -50,6 +50,72 @@
 <br>
 <div class="container second-row">
   <div class="row">
+
+     <div class="col-lg-4 ">
+  <div class="card mb-3 shadow rounded" >
+    <div class="row no-gutters">
+      <div class="col-md-4 icon-col">
+        <div class="icon-circle background-color-2 icon-color-2">
+          <i class="fa fa-fw fa-user"></i>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h6 class="card-title">Referee Director</h6>
+          <p class="card-text">Dashboard </p>
+          <div class="col-lg-2 ">
+              <a routerLink="/teamsDashboard"> <button class="shadow" >Login</button> </a>
+           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <div class="col-lg-4 ">
+  <div class="card mb-3 shadow rounded" >
+    <div class="row no-gutters">
+      <div class="col-md-4 icon-col">
+        <div class="icon-circle background-color-1 icon-color-1">
+          <i class="fa fa-fw fa-user"></i>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h6 class="card-title">Team Director</h6>
+          <p class="card-text">Dashboard </p>
+          <div class="col-lg-2 ">
+              <a routerLink="/teamsDashboard"> <button class="shadow" >Login</button> </a>
+           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-lg-4 ">
+  <div class="card mb-3 shadow rounded" >
+    <div class="row no-gutters">
+      <div class="col-md-4 icon-col">
+        <div class="icon-circle background-color-3 icon-color-3 ">
+          <i class="fa fa-fw fa-user"></i>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Volunteer Director</h5>
+          <p class="card-text">Dashboard </p>
+          <div class="col-lg-2 ">
+              <a routerLink="/teamsDashboard"> <button class="shadow" >Login</button> </a>
+           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<div class="row">
     <div class="col-lg-4 ">
      <div class="card mb-3 shadow rounded" >
       <div class="row no-gutters">
@@ -71,46 +137,8 @@
      </div>
    </div>
  </div>
-
- <div class="col-lg-4 ">
-  <div class="card mb-3 shadow rounded" >
-    <div class="row no-gutters">
-      <div class="col-md-4 icon-col">
-        <div class="icon-circle background-color-1 icon-color-1">
-          <i class="fa fa-fw fa-user"></i>
-        </div>
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">8780</h5>
-          <p class="card-text">Referees</p>
-          <p class="card-subtext">Total coaches registered and active</p>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 
-<div class="col-lg-4 ">
-  <div class="card mb-3 shadow rounded" >
-    <div class="row no-gutters">
-      <div class="col-md-4 icon-col">
-        <div class="icon-circle background-color-3 icon-color-3 ">
-          <i class="fa fa-fw fa-user"></i>
-        </div>
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">8780</h5>
-          <p class="card-text">Teams</p>
-          <p class="card-subtext">Total coaches registered and active</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-</div>
 </div>
 
 

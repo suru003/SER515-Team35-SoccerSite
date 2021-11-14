@@ -18,21 +18,36 @@ export class TournamentDirectorDashboardComponent implements OnInit{
     private sharedService: SharedService) {}
 
 
+  // ngOnInit(){
+  //   this.sharedService.sharedManagerID.subscribe(
+  //     data => {
+  //       this.tournamentDirectorID= data;
+  //     },
+  //     error => console.log(error));
+  //     this.allTournaments();
+  // }
+
   ngOnInit(){
-    this.sharedService.sharedManagerID.subscribe(
+    console.log("shared service is "+this.sharedService.sharedDirectorID);
+    this.sharedService.sharedDirectorID.subscribe(
       data => {
         this.tournamentDirectorID= data;
+        console.log(this.tournamentDirectorID);
       },
       error => console.log(error));
       this.allTournaments();
   }
 
 allTournaments(){
-    this.router.navigate(['tournament-list'], {relativeTo:this.route});
+    this.router.navigate(['tournamentList'], {relativeTo:this.route});
   }
 
 
 addTournament(){
     this.router.navigate(['addTournament'], {relativeTo:this.route});
+  }
+
+  viewRefereeDirectorDashboard(){
+    this.router.navigate(['refereeDirectorHomepage'], {relativeTo:this.route});
   }
 }

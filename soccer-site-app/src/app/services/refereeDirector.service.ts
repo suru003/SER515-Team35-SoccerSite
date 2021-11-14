@@ -6,12 +6,14 @@ import { Users } from '../../models/users';
 import { Roles } from '../../models/roles';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Matches } from 'src/models/matches';
 
 
 @Injectable()
 export class RefereeDirectorService {
   private serverUrl = `${environment.apiBaseUrl}/referees`;
   private rolesUrl = `${environment.apiBaseUrl}/roles`;
+  private matchesUrl = `${environment.apiBaseUrl}/matches`;
 
 
   constructor(private http: HttpClient) {
@@ -23,6 +25,8 @@ export class RefereeDirectorService {
 public findAllReferees(): Observable<Referee[]> {
   return this.http.get<Referee[]>(`${this.serverUrl}/all`);
 } 
+
+
 
 public createReferee(referee: Referee) {
   return this.http.post<Referee>(`${this.serverUrl}/insert`, referee);
@@ -54,5 +58,10 @@ public findAllRoles(): Observable<Roles[]> {
  public findByStatus(status: String):Observable<Referee[]>{
     return this.http.get<Referee[]>(`${this.serverUrl}/status/${status}`);
   }
+
+  // Matches
+public findAllMatches(): Observable<Matches[]> {
+  return this.http.get<Matches[]>(`${this.matchesUrl}/all`);
+}
  
 }

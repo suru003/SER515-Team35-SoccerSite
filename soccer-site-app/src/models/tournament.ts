@@ -10,6 +10,6 @@ export class Tournament{
 	startDate!:Date;
 	endDate!:Date;
   	// manager_id!:String ;
-  	manager_id!:TournamentDirector ;
+  	tournamentManager!:TournamentDirector ;
 }
 	

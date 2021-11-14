@@ -11,6 +11,9 @@ import { CoachComponent } from './coach/coach.component';
 import { CoachService } from './services/coach.service';
 import { AdminModule } from './admin/admin.module';
 
+//Admin Login Component
+import { AllDirectorLoginPageComponent } from './admin2/loginPage/loginPage.component';
+
 // services
 import { Admin2Service } from './services/admin2.service';
 import { RefereeDirectorService } from './services/refereeDirector.service';
@@ -19,7 +22,7 @@ import { TournamentDirectorService } from './services/tournamentDirector.service
 import { SharedService } from './services/shared.service';
 
 // components
-import { UserListComponent } from './user-list/user-list.component';
+import { UserListComponent } from './userList/userList.component';
 import { AddRefereeComponent } from './refereeDirector/addReferee/addReferee.component';
 import { LoginPageComponent } from './refereeDirector/loginPage/loginPage.component';
 
@@ -28,10 +31,6 @@ import { VolunteerDirectorLoginPageComponent } from './volunteerDirector/loginpa
 
 // Referee Director
 import { RefereeDirectorComponent } from './refereeDirector/dashboard/refereeDirectorHomepage.component';
-<<<<<<< Updated upstream
-import { RefereeUserListComponent } from './refereeDirector/referee-user-list/referee-user-list.component';
-import { RefereeNewApplicationListComponent } from './refereeDirector/referee-new-application-list/referee-new-application-list.component';
-=======
 import { RefereeUserListComponent } from './refereeDirector/refereeUserList/refereeUserList.component';
 import { RefereeNewApplicationListComponent } from './refereeDirector/refereeNewApplicationList/refereeNewApplicationList.component';
 
@@ -47,16 +46,37 @@ import { RegisterRefereeComponent } from './refereeDirector/register/registerRef
 import { VolunteerDirectorLoginOrRegisterComponent } from './volunteerDirector/loginOrRegister/loginOrRegister.component';
 import { RegisterVolunteerComponent } from './volunteerDirector/register/registerVolunteer.component';
 
->>>>>>> Stashed changes
 
 // Tournament Director
 import { TournamentDirectorLoginPageComponent } from './tournamentDirector/loginPage/loginPage.component';
 import { TournamentDirectorDashboardComponent } from './tournamentDirector/dashboard/dashboard.component';
 import { AddTournamentComponent } from './tournamentDirector/addTournament/addTournament.component';
-import { TournamentListComponent } from './tournamentDirector/tournament-list/tournament-list.component';
+import { TournamentListComponent } from './tournamentDirector/tournamentList/tournamentList.component';
 import { TeamsDashboardComponent } from './tournamentDirector/teams/teamsDashboard.component';
 
 
+//Team Director
+import { TeamDirectorComponent } from './teamDirector/dashboard/teamDirectorDashboard.component';
+import { TeamsListComponent } from './teamDirector/teamsList/teamsList.component';
+import { TeamNewApplicationListComponent } from './teamDirector/teamNewApplicationList/teamNewApplicationList.component';
+
+//sponsors
+import { sponsors } from './sponsors/sponsors';
+
+//F.A.Q. 
+import { FAQPageComponent } from './faqpage/faqpage.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+
+
+//Team Application
+import { TeamApplicationComponent } from './teamApplication/teamApplication/teamApplication.component';
+
+import { TeamLoginOrRegisterComponent } from './teamApplication/loginOrRegister/loginOrRegister.component';
+import { ViewMatches } from './refereeDirector/viewMatches/viewMatches';
+
+
+//Teams, Schedules, Scores
+import { SearchMatchScheduleComponent } from './matchSchedules/searchMatchSchedule/searchMatchSchedule.component';
 
 
 
@@ -66,42 +86,28 @@ import { TeamsDashboardComponent } from './tournamentDirector/teams/teamsDashboa
     AppComponent,
     CoachComponent,
     UserListComponent,
-    AddRefereeComponent,
+    AddRefereeComponent, 
     AddVolunteerComponent, 
-    LoginPageComponent,
+    LoginPageComponent, 
     VolunteerDirectorLoginPageComponent, 
-    RefereeDirectorComponent,
+    RefereeDirectorComponent, 
     VolunteerDirectorComponent, 
-    RefereeUserListComponent,
+    RefereeUserListComponent, 
     VolunteerUserListComponent, 
-    RefereeNewApplicationListComponent,
+    RefereeNewApplicationListComponent, 
     VolunteerNewApplicationListComponent,  
     TournamentDirectorLoginPageComponent,
     TournamentDirectorDashboardComponent,
     AddTournamentComponent,
     TournamentListComponent,
-<<<<<<< Updated upstream
-    TeamsDashboardComponent
-  ],
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    BrowserModule,
-    AppRoutingModule,
-    AdminModule,
-    BrowserAnimationsModule,
-    NgbModule
-  ],
-  providers: [CoachService, Admin2Service, RefereeDirectorService, TournamentDirectorService, SharedService],
-=======
     TeamsDashboardComponent,
     FAQPageComponent,
     sponsors,
-    TeamApplicationComponent,
+    TeamApplicationComponent, 
     VolunteerDirectorLoginOrRegisterComponent, 
+
     LoginOrRegisterComponent,
-    RegisterRefereeComponent,
+    RegisterRefereeComponent, 
     RegisterVolunteerComponent, 
     TeamLoginOrRegisterComponent,
     SearchMatchScheduleComponent,
@@ -123,7 +129,6 @@ import { TeamsDashboardComponent } from './tournamentDirector/teams/teamsDashboa
         MatExpansionModule
     ],
   providers: [CoachService, Admin2Service, RefereeDirectorService, TournamentDirectorService, VolunteerDirectorService, SharedService],
->>>>>>> Stashed changes
   bootstrap: [AppComponent]
 })
 export class AppModule { }

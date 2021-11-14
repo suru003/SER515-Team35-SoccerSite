@@ -31,11 +31,11 @@ public class CoachService{
 		return repo.save(coach);
 	}
 	
-	public void deleteCoach(int id) {
+	public void deleteCoach(String id) {
 		 repo.deleteById(id);
 	}
 	
-	public Coach findCoachById(int id) {
+	public Coach findCoachById(String id) {
 		 return repo.findCoachById(id).orElseThrow(()->new EntryNotFoundExcemption("Coach with id: "+id+" not found in the repositiory")); 
 	}
 }

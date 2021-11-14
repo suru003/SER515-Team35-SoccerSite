@@ -3,38 +3,42 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { CoachComponent } from './coach/coach.component';
 
-import { UserListComponent } from './user-list/user-list.component';
+import { UserListComponent } from './userList/userList.component';
 
+//App Component
+import { AppComponent } from './app.component';
+
+//Admin Login Component
+import { AllDirectorLoginPageComponent } from './admin2/loginPage/loginPage.component';
 
 // Referee Director
 import { RefereeDirectorComponent } from './refereeDirector/dashboard/refereeDirectorHomepage.component';
-import { RefereeUserListComponent } from './refereeDirector/referee-user-list/referee-user-list.component';
-import { RefereeNewApplicationListComponent } from './refereeDirector/referee-new-application-list/referee-new-application-list.component';
+import { RefereeUserListComponent } from './refereeDirector/refereeUserList/refereeUserList.component';
+import { RefereeNewApplicationListComponent } from './refereeDirector/refereeNewApplicationList/refereeNewApplicationList.component';
 import { AddRefereeComponent } from './refereeDirector/addReferee/addReferee.component';
+import { ViewMatches } from './refereeDirector/viewMatches/viewMatches';
 import { LoginPageComponent } from './refereeDirector/loginPage/loginPage.component';
+
+//Referees
+import { LoginOrRegisterComponent } from './refereeDirector/loginOrRegister/loginOrRegister.component';
+import { RegisterRefereeComponent } from './refereeDirector/register/registerReferee.component';
+
 
 // Tournament Director
 import { TournamentDirectorLoginPageComponent } from './tournamentDirector/loginPage/loginPage.component';
 import { TournamentDirectorDashboardComponent } from './tournamentDirector/dashboard/dashboard.component';
 import { AddTournamentComponent } from './tournamentDirector/addTournament/addTournament.component';
-import { TournamentListComponent } from './tournamentDirector/tournament-list/tournament-list.component';
+import { TournamentListComponent } from './tournamentDirector/tournamentList/tournamentList.component';
 import { TeamsDashboardComponent } from './tournamentDirector/teams/teamsDashboard.component';
 
-<<<<<<< Updated upstream
-
-
-const routes: Routes = [
-{path:'app-coach', component: CoachComponent},
-=======
 //Team Director
 import { TeamDirectorComponent } from './teamDirector/dashboard/teamDirectorDashboard.component';
 import { TeamsListComponent } from './teamDirector/teamsList/teamsList.component';
 import { TeamNewApplicationListComponent } from './teamDirector/teamNewApplicationList/teamNewApplicationList.component';
 
-<<<<<<< Updated upstream
 //sponsors
 import { sponsors } from './sponsors/sponsors';
-=======
+
 // Volunteer Director
 import { VolunteerDirectorComponent } from './volunteerDirector/dashboard/volunteerDirectorHomepage.component';
 import { VolunteerUserListComponent } from './volunteerDirector/volunteerUserList/volunteerUserList.component';
@@ -47,7 +51,8 @@ import { VolunteerDirectorLoginPageComponent } from './volunteerDirector/loginpa
 //Volunteers
 import { VolunteerDirectorLoginOrRegisterComponent } from './volunteerDirector/loginOrRegister/loginOrRegister.component';
 import { RegisterVolunteerComponent } from './volunteerDirector/register/registerVolunteer.component';
->>>>>>> Stashed changes
+
+
 
 //F.A.Q. 
 import { FAQPageComponent } from './faqpage/faqpage.component';
@@ -88,15 +93,11 @@ const routes: Routes = [
    path:'allDirectorLoginPage', component:AllDirectorLoginPageComponent
  },
  {path:'app-coach', component: CoachComponent},
->>>>>>> Stashed changes
   // {path:'app-homepage', component: HomepageComponent},
   {path:'admin-home', children:[
   { path:'', component: AdminHomeComponent },
-      // { path:'admin-header', component: HeaderComponent },
-      // { path:'admin-footer', component: FooterComponent },
-      // { path:'admin-sidebar', component: SidebarComponent }
-      ]
-    }, 
+  ]
+}, 
   // {path:'allusers', component: UserListComponent},
   // {path:'add-referee', component: AddRefereeComponent},
   {
@@ -107,48 +108,19 @@ const routes: Routes = [
   },
   {
     path:'tournamentDirectorDashboard', component: TournamentDirectorDashboardComponent,
-        children:[
-        {
-          path:'addTournament', component: AddTournamentComponent
-        },
-        {
-          path:'tournament-list', component: TournamentListComponent
-        }
-      ]
+    children:[
+    {
+      path:'addTournament', component: AddTournamentComponent
+    },
+    {
+      path:'tournamentList', component: TournamentListComponent
+    }
+    ]
   },
   {
     path:'teamsDashboard', component: TeamsDashboardComponent
   },
   {path:'refereeDirectorHomepage', component: RefereeDirectorComponent,
-<<<<<<< Updated upstream
-        children: [
-        {
-          path:'referee-user-list', component: RefereeUserListComponent
-        },
-        {
-          path:'add-referee', component: AddRefereeComponent
-        },
-        {
-          path:'referee-new-application-list', component: RefereeNewApplicationListComponent
-        }
-      ]
-
-}
-  // {path:'', component:HomepageComponent}
-  ];
-
-  @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
-  })
-  export class AppRoutingModule { }
-  export const ArrayOfComponents = [RefereeDirectorComponent, 
-  UserListComponent, LoginPageComponent,
-  AddRefereeComponent,RefereeUserListComponent, 
-  RefereeNewApplicationListComponent,TournamentDirectorLoginPageComponent,
-  TournamentDirectorDashboardComponent,AddTournamentComponent,TournamentListComponent,
-  TeamsDashboardComponent]
-=======
   children: [
   {
     path:'refereeUserList', component: RefereeUserListComponent
@@ -230,14 +202,7 @@ UserListComponent, LoginPageComponent, VolunteerDirectorLoginPageComponent,
 AddRefereeComponent,RefereeUserListComponent, AddVolunteerComponent, VolunteerUserListComponent, 
 RefereeNewApplicationListComponent,TournamentDirectorLoginPageComponent, VolunteerNewApplicationListComponent, 
 TournamentDirectorDashboardComponent,AddTournamentComponent,TournamentListComponent,
-<<<<<<< Updated upstream
-TeamsDashboardComponent, FAQPageComponent, TeamApplicationComponent, 
-LoginOrRegisterComponent,RegisterRefereeComponent, TeamLoginOrRegisterComponent, 
-SearchMatchScheduleComponent,TeamDirectorComponent, TeamsListComponent, TeamNewApplicationListComponent,
-AllDirectorLoginPageComponent,sponsors]
-=======
 TeamsDashboardComponent, FAQPageComponent, TeamApplicationComponent, RegisterVolunteerComponent, 
 LoginOrRegisterComponent,RegisterRefereeComponent, TeamLoginOrRegisterComponent, VolunteerDirectorLoginOrRegisterComponent, 
-SearchMatchScheduleComponent,TeamDirectorComponent, TeamsListComponent, TeamNewApplicationListComponent]
->>>>>>> Stashed changes
->>>>>>> Stashed changes
+SearchMatchScheduleComponent,TeamDirectorComponent, TeamsListComponent, TeamNewApplicationListComponent,
+AllDirectorLoginPageComponent,sponsors]

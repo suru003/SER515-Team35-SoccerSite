@@ -1,0 +1,412 @@
+   <div class="sidebar">
+
+    <div class="logo-section">
+      <div class="logo-name" style="text-align:center; font-size: 1rem;">2020 Highlights</div>
+    </div>
+    <br>
+    <div class="navbar">
+      <!-- <div class="highlights"></div> -->
+      <div class="highlightsImage">
+        <img src="../assets/images/6.jpeg">
+      </div>
+      <div class="highlightsImage">
+        <img src="../assets/images/5.jpeg">
+      </div>
+      <div class="highlightsImage">
+        <img src="../assets/images/4.jpeg">
+      </div>
+
+<!--       <a href="#"><i class="fa fa-fw fa-home"></i> Dashboard</a>
+      <a href="#"><i class="fa fa-fw fa-search"></i> Coaches</a>
+      <a href="#"><i class="fa fa-fw fa-envelope"></i> Referees</a>
+      <a href="#"><i class="fa fa-fw fa-user"></i> Teams</a> -->
+
+    </div>
+
+  </div>
+
+  <div class="main-page align-vertically">
+    <div class="tournamentDetails row">
+     <div class="col-lg-12 ">
+       <div class="card mb-3 shadow rounded" >
+        <br>
+        <h4> Apply to the 2021 ASU Sparky Soccer Tournament</h4>
+        <p> <b>WHEN:</b> </p>
+        <p> <b>WHERE:</b> </p>
+        <p> <b>FEES:</b> </p>
+        <p> <b>APPLICATION DEADLINE:</b> </p>
+        <p> <b>PAY TO:</b> </p>
+        <br>
+        <div class="line"></div>
+        <br>
+        <p> <b>APPLICATION INSTRUCTIONS:</b> </p>
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+        <br>
+      </div>
+    </div>
+  </div>
+
+  <div class="container second-row">
+    <div class="row">
+      <div class="col-lg-12 ">
+       <div class="card mb-3 shadow rounded" >
+        <br>
+        <p> <b>TEAM APPLICATION</b> </p>
+        <form #teamApplicationForm="ngForm" (ngSubmit)="onSubmit(teamApplicationForm)" >
+
+          <div class="row" style="padding-bottom: 10px;"> 
+            <div class="col-lg-2 tournamentApplicationForm">
+              <p class="label"> <b>Where did you hear about this Soccer tournament?</b> </p>
+            </div>
+            <div class="col-lg-10 ">
+             <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="hearAboutUs" >
+
+              <option [ngValue]="null" disabled selected>How did you hear about us?</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row" style="padding-bottom: 10px;"> 
+          <div class="col-lg-2 tournamentApplicationForm">
+            <p class="label"> <b>Application Group</b> </p>
+          </div>
+          <div class="col-lg-10">
+           <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="applicationCategory" [(ngModel)]="team.applicationCategory" required #applicationCategory="ngModel">
+
+            <option [ngValue]="null" disabled selected>Category</option>
+          <!--   <option value="Boys U08 ($500)" >Boys U08 ($500)</option>  
+            <option value="Boys U09 ($510)" >Boys U09 ($510)</option> 
+            <option value="Boys U10 ($520)" >Boys U10 ($520)</option> 
+            <option value="Boys U11 ($530)" >Boys U11 ($530)</option> 
+
+            <option value="Girls U08 ($500)" >Girls U08 ($500)</option>  
+            <option value="Girls U09 ($510)" >Girls U09 ($510)</option> 
+            <option value="Girls U10 ($520)" >Girls U10 ($520)</option> 
+            <option value="Girls U11 ($530)" >Girls U11 ($530)</option>  -->
+            <option *ngFor="let d of divisions" [ngValue]="d.categoryName" style="color: black">{{d.categoryName}} ({{d.price}})</option> 
+          </select>
+        </div>
+      </div>
+      <br>
+      <p class="subtitle"> <b>TEAM INFORMATION</b> </p>
+      <!-- <br> -->
+      <div class="row"> 
+        <div class="col-lg-2 tournamentApplicationForm">
+          <p class="label"> <b>Team Name</b> </p>
+        </div>
+        <div class="col-lg-10">
+         <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="teamName">
+              <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+            </div>
+            <input type="text" class="form-control" id="teamName" name="teamName" placeholder="" aria-label="teamName" aria-describedby="basic-addon1" [(ngModel)]="team.teamName" ng-change="user.firstName" required #teamName="ngModel">
+          </div>
+        </div>
+      </div>
+
+      <div class="row" style="padding-bottom: 10px;"> 
+        <div class="col-lg-2 tournamentApplicationForm">
+          <p class="label"> <b>Team Category</b> </p>
+        </div>
+        <div class="col-lg-5">
+         <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="gender" [(ngModel)]="team.gender" required #gender="ngModel">
+
+          <!-- <option [ngValue]="null" disabled selected>Category</option> -->
+          <option value="" disabled selected>Gender</option>   
+          <option value="Boys" >Boys</option>  
+          <option value="Girls" >Girls</option> 
+         <!--  <option value="Women" >Women</option> 
+          <option value="Men" >Men</option>  -->
+
+          <!-- <option *ngFor="let r of roles" [ngValue]="r.id" style="color: black">{{r.roles}}</option> -->
+        </select>
+      </div>
+      <div class="col-lg-5">
+       <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="age" [(ngModel)]="team.age" required #age="ngModel">
+
+        <option value="" disabled selected>Age</option>
+       <!--  <option value="1" >U08</option>  
+        <option value="U09" >U09</option>  -->
+        <option value="U10" >U10</option> 
+        <option value="U11" >U11</option> 
+        <!-- <option *ngFor="let r of roles" [ngValue]="r.id" style="color: black">{{r.roles}}</option> -->
+      </select>
+    </div>
+  </div>
+
+  <div class="row" style="padding-bottom: 10px;"> 
+    <div class="col-lg-2 tournamentApplicationForm">
+      <p class="label"> <b>DOB of Oldest Player</b> </p>
+    </div>
+    <div class="col-lg-3">
+     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="dayDOB" [(ngModel)]="dayDOB" required >
+
+      <option [ngValue]="null" disabled selected>Day</option>
+      <option value="" disabled selected>Gender</option>   
+      <option value="1" >1</option>  
+      <option value="2" >2</option> 
+      <option value="3" >3</option> 
+      <option value="4" >4</option> 
+      <option value="5" >5</option>  
+      <option value="6" >6</option> 
+      <option value="7" >7</option> 
+      <option value="8" >8</option> 
+      <option value="9" >9</option>  
+      <option value="10" >10</option> 
+      <option value="11" >11</option> 
+      <option value="12" >12</option> 
+      <!-- <option *ngFor="let r of roles" [ngValue]="r.id" style="color: black">{{r.roles}}</option> -->
+    </select>
+  </div>
+  <div class="col-lg-3">
+   <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="monthDOB" [(ngModel)]="monthDOB" required>
+
+    <option value="" disabled selected>Month</option>
+    <option value="01" >January</option>  
+    <option value="02" >February</option> 
+    <option value="03" >March</option> 
+    <option value="April" >April</option> 
+    <option value="04" >May</option>  
+    <option value="05" >June</option> 
+    <option value="05" >July</option> 
+    <option value="06" >August</option> 
+    <!-- <option *ngFor="let r of roles" [ngValue]="r.id" style="color: black">{{r.roles}}</option> -->
+  </select>
+</div>
+<div class="col-lg-4">
+  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="yearDOB" [(ngModel)]="yearDOB" required >
+
+    <option value="" disabled selected>Year</option>
+    <option value="2000" >2000</option>  
+    <option value="2001" >2001</option> 
+    <option value="2002" >2002</option> 
+    <option value="2003" >2003</option> 
+    <!-- <option *ngFor="let r of roles" [ngValue]="r.id" style="color: black">{{r.roles}}</option> -->
+  </select>
+</div>
+</div>
+
+<div class="row" style="padding-bottom: 10px;"> 
+  <div class="col-lg-2 tournamentApplicationForm">
+    <p class="label"> <b>Coach's Name</b> </p>
+  </div>
+  <div class="col-lg-10">
+   <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="teamCoachName">
+        <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+      </div>
+      <input type="text" class="form-control" id="coachName" name="coachName" placeholder="" aria-label="coachName" aria-describedby="basic-addon1" [(ngModel)]="team.coachName" required #coachName="ngModel">
+    </div>
+  </div>
+
+</div>
+
+<div class="row" style="padding-bottom: 10px;"> 
+  <div class="col-lg-2 tournamentApplicationForm">
+    <p class="label"> <b>Team City/State</b> </p>
+  </div>
+  <div class="col-lg-5">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="teamcity">
+          <i class="fa fa-map-marker" aria-hidden="true"></i></span>
+        </div>
+        <input type="text" class="form-control" id="city" name="city" placeholder="" aria-label="city" aria-describedby="basic-addon1" [(ngModel)]="team.city" required #city="ngModel">
+      </div>
+    </div>
+    <div class="col-lg-5">
+     <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="teamstate">
+          <i class="fa fa-map-marker" aria-hidden="true"></i></span>
+        </div>
+        <input type="text" class="form-control" id="state" name="state" placeholder="" aria-label="state" aria-describedby="basic-addon1" [(ngModel)]="team.state" required #state="ngModel">
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="padding-bottom: 10px;"> 
+    <div class="col-lg-2 tournamentApplicationForm">
+      <p class="label"> <b>Club name</b> </p>
+    </div>
+    <div class="col-lg-5">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="teamClubName">
+            <i class="fa fa-map-marker" aria-hidden="true"></i></span>
+          </div>
+          <input type="text" class="form-control" id="clubName" name="clubName" placeholder="" aria-label="clubName" aria-describedby="basic-addon1" [(ngModel)]="team.clubName" required #clubName="ngModel">
+        </div>
+      </div>
+<!--     <div class="col-lg-5">
+     <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="state">
+          <i class="fa fa-map-marker" aria-hidden="true"></i></span>
+        </div>
+        <input type="text" class="form-control" placeholder="State" aria-label="state" aria-describedby="basic-addon1">
+      </div>
+    </div> -->
+  </div>
+
+  <div class="row" style="padding-bottom: 10px;"> 
+    <div class="col-lg-2 tournamentApplicationForm">
+      <p class="label"> <b>Association</b> </p>
+    </div>
+    <div class="col-lg-5">
+     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="association" [(ngModel)]="team.association" required #association="ngModel">
+
+      <!-- <option [ngValue]="null" disabled selected>Category</option> -->
+      <option [value]="0" disabled selected>Association</option>
+      <option value="Alaska" >Alaska</option>  
+      <option value="Alabama" >Alabama</option> 
+      <option value="Georgia" >Georgia</option> 
+      <option value="Arizona" >Arizona</option> 
+      <option value="Arizona" >Arkansas</option>
+      <option value="Arizona" >Houston</option>
+
+    </select>
+  </div>
+</div>
+
+<div class="row" style="padding-bottom: 10px;"> 
+  <div class="col-lg-2 tournamentApplicationForm">
+    <p class="label"> <b>League</b> </p>
+  </div>
+  <div class="col-lg-5">
+   <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="league" [(ngModel)]="team.league" required #league="ngModel">
+
+    <!-- <option [ngValue]="null" disabled selected>Category</option> -->
+    <option [value]="0" disabled selected>--- Premier League ---</option>      
+    <option value="Premier League (Boys U10)" >Premier League (Boys U10)</option> 
+    <option value="Premier League (Boys U11)" >Premier League (Boys U11)</option> 
+    <option value="Champions League (Girls U10)" >Premier League (Girls U10)</option> 
+    <option value="Champions League (Girls U11)" >Premier League (Girls U11)</option>
+    <br>
+    <option [value]="0" disabled selected>--- Classic League ---</option> 
+    <br>
+    <option value="Premier League (Boys U10)" >Classic League (Boys U10)</option> 
+    <option value="Premier League (Boys U11)" >Classic League (Boys U11)</option> 
+    <option value="Champions League (Girls U10)" >Classic League (Girls U10)</option> 
+    <option value="Champions League (Girls U11)" >Classic League (Girls U11)</option>    
+  </select>
+</div>
+</div>
+
+<div class="row" style="padding-bottom: 10px;"> 
+  <div class="col-lg-2 tournamentApplicationForm">
+    <p class="label"> <b>Play Level Desired</b> </p>
+  </div>
+  <div class="col-lg-5">
+   <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="playLevel" [(ngModel)]="team.playLevel" required #playLevel="ngModel">
+
+    <!-- <option [ngValue]="null" disabled selected>Category</option> -->
+    <option [value]="0" disabled selected>Play Level</option>  
+    <option value="Classic" >Classic</option> 
+    <option value="Premier" >Premier</option> 
+   <!--  <option value="Champions " >Champions</option> 
+    <option value="Super Hero" >Super Hero</option>  -->        
+  </select>
+</div>
+</div>
+
+<div class="row" style="padding-bottom: 10px;"> 
+  <div class="col-lg-2 tournamentApplicationForm">
+    <p class="label"> <b>Primary Jersey Color</b> </p>
+  </div>
+  <div class="col-lg-5">
+   <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="primaryJerseyColor" [(ngModel)]="team.primaryJerseyColor" required #primaryJerseyColor="ngModel">
+
+    <!-- <option [ngValue]="null" disabled selected>Category</option> -->
+    <option [value]="0" disabled selected>Color</option> 
+    <option value="Black" >Black</option> 
+          <option value="White" >White</option> 
+          <option value="Red " >Red</option> 
+          <option value="Blue" >Blue</option>          
+  </select>
+</div>
+</div>
+
+<div class="row" style="padding-bottom: 10px;"> 
+  <div class="col-lg-2 tournamentApplicationForm">
+    <p class="label"> <b>Alternative Jersey Color</b> </p>
+  </div>
+  <div class="col-lg-5">
+   <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="alternativeJerseyColor" [(ngModel)]="team.altJerseyColor" required #alternativeJerseyColor="ngModel">
+
+    <!-- <option [ngValue]="null" disabled selected>Category</option> -->
+    <option [value]="0" disabled selected>Color</option>   
+    <option value="Black" >Black</option> 
+          <option value="White" >White</option> 
+          <option value="Red " >Red</option> 
+          <option value="Blue" >Blue</option>        
+  </select>
+</div>
+</div>
+
+<br>
+
+<p class="subtitle"> <b>PRIMARY CONTACT INFORMATION</b> </p>
+
+<div class="row" style="padding-bottom: 10px;"> 
+  <div class="col-lg-2 tournamentApplicationForm">
+    <p class="label"> <b>Contact Name</b> </p>
+  </div>
+  <div class="col-lg-5">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="teamContactName">
+          <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+        </div>
+        <input type="text" class="form-control" id="teamContactName" name="teamContactName" placeholder="Name" aria-label="teamContactName" aria-describedby="basic-addon1" [(ngModel)]="team.teamContactName" required #teamContactName="ngModel">
+      </div>
+    </div>
+<!--     <div class="col-lg-5">
+     <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="teamContactLastName">
+          <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+        </div>
+        <input type="text" class="form-control" id="contactLastName" name="contactLastName" placeholder="Last Name" aria-label="contactLastName" aria-describedby="basic-addon1" [(ngModel)]="team.contactLastName" required #contactLastName="ngModel">
+      </div>
+    </div> -->
+  </div>
+  <div class="row" style="padding-bottom: 10px;"> 
+  <div class="col-lg-2 tournamentApplicationForm">
+    <p class="label"> <b>Email Address</b> </p>
+  </div>
+  <div class="col-lg-5">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="emailAddress">
+          <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+        </div>
+        <input type="text" class="form-control" id="emailAddress" name="emailAddress" placeholder="" aria-label="emailAddress" aria-describedby="basic-addon1" [(ngModel)]="team.emailAddress" required #emailAddress="ngModel">
+      </div>
+    </div>
+<!--     <div class="col-lg-5">
+     <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="teamContactLastName">
+          <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+        </div>
+        <input type="text" class="form-control" id="contactLastName" name="contactLastName" placeholder="Last Name" aria-label="contactLastName" aria-describedby="basic-addon1" [(ngModel)]="team.contactLastName" required #contactLastName="ngModel">
+      </div>
+    </div> -->
+  </div>
+
+<br>
+<button type="submit" [disabled]="!teamApplicationForm.form.valid" 
+class="btn btn-primary">Register</button>
+</form>
+<br>
+</div>
+</div>
+
+
+</div>
+</div>
+
+</div>

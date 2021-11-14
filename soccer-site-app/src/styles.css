@@ -2,7 +2,9 @@
 /* You can add global styles to this file, and also import other style files */
 
 body{
-	background-color: #f3f3f3;
+	/*background-color: #f3f3f3;*/
+	background-image: url("assets/images/7.jpeg");
+	background-repeat: repeat-x;
 }
 
 .addButton{
@@ -248,5 +250,33 @@ body{
 	left: 50%;
 	transform: translate(-50%, -50%);
 	font-size: 0.8rem;
+}
+* {
+  font-family: 'Lato', sans-serif;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+  /*background-color: #dfe6e9;*/
+}
+
+.container {
+  /*margin: 50px;*/
+}
+
+.mat-expansion-panel-header-description {
+  padding-top: 16px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.mat-expansion-panel-header {
+  border-bottom: 1px solid #ddd;
+  font-size: 18px;
+  background-color: #f5f6fa;
 }
 

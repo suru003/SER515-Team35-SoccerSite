@@ -1,0 +1,51 @@
+
+<form #loginForm="ngForm" (ngSubmit)="onSubmit()" >
+  <div class="container1" style="background: blue;">
+    <div class="card register-card align-vertically">
+      <div class="card-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-5 left-col"></div>
+
+            <div class="col-lg-7 right-col">
+              <h5 class="card-title">DIRECTORS - LOGIN</h5>
+              <p class="card-text" style="font-size:0.8rem">
+              Team Director - TEAMDIR_00100<br>
+              Referee Director - REF_00100<br>
+              Tournament Director - TMN_00100
+            </p>
+
+              <br>
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="tournamentDirectorID">
+                    <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                  </div>
+                  <input type="text" class="form-control" id="directorID" name="directorID" [(ngModel)]="directorID"required >
+                </div>
+                <br>
+
+                <!-- <a href="#" class="btn btn-primary ">Login</a> -->
+                <button type="submit" class="btn btn-primary ">Login</button>
+                <br>
+                <div *ngIf="isLoggedIn; else loggedOut">
+                  Logging in .
+                </div>
+
+                <ng-template #loggedOut>
+                  <div>
+
+                  Please login.
+                </div>
+                </ng-template>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </form>
+  <router-outlet></router-outlet>
