@@ -39,6 +39,7 @@ import { TeamNewApplicationListComponent } from './teamDirector/teamNewApplicati
 //sponsors
 import { sponsors } from './sponsors/sponsors';
 
+
 // Volunteer Director
 import { VolunteerDirectorComponent } from './volunteerDirector/dashboard/volunteerDirectorHomepage.component';
 import { VolunteerUserListComponent } from './volunteerDirector/volunteerUserList/volunteerUserList.component';
@@ -51,6 +52,7 @@ import { VolunteerDirectorLoginPageComponent } from './volunteerDirector/loginpa
 //Volunteers
 import { VolunteerDirectorLoginOrRegisterComponent } from './volunteerDirector/loginOrRegister/loginOrRegister.component';
 import { RegisterVolunteerComponent } from './volunteerDirector/register/registerVolunteer.component';
+
 
 
 
@@ -137,6 +139,7 @@ const routes: Routes = [
   ]
 
 },
+
 {path:'volunteerDirectorHomepage', component: VolunteerDirectorComponent,
   children: [
   {
@@ -151,6 +154,7 @@ const routes: Routes = [
   ]
 
 },
+
 {
   path:'F.A.Q.', component:FAQPageComponent
 },
@@ -167,12 +171,14 @@ const routes: Routes = [
  path:'registerReferee', component:RegisterRefereeComponent
 },
 {
+
   path:'registerVolunteer', component:RegisterVolunteerComponent
  },
 {
  path:'volunteerLoginOrRegister', component:VolunteerDirectorLoginOrRegisterComponent
 },
 {
+
  path:'teamLoginOrRegister', component:TeamLoginOrRegisterComponent
 },
 {
@@ -197,6 +203,7 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
 export const ArrayOfComponents = [RefereeDirectorComponent, VolunteerDirectorComponent, 
 UserListComponent, LoginPageComponent, VolunteerDirectorLoginPageComponent, 
 AddRefereeComponent,RefereeUserListComponent, AddVolunteerComponent, VolunteerUserListComponent, 

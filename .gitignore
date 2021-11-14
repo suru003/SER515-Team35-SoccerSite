@@ -1,7 +1,7 @@
 # Metadata file
 *.metadata
 
-
+.DS_Store
 # Compiled class file
 *.class
 
@@ -33,8 +33,6 @@ hs_err_pid*
 # OS generated files #
 ######################
 .DS_Store
-.DS_Store?
-._*
 .Spotlight-V100
 .Trashes
 ehthumbs.db

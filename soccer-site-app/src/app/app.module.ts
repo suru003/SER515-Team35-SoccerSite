@@ -34,6 +34,7 @@ import { RefereeDirectorComponent } from './refereeDirector/dashboard/refereeDir
 import { RefereeUserListComponent } from './refereeDirector/refereeUserList/refereeUserList.component';
 import { RefereeNewApplicationListComponent } from './refereeDirector/refereeNewApplicationList/refereeNewApplicationList.component';
 
+
 import { VolunteerDirectorComponent } from './volunteerDirector/dashboard/volunteerDirectorHomepage.component';
 import { VolunteerUserListComponent } from './volunteerDirector/volunteerUserList/volunteerUserList.component';
 import { VolunteerNewApplicationListComponent } from './volunteerDirector/volunteerNewApplicationList/volunteerNewApplicationList.component';
@@ -43,8 +44,10 @@ import { VolunteerNewApplicationListComponent } from './volunteerDirector/volunt
 import { LoginOrRegisterComponent } from './refereeDirector/loginOrRegister/loginOrRegister.component';
 import { RegisterRefereeComponent } from './refereeDirector/register/registerReferee.component';
 
+
 import { VolunteerDirectorLoginOrRegisterComponent } from './volunteerDirector/loginOrRegister/loginOrRegister.component';
 import { RegisterVolunteerComponent } from './volunteerDirector/register/registerVolunteer.component';
+
 
 
 // Tournament Director
@@ -103,12 +106,14 @@ import { SearchMatchScheduleComponent } from './matchSchedules/searchMatchSchedu
     TeamsDashboardComponent,
     FAQPageComponent,
     sponsors,
+
     TeamApplicationComponent, 
     VolunteerDirectorLoginOrRegisterComponent, 
 
     LoginOrRegisterComponent,
     RegisterRefereeComponent, 
     RegisterVolunteerComponent, 
+
     TeamLoginOrRegisterComponent,
     SearchMatchScheduleComponent,
     TeamDirectorComponent,
@@ -128,7 +133,9 @@ import { SearchMatchScheduleComponent } from './matchSchedules/searchMatchSchedu
         NgbModule,
         MatExpansionModule
     ],
+
   providers: [CoachService, Admin2Service, RefereeDirectorService, TournamentDirectorService, VolunteerDirectorService, SharedService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
