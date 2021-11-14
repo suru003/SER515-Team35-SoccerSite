@@ -1,0 +1,61 @@
+body{
+	background-color: #1f1f1f;
+}
+
+.register-card{
+	width: 50rem;
+	margin: auto;
+
+}
+
+.register-card .left-col{
+	/*background-color: red;*/
+	background-image: url("../../../assets/images/3.jpg");
+	background-size: COVER;
+	background-repeat: no-repeat;
+} 
+
+.align-vertically{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+	margin-top: 3rem;
+}
+.container1{
+	padding: 10px;
+}
+
+.card-body{
+	padding: 0;
+}
+
+.card-body .right-col{
+	padding-top: 4rem;
+	padding-bottom: 4rem;
+	padding-right: 3rem;
+	padding-left: 3rem;
+}
+
+
+.input-group-text{
+	background-color: #D8282B;
+	color: white;
+}
+
+
+.btn-primary {
+	background-color: #D8282B;
+	border-color: #D8282B;
+}
+
+.btn{
+	width: 100%;
+}
+
+.card-body{
+	padding: 30px;
+}
+
