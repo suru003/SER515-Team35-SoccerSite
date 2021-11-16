@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.soccersite.model.Referee;
 import com.soccersite.model.Team;
 import com.soccersite.repo.TeamRepo;
 import com.soccersite.services.TeamService;
@@ -49,13 +48,13 @@ public class TeamController {
 		Team team = teamService.findTeamById(id);
 		return new ResponseEntity<Team>(team, HttpStatus.OK) ;
 	}
+
+	@GetMapping("/find/acceptedTeams/{categoryName}")
+	public ResponseEntity<List<Team>> findTeamByCategoryAndisVerifiedTrue(@PathVariable("categoryName") String categoryName){
+		List<Team> list = teamService.findAcceptedTeams(categoryName);
+		return new ResponseEntity<List<Team>>(list, HttpStatus.OK) ;
+	}
 	
-//	
-//	@PostMapping("/insert")
-//	public ResponseEntity<Team> insertTournament(@RequestBody Team team){
-//		Team response = teamService.addTournament(team);
-//		return new ResponseEntity<Team>(response, HttpStatus.CREATED) ;
-//	}
 	
 	@PostMapping("/insert")
 	public ResponseEntity<Team> insertTeam(@RequestBody Team team){
@@ -93,5 +92,6 @@ public class TeamController {
 		List<Team> list = teamService.findByisVerifiedFalse();
 		return new ResponseEntity<List<Team>>(list, HttpStatus.OK) ;
 	}
+	
 	
 }

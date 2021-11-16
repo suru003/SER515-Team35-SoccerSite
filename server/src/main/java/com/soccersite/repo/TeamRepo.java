@@ -27,6 +27,11 @@ public interface TeamRepo extends JpaRepository<Team, String> {
 		 @Query("DELETE FROM Team t WHERE t.teamID = :id")
 		void deleteById(@Param("id") String id);
 	 
+	 @Query("SELECT t FROM Team t WHERE t.isVerified = true AND t.category.categoryName = :categoryName")
+	 List<Team> findAcceptedTeams(@Param("categoryName") String categoryName);
+	 
+	 
+	 
 	 @Transactional
 		@Modifying
 		 @Query("UPDATE Team t set t.teamName= :teamName, "
@@ -35,11 +40,7 @@ public interface TeamRepo extends JpaRepository<Team, String> {
 		 		+ "t.isVerified = :status WHERE t.teamID = :id")
 		Team updateById(@Param("id") String id, String teamName, Category category, Tournament tournament, boolean status);
 
-// 		 		+ "t.categoryID= :categoryID, "
-// 		 		+ "t.tournamentID= :tournamentID,"
-// 		 		+ "t.isVerified = :isVerified WHERE t.teamID = :id")
-// 		Team updateById(@Param("id") String id, String teamName, String categoryID, String tournamentID, boolean isVerified);
-	 
+
 	 List<Team> findByisVerifiedTrue();
 	 List<Team> findByisVerifiedFalse();
 

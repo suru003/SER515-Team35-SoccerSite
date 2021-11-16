@@ -332,7 +332,3 @@ width: 100%; /* or any custom size */
 select {
 	font-size: 0.8rem;
 }
-
-th,tbody{
-	font-size: 0.8rem;
-}

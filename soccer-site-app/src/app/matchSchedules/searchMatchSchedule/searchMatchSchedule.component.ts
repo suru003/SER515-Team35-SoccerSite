@@ -9,6 +9,7 @@ import { Referee } from '../../../models/referee';
 
 // services
 import { TeamService } from '../../services/team.service';
+import { MatchScheduleService } from '../../services/matchSchedule.service';
 
 declare var $: any;
 
@@ -27,18 +28,26 @@ export class SearchMatchScheduleComponent {
   // selectedRole = null;
   // createReferee:any;
 
-   divisions:any;
+  divisions:any;
+  allTeams:any;
+  teams!:any;
+  scheduleByDivision:any;
 
-   searchByDivision: string = '';
+  searchByDivision: string = '';
   searchByDate: string = '';
   searchByVenue: string = '';
   searchByTeam: string = '';
   searchByClub: string = '';
+  searchTeamByDivision: string = '';
+
+  noSearch:boolean = true;
+  noScoreSearch:boolean = true;
 
   constructor(
     private route: ActivatedRoute, 
     private router: Router, 
-    private teamService: TeamService) {
+    private teamService: TeamService,
+    private scheduleService: MatchScheduleService) {
     // this.team = new Team();
     // this.user = new Users();
     // this.title = 'Register Referee';
@@ -48,9 +57,10 @@ export class SearchMatchScheduleComponent {
   ngOnInit() {
     // this.getRoles();
     this.getDivisions();
+    this.getAllTeams();
   }
 
-    getDivisions() {
+  getDivisions() {
     this.teamService.findAllDivisions().subscribe(
       data => {
         this.divisions = data;
@@ -59,18 +69,68 @@ export class SearchMatchScheduleComponent {
 
   }
 
+  getAllTeams() {
+    this.teamService.getAllTeams().subscribe(
+      data => {
+        this.allTeams = data;
+        // console.log(data);
+      });
+
+  }
+
   onSubmit(searchMatchScheduleForm: NgForm) {
-    // this.referee.status = 'NEW';
-    // this.referee.roleID=2;
-    // this.adminService.createReferee(this.referee).subscribe(
-    //   data => {
-    //     this.createReferee = data;
-    //     this.createReferee = Array.of(this.createReferee);
-    //     // this.viewAllUsers();
-    //   });
+    this.noScoreSearch = false;
+    this.noSearch = true;
 
-    // $('#user-creation-modal').modal('show');
+    if(this.searchByDivision != ""){
+      this.scheduleService.getMatchesScheduleByDivision(this.searchByDivision).subscribe(
+        data => {
+          this.scheduleByDivision = data;
+        // console.log(data);
+      });
+    }
+    else if(this.searchByTeam != ""){
+      this.scheduleService.getMatchesScheduleByTeam(this.searchByTeam).subscribe(
+        data => {
+          this.scheduleByDivision = data;
+        // console.log(data);
+      });
+    }
+    else if(this.searchByDate != ""){
+      this.scheduleService.getMatchesScheduleByDate(this.searchByDate).subscribe(
+        data => {
+          this.scheduleByDivision = data;
+        console.log(data);
+      });
+    }
+    else if(this.searchByVenue != ""){
+      this.scheduleService.getMatchesScheduleByVenue(this.searchByVenue).subscribe(
+        data => {
+          this.scheduleByDivision = data;
+        // console.log(data);
+      });
+    }
+    // else if ((this.searchByDivision == "")&&(this.searchByTeam == "")){
 
+    // }
+
+
+  }
+
+  onSubmitSearchTeams(searchAcceptedTeamsForm: NgForm) {
+    this.noSearch = false;
+    this.noScoreSearch = true;
+    this.teamService.getAcceptedTeam(this.searchTeamByDivision).subscribe(
+      data => {
+        this.teams = data;
+        // console.log(data);
+      });
+
+  }
+
+  goBack(){
+    this.noSearch = true;
+    this.noScoreSearch = true;
   }
 
 

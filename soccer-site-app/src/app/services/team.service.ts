@@ -17,6 +17,10 @@ export class TeamService {
   public getTeam(id: String):Observable<Team>{
     return this.http.get<Team>(`${this.serverUrl}/find/${id}`);
   }
+
+  public getAcceptedTeam(categoryName: String):Observable<Team[]>{
+    return this.http.get<Team[]>(`${this.serverUrl}/find/acceptedTeams/${categoryName}`);
+  }
   
   public getAllTeams():Observable<Team[]>{
     return this.http.get<Team[]>(`${this.serverUrl}/all`);

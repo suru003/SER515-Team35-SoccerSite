@@ -28,11 +28,11 @@ public class TeamService {
 		return repo.findAll();
 	}
 	
-	public Team updateTeam(Team team) {
-		return repo.updateById(team.getTeamID(), team.getTeamName(), team.getCategory(), team.getTournament(), team.isVerified());
-// 		return repo.updateById(team.getTeamID(), team.getTeamName(), team.getCategoryID(), team.getTournamentID(), team.isVerified());
+//	public Team updateTeam(Team team) {
+//		return repo.updateById(team.getTeamID(), team.getTeamName(), team.getCategory(), team.getTournament(), team.isVerified());
+//
+//	}
 
-	}
 	
 	public void deleteTeam(String teamID) {
 		 repo.deleteById(teamID);
@@ -42,14 +42,15 @@ public class TeamService {
 		 return repo.findTeamById(teamID).orElseThrow(()->new EntryNotFoundExcemption("Team with id: "+teamID+" not found in the repositiory")); 
 	}
 	
-//	public List<Team> findByStatus(boolean isVerified){
-//		return repo.findByisVerifiedTrue(isVerified);
-//	}
 	
 	public List<Team> findByisVerifiedTrue(){
 		return repo.findByisVerifiedTrue();
 	}
 	public List<Team> findByisVerifiedFalse(){
 		return repo.findByisVerifiedFalse();
+	}
+	
+	public List<Team> findAcceptedTeams(String categoryName) {
+		return repo.findAcceptedTeams(categoryName);
 	}
 }

@@ -65,6 +65,7 @@ import { TeamLoginOrRegisterComponent } from './teamApplication/loginOrRegister/
 
 //Teams, Schedules, Scores
 import { SearchMatchScheduleComponent } from './matchSchedules/searchMatchSchedule/searchMatchSchedule.component';
+import { SearchResultsComponent } from './matchSchedules/searchResults/searchResults.component';
 
 
 
@@ -194,6 +195,8 @@ const routes: Routes = [
     path:'teamNewApplicationList', component: TeamNewApplicationListComponent
   }
    ]
+ },{
+   path:'searchMatchesResults', component:SearchResultsComponent
  },
 
 ];
@@ -212,4 +215,4 @@ TournamentDirectorDashboardComponent,AddTournamentComponent,TournamentListCompon
 TeamsDashboardComponent, FAQPageComponent, TeamApplicationComponent, RegisterVolunteerComponent, 
 LoginOrRegisterComponent,RegisterRefereeComponent, TeamLoginOrRegisterComponent, VolunteerDirectorLoginOrRegisterComponent, 
 SearchMatchScheduleComponent,TeamDirectorComponent, TeamsListComponent, TeamNewApplicationListComponent,
-AllDirectorLoginPageComponent,sponsors]
+AllDirectorLoginPageComponent,sponsors, SearchResultsComponent]
