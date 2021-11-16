@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 import com.soccersite.custom.generators.CustomGenerator;
 
 @Entity
-public class Coach implements Serializable{
+public class Coach {
 	@Id
 	@Column(nullable= false, updatable= false)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_id")
@@ -23,7 +23,7 @@ public class Coach implements Serializable{
         strategy = "com.soccersite.custom.generators.CustomGenerator", 
         parameters = {
             @Parameter(name = CustomGenerator.INCREMENT_PARAM, value = "50"),
-            @Parameter(name = CustomGenerator.SEQUENCE_PREFIX_PARAMETER, value = "TMN_"),
+            @Parameter(name = CustomGenerator.SEQUENCE_PREFIX_PARAMETER, value = "COACH_"),
             @Parameter(name = CustomGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })
 	String id;
 	String firstName;
@@ -42,6 +42,13 @@ public class Coach implements Serializable{
 		this.lastName = lastName;
 		this.email = email;
 		this.imageUrl = imageUrl;
+	}
+	
+	public Coach(String firstName, String lastName, String email) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
 	}
 	
 	public String getID() {

@@ -1,0 +1,106 @@
+   <div class="sidebar">
+
+    <div class="logo-section">
+      <div class="logo-name" style="text-align:center; font-size: 1rem;">2020 Highlights</div>
+    </div>
+    <br>
+    <div class="navbar">
+      <!-- <div class="highlights"></div> -->
+      <div class="highlightsImage">
+        <img src="../assets/images/6.jpeg">
+      </div>
+      <div class="highlightsImage">
+        <img src="../assets/images/5.jpeg">
+      </div>
+      <div class="highlightsImage">
+        <img src="../assets/images/4.jpeg">
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="main-page align-vertically">
+    <div class="tournamentDetails row">
+     <div class="col-lg-12 ">
+       <div class="card mb-3 shadow rounded" >
+        <br>
+        <h4> Teams, Scores & Schedules for the 2021 ASU Sparky Soccer Tournament</h4>
+        <br>
+        <p> <b>DISCLAIMER:</b> </p>
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+        <br>
+       <!--  <p> <b>Click on the button below to register or login in the next section:</b> </p>
+
+        <button type="submit" routerLink="/teamApplication" class="btn btn-primary-2">Start Registration</button> -->
+        <br>
+      </div>
+    </div>
+  </div>
+
+  <div class="container second-row">
+    <div class="row tournamentDetails">
+      <div class="col-lg-12 ">
+       <div class="card mb-3 shadow rounded" >
+        <br>
+
+        <table class="table table-striped" id="teamApplicationsTable" #teamApplicationsTable>
+    <thead>
+      <tr>
+        <th scope="col">Team Name /Location</th>
+        <th scope="col">Coach</th>
+        <th scope="col">Colors Primary/Alt</th>
+        <th scope="col">Schedule</th>
+   <!--      <th scope="col">Age</th>
+        <th scope="col">Association</th> -->
+    <!--     <th scope="col">League</th>
+        <th scope="col">Club Name</th>
+        <th scope="col">Play Level</th>
+        <th scope="col">Oldest DOB</th>
+        <th scope="col">Edit/Delete</th>
+        <th scope="col">Status</th> -->
+      </tr>
+    </thead>
+    <tbody>
+ <div *ngIf="teams.length == 0; else loggedOut">
+            <br>
+           <p style="text-align:center;">There are no new applications.</p>
+           <br>
+
+         </div>
+              <ng-template #loggedOut>
+          <!--       <tr *ngFor="let team of teams">
+                  <td>{{team.teamName}}</td>
+                  <td>{{team.applicationCategory}}</td>
+                  <td>{{team.coachName}}</td>
+                  <td>{{team.gender}}</td>
+                  <td>{{team.age}}</td>
+                  <td>{{team.association}}</td>
+                  <td>{{team.league}}</td>
+                  <td>{{team.clubName}}</td>
+                  <td>{{team.playLevel}}</td>
+                  <td>{{team.oldestDOB}}</td>
+                  <td>
+                    <a data-toggle="modal" data-target="#view-team-modal" (click)="viewTeam(team.teamID)"><i class="fa fa-eye edit-user-btn" aria-hidden="true" id="{{team.teamID}}" ></i></a> 
+                    <a data-toggle="modal" data-target="#delete-team-modal" (click)="confirmDeletion(team.teamID)"> <i class="fa fa-trash delete-user-btn" aria-hidden="true" id="{{team.teamID}}" ></i> </a>
+
+                  </td>
+                  <td>
+                    <i class="fa fa-spinner pending-icon" aria-hidden="true"></i> pending
+                  </td>
+
+                </tr> -->
+              </ng-template> 
+            </tbody>
+          </table>
+
+
+<br>
+</div>
+</div>
+
+
+</div>
+</div>
+
+</div>

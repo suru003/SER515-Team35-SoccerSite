@@ -14,6 +14,7 @@ import org.hibernate.annotations.Parameter;
 
 import com.soccersite.custom.generators.CustomGenerator;
 
+@SuppressWarnings("serial")
 @Entity
 public class Team implements Serializable{
 	@Id
@@ -27,6 +28,7 @@ public class Team implements Serializable{
             @Parameter(name = CustomGenerator.SEQUENCE_PREFIX_PARAMETER, value = "TEAM_"),
             @Parameter(name = CustomGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })
 	String teamID;
+	
 	
 	@Column(unique= true)
 	String teamName;
@@ -86,16 +88,16 @@ public class Team implements Serializable{
 		this.isVerified = status;
 	}
 	
-	public Team(String teamID, String teamName, Category category, Coach coach, String tournamentID,
+	public Team(String teamName, Category category, 
 			boolean isVerified, String gender, String age, String coachName, String clubName, String city, String state,
 			String association, String league, String playLevel, String primaryJerseyColor, String altJerseyColor,
 			String oldestDOB, String applicationCategory, String teamContactName, String emailAddress) {
 		super();
-		this.teamID = teamID;
+//		this.teamID = teamID;
 		this.teamName = teamName;
 		this.category = category;
-		this.coach = coach;
-		this.tournamentID = tournamentID;
+//		this.coach = coach;
+//		this.tournament = tournament;
 		this.isVerified = isVerified;
 		this.gender = gender;
 		this.age = age;

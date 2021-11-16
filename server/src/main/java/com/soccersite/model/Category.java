@@ -1,5 +1,7 @@
 package com.soccersite.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,8 +14,9 @@ import org.hibernate.annotations.Parameter;
 import com.soccersite.custom.generators.CustomGenerator;
 
 
+@SuppressWarnings("serial")
 @Entity
-public class Category {
+public class Category implements Serializable{
 	@Id
 	@Column(nullable= false, updatable= false)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_id")
@@ -43,6 +46,18 @@ public class Category {
 		this.playLevel= playLevel;
 		this.price = price;
 	}
+	
+	public Category(String categoryName, int minAge, int maxAge, String playLevel, String price) {
+		super();
+//		this.id = id;
+		this.categoryName = categoryName;
+		this.minAge = minAge;
+		this.maxAge = maxAge;
+		this.playLevel= playLevel;
+		this.price = price;
+	}
+	
+	
 	public String getId() {
 		return id;
 	}

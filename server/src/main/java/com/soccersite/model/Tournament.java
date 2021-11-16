@@ -46,11 +46,6 @@ public class Tournament {
 	String startDate;
 	String endDate;
 	
-	//foreign key
-//  @OneToOne
-//  @MapsId
-//  @JoinColumn(name = "tournament_id")
-	
 	@ManyToOne(optional = false)
     @JoinColumn(name = "manager_id", referencedColumnName = "id",nullable = false)
   private TournamentManager tournamentManager;
@@ -66,6 +61,14 @@ public class Tournament {
 		this.startDate = startDate;
 		this.endDate = endDate;
 //		this.tournamentManager = tournamentManager;
+	}
+	
+	public Tournament(String tournamentName, Category category, String startDate, String endDate) {
+		super();
+		this.tournamentName = tournamentName;
+		this.category = category;
+		this.startDate = startDate;
+		this.endDate = endDate;
 	}
 
 	public String getId() {

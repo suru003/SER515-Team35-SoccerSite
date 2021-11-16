@@ -58,32 +58,79 @@
 <!--         <p> <b>APPLICATION INFORMATION </b> </p>
          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p> -->
+         <!-- <div *ngIf="noSearch || noScoreSearch; else searchResults"> -->
+          <div *ngIf="noSearch && noScoreSearch">
+           <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <!-- <div *ngIf="noScoreSearch; else scoreResults"> -->
+                <button class="nav-link active" id="nav-schedules-tab" data-bs-toggle="tab" data-bs-target="#nav-schedules-pane" type="button" role="tab" aria-controls="nav-schedules-tab" aria-selected="true">Schedules, Scores and Standings</button>
+                <!-- </div> -->
 
-         <nav>
-          <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <button class="nav-link active" id="nav-schedules-tab" data-bs-toggle="tab" data-bs-target="#nav-schedules-pane" type="button" role="tab" aria-controls="nav-schedules-tab" aria-selected="true">Schedules, Scores and Standings</button>
-
-            <button class="nav-link" id="nav-accepted-tab" data-bs-toggle="tab" data-bs-target="#nav-accepted-pane" type="button" role="tab" aria-controls="nav-accepted-tab" aria-selected="false">Accepted Teams</button>
-
-          </div>
-        </nav>
+                <button class="nav-link" id="nav-accepted-tab" data-bs-toggle="tab" data-bs-target="#nav-accepted-pane" type="button" role="tab" aria-controls="nav-accepted-tab" aria-selected="false">Accepted Teams</button>
+              </div>
+            </nav>
 
 
-        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-content" id="nav-tabContent">
 
-          <div class="tab-pane fade show active" id="nav-schedules-pane" role="tabpanel" aria-labelledby="nav-schedules-pane">
-            <form #searchMatchScheduleForm="ngForm" (ngSubmit)="onSubmit(searchMatchScheduleForm)" >
-              <br>
+              <div class="tab-pane fade show active" id="nav-schedules-pane" role="tabpanel" aria-labelledby="nav-schedules-pane">
+                <form #searchMatchScheduleForm="ngForm" (ngSubmit)="onSubmit(searchMatchScheduleForm)" >
+                  <br>
+                  <div class="row" style="padding-bottom: 10px;"> 
+                    <div class="col-lg-2 tournamentApplicationForm">
+                      <p class="label"> <b>Search by Division</b> </p>
+                    </div>
+                    <div class="col-lg-5">
+                     <!-- <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByDivision" [(ngModel)]="searchByDivision" > -->
+                      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByDivision" [(ngModel)]="searchByDivision" >
+
+                        <!-- <option [value]="0" disabled selected>Search by Division</option> -->
+                        <option [value]=""  selected></option>
+                        <option *ngFor="let d of divisions" [ngValue]="d.categoryName" style="color: black">{{d.categoryName}}</option>       
+
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="row" style="padding-bottom: 10px;"> 
+                    <div class="col-lg-2 tournamentApplicationForm">
+                      <p class="label"> <b>Search by Date</b> </p>
+                    </div>
+                    <div class="col-lg-5">
+                     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByDate" [(ngModel)]="searchByDate" >
+
+                      <!-- <option [value]="0" disabled selected>searchByDate</option>           -->
+                      <option value=""  selected></option>
+                      <option value="25-12-2021"  >25-12-2021</option>
+                      <option value="26-12-2021"  >26-12-2021</option>
+
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row" style="padding-bottom: 10px;"> 
+                  <div class="col-lg-2 tournamentApplicationForm">
+                    <p class="label"> <b>Search by Venue</b> </p>
+                  </div>
+                  <div class="col-lg-5">
+                   <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByVenue" [(ngModel)]="searchByVenue">
+
+                    <option [value]="0" disabled selected>searchByVenue</option>          
+
+                  </select>
+                </div>
+              </div>
+
               <div class="row" style="padding-bottom: 10px;"> 
                 <div class="col-lg-2 tournamentApplicationForm">
-                  <p class="label"> <b>Search by Division</b> </p>
+                  <p class="label"> <b>Search by Team</b> </p>
                 </div>
                 <div class="col-lg-5">
-                 <!-- <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByDivision" [(ngModel)]="searchByDivision" > -->
-                  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByDivision" [(ngModel)]="searchByDivision" required >
+                 <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByTeam" [(ngModel)]="searchByTeam">
 
-                  <option [value]="0" disabled selected>Search by Division</option>
-                  <option *ngFor="let d of divisions" [ngValue]="d.categoryName" style="color: black">{{d.categoryName}}</option>       
+                  <!-- <option [value]="0" disabled selected>Search by Team</option>   -->
+                  <option [value]=""  selected></option>
+                  <option *ngFor="let team of allTeams" [ngValue]="team.teamID" style="color: black">{{team.teamName}}</option>         
 
                 </select>
               </div>
@@ -91,94 +138,159 @@
 
             <div class="row" style="padding-bottom: 10px;"> 
               <div class="col-lg-2 tournamentApplicationForm">
-                <p class="label"> <b>Search by Date</b> </p>
+                <p class="label"> <b>Search by Club</b> </p>
               </div>
               <div class="col-lg-5">
-               <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByDate" [(ngModel)]="searchByDate" >
+               <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByClub" [(ngModel)]="searchByClub" >
 
-                <option [value]="0" disabled selected>searchByDate</option>          
+                <option [value]="0" disabled selected>Search by Club</option>          
 
               </select>
             </div>
           </div>
+          <br>
+          <br>
+          <button type="submit" [disabled]="!searchMatchScheduleForm.form.valid" 
+          class="btn btn-primary">Search</button>
+        </form>
 
-          <div class="row" style="padding-bottom: 10px;"> 
-            <div class="col-lg-2 tournamentApplicationForm">
-              <p class="label"> <b>Search by Venue</b> </p>
-            </div>
-            <div class="col-lg-5">
-             <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByVenue" [(ngModel)]="searchByVenue">
-
-              <option [value]="0" disabled selected>searchByVenue</option>          
-
-            </select>
-          </div>
-        </div>
-
+      </div>
+      <div class="tab-pane fade" id="nav-accepted-pane" role="tabpanel" aria-labelledby="nav-accepted-pane">
+       <form #searchAcceptedTeamsForm="ngForm" (ngSubmit)="onSubmitSearchTeams(searchAcceptedTeamsForm)" >
+        <br>
         <div class="row" style="padding-bottom: 10px;"> 
           <div class="col-lg-2 tournamentApplicationForm">
-            <p class="label"> <b>Search by Team</b> </p>
+            <p class="label"> <b>Search by Division</b> </p>
           </div>
           <div class="col-lg-5">
-           <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByTeam" [(ngModel)]="searchByTeam">
+           <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchTeamByDivision" [(ngModel)]="searchTeamByDivision" required="">
 
-            <option [value]="0" disabled selected>Search by Team</option>          
+            <option [value]="0" disabled selected>Search by Division</option>
+            <option *ngFor="let d of divisions" [ngValue]="d.categoryName" style="color: black">{{d.categoryName}}</option>       
 
           </select>
         </div>
       </div>
 
-      <div class="row" style="padding-bottom: 10px;"> 
-        <div class="col-lg-2 tournamentApplicationForm">
-          <p class="label"> <b>Search by Club</b> </p>
-        </div>
-        <div class="col-lg-5">
-         <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByClub" [(ngModel)]="searchByClub" >
-
-          <option [value]="0" disabled selected>Search by Club</option>          
-
-        </select>
-      </div>
-    </div>
-    <br>
-    <br>
-    <button type="submit" [disabled]="!searchMatchScheduleForm.form.valid" 
-    class="btn btn-primary">Search</button>
-  </form>
-
-</div>
-<div class="tab-pane fade" id="nav-accepted-pane" role="tabpanel" aria-labelledby="nav-accepted-pane">
- <form #searchAcceptedTeamsForm="ngForm" (ngSubmit)="onSubmit(searchAcceptedTeamsForm)" >
-  <br>
-  <div class="row" style="padding-bottom: 10px;"> 
-    <div class="col-lg-2 tournamentApplicationForm">
-      <p class="label"> <b>Search by Division</b> </p>
-    </div>
-    <div class="col-lg-5">
-     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByDivision" [(ngModel)]="searchByDivision">
-
-      <option [value]="0" disabled selected>Color</option>          
-
-    </select>
+      <br>
+      <br>
+      <button type="submit" [disabled]="!searchAcceptedTeamsForm.form.valid" class="btn btn-primary">Search</button>
+    </form>
   </div>
 </div>
-
-
-
-
-<br>
-<br>
-<button type="submit" [disabled]="!searchAcceptedTeamsForm.form.valid" 
-class="btn btn-primary">Search</button>
-</form>
-</div>
 </div>
 <br>
-</div>
-</div>
+<div *ngIf="noSearch == false">
+  <!-- <ng-template> -->
+    <br>
+    <button type="submit"class="btn btn-primary" (click)="goBack()" style="width:20%">Back</button>
+    <br>
+    <br>
+
+    <table class="table table-striped" id="teamApplicationsTable" >
+      <thead>
+        <tr>
+          <th scope="col">Division</th>
+          <th scope="col">Team Name /Location</th>
+          <th scope="col">Coach</th>
+          <th scope="col">Colors Primary/Alt</th>
+          <th scope="col">Schedule</th>
+
+        </tr>
+      </thead>
+      <tbody>
+
+        <!-- <ng-template #loggedOut> -->
+          <tr *ngFor="let team of teams">
+            <td>{{team.category.categoryName}}</td>
+            <td>
+              <b>{{team.teamName}} </b>
+              <br> <em style="font-size:0.7rem"> {{team.city}} , {{team.state}} </em>
+            </td>
+            <!-- <td>{{team.applicationCategory}}</td> -->
+            <td>{{team.coachName}}</td>
+            <td>{{team.primaryJerseyColor}} <br> {{team.altJerseyColor}}</td>
+            <td><button>Schedule</button></td>
+
+          </tr>
+          <!-- </ng-template>  -->
+        </tbody>
+      </table>
+      <!-- </ng-template> -->
+
+    </div>
+    <div *ngIf="noScoreSearch == false">
+      <!-- <ng-template > -->
+        <br>
+        <button type="submit"class="btn btn-primary" (click)="goBack()" style="width:20%">Back</button>
+        <br>
+        <br>
+
+        <table class="table table-striped" id="teamApplicationsTable" >
+          <thead>
+            <tr>
+              <th scope="col">Divison</th>
+              <th scope="col">Time</th>
+              <th scope="col">Field</th>
+              <th scope="col">Home Team</th>
+              <th scope="col">Score</th>
+              <th scope="col">Score</th>
+              <th scope="col">Visiting Team</th>
+              <th scope="col">Type</th>
+            </tr>
+          </thead>
+          <tbody>
+          <!--   <tr style="background-color: rgba(0,0,0,.2);">
+              <th colspan="8">Date: {{searchByDate}}</th>
+            </tr> -->
+
+            <!-- <ng-template #loggedOut> -->
+           <!--    <ng-container *ngFor="let schedule of scheduleByDivision; let i = index;">
+                <tr *ngIf="i == 0"  style="background-color: rgba(0,0,0,.2);" >
+                <th colspan="8">Date: {{schedule.date}}</th>
+              </tr>
+            </ng-container> -->
+
+            <tr *ngFor="let schedule of scheduleByDivision;">
+              <td>
+                <b>{{schedule.category.categoryName}} </b>
+                <!-- <br> <em style="font-size:0.7rem"> {{team.city}} , {{team.state}} </em> -->
+              </td>
+              <td>{{schedule.time}}</td>
+              <td>{{schedule.field}}</td>
+
+              <td *ngIf="schedule.homeTeamScore > schedule.visitingTeamScore; else noBold">
+                <b>{{schedule.homeTeam.teamName}}</b>
+              </td>
+
+              <ng-template #noBold>
+                <td #noBold>{{schedule.homeTeam.teamName}}</td>
+              </ng-template>
+
+              <td>{{schedule.homeTeamScore}}</td>
+              <td>{{schedule.visitingTeamScore}}</td>
+              <td *ngIf="schedule.visitingTeamScore > schedule.homeTeamScore ; else noBold2"><b>{{schedule.visitingTeam.teamName}}</b>
+              </td>
+              <ng-template #noBold2>
+                <td #noBold2>{{schedule.visitingTeam.teamName}}</td>
+              </ng-template>
+              <td>{{schedule.type}}</td>
 
 
-</div>
+
+            </tr>
+            <!-- </ng-template>  -->
+          </tbody>
+        </table>
+        <!-- </ng-template> -->
+
+      </div>
+      <br>
+      <br>
+    </div>
+
+
+  </div>
 </div>
 
 </div>
