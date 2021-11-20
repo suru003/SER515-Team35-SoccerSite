@@ -16,6 +16,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import com.soccersite.model.AdminUser;
 import com.soccersite.model.Category;
 import com.soccersite.model.Coach;
+import com.soccersite.model.Hotel;
 import com.soccersite.model.MatchesSchedule;
 import com.soccersite.model.Roles;
 import com.soccersite.model.Team;
@@ -23,6 +24,7 @@ import com.soccersite.model.Tournament;
 import com.soccersite.repo.AdminRepo;
 import com.soccersite.repo.CategoryRepo;
 import com.soccersite.repo.CoachRepo;
+import com.soccersite.repo.HotelsRepo;
 import com.soccersite.repo.MatchesScheduleRepo;
 import com.soccersite.repo.RolesRepo;
 import com.soccersite.repo.TeamRepo;
@@ -54,6 +56,8 @@ public class ServerApplication {
 	@Autowired
 	MatchesScheduleRepo matchesRepo;
 	
+	@Autowired
+	HotelsRepo hotelsRepo;
 	
 		ServerApplication(){}
 	public static void main(String[] args) {
@@ -155,6 +159,7 @@ public class ServerApplication {
 			matchesRepo.deleteAll();
 			teamRepo.deleteAll();
 			catRepo.deleteAll();
+			hotelsRepo.deleteAll();
 			
 			Category cat1 = new Category("B-U10 Premier", 9, 10, "Premier", "$650");
 			Category cat2 = new Category("B-U10 Classic", 9, 10, "Classic", "$550");
@@ -216,6 +221,17 @@ public class ServerApplication {
 			"Lenny Blanc","OSEC Club", "Tennesse", "Nashville", "Tennesse", "Premier League (Girls U11)", "Premier",
 			"Red", "White", "15-05-2002", "Girls U11 ($530)", "Lenny Blanc", "");
 
+			
+// 			hotels
+			Hotel hotel1 = new Hotel("Hotel 1", "hotel1.com", true);
+			Hotel hotel2 = new Hotel("Hotel teow", "hotel1.com", true);
+			Hotel hotel3 = new Hotel("Hotel thereee", "hotelll331.com", true);
+			
+			hotelsRepo.save(hotel1);
+			hotelsRepo.save(hotel2);
+			hotelsRepo.save(hotel3);
+			
+			
 			teamRepo.save(team3);		
 			teamRepo.save(team2);
 			
