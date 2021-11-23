@@ -74,6 +74,10 @@ addTournament(){
     this.router.navigate(['addTournament']);
   }
 
+  tournamenFee(){
+    this.router.navigate(['tournamentFee']);
+  }
+
 
   // onSubmit(refereeForm: NgForm) {
   //   this.referee.status = 'NEW';

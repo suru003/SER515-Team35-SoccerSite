@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Tournament } from 'src/models/tournament';
+import { TournamentFee } from 'src/models/tournamentFee';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,9 @@ export class TournamentService {
   
   public addTournament(tournament: Tournament):Observable<Tournament>{
     return this.http.post<Tournament>(`${this.serverUrl}/insert`,tournament);
+  }
+  public findFees():Observable<TournamentFee[]>{
+    return this.http.get<TournamentFee[]>(`${this.serverUrl}/all`);
   }
 
   public updateTournament(tournament: Tournament):Observable<Tournament>{

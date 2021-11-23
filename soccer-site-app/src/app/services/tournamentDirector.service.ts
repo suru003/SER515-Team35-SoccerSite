@@ -5,6 +5,7 @@ import { TournamentDirector } from '../../models/tournamentDirector';
 import { Category } from '../../models/category';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { TournamentFee } from 'src/models/tournamentFee';
 
 
 @Injectable()
@@ -12,6 +13,7 @@ export class TournamentDirectorService {
   private serverUrl = `${environment.apiBaseUrl}/tournament`;
   private categoryUrl = `${environment.apiBaseUrl}/category`;
   private managerUrl = `${environment.apiBaseUrl}/tournamentManager`;
+  private feesURL = `${environment.apiBaseUrl}/tournamentfees`;
 
   constructor(private http: HttpClient) {
 
@@ -61,6 +63,9 @@ public findTournamentDirectorByID(id: String): Observable<TournamentDirector> {
 // Login
 public login(id: String): Observable<TournamentDirector> {
   return this.http.get<TournamentDirector>(`${this.managerUrl}/find/${id}`);
+}
+public findFees(): Observable<TournamentFee[]> {
+  return this.http.get<TournamentFee[]>(`${this.feesURL}/all`);
 }
  
 }
