@@ -70,19 +70,27 @@ export class TeamDirectorComponent implements OnInit{
 
   onSubmit(actionForm: NgForm){
     if(this.actionChoice === 'View Matches') {
-      // this.viewMatches();
+      this.viewMatches();
     } else if(this.actionChoice === 'Manage Applications'){
       this.allNewApplications();
     } else if(this.actionChoice === 'Add Team'){
       // this.addRef();
     } else if(this.actionChoice === 'Schedule Matches'){
       this.scheduleMatch();
+
+    } else{
+
     }
   }
 
 scheduleMatch(){
   this.router.navigate(['scheduleMatches'], {relativeTo:this.route});
 }
+
+viewMatches(){
+    this.router.navigate(['viewMatchList'], {relativeTo:this.route});
+  }
+
 
 allVerifiedTeams(){
     this.router.navigate(['teamsList'], {relativeTo:this.route});
@@ -97,7 +105,5 @@ addRef(){
     // this.router.navigate(['addReferee'], {relativeTo:this.route});
   }
 
-  viewMatches(){
-    // this.router.navigate(['viewMatches'], {relativeTo:this.route});
-  }
+
 }
