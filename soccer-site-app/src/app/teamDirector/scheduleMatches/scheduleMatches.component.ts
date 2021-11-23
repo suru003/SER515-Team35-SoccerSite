@@ -48,8 +48,10 @@ export class ScheduleMatchesComponent implements OnInit {
   type: string = '';
   teamsFoundByDivision:any;
 
-  schedules: any[][];
+  schedules: boolean[][];
+  schedules2: boolean[];
   isScheduled:any;
+  private things: Number[][];
 
   constructor(
     private route: ActivatedRoute, 
@@ -76,6 +78,8 @@ export class ScheduleMatchesComponent implements OnInit {
 
       },  
       error => console.log(error)); 
+
+
   }
 
 
@@ -88,7 +92,6 @@ export class ScheduleMatchesComponent implements OnInit {
     .subscribe(  
       data => {  
         this.teamFound = data; 
-        console.log("team found" + this.teamFound.lastName); 
         this.teamFound = Array.of(this.teamFound); 
         // console.log(data); 
 
@@ -104,11 +107,7 @@ export class ScheduleMatchesComponent implements OnInit {
     coachID:new FormControl(),
     contactNo:new FormControl(),
     tournamentID:new FormControl(),  
-    // password:new FormControl(),
-    // address:new FormControl(),
-    // city:new FormControl(), 
-    // country:new FormControl(), 
-    // roleID:new FormControl()
+
   });  
 
   get teamID(){  
@@ -122,87 +121,98 @@ export class ScheduleMatchesComponent implements OnInit {
   get teamCategory(){  
     return this.formdata.get('categoryID');  
   }  
-  
-//   get refereeEmail(){  
-//     return this.formdata.get('email');  
-//   }  
-
-//   get refereeContactNo(){  
-//     return this.formdata.get('contactNo');  
-//   }
-
-//   // get refereeUsername(){  
-//   //   return this.formdata.get('username');  
-//   // }
-
-//   // get refereePassword(){  
-//   //   return this.formdata.get('password');  
-//   // }
-
-//   get refereeAddress(){  
-//     return this.formdata.get('address');  
-//   }
-
-//   get refereeCity(){  
-//     return this.formdata.get('city');  
-//   }
-
-//   get refereeCountry(){  
-//     return this.formdata.get('country');  
-//   }
-
-//   get refereeRoleID(){  
-//     return this.formdata.get('roleID');  
-//   }
 
 
-onSubmit(scheduleForm: NgForm){
-  this.teamService.findByDivision(this.divisionChosen.categoryName)  
-  .subscribe(  
-    data => {  
-      this.teamsFoundByDivision = data; 
-      this.teamsFoundByDivision = Array.of(this.teamsFoundByDivision);
-        // var matrix:boolean[][] = [[false,false,false,false],[false,false,false,false],[false,false,false,false],[false,false,false,false]] 
-   // console.log(matrix)
-        // console.log(matrix[0][1])
-        console.log(data.length);
+  // onSubmit(scheduleForm: NgForm){
+  //   this.teamService.findByDivision(this.divisionChosen.categoryName)  
+  //   .subscribe(  
+  //     data => {  
+  //       this.teamsFoundByDivision = data; 
+  //       this.schedules = [];
+  //       this.isScheduled = [false,false,false,false];
 
-        this.schedules = [];
-        this.isScheduled = [false,false,false,false];
+  //       for(var i: number = 0; i < 4; i++) {
+  //         this.schedules[i] = [];
+  //         for(var j: number = 0; j< 4; j++) {
+  //           if(i==j){
+  //             this.schedules[i][j] = true;
+  //           }
+  //           else{this.schedules[i][j] = false;}
 
-        for(var i: number = 0; i < this.teamsFoundByDivision.length; i++) {
-          this.schedules[i] = [];
-          for(var j: number = 0; j< this.teamsFoundByDivision.length; j++) {
-            if(i==j){this.schedules[i][j] = true;}
-            else{this.schedules[i][j] = false;}
+  //         }
+  //       }
 
-          }
-        }
-        console.log("printing schedules " + this.schedules)
 
-        for(var i: number = 0; i < this.schedules[0].length; i++) {
-          for(var j: number = 0; j< this.schedules[0].length; j++) {
+  //       for(let i = 0; i < 4; i++) {
+  //         for(let j = 0; j< 4; j++) {
+  //           if(i==j){
+
+  //           }
+  //           else{
+  //             if(this.isScheduled[i] == false && this.isScheduled[j] == false && this.schedules[i][j] == false){
+  //               var match = new MatchesSchedule(this.divisionChosen, "9:00", "Field-A", 
+  //                 this.teamsFoundByDivision[i], "0", this.teamsFoundByDivision[j], "0", this.type, this.date);
+  //               this.schedules[i][j] = true;
+  //               this.schedules[j][i] = true;
+  //               this.isScheduled[i] = true;
+  //               this.isScheduled[j] = true;
+
+  //               this.matchScheduleService.addMatchesSchedule(match).subscribe(  
+  //                 data => {
+  //                   console.log("match data " + data);
+  //                 }, 
+  //                 error => console.log(error)
+  //                 );
+  //               break;
+  //             }
+  //                 // this.schedules[i][j] = false;
+  //               }
+                
+  //             }
+  //           }
+
+  //           console.log(this.schedules)
+
+  //         },  
+  //         error => console.log(error));  
+  // }
+
+    onSubmit2(scheduleForm: NgForm){
+    this.teamService.findByDivision(this.divisionChosen.categoryName)  
+    .subscribe(  
+      data => {  
+        this.teamsFoundByDivision = data; 
+        this.schedules2 = [false,false,false,false];
+
+
+        for(let i = 0; i < 4; i++) {
+          for(let j = 0; j< 4; j++) {
+            console.log("[" + i + "]" + "[" + j + "]")
             if(i==j){
+              
 
-            }
+            } else if(this.schedules2[i] == true){
+                  break;
+                }
             else{
-              if(this.isScheduled[i] == false && this.isScheduled[j]==false && this.schedules[i][j] == false){
-                const match = new MatchesSchedule(this.divisionChosen, "9:00", "Field-A", this.teamsFoundByDivision[i], "0", this.teamsFoundByDivision[j], "1", this.type, this.date);
-                this.schedules[i][j] = true;
-                this.schedules[j][i] = true;
-                this.isScheduled[i] == true;
-                this.isScheduled[j] == true;
+              if(this.schedules2[i] == false && this.schedules2[j] == false ){
+                var match = new MatchesSchedule(this.divisionChosen, "9:00", "Field-A", 
+                  this.teamsFoundByDivision[i], "0", this.teamsFoundByDivision[j], "0", this.type, this.date);
+                this.schedules2[i] = true;
+                this.schedules2[j] = true;
+                // console.log("[" + i + "]" + "[" + j + "]")
 
                 this.matchScheduleService.addMatchesSchedule(match).subscribe(  
                   data => {
-                    console.log(data);
+                    console.log("match data " + data);
                   }, 
                   error => console.log(error)
                   );
-                  break;
+                break;
               }
                   // this.schedules[i][j] = false;
                 }
+               
                 
               }
             }
@@ -211,54 +221,40 @@ onSubmit(scheduleForm: NgForm){
 
           },  
           error => console.log(error));  
-}
+  }
 
 
 
-//  viewAllUsers() {
-//   this.router.navigate(['/allusers']);
-// }
-
-closeModal(){
-  this.close.nativeElement.click();
-}
-
-//   // closeDeleteModal(){
-//   //   this.closeDeleteModal.nativeElement.click();
-//   // }
-
-refreshPage(){
-  window.location.reload();
-}
-
-//   getRoles() {
-//     this.refereeService.findAllRoles().subscribe(
-//       data => {
-//         this.roles = data;
-//         console.log(data);
-//       });
-
-//   }
-
-viewPendingTeams() {
-  this.router.navigate(['/teamNewApplicationList']);
-}
-
-allNewApplications(){
-  this.router.navigate(['teamNewApplicationList'], {relativeTo:this.route});
-}
-
-allVerifiedTeams(){
-  this.router.navigate(['teamsList'], {relativeTo:this.route});
-}
 
 
-reloadComponent() {
-  let currentUrl = this.router.url;
-  this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-  this.router.onSameUrlNavigation = 'reload';
-  this.router.navigate([currentUrl]);
+  closeModal(){
+    this.close.nativeElement.click();
+  }
 
-}
+  refreshPage(){
+    window.location.reload();
+  }
+
+
+  viewPendingTeams() {
+    this.router.navigate(['/teamNewApplicationList']);
+  }
+
+  allNewApplications(){
+    this.router.navigate(['teamNewApplicationList'], {relativeTo:this.route});
+  }
+
+  allVerifiedTeams(){
+    this.router.navigate(['teamsList'], {relativeTo:this.route});
+  }
+
+
+  reloadComponent() {
+    let currentUrl = this.router.url;
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([currentUrl]);
+
+  }
 
 }
