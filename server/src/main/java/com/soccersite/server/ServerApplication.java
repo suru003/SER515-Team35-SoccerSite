@@ -151,7 +151,7 @@ public class ServerApplication {
 //			tournamentRepo.save(t3);
 			
 			
-	/*		
+			
 			matchesRepo.deleteAll();
 			teamRepo.deleteAll();
 			catRepo.deleteAll();
@@ -238,7 +238,7 @@ public class ServerApplication {
 			matchesRepo.save(match2);
 			matchesRepo.save(match3);
 			matchesRepo.save(match4);
-*/
+
 		};
 		
 
