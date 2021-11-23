@@ -31,6 +31,7 @@ public class MatchesScheduleController {
 		this.matchesScheduleService = matchesScheduleService;
 	}
 		
+	
 	@GetMapping("/all")
 	public ResponseEntity<List<MatchesSchedule>> findAllMatches(){
 		List<MatchesSchedule> list = matchesScheduleService.findAllSchedules();

@@ -48,8 +48,9 @@ export class ScheduleMatchesComponent implements OnInit {
   type: string = '';
   teamsFoundByDivision:any;
 
-  schedules: any[][];
+  schedules: boolean[][];
   isScheduled:any;
+  private things: Number[][];
 
   constructor(
     private route: ActivatedRoute, 
@@ -76,6 +77,8 @@ export class ScheduleMatchesComponent implements OnInit {
 
       },  
       error => console.log(error)); 
+
+
   }
 
 
@@ -161,41 +164,47 @@ onSubmit(scheduleForm: NgForm){
   .subscribe(  
     data => {  
       this.teamsFoundByDivision = data; 
-      this.teamsFoundByDivision = Array.of(this.teamsFoundByDivision);
+      // this.teamsFoundByDivision = Array.of(this.teamsFoundByDivision);
         // var matrix:boolean[][] = [[false,false,false,false],[false,false,false,false],[false,false,false,false],[false,false,false,false]] 
    // console.log(matrix)
         // console.log(matrix[0][1])
-        console.log(data.length);
+        // console.log(data);
 
         this.schedules = [];
         this.isScheduled = [false,false,false,false];
 
-        for(var i: number = 0; i < this.teamsFoundByDivision.length; i++) {
+        for(var i: number = 0; i < 4; i++) {
           this.schedules[i] = [];
-          for(var j: number = 0; j< this.teamsFoundByDivision.length; j++) {
-            if(i==j){this.schedules[i][j] = true;}
+          for(var j: number = 0; j< 4; j++) {
+            if(i==j){
+              this.schedules[i][j] = true;
+            }
             else{this.schedules[i][j] = false;}
 
           }
         }
-        console.log("printing schedules " + this.schedules)
 
-        for(var i: number = 0; i < this.schedules[0].length; i++) {
-          for(var j: number = 0; j< this.schedules[0].length; j++) {
+        // console.log("printing schedules " + this.schedules)
+
+        for(let i = 0; i < 4; i++) {
+          for(let j = 0; j< 4; j++) {
             if(i==j){
 
             }
             else{
-              if(this.isScheduled[i] == false && this.isScheduled[j]==false && this.schedules[i][j] == false){
-                const match = new MatchesSchedule(this.divisionChosen, "9:00", "Field-A", this.teamsFoundByDivision[i], "0", this.teamsFoundByDivision[j], "1", this.type, this.date);
+              console.log("here 1");
+              // if(this.isScheduled[i] == false && this.isScheduled[j] == false && this.schedules[i][j] == false){
+              if(this.isScheduled[i] == false && this.isScheduled[j] == false && this.schedules[i][j] == false){
+                console.log("here 2");
+                var match = new MatchesSchedule(this.divisionChosen, "9:00", "Field-A", this.teamsFoundByDivision[i], "0", this.teamsFoundByDivision[j], "0", this.type, this.date);
                 this.schedules[i][j] = true;
                 this.schedules[j][i] = true;
-                this.isScheduled[i] == true;
-                this.isScheduled[j] == true;
+                this.isScheduled[i] = true;
+                this.isScheduled[j] = true;
 
                 this.matchScheduleService.addMatchesSchedule(match).subscribe(  
                   data => {
-                    console.log(data);
+                    console.log("match data " + data);
                   }, 
                   error => console.log(error)
                   );
