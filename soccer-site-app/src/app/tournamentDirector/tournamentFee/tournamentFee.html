@@ -1,0 +1,23 @@
+<h5 class="card-title">{{ title }}</h5>
+  <br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Category</th>
+        <th scope="col">Fee</th>
+        
+
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of tournamentFee">
+        
+        <td>{{item.category}}</td>
+        <td>{{item.fee}}</td>
+
+        
+       
+      </tr>
+    </tbody>
+  </table>

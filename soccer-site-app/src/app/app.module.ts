@@ -57,6 +57,8 @@ import { AddTournamentComponent } from './tournamentDirector/addTournament/addTo
 import { TournamentListComponent } from './tournamentDirector/tournamentList/tournamentList.component';
 import { TeamsDashboardComponent } from './tournamentDirector/teams/teamsDashboard.component';
 
+import { tournamentFee } from './tournamentDirector/tournamentFee/tournamentFee';
+
 
 //Team Director
 import { TeamDirectorComponent } from './teamDirector/dashboard/teamDirectorDashboard.component';
@@ -86,6 +88,7 @@ import { SearchMatchScheduleComponent } from './matchSchedules/searchMatchSchedu
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -104,9 +107,11 @@ import { SearchMatchScheduleComponent } from './matchSchedules/searchMatchSchedu
     TournamentDirectorLoginPageComponent,
     TournamentDirectorDashboardComponent,
     AddTournamentComponent,
+    tournamentFee,
     TournamentListComponent,
     TeamsDashboardComponent,
     FAQPageComponent,
+    
     sponsors,
     ScheduleMatchesComponent,
     TeamApplicationComponent, 

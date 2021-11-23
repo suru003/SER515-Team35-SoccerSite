@@ -30,6 +30,8 @@ import { TournamentDirectorDashboardComponent } from './tournamentDirector/dashb
 import { AddTournamentComponent } from './tournamentDirector/addTournament/addTournament.component';
 import { TournamentListComponent } from './tournamentDirector/tournamentList/tournamentList.component';
 import { TeamsDashboardComponent } from './tournamentDirector/teams/teamsDashboard.component';
+import { TournamentFee } from 'src/models/tournamentFee';
+import { tournamentFee } from './tournamentDirector/tournamentFee/tournamentFee';
 
 //Team Director
 import { TeamDirectorComponent } from './teamDirector/dashboard/teamDirectorDashboard.component';
@@ -68,6 +70,7 @@ import { TeamLoginOrRegisterComponent } from './teamApplication/loginOrRegister/
 //Teams, Schedules, Scores
 import { SearchMatchScheduleComponent } from './matchSchedules/searchMatchSchedule/searchMatchSchedule.component';
 import { SearchResultsComponent } from './matchSchedules/searchResults/searchResults.component';
+
 
 
 
@@ -119,6 +122,9 @@ const routes: Routes = [
     },
     {
       path:'tournamentList', component: TournamentListComponent
+    },
+    {
+      path:'tournamentFee', component: tournamentFee
     }
     ]
   },
@@ -220,7 +226,7 @@ export const ArrayOfComponents = [RefereeDirectorComponent, VolunteerDirectorCom
 UserListComponent, LoginPageComponent, VolunteerDirectorLoginPageComponent, 
 AddRefereeComponent,RefereeUserListComponent, AddVolunteerComponent, VolunteerUserListComponent, 
 RefereeNewApplicationListComponent,TournamentDirectorLoginPageComponent, VolunteerNewApplicationListComponent, 
-TournamentDirectorDashboardComponent,AddTournamentComponent,TournamentListComponent,
+TournamentDirectorDashboardComponent,AddTournamentComponent,TournamentListComponent,tournamentFee,
 TeamsDashboardComponent, FAQPageComponent, TeamApplicationComponent, RegisterVolunteerComponent, 
 LoginOrRegisterComponent,RegisterRefereeComponent, TeamLoginOrRegisterComponent, VolunteerDirectorLoginOrRegisterComponent, 
 SearchMatchScheduleComponent,TeamDirectorComponent, TeamsListComponent, TeamNewApplicationListComponent,
