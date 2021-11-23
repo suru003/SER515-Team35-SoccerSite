@@ -2,6 +2,7 @@ package com.soccersite.controllers;
 
 import java.util.List;
 
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.soccersite.model.Category;
-import com.soccersite.repo.CategoryRepo;
 import com.soccersite.services.CategoryService;
 
 
@@ -26,13 +26,10 @@ import com.soccersite.services.CategoryService;
 public class CategoryController {
 	
 	private final CategoryService categoryService;
-	private final CategoryRepo categoryRepo;
 
-	public CategoryController(CategoryService categoryService,
-			CategoryRepo categoryRepo) {
+	public CategoryController(CategoryService categoryService) {
 		super();
 		this.categoryService = categoryService;
-		this.categoryRepo = categoryRepo;
 	}
 		
 	@GetMapping("/all")

@@ -37,6 +37,8 @@ import { tournamentFee } from './tournamentDirector/tournamentFee/tournamentFee'
 import { TeamDirectorComponent } from './teamDirector/dashboard/teamDirectorDashboard.component';
 import { TeamsListComponent } from './teamDirector/teamsList/teamsList.component';
 import { TeamNewApplicationListComponent } from './teamDirector/teamNewApplicationList/teamNewApplicationList.component';
+import { ScheduleMatchesComponent } from './teamDirector/scheduleMatches/scheduleMatches.component';
+import { ViewMatchesComponent } from './teamDirector/viewMatchList/viewMatchList.component';
 
 //sponsors
 import { sponsors } from './sponsors/sponsors';
@@ -199,9 +201,16 @@ const routes: Routes = [
   },
   {
     path:'teamNewApplicationList', component: TeamNewApplicationListComponent
+  },
+  {
+    path:'scheduleMatches', component: ScheduleMatchesComponent
+  },
+  {
+    path:'viewMatchList', component: ViewMatchesComponent
   }
    ]
- },{
+ },
+ {
    path:'searchMatchesResults', component:SearchResultsComponent
  },
 
@@ -221,4 +230,4 @@ TournamentDirectorDashboardComponent,AddTournamentComponent,TournamentListCompon
 TeamsDashboardComponent, FAQPageComponent, TeamApplicationComponent, RegisterVolunteerComponent, 
 LoginOrRegisterComponent,RegisterRefereeComponent, TeamLoginOrRegisterComponent, VolunteerDirectorLoginOrRegisterComponent, 
 SearchMatchScheduleComponent,TeamDirectorComponent, TeamsListComponent, TeamNewApplicationListComponent,
-AllDirectorLoginPageComponent,sponsors, SearchResultsComponent]
+AllDirectorLoginPageComponent,sponsors, SearchResultsComponent,ScheduleMatchesComponent,ViewMatchesComponent]

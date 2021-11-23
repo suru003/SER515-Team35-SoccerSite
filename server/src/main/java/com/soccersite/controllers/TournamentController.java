@@ -2,6 +2,7 @@ package com.soccersite.controllers;
 
 import java.util.List;
 
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,12 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.soccersite.model.Category;
 import com.soccersite.model.Tournament;
 import com.soccersite.model.TournamentManager;
-import com.soccersite.repo.TournamentManagerRepo;
-import com.soccersite.repo.TournamentRepo;
-import com.soccersite.services.TournamentManagerService;
 import com.soccersite.services.TournamentService;
 
 @RestController
@@ -30,13 +27,10 @@ public class TournamentController {
 	
 	
 	private final TournamentService tournamentService;
-	private final TournamentRepo tournamentRepo;
 
-	public TournamentController(TournamentService tournamentService,
-			TournamentRepo tournamentRepo) {
+	public TournamentController(TournamentService tournamentService) {
 		super();
 		this.tournamentService = tournamentService;
-		this.tournamentRepo = tournamentRepo;
 	}
 		
 //	@GetMapping("/all")

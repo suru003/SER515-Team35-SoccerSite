@@ -29,7 +29,7 @@ public class Category implements Serializable{
             @Parameter(name = CustomGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })
 	String id;
 	String categoryName;
-	
+	String category;
 	int minAge;
 	int maxAge;
 	String playLevel;
@@ -37,17 +37,8 @@ public class Category implements Serializable{
 	
 	
 	public Category() {}
-	public Category(String id, String categoryName, int minAge, int maxAge, String playLevel, String price) {
-		super();
-		this.id = id;
-		this.categoryName = categoryName;
-		this.minAge = minAge;
-		this.maxAge = maxAge;
-		this.playLevel= playLevel;
-		this.price = price;
-	}
 	
-	public Category(String categoryName, int minAge, int maxAge, String playLevel, String price) {
+	public Category(String categoryName, String category, int minAge, int maxAge, String playLevel, String price) {
 		super();
 //		this.id = id;
 		this.categoryName = categoryName;
@@ -93,6 +84,14 @@ public class Category implements Serializable{
 	}
 	public void setPrice(String price) {
 		this.price = price;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	
 	
