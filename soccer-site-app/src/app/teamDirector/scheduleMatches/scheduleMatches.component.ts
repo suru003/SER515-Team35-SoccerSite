@@ -107,11 +107,7 @@ export class ScheduleMatchesComponent implements OnInit {
     coachID:new FormControl(),
     contactNo:new FormControl(),
     tournamentID:new FormControl(),  
-    // password:new FormControl(),
-    // address:new FormControl(),
-    // city:new FormControl(), 
-    // country:new FormControl(), 
-    // roleID:new FormControl()
+
   });  
 
   get teamID(){  
@@ -125,38 +121,6 @@ export class ScheduleMatchesComponent implements OnInit {
   get teamCategory(){  
     return this.formdata.get('categoryID');  
   }  
-  
-//   get refereeEmail(){  
-//     return this.formdata.get('email');  
-//   }  
-
-//   get refereeContactNo(){  
-//     return this.formdata.get('contactNo');  
-//   }
-
-//   // get refereeUsername(){  
-//   //   return this.formdata.get('username');  
-//   // }
-
-//   // get refereePassword(){  
-//   //   return this.formdata.get('password');  
-//   // }
-
-//   get refereeAddress(){  
-//     return this.formdata.get('address');  
-//   }
-
-//   get refereeCity(){  
-//     return this.formdata.get('city');  
-//   }
-
-//   get refereeCountry(){  
-//     return this.formdata.get('country');  
-//   }
-
-//   get refereeRoleID(){  
-//     return this.formdata.get('roleID');  
-//   }
 
 
 onSubmit(scheduleForm: NgForm){
@@ -184,7 +148,6 @@ onSubmit(scheduleForm: NgForm){
           }
         }
 
-        // console.log("printing schedules " + this.schedules)
 
         for(let i = 0; i < 4; i++) {
           for(let j = 0; j< 4; j++) {
@@ -192,10 +155,7 @@ onSubmit(scheduleForm: NgForm){
 
             }
             else{
-              console.log("here 1");
-              // if(this.isScheduled[i] == false && this.isScheduled[j] == false && this.schedules[i][j] == false){
               if(this.isScheduled[i] == false && this.isScheduled[j] == false && this.schedules[i][j] == false){
-                console.log("here 2");
                 var match = new MatchesSchedule(this.divisionChosen, "9:00", "Field-A", this.teamsFoundByDivision[i], "0", this.teamsFoundByDivision[j], "0", this.type, this.date);
                 this.schedules[i][j] = true;
                 this.schedules[j][i] = true;
