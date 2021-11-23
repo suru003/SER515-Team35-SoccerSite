@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-import com.soccersite.model.Tournament;
 import com.soccersite.model.TournamentManager;
 
 @Repository

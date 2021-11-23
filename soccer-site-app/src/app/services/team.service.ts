@@ -51,4 +51,12 @@ export class TeamService {
     return this.http.get<Category[]>(`${this.catUrl}/all`);
   }
 
+  public findDivisionByName(divisionName: String):Observable<Category>{
+    return this.http.get<Category>(`${this.catUrl}/all`);
+  }
+
+  public findByDivision(division: String):Observable<Category[]>{
+    return this.http.get<Category[]>(`${this.serverUrl}/find/division/${division}`);
+  }
+
 }

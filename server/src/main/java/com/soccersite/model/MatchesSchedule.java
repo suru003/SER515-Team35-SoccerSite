@@ -45,6 +45,7 @@ public class MatchesSchedule {
 	Team visitingTeam;
 	String visitingTeamScore;
 	String type;
+	boolean isPlayed;
 	
 	public MatchesSchedule() {}
 	
@@ -61,6 +62,7 @@ public class MatchesSchedule {
 		this.visitingTeamScore = visitingTeamScore;
 		this.type = type;
 		this.date=date;
+		this.isPlayed = false;
 	}
 
 	public String getId() {
@@ -141,6 +143,14 @@ public class MatchesSchedule {
 
 	public void setDate(String date) {
 		this.date = date;
+	}
+
+	public boolean isPlayed() {
+		return isPlayed;
+	}
+
+	public void setPlayed(boolean isPlayed) {
+		this.isPlayed = isPlayed;
 	}
 	
 

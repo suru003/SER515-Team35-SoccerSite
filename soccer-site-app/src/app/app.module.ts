@@ -62,6 +62,7 @@ import { TeamsDashboardComponent } from './tournamentDirector/teams/teamsDashboa
 import { TeamDirectorComponent } from './teamDirector/dashboard/teamDirectorDashboard.component';
 import { TeamsListComponent } from './teamDirector/teamsList/teamsList.component';
 import { TeamNewApplicationListComponent } from './teamDirector/teamNewApplicationList/teamNewApplicationList.component';
+import { ScheduleMatchesComponent } from './teamDirector/scheduleMatches/scheduleMatches.component';
 
 //sponsors
 import { sponsors } from './sponsors/sponsors';
@@ -106,7 +107,7 @@ import { SearchMatchScheduleComponent } from './matchSchedules/searchMatchSchedu
     TeamsDashboardComponent,
     FAQPageComponent,
     sponsors,
-
+    ScheduleMatchesComponent,
     TeamApplicationComponent, 
     VolunteerDirectorLoginOrRegisterComponent, 
 

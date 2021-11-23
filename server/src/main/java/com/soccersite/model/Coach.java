@@ -1,5 +1,4 @@
 package com.soccersite.model;
-import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +8,6 @@ import javax.persistence.Id;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
-import org.springframework.stereotype.Component;
 
 import com.soccersite.custom.generators.CustomGenerator;
 
