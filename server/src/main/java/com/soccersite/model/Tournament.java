@@ -1,22 +1,17 @@
 package com.soccersite.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.soccersite.custom.generators.CustomGenerator;
 
 
@@ -52,16 +47,6 @@ public class Tournament {
 	 
 	
 	public Tournament() {}
-	
-	public Tournament(String id, String tournamentName, Category category, String startDate, String endDate) {
-		super();
-		this.id = id;
-		this.tournamentName = tournamentName;
-		this.category = category;
-		this.startDate = startDate;
-		this.endDate = endDate;
-//		this.tournamentManager = tournamentManager;
-	}
 	
 	public Tournament(String tournamentName, Category category, String startDate, String endDate) {
 		super();

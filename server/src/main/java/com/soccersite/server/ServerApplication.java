@@ -15,11 +15,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import com.soccersite.model.AdminUser;
 import com.soccersite.model.Category;
-import com.soccersite.model.Coach;
 import com.soccersite.model.MatchesSchedule;
 import com.soccersite.model.Roles;
 import com.soccersite.model.Team;
-import com.soccersite.model.Tournament;
 import com.soccersite.repo.AdminRepo;
 import com.soccersite.repo.CategoryRepo;
 import com.soccersite.repo.CoachRepo;
@@ -156,15 +154,15 @@ public class ServerApplication {
 			teamRepo.deleteAll();
 			catRepo.deleteAll();
 			
-			Category cat1 = new Category("B-U10 Premier", 9, 10, "Premier", "$650");
-			Category cat2 = new Category("B-U10 Classic", 9, 10, "Classic", "$550");
-			Category cat3 = new Category("G-U10 Premier", 9, 10, "Premier", "$500");
-			Category cat4 = new Category("G-U10 Classic", 9, 10, "Classic", "$600");
+			Category cat1 = new Category("B-U10 Premier","B-U10", 9, 10, "Premier", "$650");
+			Category cat2 = new Category("B-U10 Classic","B-U10", 9, 10, "Classic", "$550");
+			Category cat3 = new Category("G-U10 Premier","G-U10", 9, 10, "Premier", "$500");
+			Category cat4 = new Category("G-U10 Classic","G-U10", 9, 10, "Classic", "$600");
 			
-			Category cat5 = new Category("B-U11 Premier", 10, 11, "Premier", "$750");
-			Category cat6 = new Category("B-U11 Classic", 10, 11, "Classic", "$700");
-			Category cat7 = new Category("G-U11 Premier", 10, 11, "Premier", "$700");
-			Category cat8 = new Category("G-U11 Classic", 10, 11, "Classic", "$650");
+			Category cat5 = new Category("B-U11 Premier","B-U11", 10, 11, "Premier", "$750");
+			Category cat6 = new Category("B-U11 Classic","B-U11", 10, 11, "Classic", "$700");
+			Category cat7 = new Category("G-U11 Premier","G-U11", 10, 11, "Premier", "$700");
+			Category cat8 = new Category("G-U11 Classic","G-U11", 10, 11, "Classic", "$650");
 			
 			catRepo.save(cat1);
 			catRepo.save(cat2);
@@ -229,19 +227,20 @@ public class ServerApplication {
 			teamRepo.save(team6);
 			teamRepo.save(team7);
 //			
-			MatchesSchedule match3 = new MatchesSchedule(cat1, "9:00", "Field-A", team8, "0", team11, "1","Qualifiers","25-12-2021");
-			MatchesSchedule match4 = new MatchesSchedule(cat1, "10:00", "Field-B", team9, "5", team10, "0","Qualifiers", "26-12-2021");
-		
-			MatchesSchedule match = new MatchesSchedule(cat7, "8:00", "Field-A", team4, "3", team5, "1","Qualifiers", "26-12-2021");
-			MatchesSchedule match2 = new MatchesSchedule(cat7, "8:00", "Field-B", team6, "0", team7, "2","Qualifiers", "25-12-2021");
-			matchesRepo.save(match);
-			matchesRepo.save(match2);
-			matchesRepo.save(match3);
-			matchesRepo.save(match4);
+//			MatchesSchedule match3 = new MatchesSchedule(cat1, "9:00", "Field-A", team8, "0", team11, "1","Qualifiers","25-12-2021");
+//			MatchesSchedule match4 = new MatchesSchedule(cat1, "10:00", "Field-B", team9, "5", team10, "0","Qualifiers", "26-12-2021");
+//		
+//			MatchesSchedule match = new MatchesSchedule(cat7, "8:00", "Field-A", team4, "3", team5, "1","Qualifiers", "26-12-2021");
+//			MatchesSchedule match2 = new MatchesSchedule(cat7, "8:00", "Field-B", team6, "0", team7, "2","Qualifiers", "25-12-2021");
+//			matchesRepo.save(match);
+//			matchesRepo.save(match2);
+//			matchesRepo.save(match3);
+//			matchesRepo.save(match4);
 
 		};
 		
 
+		
 	}	
 
 		

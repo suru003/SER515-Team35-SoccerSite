@@ -75,19 +75,6 @@ public class Team implements Serializable{
 
 	public Team() {}
 	
-	public Team(String teamID, String teamName, Category category, Coach coach, Tournament tournament, boolean status) {
-		super();
-		this.teamID = teamID;
-		this.category = category;
-		this.teamName = teamName;
-		this.coach = coach;
-		this.tournament = tournament;
-// 		this.status = status;
-//		this.coachID = coachID;
-//		this.tournamentID = tournamentID;
-		this.isVerified = status;
-	}
-	
 	public Team(String teamName, Category category, 
 			boolean isVerified, String gender, String age, String coachName, String clubName, String city, String state,
 			String association, String league, String playLevel, String primaryJerseyColor, String altJerseyColor,
