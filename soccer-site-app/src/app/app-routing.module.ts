@@ -36,6 +36,7 @@ import { TeamDirectorComponent } from './teamDirector/dashboard/teamDirectorDash
 import { TeamsListComponent } from './teamDirector/teamsList/teamsList.component';
 import { TeamNewApplicationListComponent } from './teamDirector/teamNewApplicationList/teamNewApplicationList.component';
 import { ScheduleMatchesComponent } from './teamDirector/scheduleMatches/scheduleMatches.component';
+import { ViewMatchesComponent } from './teamDirector/viewMatchList/viewMatchList.component';
 
 //sponsors
 import { sponsors } from './sponsors/sponsors';
@@ -197,6 +198,9 @@ const routes: Routes = [
   },
   {
     path:'scheduleMatches', component: ScheduleMatchesComponent
+  },
+  {
+    path:'viewMatchList', component: ViewMatchesComponent
   }
    ]
  },
@@ -220,4 +224,4 @@ TournamentDirectorDashboardComponent,AddTournamentComponent,TournamentListCompon
 TeamsDashboardComponent, FAQPageComponent, TeamApplicationComponent, RegisterVolunteerComponent, 
 LoginOrRegisterComponent,RegisterRefereeComponent, TeamLoginOrRegisterComponent, VolunteerDirectorLoginOrRegisterComponent, 
 SearchMatchScheduleComponent,TeamDirectorComponent, TeamsListComponent, TeamNewApplicationListComponent,
-AllDirectorLoginPageComponent,sponsors, SearchResultsComponent,ScheduleMatchesComponent]
+AllDirectorLoginPageComponent,sponsors, SearchResultsComponent,ScheduleMatchesComponent,ViewMatchesComponent]

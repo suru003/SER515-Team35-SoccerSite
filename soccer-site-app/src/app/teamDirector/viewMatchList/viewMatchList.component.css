@@ -252,31 +252,4 @@ tbody, th {
 	font-size: 0.8rem;
 }
 
-.tournamentApplicationForm p{
-	font-size: 0.6rem;
-	margin-bottom: 0.5rem;
-	float: right;
-}
-
-select{
-	font-size: 0.8rem;
-}
-
-
-.scheduleBtn{
-	border: 1px;
-	background: #db393c;
-	/* padding: 2px; */
-	width: 150px;
-	height: 34px;
-	border-radius: 5px;
-	color: white;
-/*	display: table;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);*/
-	font-size: 0.8rem;
-}
-
 
