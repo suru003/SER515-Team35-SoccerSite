@@ -3,16 +3,28 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col">Team Names</th>
+        <th scope="col">Team Name1</th>
+        <th scope="col">Team Name2</th>
+        <th scope="col">Category</th>
+        <th scope="col">Home Team</th>
         <th scope="col">Date</th>
+        <th scope="col">Time</th>
+
         
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let item of matches">
 
-        <td>{{item.teamNames}}</td>
+        <!--<td>{{item.teamNames}}</td>-->
+        
+        <td>{{item.team_name1}}</td>
+        <td>{{item.team_name2}}</td>
+        <td>{{item.category}}</td>
+        <td>{{item.home_team}}</td>
         <td>{{item.date}}</td>
+        <td>{{item.time}}</td>
+
         
        
       </tr>
