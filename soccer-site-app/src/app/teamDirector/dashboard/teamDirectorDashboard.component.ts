@@ -75,8 +75,14 @@ export class TeamDirectorComponent implements OnInit{
       this.allNewApplications();
     } else if(this.actionChoice === 'Add Team'){
       // this.addRef();
+    } else if(this.actionChoice === 'Schedule Matches'){
+      this.scheduleMatch();
     }
   }
+
+scheduleMatch(){
+  this.router.navigate(['scheduleMatches'], {relativeTo:this.route});
+}
 
 allVerifiedTeams(){
     this.router.navigate(['teamsList'], {relativeTo:this.route});

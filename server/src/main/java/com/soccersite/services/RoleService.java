@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.soccersite.exceptions.EntryNotFoundExcemption;
-import com.soccersite.model.Referee;
 import com.soccersite.model.Roles;
 import com.soccersite.repo.RolesRepo;
 

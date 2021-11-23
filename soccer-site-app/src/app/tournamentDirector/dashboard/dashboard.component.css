@@ -251,6 +251,15 @@ body{
 	font-size: 0.8rem;
 }
 
+.top-bar select{
+	display: table;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 0.8rem;
+}
+
 .second-row button{
 	border: 1px;
 	/*background: #db393c;*/

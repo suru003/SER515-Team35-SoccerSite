@@ -1,7 +1,6 @@
 package com.soccersite.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.soccersite.exceptions.EntryNotFoundExcemption;
 import com.soccersite.model.Tournament;
 import com.soccersite.model.TournamentManager;
-import com.soccersite.repo.TournamentManagerRepo;
 import com.soccersite.repo.TournamentRepo;
 
 @Service
