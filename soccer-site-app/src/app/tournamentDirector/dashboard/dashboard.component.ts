@@ -64,4 +64,8 @@ addTournament(){
   viewRefereeDirectorDashboard(){
     this.router.navigate(['refereeDirectorHomepage'], {relativeTo:this.route});
   }
+
+  tournamentFees(){
+    this.router.navigate(['tournamentFee'], {relativeTo:this.route});
+  }
 }

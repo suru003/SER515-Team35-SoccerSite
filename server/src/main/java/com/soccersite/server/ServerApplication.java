@@ -154,7 +154,6 @@ public class ServerApplication {
 //			tournamentRepo.save(t3);
 			
 		
-			
 			matchesRepo.deleteAll();
 			teamRepo.deleteAll();
 			catRepo.deleteAll();
@@ -345,7 +344,7 @@ public class ServerApplication {
 			teamRepo.save(team31);
 			teamRepo.save(team32);
 			teamRepo.save(team33);
-//			
+
 //			MatchesSchedule match3 = new MatchesSchedule(cat1, "9:00", "Field-A", team8, "0", team11, "1","Qualifiers","25-12-2021");
 //			MatchesSchedule match4 = new MatchesSchedule(cat1, "10:00", "Field-B", team9, "5", team10, "0","Qualifiers", "26-12-2021");
 //		
@@ -355,6 +354,7 @@ public class ServerApplication {
 //			matchesRepo.save(match2);
 //			matchesRepo.save(match3);
 //			matchesRepo.save(match4);
+
 
 		};
 		
