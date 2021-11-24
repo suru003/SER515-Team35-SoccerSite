@@ -6,16 +6,20 @@ import { environment } from 'src/environments/environment';
 import { Team } from 'src/models/team';
 import { Category } from 'src/models/category';
 import { MatchesSchedule } from 'src/models/matchesSchedule';
+import { Field } from 'src/models/field';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MatchScheduleService {
   private serverUrl = `${environment.apiBaseUrl}/matchesSchedule`;
+  private fieldUrl = `${environment.apiBaseUrl}/fields`;
+  private catUrl = `${environment.apiBaseUrl}/category`;
   // private catUrl = `${environment.apiBaseUrl}/category`;
+
   constructor(private http: HttpClient) { }
 
-  public getMatchesSchedule(id: String):Observable<MatchesSchedule>{
+  public getScheduleById(id: String):Observable<MatchesSchedule>{
     return this.http.get<MatchesSchedule>(`${this.serverUrl}/find/${id}`);
   }
 
@@ -56,6 +60,18 @@ export class MatchScheduleService {
   
   public deleteSchedule(id: String):Observable<void>{
     return this.http.delete<void>(`${this.serverUrl}/delete/${id}`);
+  }
+
+  public updateField(field: Field):Observable<Field>{
+  return this.http.put<Field>(`${this.fieldUrl}/update`,field);
+}
+
+public getAllFields():Observable<Field[]>{
+    return this.http.get<Field[]>(`${this.fieldUrl}/all`);
+  } 
+
+   public findAllDivisions():Observable<Category[]>{
+    return this.http.get<Category[]>(`${this.catUrl}/all`);
   }
 
   // public findByisVerifiedTrue():Observable<Team[]>{

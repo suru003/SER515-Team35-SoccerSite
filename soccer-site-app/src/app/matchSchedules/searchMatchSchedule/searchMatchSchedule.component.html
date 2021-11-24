@@ -257,7 +257,7 @@
                 <!-- <br> <em style="font-size:0.7rem"> {{team.city}} , {{team.state}} </em> -->
               </td>
               <td>{{schedule.time}}</td>
-              <td>{{schedule.field}}</td>
+              <td>{{schedule.field.fieldName}}</td>
 
               <td *ngIf="schedule.homeTeamScore > schedule.visitingTeamScore; else noBold">
                 <b>{{schedule.homeTeam.teamName}}</b>

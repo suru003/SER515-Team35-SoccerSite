@@ -4,8 +4,16 @@ import {NgForm} from '@angular/forms';
 import {FormControl,FormGroup,Validators} from '@angular/forms';  
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal, NgbModalRef, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
+
+// models
 import { Team  } from '../../../models/team';
+import { MatchesSchedule  } from '../../../models/matchesSchedule';
+import { Category  } from '../../../models/category';
+import { Field  } from '../../../models/field';
+
+// services
 import { TeamService } from '../../services/team.service';
+import { MatchScheduleService } from '../../services/matchSchedule.service';
 
 @Component({
   selector: 'viewMatchList',
@@ -20,28 +28,48 @@ export class ViewMatchesComponent implements OnInit {
   title: string;
   deleteTeamFound: any;
   deleteTeamID!:String;
-  updateTeamID!:String;
-  // roles: Roles[] = [];
 
-  team: Team[];  
-  newReferee: Team = new Team();
-  newRefereelist:any; 
 
+  updateScheduleID!:String;
+  scheduleFound:any;
+  schedule:any;
+  allDivisions:any;
   allMatches:any;
+  allTeams:any;
+  allFields:any;
+
+  selectedValue!:Number;
   
 
   constructor(
     private route: ActivatedRoute, 
     private router: Router, 
-    private teamService: TeamService) {
+    private teamService: TeamService,
+    private matchService : MatchScheduleService) {
    this.title = 'All Matches';
      // this.newReferee = new Referee();
+     this.schedule = new MatchesSchedule(new Category(),"", new Field(), new Team(), "", new Team(), "", "","");
    }
 
    ngOnInit() {
 
     this.teamService.getAllMatches().subscribe(data => {
       this.allMatches = data;
+      // console.log(data);
+    });
+
+    this.matchService.findAllDivisions().subscribe(data => {
+      this.allDivisions = data;
+      // console.log(data);
+    });
+
+    this.teamService.getAllTeams().subscribe(data => {
+      this.allTeams = data;
+      // console.log(data);
+    });
+
+    this.matchService.getAllFields().subscribe(data => {
+      this.allFields = data;
       // console.log(data);
     });
 
@@ -77,40 +105,41 @@ export class ViewMatchesComponent implements OnInit {
 
 
   updateSchedule(id: String){
-    // this.updateUserID = id;
+    this.updateScheduleID = id;
     // console.log("id is:" + id);
     // this.getRoles();
     
-    // this.refereeService.findRefereeByID(id)  
-    // .subscribe(  
-    //   data => {  
-    //     this.newRefereelist = data;
-    //     this.newRefereelist = Array.of(this.newRefereelist); 
-    //     console.log(data);             
-    //   },  
-    //   error => console.log(error));  
+    this.matchService.getScheduleById(this.updateScheduleID)  
+    .subscribe(  
+      data => {  
+        this.scheduleFound = data;
+        this.schedule = data;
+        this.scheduleFound = Array.of(this.scheduleFound); 
+        console.log(data);             
+      },  
+      error => console.log(error));  
   }
 
   
 
-  formdata=new FormGroup({  
-    id:new FormControl(),  
-    firstName:new FormControl(),
-    lastName:new FormControl(),  
-    email:new FormControl(),
-    contactNo:new FormControl(),
-    address:new FormControl(),
-    city:new FormControl(), 
-    country:new FormControl(), 
-    roleID:new FormControl()
-  });  
+  // formdata=new FormGroup({  
+  //   id:new FormControl(),  
+  //   category:new FormControl(),
+  //   time:new FormControl(),  
+  //   email:new FormControl(),
+  //   field:new FormControl(),
+  //   homeTeam:new FormControl(),
+  //   homeTeamScore:new FormControl(), 
+  //   visitingTeam:new FormControl(), 
+  //   visitingTeamScore:new FormControl()
+  // });  
 
   // get refereeID(){  
   //   return this.updateUserID;  
   // }  
   
-  // get refereeFirstN(){  
-  //   return this.formdata.get('firstName');  
+  // get category(){  
+  //   return this.formdata.get('category');  
   // }  
   
   // get refereeLastN(){  
@@ -143,7 +172,14 @@ export class ViewMatchesComponent implements OnInit {
   // }
 
 
-  // onSubmit(){
+   onSubmit(updateForm: NgForm){
+    this.schedule.id = this.updateScheduleID;
+
+    this.matchService.updateSchedule(this.schedule).subscribe(data => {
+      // this.allDivisions = data;
+      console.log(data);
+    });
+
   //  this.newReferee=new Referee();   
   //  this.newReferee.id=this.refereeID;  
   //  this.newReferee.firstName=this.refereeFirstN!.value;  
@@ -168,7 +204,11 @@ export class ViewMatchesComponent implements OnInit {
   //     error => console.log(error));  
   //   this.closeModal();
   //   this.refreshPage();
-  // }
+   }
+
+   onSubmitFiter(filterBy: NgForm){
+    
+   }
 
 
 
