@@ -15,6 +15,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import com.soccersite.model.AdminUser;
 import com.soccersite.model.Category;
+import com.soccersite.model.Coach;
+import com.soccersite.model.Hotel;
 import com.soccersite.model.Field;
 import com.soccersite.model.MatchesSchedule;
 import com.soccersite.model.Roles;
@@ -22,6 +24,7 @@ import com.soccersite.model.Team;
 import com.soccersite.repo.AdminRepo;
 import com.soccersite.repo.CategoryRepo;
 import com.soccersite.repo.CoachRepo;
+import com.soccersite.repo.HotelsRepo;
 import com.soccersite.repo.FieldRepo;
 import com.soccersite.repo.MatchesScheduleRepo;
 import com.soccersite.repo.RolesRepo;
@@ -55,10 +58,12 @@ public class ServerApplication {
 	MatchesScheduleRepo matchesRepo;
 	
 	@Autowired
+	HotelsRepo hotelsRepo;
+
+  @Autowired
 	FieldRepo fieldRepo;
 	
-	
-		ServerApplication(){}
+	ServerApplication(){}
 	public static void main(String[] args) {
 		SpringApplication app = new SpringApplication(ServerApplication.class);
         app.setDefaultProperties(Collections.singletonMap("server.port", "8090"));
@@ -158,6 +163,7 @@ public class ServerApplication {
 			matchesRepo.deleteAll();
 			teamRepo.deleteAll();
 			catRepo.deleteAll();
+			hotelsRepo.deleteAll();
 			fieldRepo.deleteAll();
 			
 			Category cat1 = new Category("B-U10 Premier","B-U10", 9, 10, "Premier", "$650");
@@ -277,7 +283,20 @@ public class ServerApplication {
 					"Trevor Stewart","Eclipse FC", "Georgia", "Georgia", "Georgia", "Classic League (Girls U11)", "Classic",
 					"White", "Blue", "1-07-2000", "Girls U11 ($530)", "Trevor Stewart", "trevorsteward@gmail.com");
 
-//			Girls U10 - Premier
+			
+// 			hotels
+			Hotel hotel1 = new Hotel("Hotel 1", "hotel1.com", true);
+			Hotel hotel2 = new Hotel("Hotel teow", "hotel1.com", true);
+			Hotel hotel3 = new Hotel("Hotel thereee", "hotelll331.com", true);
+			
+			hotelsRepo.save(hotel1);
+			hotelsRepo.save(hotel2);
+			hotelsRepo.save(hotel3);
+			
+			
+			teamRepo.save(team3);		
+
+      //			Girls U10 - Premier
 			Team team26 = new Team("Lady Warriors", cat3,true, "Girls", "10",
 					"Karl George","Warriors FC", "Georgia", "Georgia", "Georgia", "Premier League (Girls U10)", "Premier",
 					"White", "Blue", "1-07-2000", "Girls U11 ($500)", "Karl George", "karlgeorge@gmail.com");
@@ -291,7 +310,7 @@ public class ServerApplication {
 					"Roger Claus","LFC United", "Georgia", "Georgia", "Georgia", "Premier League (Girls U10)", "Premier",
 					"White", "Blue", "1-07-2000", "Girls U11 ($500)", "Roger Claus", "rogerclaus@gmail.com");
 			
-//			Girls U10 - Classic
+      //			Girls U10 - Classic
 			Team team30 = new Team("Lexigton FC", cat4,true, "Girls", "10",
 					"Joey Lingg","Lexigton FC", "Georgia", "Georgia", "Georgia", "Classic League (Girls U10)", "Classic",
 					"Blue", "Blue", "1-07-2000", "Girls U11 ($600)", "Joey Lingg", "joeyling@gmail.com");
