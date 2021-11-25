@@ -15,12 +15,14 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import com.soccersite.model.AdminUser;
 import com.soccersite.model.Category;
+import com.soccersite.model.Field;
 import com.soccersite.model.MatchesSchedule;
 import com.soccersite.model.Roles;
 import com.soccersite.model.Team;
 import com.soccersite.repo.AdminRepo;
 import com.soccersite.repo.CategoryRepo;
 import com.soccersite.repo.CoachRepo;
+import com.soccersite.repo.FieldRepo;
 import com.soccersite.repo.MatchesScheduleRepo;
 import com.soccersite.repo.RolesRepo;
 import com.soccersite.repo.TeamRepo;
@@ -51,6 +53,9 @@ public class ServerApplication {
 	
 	@Autowired
 	MatchesScheduleRepo matchesRepo;
+	
+	@Autowired
+	FieldRepo fieldRepo;
 	
 	
 		ServerApplication(){}
@@ -148,11 +153,12 @@ public class ServerApplication {
 //			tournamentRepo.save(t2);
 //			tournamentRepo.save(t3);
 			
-			
+
 		
 			matchesRepo.deleteAll();
 			teamRepo.deleteAll();
 			catRepo.deleteAll();
+			fieldRepo.deleteAll();
 			
 			Category cat1 = new Category("B-U10 Premier","B-U10", 9, 10, "Premier", "$650");
 			Category cat2 = new Category("B-U10 Classic","B-U10", 9, 10, "Classic", "$550");
@@ -173,6 +179,16 @@ public class ServerApplication {
 			catRepo.save(cat7);
 			catRepo.save(cat8);
 			
+
+			Field field1 = new Field("Martin Camp Field", false, false, false, "Manoa Rivers");
+			Field field2 = new Field("Randy Overt Field", false, false, false, "Vera True");
+			Field field3 = new Field("Amanda Sam Field", false, false, false, "Ronald Shampert");
+			Field field4 = new Field("Island Lane", false, false, false, "Rue Sue");
+			
+			fieldRepo.save(field1);
+			fieldRepo.save(field2);
+			fieldRepo.save(field3);
+			fieldRepo.save(field4);
 			
 			
 //			add teams
@@ -329,8 +345,6 @@ public class ServerApplication {
 			teamRepo.save(team31);
 			teamRepo.save(team32);
 			teamRepo.save(team33);
-//			
-
 
 //			MatchesSchedule match3 = new MatchesSchedule(cat1, "9:00", "Field-A", team8, "0", team11, "1","Qualifiers","25-12-2021");
 //			MatchesSchedule match4 = new MatchesSchedule(cat1, "10:00", "Field-B", team9, "5", team10, "0","Qualifiers", "26-12-2021");
@@ -341,7 +355,6 @@ public class ServerApplication {
 //			matchesRepo.save(match2);
 //			matchesRepo.save(match3);
 //			matchesRepo.save(match4);
-
 
 
 		};

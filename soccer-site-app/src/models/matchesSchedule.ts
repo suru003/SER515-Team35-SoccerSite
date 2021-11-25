@@ -1,5 +1,6 @@
 import { Category } from "./category";
 import { Team } from "./team";
+import { Field } from "./field";
 
 
 
@@ -7,7 +8,7 @@ export class MatchesSchedule{
     id!: String;
     category!: Category;
     time!:String;
-    field!:String;
+    field!:Field;
     homeTeam!:Team;
     homeTeamScore!:String;
     visitingTeam!:Team;
@@ -15,7 +16,7 @@ export class MatchesSchedule{
     type!:String;
     date!:String;
 
-    constructor(category: Category, time: String, field: String, homeTeam: Team, homeTeamScore: String,
+  public constructor(category: Category, time: String, field: Field, homeTeam: Team, homeTeamScore: String,
         visitingTeam: Team, visitingTeamScore: String, type: String, date:String) {
     this.category = category;
     this.time = time;
@@ -27,6 +28,8 @@ export class MatchesSchedule{
     this.type = type;
     this.date = date;
   }
+
+
 
 
 }

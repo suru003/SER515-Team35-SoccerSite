@@ -7,6 +7,7 @@ import { Team } from 'src/models/team';
 import { Category } from 'src/models/category';
 import { MatchesSchedule } from 'src/models/matchesSchedule';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,6 +15,8 @@ export class TeamService {
   private serverUrl = `${environment.apiBaseUrl}/team`;
   private catUrl = `${environment.apiBaseUrl}/category`;
   private matchesUrl = `${environment.apiBaseUrl}/matchesSchedule`;
+  
+
   constructor(private http: HttpClient) { }
 
   public getTeam(id: String):Observable<Team>{
@@ -64,5 +67,6 @@ export class TeamService {
   public getAllMatches():Observable<MatchesSchedule[]>{
     return this.http.get<MatchesSchedule[]>(`${this.matchesUrl}/all`);
   }
+
 
 }
