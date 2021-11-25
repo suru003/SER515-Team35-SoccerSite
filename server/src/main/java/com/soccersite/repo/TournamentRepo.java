@@ -3,7 +3,6 @@ package com.soccersite.repo;
 import java.util.List;
 import java.util.Optional;
 
-import javax.persistence.TypedQuery;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

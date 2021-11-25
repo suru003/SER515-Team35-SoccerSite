@@ -30,6 +30,8 @@ public interface TeamRepo extends JpaRepository<Team, String> {
 	 @Query("SELECT t FROM Team t WHERE t.isVerified = true AND t.category.categoryName = :categoryName")
 	 List<Team> findAcceptedTeams(@Param("categoryName") String categoryName);
 	 
+	 @Query("SELECT t FROM Team t WHERE t.category.categoryName = :categoryName")
+	 List<Team> findByCategoryName(@Param("categoryName") String categoryName);
 	 
 	 
 	 @Transactional

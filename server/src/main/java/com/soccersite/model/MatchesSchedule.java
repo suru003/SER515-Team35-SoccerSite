@@ -32,7 +32,10 @@ public class MatchesSchedule {
     @JoinColumn(name = "category_id", referencedColumnName = "id",nullable = false)
     private Category category;
 	String time;
-	String field;
+	
+	@OneToOne()
+    @JoinColumn(name = "field", referencedColumnName = "id",nullable = true)
+	Field field;
 	
 	@OneToOne()
     @JoinColumn(name = "home_id", referencedColumnName = "teamID",nullable = false)
@@ -45,10 +48,11 @@ public class MatchesSchedule {
 	Team visitingTeam;
 	String visitingTeamScore;
 	String type;
+	boolean isPlayed;
 	
 	public MatchesSchedule() {}
 	
-	public MatchesSchedule(Category category, String time, String field, Team homeTeam,
+	public MatchesSchedule(Category category, String time, Field field, Team homeTeam,
 			String homeTeamScore, Team visitingTeam, String visitingTeamScore, String type, String date) {
 		super();
 //		this.id = id;
@@ -61,6 +65,7 @@ public class MatchesSchedule {
 		this.visitingTeamScore = visitingTeamScore;
 		this.type = type;
 		this.date=date;
+		this.isPlayed = false;
 	}
 
 	public String getId() {
@@ -87,11 +92,11 @@ public class MatchesSchedule {
 		this.time = time;
 	}
 
-	public String getField() {
+	public Field getField() {
 		return field;
 	}
 
-	public void setField(String field) {
+	public void setField(Field field) {
 		this.field = field;
 	}
 
@@ -141,6 +146,14 @@ public class MatchesSchedule {
 
 	public void setDate(String date) {
 		this.date = date;
+	}
+
+	public boolean isPlayed() {
+		return isPlayed;
+	}
+
+	public void setPlayed(boolean isPlayed) {
+		this.isPlayed = isPlayed;
 	}
 	
 

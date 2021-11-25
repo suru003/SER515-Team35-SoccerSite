@@ -14,8 +14,8 @@ import com.soccersite.model.Matches;
 @Repository
 @CrossOrigin(origins = "http://localhost:4200")
 public interface MatchesRepo extends JpaRepository<Matches, String> {
-	@Query("SELECT t FROM Matches t WHERE t.date = :date")
-	Optional<Matches> findMatchesbyDate(@Param("date") String date);
+	/*@Query("SELECT t FROM Matches t WHERE t.date = :date")
+	Optional<Matches> findMatchesbyDate(@Param("date") String date);*/
 	Optional<Matches> findMatchesByDate(String date);
 	
 

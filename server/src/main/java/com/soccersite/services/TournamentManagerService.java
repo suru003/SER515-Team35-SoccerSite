@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.soccersite.exceptions.EntryNotFoundExcemption;
-import com.soccersite.model.Tournament;
 import com.soccersite.model.TournamentManager;
 import com.soccersite.repo.TournamentManagerRepo;
 

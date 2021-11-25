@@ -42,6 +42,9 @@ public class TeamService {
 		 return repo.findTeamById(teamID).orElseThrow(()->new EntryNotFoundExcemption("Team with id: "+teamID+" not found in the repositiory")); 
 	}
 	
+	public List<Team> findByCategory(String category){
+		return repo.findByCategoryName(category);
+	}
 	
 	public List<Team> findByisVerifiedTrue(){
 		return repo.findByisVerifiedTrue();
