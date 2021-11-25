@@ -294,7 +294,7 @@ public class ServerApplication {
 			hotelsRepo.save(hotel3);
 			
 			
-			teamRepo.save(team3);		
+//			teamRepo.save(team3);		
 
       //			Girls U10 - Premier
 			Team team26 = new Team("Lady Warriors", cat3,true, "Girls", "10",
