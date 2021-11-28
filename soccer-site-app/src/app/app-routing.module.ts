@@ -73,6 +73,8 @@ import { SearchMatchScheduleComponent } from './matchSchedules/searchMatchSchedu
 import { SearchResultsComponent } from './matchSchedules/searchResults/searchResults.component';
 
 
+// Hotels
+import { HotelsComponent } from './hotels/hotels.component';
 
 
 const routes: Routes = [
@@ -82,6 +84,10 @@ const routes: Routes = [
 },
 {
   path:'homepage', component:Mainpage,
+},
+  
+{
+  path:'app-hotels', component:HotelsComponent,
 },
   
   {

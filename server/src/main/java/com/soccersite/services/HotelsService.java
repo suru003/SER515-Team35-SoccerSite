@@ -27,7 +27,13 @@ public class HotelsService{
 	}
 	
 	public Hotel updateHotel(Hotel hotel) {
-		return repo.save(hotel);
+		List<Hotel> x = repo.findHotel(hotel.getHotelName(), hotel.getLink());
+		if(x.size()>0) {
+			System.out.println("response "+repo.updateById(x.get(0).getId(), hotel.isAvailable()));
+			return hotel;
+		}
+		else
+			return repo.save(hotel);
 	}
 	
 	public void deleteHotel(String id) {
