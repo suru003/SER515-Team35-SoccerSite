@@ -86,6 +86,7 @@ public class ServerApplication {
 			AdminUser admin = new AdminUser(1, "TMN_00100", "Manny", "Picao", "mannypicao@gmail.com", 5, "Tournament Director");
 			AdminUser refDirector = new AdminUser(2, "REF_00100", "Umberto", "Gonzales", "umberto@gmail.com", 7, "Referee Director");
 			AdminUser teamDirector = new AdminUser(3, "TEAMDIR_00100", "Chrissy", "Lane", "chrissylane@gmail.com", 6, "Team Director");
+			AdminUser volunteerDirector = new AdminUser(3, "VOLDIR_00100", "Jane", "Doe", "janedoe@gmail.com", 8, "Volunteer Director");
 
 			adminRepo.save(admin);
 			adminRepo.save(refDirector);
@@ -101,6 +102,9 @@ public class ServerApplication {
 			Roles role6 = new Roles(7, "Referee Director");
 			Roles role7 = new Roles(8, "Field Director");
 			Roles role8 = new Roles(9, "Volunteer Director");
+			Roles role9 = new Roles(10, "Volunteer");
+			Roles role10 = new Roles(11, "Volunteer Director");
+
 			
 			
 			roleRepo.save(role);
@@ -112,6 +116,8 @@ public class ServerApplication {
 			roleRepo.save(role6);
 			roleRepo.save(role7);
 			roleRepo.save(role8);
+			roleRepo.save(role9);
+			roleRepo.save(role10);
 			
 			
 			
@@ -160,210 +166,211 @@ public class ServerApplication {
 			
 
 		
-			matchesRepo.deleteAll();
-			teamRepo.deleteAll();
-			catRepo.deleteAll();
-			hotelsRepo.deleteAll();
-			fieldRepo.deleteAll();
+//			matchesRepo.deleteAll();
+//			teamRepo.deleteAll();
+//			catRepo.deleteAll();
+//			hotelsRepo.deleteAll();
+//			fieldRepo.deleteAll();
 			
-			Category cat1 = new Category("B-U10 Premier","B-U10", 9, 10, "Premier", "$650");
-			Category cat2 = new Category("B-U10 Classic","B-U10", 9, 10, "Classic", "$550");
-			Category cat3 = new Category("G-U10 Premier","G-U10", 9, 10, "Premier", "$500");
-			Category cat4 = new Category("G-U10 Classic","G-U10", 9, 10, "Classic", "$600");
+//			Category cat1 = new Category("B-U10 Premier","B-U10", 9, 10, "Premier", "$650");
+//			Category cat2 = new Category("B-U10 Classic","B-U10", 9, 10, "Classic", "$550");
+//			Category cat3 = new Category("G-U10 Premier","G-U10", 9, 10, "Premier", "$500");
+//			Category cat4 = new Category("G-U10 Classic","G-U10", 9, 10, "Classic", "$600");
 			
-			Category cat5 = new Category("B-U11 Premier","B-U11", 10, 11, "Premier", "$750");
-			Category cat6 = new Category("B-U11 Classic","B-U11", 10, 11, "Classic", "$700");
-			Category cat7 = new Category("G-U11 Premier","G-U11", 10, 11, "Premier", "$700");
-			Category cat8 = new Category("G-U11 Classic","G-U11", 10, 11, "Classic", "$650");
+//			Category cat5 = new Category("B-U11 Premier","B-U11", 10, 11, "Premier", "$750");
+//			Category cat6 = new Category("B-U11 Classic","B-U11", 10, 11, "Classic", "$700");
+//			Category cat7 = new Category("G-U11 Premier","G-U11", 10, 11, "Premier", "$700");
+//			Category cat8 = new Category("G-U11 Classic","G-U11", 10, 11, "Classic", "$650");
 			
-			catRepo.save(cat1);
-			catRepo.save(cat2);
-			catRepo.save(cat3);
-			catRepo.save(cat4);
-			catRepo.save(cat5);
-			catRepo.save(cat6);
-			catRepo.save(cat7);
-			catRepo.save(cat8);
+//			catRepo.save(cat1);
+//			catRepo.save(cat2);
+//			catRepo.save(cat3);
+//			catRepo.save(cat4);
+//			catRepo.save(cat5);
+//			catRepo.save(cat6);
+//			catRepo.save(cat7);
+//			catRepo.save(cat8);
 			
 
-			Field field1 = new Field("Martin Camp Field", false, false, false, "Manoa Rivers");
-			Field field2 = new Field("Randy Overt Field", false, false, false, "Vera True");
-			Field field3 = new Field("Amanda Sam Field", false, false, false, "Ronald Shampert");
-			Field field4 = new Field("Island Lane", false, false, false, "Rue Sue");
-			
-			fieldRepo.save(field1);
-			fieldRepo.save(field2);
-			fieldRepo.save(field3);
-			fieldRepo.save(field4);
+//			Field field1 = new Field("Martin Camp Field", false, false, false, "Manoa Rivers");
+//			Field field2 = new Field("Randy Overt Field", false, false, false, "Vera True");
+//			Field field3 = new Field("Amanda Sam Field", false, false, false, "Ronald Shampert");
+//			Field field4 = new Field("Island Lane", false, false, false, "Rue Sue");
+//			
+//			fieldRepo.save(field1);
+//			fieldRepo.save(field2);
+//			fieldRepo.save(field3);
+//			fieldRepo.save(field4);
 			
 			
 //			add teams
 //			teamRepo.deleteAll();
 //			Boy U11 - Premier
-			Team team2 = new Team("Minnesota Giants", cat5, true, "Boys", "11",
-					"David Chan","Minnesota Club", "Arizona", "Arizona", "Alabama", "Premier League (Boys U11)", "Premier",
-					"Black", "Red", "12-06-2000", "Boys U11 ($750)", "David Chan", "david@gmail.com");
-			Team team12 = new Team("Barca Academy", cat5, true, "Boys", "11",
-					"Gleb Greenspan","Barca Club", "Arizona", "Arizona", "Alabama", "Premier League (Boys U11)", "Premier",
-					"White", "Black", "12-06-2000", "Boys U11 ($750)", "Gleb Greenspan", "glebgreenspan@gmail.com");
-			Team team13 = new Team("Alliance Cincinati", cat5, true, "Boys", "11",
-					"Mike Wood","Alliance Club", "Arizona", "Arizona", "Alabama", "Premier League (Boys U11)", "Premier",
-					"Blue", "Red", "12-06-2000", "Boys U11 ($750)", "Mike Wood", "mikewood@gmail.com");
-			Team team14 = new Team("WSC Strikers", cat5, true, "Boys", "11",
-					"Scott Yu","WSC Club", "Arizona", "Arizona", "Alabama", "Premier League (Boys U11)", "Premier",
-					"Blue", "Red", "12-06-2000", "Boys U11 ($750)", "Scott Yu", "scottyu@gmail.com");
+//			Team team2 = new Team("Minnesota Giants", cat5, true, "Boys", "11",
+//					"David Chan","Minnesota Club", "Arizona", "Arizona", "Alabama", "Premier League (Boys U11)", "Premier",
+//					"Black", "Red", "12-06-2000", "Boys U11 ($750)", "David Chan", "david@gmail.com");
+//			Team team12 = new Team("Barca Academy", cat5, true, "Boys", "11",
+//					"Gleb Greenspan","Barca Club", "Arizona", "Arizona", "Alabama", "Premier League (Boys U11)", "Premier",
+//					"White", "Black", "12-06-2000", "Boys U11 ($750)", "Gleb Greenspan", "glebgreenspan@gmail.com");
+//			Team team13 = new Team("Alliance Cincinati", cat5, true, "Boys", "11",
+//					"Mike Wood","Alliance Club", "Arizona", "Arizona", "Alabama", "Premier League (Boys U11)", "Premier",
+//					"Blue", "Red", "12-06-2000", "Boys U11 ($750)", "Mike Wood", "mikewood@gmail.com");
+//			Team team14 = new Team("WSC Strikers", cat5, true, "Boys", "11",
+//					"Scott Yu","WSC Club", "Arizona", "Arizona", "Alabama", "Premier League (Boys U11)", "Premier",
+//					"Blue", "Red", "12-06-2000", "Boys U11 ($750)", "Scott Yu", "scottyu@gmail.com");
 			
 //			Boy U11 - Classic
-			Team team15 = new Team("Lakota FC", cat6, true, "Boys", "11",
-					"Jeff Burns","Lakota FC Club", "Arizona", "Arizona", "Alabama", "Classic League (Boys U11)", "Classic",
-					"Green", "White", "12-06-2000", "Boys U11 ($700)", "Jeff Burns", "jeffburns@gmail.com");
-			Team team16 = new Team("Metro FC", cat6, true, "Boys", "11",
-					"Ryan Elliot","Metro FC Club", "Arizona", "Arizona", "Alabama", "Classic League (Boys U11)", "Classic",
-					"Green", "White", "12-06-2000", "Boys U11 ($700)", "Ryan Elliot", "ryanelliot@gmail.com");
-			Team team17 = new Team("Shauni Select", cat6, true, "Boys", "11",
-					"Andrew Greely","Shauni Select FC Club", "Arizona", "Arizona", "Alabama", "Classic League (Boys U11)", "Classic",
-					"Green", "White", "12-06-2000", "Boys U11 ($700)", "Andrew Greely", "andrewgreely@gmail.com");
-			Team team18 = new Team("New Mexico FC", cat6, true, "Boys", "11",
-					"Oswald Mane","New Mexico Club", "Arizona", "Arizona", "Alabama", "Classic League (Boys U11)", "Classic",
-					"Green", "White", "12-06-2000", "Boys U11 ($700)", "Oswald Mane", "oswaldmane@gmail.com");
+//			Team team15 = new Team("Lakota FC", cat6, true, "Boys", "11",
+//					"Jeff Burns","Lakota FC Club", "Arizona", "Arizona", "Alabama", "Classic League (Boys U11)", "Classic",
+//					"Green", "White", "12-06-2000", "Boys U11 ($700)", "Jeff Burns", "jeffburns@gmail.com");
+//			Team team16 = new Team("Metro FC", cat6, true, "Boys", "11",
+//					"Ryan Elliot","Metro FC Club", "Arizona", "Arizona", "Alabama", "Classic League (Boys U11)", "Classic",
+//					"Green", "White", "12-06-2000", "Boys U11 ($700)", "Ryan Elliot", "ryanelliot@gmail.com");
+//			Team team17 = new Team("Shauni Select", cat6, true, "Boys", "11",
+//					"Andrew Greely","Shauni Select FC Club", "Arizona", "Arizona", "Alabama", "Classic League (Boys U11)", "Classic",
+//					"Green", "White", "12-06-2000", "Boys U11 ($700)", "Andrew Greely", "andrewgreely@gmail.com");
+//			Team team18 = new Team("New Mexico FC", cat6, true, "Boys", "11",
+//					"Oswald Mane","New Mexico Club", "Arizona", "Arizona", "Alabama", "Classic League (Boys U11)", "Classic",
+//					"Green", "White", "12-06-2000", "Boys U11 ($700)", "Oswald Mane", "oswaldmane@gmail.com");
 			
 //			Boy U10 - Classic
-			Team team1 = new Team("SouthWest Boys", cat2,true, "Boys", "10",
-					"Nate Walz","SouthWest Boys FC", "Arizona", "Arizona", "Alabama", "Classic League (Boys U10)", "Classic",
-					"Black", "Red", "12-06-2000", "Boys U10 ($550)", "Nate Walz", "");
-			Team team19 = new Team("Oakwood United", cat2,true, "Boys", "10",
-					"John Leonard","Oakwood FC", "Arizona", "Arizona", "Alabama", "Classic League (Boys U10)", "Classic",
-					"Yellow", "Blue", "12-06-2000", "Boys U10 ($550)", "John Leonard", "");
-			Team team20 = new Team("Perrsburg Boys Team", cat2,true, "Boys", "10",
-					"Daniel Brown","Perrsburg FC", "Arizona", "Arizona", "Alabama", "Classic League (Boys U10)", "Classic",
-					"White", "Green", "12-06-2000", "Boys U10 ($550)", "Daniel Brown", "");
-			Team team21 = new Team("Demolition", cat2,true, "Boys", "10",
-					"Sammi Pengilton","Demolition FC", "Arizona", "Arizona", "Alabama", "Classic League (Boys U10)", "Classic",
-					"Black", "Red", "12-06-2000", "Boys U10 ($550)", "Sammi Pengilton", "");
+//			Team team1 = new Team("SouthWest Boys", cat2,true, "Boys", "10",
+//					"Nate Walz","SouthWest Boys FC", "Arizona", "Arizona", "Alabama", "Classic League (Boys U10)", "Classic",
+//					"Black", "Red", "12-06-2000", "Boys U10 ($550)", "Nate Walz", "");
+//			Team team19 = new Team("Oakwood United", cat2,true, "Boys", "10",
+//					"John Leonard","Oakwood FC", "Arizona", "Arizona", "Alabama", "Classic League (Boys U10)", "Classic",
+//					"Yellow", "Blue", "12-06-2000", "Boys U10 ($550)", "John Leonard", "");
+//			Team team20 = new Team("Perrsburg Boys Team", cat2,true, "Boys", "10",
+//					"Daniel Brown","Perrsburg FC", "Arizona", "Arizona", "Alabama", "Classic League (Boys U10)", "Classic",
+//					"White", "Green", "12-06-2000", "Boys U10 ($550)", "Daniel Brown", "");
+//			Team team21 = new Team("Demolition", cat2,true, "Boys", "10",
+//					"Sammi Pengilton","Demolition FC", "Arizona", "Arizona", "Alabama", "Classic League (Boys U10)", "Classic",
+//					"Black", "Red", "12-06-2000", "Boys U10 ($550)", "Sammi Pengilton", "");
 			
 //			Boy U10 - Premier
-			Team team8 = new Team("Magnificent Boys Soccer Team", cat1,true, "Boys", "10",
-					"Joel Ming","Magnificent FC", "Tempe", "Arizona", "Arizona", "Premier League (Boys U10)", "Premier",
-					"White", "Red", "15-03-2010", "Boys U10 ($650)", "Joel Ming", "");
-			Team team9 = new Team("The Giants Boys Team", cat1,true, "Boys", "10",
-					"Sandy Omaha","Giants FC", "Phoenix", "Arizona", "Arizona", "Premier League (Boys U10)", "Premier",
-					"Blue", "Red", "16-02-2010", "Boys U10 ($650)", "Sandy Omaha", "");
-			Team team10 = new Team("Impact Boys ", cat1,true, "Boys", "10",
-					"George Prune","Impact Boys  FC", "Youze", "Alabama", "Alabama", "Premier League (Boys U10)", "Premier",
-					"Black", "Blue", "15-08-2009", "Boys U10 ($650)", "George Prune", "");
-			Team team11 = new Team("Warriors Soccer Team", cat1,true, "Boys", "10",
-					"Thelma Rookie","The Warriors FC", "Miami", "California", "California", "Premier League (Boys U10)", "Premier",
-					"Red", "Black", "03-02-2010", "Boys U10 ($650)", "Themlma Rookie", "");
+//			Team team8 = new Team("Magnificent Boys Soccer Team", cat1,true, "Boys", "10",
+//					"Joel Ming","Magnificent FC", "Tempe", "Arizona", "Arizona", "Premier League (Boys U10)", "Premier",
+//					"White", "Red", "15-03-2010", "Boys U10 ($650)", "Joel Ming", "");
+//			Team team9 = new Team("The Giants Boys Team", cat1,true, "Boys", "10",
+//					"Sandy Omaha","Giants FC", "Phoenix", "Arizona", "Arizona", "Premier League (Boys U10)", "Premier",
+//					"Blue", "Red", "16-02-2010", "Boys U10 ($650)", "Sandy Omaha", "");
+//			Team team10 = new Team("Impact Boys ", cat1,true, "Boys", "10",
+//					"George Prune","Impact Boys  FC", "Youze", "Alabama", "Alabama", "Premier League (Boys U10)", "Premier",
+//					"Black", "Blue", "15-08-2009", "Boys U10 ($650)", "George Prune", "");
+//			Team team11 = new Team("Warriors Soccer Team", cat1,true, "Boys", "10",
+//					"Thelma Rookie","The Warriors FC", "Miami", "California", "California", "Premier League (Boys U10)", "Premier",
+//					"Red", "Black", "03-02-2010", "Boys U10 ($650)", "Themlma Rookie", "");
 //				
 //			Girls U11 - Premier
-			Team team4 = new Team("Super Girls Soccer Team", cat7,true, "Girls", "11",
-					"Daisy Little","SuperHeroes", "Georgia", "Georgia", "Georgia", "Premier League (Girls U11)", "Premier",
-					"White", "Blue", "1-07-2000", "Girls U11 ($530)", "Daisy Little", "");
-			Team team5 = new Team("RockStar Girls Team", cat7,true, "Girls", "11",
-					"Isabel Lane","Rockstar Club", "Houston", "Texas", "Houston", "Premier League (Girls U11)", "Premier",
-					"Black", "Red", "9-06-2000", "Girls U11 ($530)", "Isabel Lane", "");
-			Team team6 = new Team("Pink Girls Team", cat7,true, "Girls", "11",
-					"David Hall","Pink Club", "Baltimore", "Maryland", "Maryland", "Premier League (Girls U11)", "Premier",
-					"Blue", "White", "13-04-2001", "Girls U11 ($530)", "David Hall", "");
-			Team team7 = new Team("OSEC Girls Team", cat7,true, "Girls", "11",
-			"Lenny Blanc","OSEC Club", "Tennesse", "Nashville", "Tennesse", "Premier League (Girls U11)", "Premier",
-			"Red", "White", "15-05-2002", "Girls U11 ($530)", "Lenny Blanc", "");
+//			Team team4 = new Team("Super Girls Soccer Team", cat7,true, "Girls", "11",
+//					"Daisy Little","SuperHeroes", "Georgia", "Georgia", "Georgia", "Premier League (Girls U11)", "Premier",
+//					"White", "Blue", "1-07-2000", "Girls U11 ($530)", "Daisy Little", "");
+//			Team team5 = new Team("RockStar Girls Team", cat7,true, "Girls", "11",
+//					"Isabel Lane","Rockstar Club", "Houston", "Texas", "Houston", "Premier League (Girls U11)", "Premier",
+//					"Black", "Red", "9-06-2000", "Girls U11 ($530)", "Isabel Lane", "");
+//			Team team6 = new Team("Pink Girls Team", cat7,true, "Girls", "11",
+//					"David Hall","Pink Club", "Baltimore", "Maryland", "Maryland", "Premier League (Girls U11)", "Premier",
+//					"Blue", "White", "13-04-2001", "Girls U11 ($530)", "David Hall", "");
+//			Team team7 = new Team("OSEC Girls Team", cat7,true, "Girls", "11",
+//			"Lenny Blanc","OSEC Club", "Tennesse", "Nashville", "Tennesse", "Premier League (Girls U11)", "Premier",
+//			"Red", "White", "15-05-2002", "Girls U11 ($530)", "Lenny Blanc", "");
 			
 //			Girls U11 - Classic
-			Team team22 = new Team("Loveland Storm", cat8,true, "Girls", "11",
-					"Adam Parker","Loveland Storm", "Georgia", "Georgia", "Georgia", "Classic League (Girls U11)", "Classic",
-					"White", "Blue", "1-07-2000", "Girls U11 ($530)", "Adam Parker", "adamparker@gmail.com");
-			Team team23 = new Team("Cassa Elite", cat8,true, "Girls", "11",
-					"Mike Thurman","Cassa Elite", "Georgia", "Georgia", "Georgia", "Classic League (Girls U11)", "Classic",
-					"Red", "Blue", "1-07-2000", "Girls U11 ($530)", "Mike Thurman", "mikethurman@gmail.com");
-			Team team24 = new Team("Green County Girls Team", cat8,true, "Girls", "11",
-					"Dave Wall","Green County FC", "Georgia", "Georgia", "Georgia", "Classic League (Girls U11)", "Classic",
-					"Red", "Blue", "1-07-2000", "Girls U11 ($530)", "Dave Wall", "davidwall@gmail.com");
-			Team team25 = new Team("Eclipse FC", cat8,true, "Girls", "11",
-					"Trevor Stewart","Eclipse FC", "Georgia", "Georgia", "Georgia", "Classic League (Girls U11)", "Classic",
-					"White", "Blue", "1-07-2000", "Girls U11 ($530)", "Trevor Stewart", "trevorsteward@gmail.com");
+//			Team team22 = new Team("Loveland Storm", cat8,true, "Girls", "11",
+//					"Adam Parker","Loveland Storm", "Georgia", "Georgia", "Georgia", "Classic League (Girls U11)", "Classic",
+//					"White", "Blue", "1-07-2000", "Girls U11 ($530)", "Adam Parker", "adamparker@gmail.com");
+//			Team team23 = new Team("Cassa Elite", cat8,true, "Girls", "11",
+//					"Mike Thurman","Cassa Elite", "Georgia", "Georgia", "Georgia", "Classic League (Girls U11)", "Classic",
+//					"Red", "Blue", "1-07-2000", "Girls U11 ($530)", "Mike Thurman", "mikethurman@gmail.com");
+//			Team team24 = new Team("Green County Girls Team", cat8,true, "Girls", "11",
+//					"Dave Wall","Green County FC", "Georgia", "Georgia", "Georgia", "Classic League (Girls U11)", "Classic",
+//					"Red", "Blue", "1-07-2000", "Girls U11 ($530)", "Dave Wall", "davidwall@gmail.com");
+//			Team team25 = new Team("Eclipse FC", cat8,true, "Girls", "11",
+//					"Trevor Stewart","Eclipse FC", "Georgia", "Georgia", "Georgia", "Classic League (Girls U11)", "Classic",
+//					"White", "Blue", "1-07-2000", "Girls U11 ($530)", "Trevor Stewart", "trevorsteward@gmail.com");
 
 			
 // 			hotels
-			Hotel hotel1 = new Hotel("Hotel 1", "hotel1.com", true);
-			Hotel hotel2 = new Hotel("Hotel teow", "hotel1.com", true);
-			Hotel hotel3 = new Hotel("Hotel thereee", "hotelll331.com", true);
+//			Hotel hotel1 = new Hotel("Hotel 1", "hotel1.com", true);
+//			Hotel hotel2 = new Hotel("Hotel teow", "hotel1.com", true);
+//			Hotel hotel3 = new Hotel("Hotel thereee", "hotelll331.com", true);
 			
-			hotelsRepo.save(hotel1);
-			hotelsRepo.save(hotel2);
-			hotelsRepo.save(hotel3);
+//			hotelsRepo.save(hotel1);
+//			hotelsRepo.save(hotel2);
+//			hotelsRepo.save(hotel3);
 			
 			
 //			teamRepo.save(team3);		
 
       //			Girls U10 - Premier
-			Team team26 = new Team("Lady Warriors", cat3,true, "Girls", "10",
-					"Karl George","Warriors FC", "Georgia", "Georgia", "Georgia", "Premier League (Girls U10)", "Premier",
-					"White", "Blue", "1-07-2000", "Girls U11 ($500)", "Karl George", "karlgeorge@gmail.com");
-			Team team27 = new Team("Springboro Force", cat3,true, "Girls", "10",
-					"Josh Duncan","Springboro Force Club", "Georgia", "Georgia", "Georgia", "Premier League (Girls U10)", "Premier",
-					"White", "Blue", "1-07-2000", "Girls U11 ($500)", "Josh Duncan", "joshduncan@gmail.com");
-			Team team28 = new Team("Pride FC", cat3,true, "Girls", "10",
-					"Frank Mata","Pride FC", "Georgia", "Georgia", "Georgia", "Premier League (Girls U10)", "Premier",
-					"White", "Blue", "1-07-2000", "Girls U11 ($500)", "Frank Mata", "frankmata@gmail.com");
-			Team team29 = new Team("LFC United", cat3,true, "Girls", "10",
-					"Roger Claus","LFC United", "Georgia", "Georgia", "Georgia", "Premier League (Girls U10)", "Premier",
-					"White", "Blue", "1-07-2000", "Girls U11 ($500)", "Roger Claus", "rogerclaus@gmail.com");
+//			Team team26 = new Team("Lady Warriors", cat3,true, "Girls", "10",
+//					"Karl George","Warriors FC", "Georgia", "Georgia", "Georgia", "Premier League (Girls U10)", "Premier",
+//					"White", "Blue", "1-07-2000", "Girls U11 ($500)", "Karl George", "karlgeorge@gmail.com");
+//			Team team27 = new Team("Springboro Force", cat3,true, "Girls", "10",
+//					"Josh Duncan","Springboro Force Club", "Georgia", "Georgia", "Georgia", "Premier League (Girls U10)", "Premier",
+//					"White", "Blue", "1-07-2000", "Girls U11 ($500)", "Josh Duncan", "joshduncan@gmail.com");
+//			Team team28 = new Team("Pride FC", cat3,true, "Girls", "10",
+//					"Frank Mata","Pride FC", "Georgia", "Georgia", "Georgia", "Premier League (Girls U10)", "Premier",
+//					"White", "Blue", "1-07-2000", "Girls U11 ($500)", "Frank Mata", "frankmata@gmail.com");
+//			Team team29 = new Team("LFC United", cat3,true, "Girls", "10",
+//					"Roger Claus","LFC United", "Georgia", "Georgia", "Georgia", "Premier League (Girls U10)", "Premier",
+//					"White", "Blue", "1-07-2000", "Girls U11 ($500)", "Roger Claus", "rogerclaus@gmail.com");
 			
       //			Girls U10 - Classic
-			Team team30 = new Team("Lexigton FC", cat4,true, "Girls", "10",
-					"Joey Lingg","Lexigton FC", "Georgia", "Georgia", "Georgia", "Classic League (Girls U10)", "Classic",
-					"Blue", "Blue", "1-07-2000", "Girls U11 ($600)", "Joey Lingg", "joeyling@gmail.com");
-			Team team31 = new Team("Arsenal Strykers", cat4,true, "Girls", "10",
-					"Brian Bryer","Arsenal Strykers FC", "Georgia", "Georgia", "Georgia", "Classic League (Girls U10)", "Classic",
-					"Blue", "Blue", "1-07-2000", "Girls U11 ($600)", "Brian Bryer", "brian@gmail.com");
-			Team team32 = new Team("ESSC Arsenal", cat4,true, "Girls", "10",
-					"Ryan Gosling","ESSC Arsenal FC", "Georgia", "Georgia", "Georgia", "Classic League (Girls U10)", "Classic",
-					"Blue", "Blue", "1-07-2000", "Girls U11 ($600)", "Ryan Gosling", "ryangosling@gmail.com");
-			Team team33 = new Team("Nemesis", cat4,true, "Girls", "10",
-					"Ray Paulus","Nemesis FC", "Georgia", "Georgia", "Georgia", "Classic League (Girls U10)", "Classic",
-					"Green", "Red", "1-07-2000", "Girls U11 ($600)", "Ray Paulus", "raypaulus@gmail.com");
+//			Team team30 = new Team("Lexigton FC", cat4,true, "Girls", "10",
+//					"Joey Lingg","Lexigton FC", "Georgia", "Georgia", "Georgia", "Classic League (Girls U10)", "Classic",
+//					"Blue", "Blue", "1-07-2000", "Girls U11 ($600)", "Joey Lingg", "joeyling@gmail.com");
+//			Team team31 = new Team("Arsenal Strykers", cat4,true, "Girls", "10",
+//					"Brian Bryer","Arsenal Strykers FC", "Georgia", "Georgia", "Georgia", "Classic League (Girls U10)", "Classic",
+//					"Blue", "Blue", "1-07-2000", "Girls U11 ($600)", "Brian Bryer", "brian@gmail.com");
+//			Team team32 = new Team("ESSC Arsenal", cat4,true, "Girls", "10",
+//					"Ryan Gosling","ESSC Arsenal FC", "Georgia", "Georgia", "Georgia", "Classic League (Girls U10)", "Classic",
+//					"Blue", "Blue", "1-07-2000", "Girls U11 ($600)", "Ryan Gosling", "ryangosling@gmail.com");
+//			Team team33 = new Team("Nemesis", cat4,true, "Girls", "10",
+//					"Ray Paulus","Nemesis FC", "Georgia", "Georgia", "Georgia", "Classic League (Girls U10)", "Classic",
+//					"Green", "Red", "1-07-2000", "Girls U11 ($600)", "Ray Paulus", "raypaulus@gmail.com");
 
 			
-			teamRepo.save(team1);
-			teamRepo.save(team19);
-			teamRepo.save(team20);
-			teamRepo.save(team21);
+	//		teamRepo.save(team1);
+	//		teamRepo.save(team19);
+	//		teamRepo.save(team20);
+	//		teamRepo.save(team21);
 			
-			teamRepo.save(team2);
-			teamRepo.save(team12);
-			teamRepo.save(team13);
-			teamRepo.save(team14);
+	//		teamRepo.save(team2);
+	//		teamRepo.save(team12);
+	//		teamRepo.save(team13);
+	//		teamRepo.save(team14);
 			
-			teamRepo.save(team8);
-			teamRepo.save(team9);
-			teamRepo.save(team10);
-			teamRepo.save(team11);
+	//		teamRepo.save(team8);
+	//		teamRepo.save(team9);
+	//		teamRepo.save(team10);
+	//		teamRepo.save(team11);
 			
-			teamRepo.save(team4);
-			teamRepo.save(team5);
-			teamRepo.save(team6);
-			teamRepo.save(team7);
+	//		teamRepo.save(team4);
+	//		teamRepo.save(team5);
+	//		teamRepo.save(team6);
+	//		teamRepo.save(team7);
 			
-			teamRepo.save(team15);
-			teamRepo.save(team16);
-			teamRepo.save(team17);
-			teamRepo.save(team18);
+	//		teamRepo.save(team15);
+	//		teamRepo.save(team16);
+	//		teamRepo.save(team17);
+	//		teamRepo.save(team18);
 			
-			teamRepo.save(team22);
-			teamRepo.save(team23);
-			teamRepo.save(team24);
-			teamRepo.save(team25);
+	//		teamRepo.save(team22);
+	//		teamRepo.save(team23);
+	//		teamRepo.save(team24);
+	//		teamRepo.save(team25);
 			
-			teamRepo.save(team26);
-			teamRepo.save(team27);
-			teamRepo.save(team28);
-			teamRepo.save(team29);
+	//		teamRepo.save(team26);
+	//		teamRepo.save(team27);
+	//		teamRepo.save(team28);
+	//		teamRepo.save(team29);
 			
-			teamRepo.save(team30);
-			teamRepo.save(team31);
-			teamRepo.save(team32);
-			teamRepo.save(team33);
+	//		teamRepo.save(team30);
+	//
+	//		teamRepo.save(team31);
+	//		teamRepo.save(team32);
+	//		teamRepo.save(team33);
 
 //			MatchesSchedule match3 = new MatchesSchedule(cat1, "9:00", "Field-A", team8, "0", team11, "1","Qualifiers","25-12-2021");
 //			MatchesSchedule match4 = new MatchesSchedule(cat1, "10:00", "Field-B", team9, "5", team10, "0","Qualifiers", "26-12-2021");
