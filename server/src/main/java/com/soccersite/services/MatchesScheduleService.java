@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.soccersite.model.Field;
 import com.soccersite.model.MatchesSchedule;
 import com.soccersite.repo.MatchesScheduleRepo;
 
@@ -31,6 +32,10 @@ public class MatchesScheduleService {
 		return repo.findMatchByCategory(categoryName);
 	}
 	
+	public List<MatchesSchedule> findSchedulesByDivisionId(String id){
+		return repo.findMatchByCategoryId(id);
+	}
+	
 	public List<MatchesSchedule> findSchedulesByTeam(String teamID){
 		return repo.findMatchByTeam(teamID);
 	}
@@ -41,6 +46,18 @@ public class MatchesScheduleService {
 	
 	public List<MatchesSchedule> findSchedulesByVenue(String venue){
 		return repo.findMatchByField(venue);
+	}
+	
+	public List<MatchesSchedule> findSchedulesByVenue(Field field){
+		return repo.findMatchByField(field);
+	}
+	
+	public List<MatchesSchedule> findSchedulesByFieldId(String id){
+		return repo.findSchedulesByFieldID(id);
+	}
+	
+	public List<MatchesSchedule> findSchedulesByTime(String time){
+		return repo.findMatchByTime(time);
 	}
 	
 	public MatchesSchedule updateReferee(MatchesSchedule match) {

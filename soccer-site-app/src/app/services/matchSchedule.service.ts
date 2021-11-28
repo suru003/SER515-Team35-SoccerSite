@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { HttpParams } from '@angular/common/http';
 
 import { Team } from 'src/models/team';
 import { Category } from 'src/models/category';
@@ -24,8 +25,11 @@ export class MatchScheduleService {
   }
 
   public getMatchesScheduleByDivision(categoryName: String):Observable<MatchesSchedule[]>{
-    console.log(categoryName);
     return this.http.get<MatchesSchedule[]>(`${this.serverUrl}/findByDivision/${categoryName}`);
+  }
+
+  public getMatchesScheduleByDivisionId(id: String):Observable<MatchesSchedule[]>{
+    return this.http.get<MatchesSchedule[]>(`${this.serverUrl}/findByDivisionId/${id}`);
   }
 
   public getMatchesScheduleByTeam(id: String):Observable<MatchesSchedule[]>{
@@ -39,6 +43,12 @@ export class MatchScheduleService {
 
   public getMatchesScheduleByVenue(venue: String):Observable<MatchesSchedule[]>{
     return this.http.get<MatchesSchedule[]>(`${this.serverUrl}/findByVenue/${venue}`);
+  }
+
+  
+
+  public getMatchesScheduleByTime(time: String):Observable<MatchesSchedule[]>{
+    return this.http.get<MatchesSchedule[]>(`${this.serverUrl}/findByTime/${time}`);
   }
 
   // public getAcceptedTeam(categoryName: String):Observable<Team[]>{
@@ -57,20 +67,24 @@ export class MatchScheduleService {
   public updateSchedule(schedule: MatchesSchedule):Observable<MatchesSchedule>{
     return this.http.put<MatchesSchedule>(`${this.serverUrl}/update`,schedule);
   }
+
+  public getMatchesScheduleByFieldId(id: String):Observable<MatchesSchedule[]>{
+    return this.http.get<MatchesSchedule[]>(`${this.serverUrl}/findByFieldId/${id}`);
+  }
   
   public deleteSchedule(id: String):Observable<void>{
     return this.http.delete<void>(`${this.serverUrl}/delete/${id}`);
   }
 
   public updateField(field: Field):Observable<Field>{
-  return this.http.put<Field>(`${this.fieldUrl}/update`,field);
-}
+    return this.http.put<Field>(`${this.fieldUrl}/update`,field);
+  }
 
-public getAllFields():Observable<Field[]>{
+  public getAllFields():Observable<Field[]>{
     return this.http.get<Field[]>(`${this.fieldUrl}/all`);
   } 
 
-   public findAllDivisions():Observable<Category[]>{
+  public findAllDivisions():Observable<Category[]>{
     return this.http.get<Category[]>(`${this.catUrl}/all`);
   }
 

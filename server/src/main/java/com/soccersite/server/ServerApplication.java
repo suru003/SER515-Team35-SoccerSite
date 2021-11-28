@@ -97,7 +97,6 @@ public class ServerApplication {
 			Roles role7 = new Roles(8, "Field Director");
 			Roles role8 = new Roles(9, "Volunteer Director");
 			
-			
 			roleRepo.save(role);
 			roleRepo.save(role1);
 			roleRepo.save(role2);
@@ -158,6 +157,7 @@ public class ServerApplication {
 			teamRepo.deleteAll();
 			catRepo.deleteAll();
 			fieldRepo.deleteAll();
+
 			
 			Category cat1 = new Category("B-U10 Premier","B-U10", 9, 10, "Premier", "$650");
 			Category cat2 = new Category("B-U10 Classic","B-U10", 9, 10, "Classic", "$550");
@@ -192,6 +192,7 @@ public class ServerApplication {
 			
 //			add teams
 //			teamRepo.deleteAll();
+			
 //			Boy U11 - Premier
 			Team team2 = new Team("Minnesota Giants", cat5, true, "Boys", "11",
 					"David Chan","Minnesota Club", "Arizona", "Arizona", "Alabama", "Premier League (Boys U11)", "Premier",
@@ -345,8 +346,8 @@ public class ServerApplication {
 			teamRepo.save(team32);
 			teamRepo.save(team33);
 
-//			MatchesSchedule match3 = new MatchesSchedule(cat1, "9:00", "Field-A", team8, "0", team11, "1","Qualifiers","25-12-2021");
-//			MatchesSchedule match4 = new MatchesSchedule(cat1, "10:00", "Field-B", team9, "5", team10, "0","Qualifiers", "26-12-2021");
+//			MatchesSchedule match3 = new MatchesSchedule(cat1, "9:00", new Field(), team8, "0", team11, "1","Qualifiers","25-12-2021");
+//			MatchesSchedule match4 = new MatchesSchedule(cat1, "10:00", new Field(), team9, "5", team10, "0","Qualifiers", "26-12-2021");
 //		
 //			MatchesSchedule match = new MatchesSchedule(cat7, "8:00", "Field-A", team4, "3", team5, "1","Qualifiers", "26-12-2021");
 //			MatchesSchedule match2 = new MatchesSchedule(cat7, "8:00", "Field-B", team6, "0", team7, "2","Qualifiers", "25-12-2021");

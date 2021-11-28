@@ -39,6 +39,10 @@ export class ViewMatchesComponent implements OnInit {
   allFields:any;
 
   selectedValue!:Number;
+  divisionFilter!:String;
+  timeFilter!:String;
+  fieldFilter!:String;
+  dateFilter!:Number;
   
 
   constructor(
@@ -207,7 +211,26 @@ export class ViewMatchesComponent implements OnInit {
    }
 
    onSubmitFiter(filterBy: NgForm){
-    
+    if(this.selectedValue == 1){
+      this.matchService.getMatchesScheduleByDivisionId(this.divisionFilter).subscribe(data => {
+      this.allMatches = data;
+      console.log(data);
+    });
+    }else if(this.selectedValue == 2){
+      console.log(this.timeFilter);
+      this.matchService.getMatchesScheduleByTime(this.timeFilter).subscribe(data => {
+      this.allMatches = data;
+      console.log(data);
+    });
+
+    }else if(this.selectedValue == 3){
+      console.log(this.timeFilter);
+      this.matchService.getMatchesScheduleByFieldId(this.fieldFilter).subscribe(data => {
+      this.allMatches = data;
+      console.log(data);
+    });
+
+    }
    }
 
 
