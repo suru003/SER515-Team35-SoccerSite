@@ -72,28 +72,27 @@
             </div>
              <!-- 2nd tab -->
             <div class="tab-pane fade show active" id="nav-accepted-pane" role="tabpanel" aria-labelledby="nav-accepted-pane">
-                <div class="tab-pane fade" id="nav-accepted-pane" role="tabpanel" aria-labelledby="nav-accepted-pane">
-
-                   <form style="color: black;">
-                    <table style="color: black; z-index: +1;" >
+                
+                   <form>
+                    <table >
                         <thead>
                             <tr>
                                 <th scope="col">NO.</th>
-                                <th scope="col">Hotel name</th>
-                                <th scope="col">Link</th>
+                                <th style="padding-left: 10%; size: auto;" scope="col">Hotel name</th>
+                                <th style="padding-left: 10%; size: auto;" scope="col">Link</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let hotel of availHotels; let i = index">
                                 <td>{{i+1}}</td>
                     
-                                <td>{{hotel.hotelName}}</td>
-                                <td>{{hotel.link}}</td>
+                                <td style="padding-left: 10%; width: max-content;">{{hotel.hotelName}}</td>
+                                <td style="padding-left: 10%; width: max-content; color: blue;"><a>{{hotel.link}}</a></td>
                             </tr>
                         </tbody>
                     </table>
                 </form>
-                </div> 
+                
            </div>
             
         </div>
