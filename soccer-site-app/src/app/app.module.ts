@@ -84,6 +84,7 @@ import { ViewMatches } from './refereeDirector/viewMatches/viewMatches';
 
 //Teams, Schedules, Scores
 import { SearchMatchScheduleComponent } from './matchSchedules/searchMatchSchedule/searchMatchSchedule.component';
+import { HotelsComponent } from './hotels/hotels.component';
 
 
 
@@ -127,7 +128,8 @@ import { SearchMatchScheduleComponent } from './matchSchedules/searchMatchSchedu
     TeamsListComponent,
     TeamNewApplicationListComponent,
     ViewMatches,
-    AllDirectorLoginPageComponent
+    AllDirectorLoginPageComponent,
+    HotelsComponent
   ],
     imports: [
         FormsModule,
