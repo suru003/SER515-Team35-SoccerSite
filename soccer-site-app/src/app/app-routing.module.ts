@@ -58,7 +58,8 @@ import { VolunteerDirectorLoginOrRegisterComponent } from './volunteerDirector/l
 import { RegisterVolunteerComponent } from './volunteerDirector/register/registerVolunteer.component';
 
 
-
+//home
+import { Mainpage } from './mainpage/mainpage';
 
 //F.A.Q. 
 import { FAQPageComponent } from './faqpage/faqpage.component';
@@ -78,7 +79,11 @@ const routes: Routes = [
 {
 
   path:'app-root', component: AppComponent,
-  children:[
+},
+{
+  path:'homepage', component:Mainpage,
+},
+  
   {
    path:'teamApplication', component:TeamApplicationComponent,
  },
@@ -91,10 +96,9 @@ const routes: Routes = [
  {
    path:'searchMatchSchedule', component:SearchMatchScheduleComponent
  },
- ]
-},
+ 
   {
-    path:'home', component: AppComponent
+    path:'home', component: Mainpage
   },
 
  {
@@ -230,4 +234,4 @@ TournamentDirectorDashboardComponent,AddTournamentComponent,TournamentListCompon
 TeamsDashboardComponent, FAQPageComponent, TeamApplicationComponent, RegisterVolunteerComponent, 
 LoginOrRegisterComponent,RegisterRefereeComponent, TeamLoginOrRegisterComponent, VolunteerDirectorLoginOrRegisterComponent, 
 SearchMatchScheduleComponent,TeamDirectorComponent, TeamsListComponent, TeamNewApplicationListComponent,
-AllDirectorLoginPageComponent,sponsors, SearchResultsComponent,ScheduleMatchesComponent,ViewMatchesComponent]
+AllDirectorLoginPageComponent,sponsors, SearchResultsComponent,ScheduleMatchesComponent,ViewMatchesComponent,Mainpage]

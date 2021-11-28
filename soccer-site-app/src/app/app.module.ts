@@ -70,6 +70,9 @@ import { ViewMatchesComponent } from './teamDirector/viewMatchList/viewMatchList
 //sponsors
 import { sponsors } from './sponsors/sponsors';
 
+//home
+import { Mainpage } from './mainpage/mainpage';
+
 //F.A.Q. 
 import { FAQPageComponent } from './faqpage/faqpage.component';
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -112,6 +115,7 @@ import { HotelsComponent } from './hotels/hotels.component';
     TournamentListComponent,
     TeamsDashboardComponent,
     FAQPageComponent,
+    Mainpage,
     
     sponsors,
     ScheduleMatchesComponent,
