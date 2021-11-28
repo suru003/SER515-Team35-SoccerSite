@@ -151,6 +151,9 @@ const routes: Routes = [
   },
   {
     path:'volunteerNewApplicationList', component: VolunteerNewApplicationListComponent
+  },
+  {
+    path:'viewMatches', component: ViewMatches
   }
   ]
 
