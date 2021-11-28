@@ -58,6 +58,21 @@
                         </ng-container>
                     </div>
                 </div>
+                <div *ngIf="this.displayList[3]">
+                    <div class="container">
+                        <ng-container *ngFor="let volunteer of volunteers; let i = index">
+                            <div class="row">
+                                <div style="padding: 10px; text-align: center;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;" class="col-md-4">
+                                    <img src="{{volunteer_profile}}" alt="{{i}}">
+                                    <h3>{{volunteer.firstName}}</h3>
+                                    <h5>{{volunteer.email}}</h5>
+                                    <button>Edit</button>
+                                    <button (click)="removeVolunteer(i)">Delete</button>                        
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
             </mat-drawer-content>
     </mat-drawer-container>
     <!-- <app-footer></app-footer> -->

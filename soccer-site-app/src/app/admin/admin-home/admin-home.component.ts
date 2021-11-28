@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { CoachService } from '../../services/coach.service'
 import { AdminService } from '../../services/admin.service'
 import { RefereeService } from '../../services/referee.service'
+import { VolunteerService } from '../../services/volunteer.service'
 import { Admin } from 'src/models/admin';
 import { Referee } from 'src/models/referee';
+import { Volunteer } from 'src/models/volunteer';
 import { Coach } from 'src/models/coach';
 import { SidebarMessageService } from './sidebar-message.service';
 
@@ -17,13 +19,15 @@ export class AdminHomeComponent implements OnInit {
   public admins:Admin[] = []
   public referees:Referee[] = []
   public coaches:Coach[] = []
+  public volunteers:Volunteer[] = []
   public list_of:String = "<br><br><br><br><br><br><br><br><br>"
   public admin_profile: String = "./assets/users/admin.png"
   public coach_profile: String = "./assets/users/coach.png"
   public player_profile: String = "./assets/users/player.png"
   public referee_profile: String = "./assets/users/referee.png"
+  public volunteer_profile: String = "./assets/users/referee.png"
   public displayList:boolean[] = [true, false, false, false];
-  constructor(private adminService: AdminService, private coachService: CoachService, private refereeService: RefereeService, private messenger: SidebarMessageService) { 
+  constructor(private adminService: AdminService, private coachService: CoachService, private refereeService: RefereeService, private volunteerService: VolunteerService, private messenger: SidebarMessageService) { 
     
     this.messenger.msgTopic$.subscribe(
       message => {
@@ -62,6 +66,17 @@ export class AdminHomeComponent implements OnInit {
           this.list_of = "REFEREES"
           this.displayList = [false, false, true, false];  
         }
+        else if(message == 4){
+          this.volunteers = [];
+          volunteerService.getAllVolunteers().subscribe(param => {
+            param.forEach(volunteer => {
+              this.volunteers.push(volunteer);
+            });
+          });
+
+          this.list_of = "VOLUNTEERS"
+          this.displayList = [false, false, true, false]; 
+        }  
         else{
           this.admins = [];
           adminService.getAllAdmins().subscribe(param => {
@@ -87,4 +102,7 @@ export class AdminHomeComponent implements OnInit {
   removeAdmin(index: Number){
     console.log("remove Admin: "+index);
   }
+  removeVolunteer(index: Number){
+    console.log("remove Volunteer: "+index);
+  }  
 }

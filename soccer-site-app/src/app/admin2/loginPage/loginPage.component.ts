@@ -84,7 +84,9 @@ export class AllDirectorLoginPageComponent implements OnInit{
         this.refereeDirectorDashboard();
       }else if(this.adminFound.roleName == 'Team Director'){
         this.teamDirectorDashboard();
-      }
+      }else if(this.adminFound.roleName == 'Volunteer Director'){
+        this.volunteerDirectorDashboard();
+      }  
     },
     error => console.log(error));
 
@@ -101,6 +103,9 @@ export class AllDirectorLoginPageComponent implements OnInit{
   teamDirectorDashboard() {
     this.router.navigate(['/teamDirectorDashboard']);
   }
+  volunteerDirectorDashboard() {
+    this.router.navigate(['/volunteerDirectorHomepage']);
+  }  
 
    // authenticate (){
    // }

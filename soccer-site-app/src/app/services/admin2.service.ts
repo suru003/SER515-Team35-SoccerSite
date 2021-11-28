@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Admin2 } from '../../models/admin2';
 import { Referee } from '../../models/referee';
+import { Volunteer } from '../../models/volunteer';
 import { Users } from '../../models/users';
 import { Roles } from '../../models/roles';
 import { Observable } from 'rxjs';
@@ -15,6 +16,7 @@ export class Admin2Service {
   private refereeUrl = `${environment.apiBaseUrl}/referees`;
   private usersUrl = `${environment.apiBaseUrl}/users`;
   private rolesUrl = `${environment.apiBaseUrl}/roles`;
+  private volunteerUrl = `${environment.apiBaseUrl}/volunteers`;
 
 
   constructor(private http: HttpClient) {
@@ -70,6 +72,28 @@ public updateReferee(referee: Referee):Observable<Referee>{
 // Roles
 public findAllRoles(): Observable<Roles[]> {
   return this.http.get<Roles[]>(`${this.rolesUrl}/all`);
+}
+
+// Volunteers
+public findAllVolunteers(): Observable<Volunteer[]> {
+  return this.http.get<Volunteer[]>(`${this.volunteerUrl}/all`);
+} 
+
+public createVolunteer(volunteer: Volunteer) {
+  return this.http.post<Volunteer>(`${this.volunteerUrl}/insert`, volunteer);
+}
+
+
+public findVolunteerByID(id: String): Observable<Volunteer[]> {
+  return this.http.get<Volunteer[]>(`${this.volunteerUrl}/find/${id}`);
+}
+
+public deleteVolunteer(id: String):Observable<void>{
+  return this.http.delete<void>(`${this.volunteerUrl}/delete/${id}`);
+}
+
+public updateVolunteer(volunteer: Volunteer):Observable<Volunteer>{
+  return this.http.put<Volunteer>(`${this.volunteerUrl}/update`,volunteer);
 }
  
 }
