@@ -22,7 +22,7 @@ public class MatchesServices {
 	 public List<Matches> findAllMatches(){
 			return repo.findAll();
 		}
-	 public Matches findMatchesbyDate(String date) {
+	/* public Matches findMatchesbyDate(String date) {
 		 return repo.findMatchesbyDate(date).orElseThrow(()->new EntryNotFoundExcemption("Matches with date: "+date+" not found in the repositiory")); 
-	}
+	}*/
 }

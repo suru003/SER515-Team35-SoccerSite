@@ -5,11 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.soccersite.exceptions.EntryNotFoundExcemption;
 import com.soccersite.model.MatchesSchedule;
-import com.soccersite.model.Referee;
 import com.soccersite.repo.MatchesScheduleRepo;
-import com.soccersite.repo.RefereeRepo;
 
 @Service
 public class MatchesScheduleService {

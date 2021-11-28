@@ -57,11 +57,15 @@ import { AddTournamentComponent } from './tournamentDirector/addTournament/addTo
 import { TournamentListComponent } from './tournamentDirector/tournamentList/tournamentList.component';
 import { TeamsDashboardComponent } from './tournamentDirector/teams/teamsDashboard.component';
 
+import { tournamentFee } from './tournamentDirector/tournamentFee/tournamentFee';
+
 
 //Team Director
 import { TeamDirectorComponent } from './teamDirector/dashboard/teamDirectorDashboard.component';
 import { TeamsListComponent } from './teamDirector/teamsList/teamsList.component';
 import { TeamNewApplicationListComponent } from './teamDirector/teamNewApplicationList/teamNewApplicationList.component';
+import { ScheduleMatchesComponent } from './teamDirector/scheduleMatches/scheduleMatches.component';
+import { ViewMatchesComponent } from './teamDirector/viewMatchList/viewMatchList.component';
 
 //sponsors
 import { sponsors } from './sponsors/sponsors';
@@ -80,6 +84,8 @@ import { ViewMatches } from './refereeDirector/viewMatches/viewMatches';
 
 //Teams, Schedules, Scores
 import { SearchMatchScheduleComponent } from './matchSchedules/searchMatchSchedule/searchMatchSchedule.component';
+import { HotelsComponent } from './hotels/hotels.component';
+
 
 
 
@@ -102,14 +108,16 @@ import { SearchMatchScheduleComponent } from './matchSchedules/searchMatchSchedu
     TournamentDirectorLoginPageComponent,
     TournamentDirectorDashboardComponent,
     AddTournamentComponent,
+    tournamentFee,
     TournamentListComponent,
     TeamsDashboardComponent,
     FAQPageComponent,
+    
     sponsors,
-
+    ScheduleMatchesComponent,
     TeamApplicationComponent, 
     VolunteerDirectorLoginOrRegisterComponent, 
-
+    ViewMatchesComponent,
     LoginOrRegisterComponent,
     RegisterRefereeComponent, 
     RegisterVolunteerComponent, 
@@ -120,7 +128,8 @@ import { SearchMatchScheduleComponent } from './matchSchedules/searchMatchSchedu
     TeamsListComponent,
     TeamNewApplicationListComponent,
     ViewMatches,
-    AllDirectorLoginPageComponent
+    AllDirectorLoginPageComponent,
+    HotelsComponent
   ],
     imports: [
         FormsModule,

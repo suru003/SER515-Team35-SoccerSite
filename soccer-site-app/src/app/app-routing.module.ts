@@ -30,11 +30,15 @@ import { TournamentDirectorDashboardComponent } from './tournamentDirector/dashb
 import { AddTournamentComponent } from './tournamentDirector/addTournament/addTournament.component';
 import { TournamentListComponent } from './tournamentDirector/tournamentList/tournamentList.component';
 import { TeamsDashboardComponent } from './tournamentDirector/teams/teamsDashboard.component';
+import { TournamentFee } from 'src/models/tournamentFee';
+import { tournamentFee } from './tournamentDirector/tournamentFee/tournamentFee';
 
 //Team Director
 import { TeamDirectorComponent } from './teamDirector/dashboard/teamDirectorDashboard.component';
 import { TeamsListComponent } from './teamDirector/teamsList/teamsList.component';
 import { TeamNewApplicationListComponent } from './teamDirector/teamNewApplicationList/teamNewApplicationList.component';
+import { ScheduleMatchesComponent } from './teamDirector/scheduleMatches/scheduleMatches.component';
+import { ViewMatchesComponent } from './teamDirector/viewMatchList/viewMatchList.component';
 
 //sponsors
 import { sponsors } from './sponsors/sponsors';
@@ -66,6 +70,7 @@ import { TeamLoginOrRegisterComponent } from './teamApplication/loginOrRegister/
 //Teams, Schedules, Scores
 import { SearchMatchScheduleComponent } from './matchSchedules/searchMatchSchedule/searchMatchSchedule.component';
 import { SearchResultsComponent } from './matchSchedules/searchResults/searchResults.component';
+
 
 
 
@@ -117,6 +122,9 @@ const routes: Routes = [
     },
     {
       path:'tournamentList', component: TournamentListComponent
+    },
+    {
+      path:'tournamentFee', component: tournamentFee
     }
     ]
   },
@@ -196,9 +204,16 @@ const routes: Routes = [
   },
   {
     path:'teamNewApplicationList', component: TeamNewApplicationListComponent
+  },
+  {
+    path:'scheduleMatches', component: ScheduleMatchesComponent
+  },
+  {
+    path:'viewMatchList', component: ViewMatchesComponent
   }
    ]
- },{
+ },
+ {
    path:'searchMatchesResults', component:SearchResultsComponent
  },
 
@@ -214,8 +229,8 @@ export const ArrayOfComponents = [RefereeDirectorComponent, VolunteerDirectorCom
 UserListComponent, LoginPageComponent, VolunteerDirectorLoginPageComponent, 
 AddRefereeComponent,RefereeUserListComponent, AddVolunteerComponent, VolunteerUserListComponent, 
 RefereeNewApplicationListComponent,TournamentDirectorLoginPageComponent, VolunteerNewApplicationListComponent, 
-TournamentDirectorDashboardComponent,AddTournamentComponent,TournamentListComponent,
+TournamentDirectorDashboardComponent,AddTournamentComponent,TournamentListComponent,tournamentFee,
 TeamsDashboardComponent, FAQPageComponent, TeamApplicationComponent, RegisterVolunteerComponent, 
 LoginOrRegisterComponent,RegisterRefereeComponent, TeamLoginOrRegisterComponent, VolunteerDirectorLoginOrRegisterComponent, 
 SearchMatchScheduleComponent,TeamDirectorComponent, TeamsListComponent, TeamNewApplicationListComponent,
-AllDirectorLoginPageComponent,sponsors, SearchResultsComponent]
+AllDirectorLoginPageComponent,sponsors, SearchResultsComponent,ScheduleMatchesComponent,ViewMatchesComponent]

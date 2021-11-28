@@ -1,0 +1,398 @@
+  <div class ="row">
+    <div class="col-lg-4">
+      <h5 class="card-title">{{ title }}</h5>
+    </div>
+
+    <div class="col-lg-2">
+    </div>
+
+    <div class="col-lg-1">
+      <p >Filter By</p>
+    </div>
+
+<div class="col-lg-5">
+  <form #filterBy ="ngForm" (ngSubmit)="onSubmitFiter(filterBy)">
+    <div class="row">
+    <div class="col-lg-5">
+      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect"  [(ngModel)]="selectedValue" required>
+        <option value="1">Division</option>
+        <option value="2">Time</option>
+        <option value="3">Field</option>
+        <option value="4">Date</option>
+      </select>
+    </div>
+
+    
+      <div class="col-lg-5" >
+        <ng-container *ngIf="selectedValue == 1">
+          <!-- <select class="custom-select mr-sm-2" id="inlineFormCustomSelect"
+           *ngIf="selectedValue == 1" required> -->
+           <select>
+           <!-- <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" ng-hide="selectedValue != '1'" required> -->
+            <option>Division</option>
+            <option>Division</option>
+            <option>Division</option>
+            <option>Division</option>
+          </select>
+        </ng-container>
+        
+
+          <select class="custom-select mr-sm-2" id="inlineFormCustomSelect"
+           *ngIf="selectedValue == 2" required>
+            <option>Time</option>
+            <option>Time</option>
+            <option>Time</option>
+            <option>Time</option>
+          </select>
+        
+        </div>
+
+        <div class="col-lg-1" >
+         <!-- <button type="submit" [disabled]="!filterBy.form.valid" 
+class="btn btn-primary">Register</button> -->
+
+</div>
+</div>
+</form>
+</div>
+
+      <!--   <ng-template #showDivisionDiv>
+          <select>
+            <option>Time</option>
+            <option>Time</option>
+            <option>Field</option>
+            <option>Date</option>
+          </select>
+        
+        </ng-template> -->
+
+    <!-- <td *ngIf="match.visitingTeamScore > match.homeTeamScore ; else noBold2">
+          <b>{{match.visitingTeam.teamName}}</b>
+        </td> -->
+        
+  </div>
+  <br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <!-- <th scope="col">User ID</th> -->
+        <th scope="col">Divison</th>
+        <th scope="col">Time</th>
+        <th scope="col">Field</th>
+        <th scope="col">Home Team</th>
+        <th scope="col">Score</th>
+        <th scope="col">Score</th>
+        <th scope="col">Visiting Team</th>
+        <th scope="col">Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let match of allMatches">
+        <!-- <th scope="row">{{team.teamID}}</th> -->
+        <td>{{match.category.categoryName}}</td>
+        <td>{{match.time}}</td>
+        <td>{{match.field.fieldName}}</td>
+        <td *ngIf="match.homeTeamScore > match.visitingTeamScore; else noBold">
+          <b>{{match.homeTeam.teamName}}</b>
+        </td>
+        <ng-template #noBold>
+          <td #noBold>{{match.homeTeam.teamName}}</td>
+        </ng-template>
+        <td>{{match.homeTeamScore}}</td>
+        <td>{{match.visitingTeamScore}}</td>
+        <td *ngIf="match.visitingTeamScore > match.homeTeamScore ; else noBold2">
+          <b>{{match.visitingTeam.teamName}}</b>
+        </td>
+        <ng-template #noBold2>
+          <td #noBold2>{{match.visitingTeam.teamName}}</td>
+        </ng-template>
+        <td>{{match.type}}</td>
+        <td>
+          <a data-toggle="modal" data-target="#update-match-modal" (click)="updateSchedule(match.id)"><i class="fa fa-pencil edit-user-btn" aria-hidden="true" id="{{match.id}}" ></i></a> 
+          <a data-toggle="modal" data-target="#delete-team-modal" (click)="confirmDeletion(match.id)"> <i class="fa fa-trash delete-user-btn" aria-hidden="true" id="{{match.id}}" ></i> </a>
+
+        </td>
+       <!--  <td>
+          <i class="fa fa-check-circle edit-user-btn"></i>verified
+        </td> -->
+
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Delete Modal -->
+  <div class="modal fade" id="delete-team-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Delete Team</h5>
+          <button type="button" #close data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" >
+          Are you sure you want to delete team: 
+          <table class="table table-striped">
+            <thead >
+              <tr>
+                <th scope="col">Team ID</th>
+                <th scope="col">Team Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let d of deleteTeamFound ">
+                <th scope="row">{{d.teamID}}</th>
+                <td>{{d.teamName}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary" (click)="deleteSchedule()">Confirm</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Update user modal -->
+  <div class="modal fade " id="update-match-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <form #updateForm ="ngForm" (ngSubmit)="onSubmit(updateForm)" >
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Update Match / Enter Scores</h5>
+            <button type="button" class="close" #close data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" >
+            <div class="container" >
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="row">
+
+                    <div class="col-lg-6 ">
+                      <p>Category</p>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+
+                          <span class="input-group-text" id="category-input">
+                            <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                          </div>
+
+                          <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="category" [(ngModel)]="schedule.category.id" required >
+
+                            <option *ngFor="let division of allDivisions" [ngValue]="division.id" style="color: black">{{division.categoryName}}</option>
+
+                          </select>
+                          <!--  <input type="text"  id="category" name="category" placeholder="" aria-label="category" aria-describedby="basic-addon1" [(ngModel)]="scheduleFound.category.categoryName" required #category="ngModel"> -->
+
+                          <!-- <input type="text" class="form-control" id="category" formControlName="category" placeholder="{{scheduleFound.category.categoryName}}" aria-label="category" aria-describedby="basic-addon1" [(ngModel)]="scheduleFound.category.categoryName" required > -->
+                        </div>
+                      </div>
+
+                      <div class="col-lg-6 ">
+                        <p>Time</p>
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="time-input">
+                              <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                            </div>
+                            <input type="text" id="time" class="form-control" placeholder="{{schedule.time}}" name= "time" aria-label="time" aria-describedby="basic-addon1" [(ngModel)]="schedule.time" required #time="ngModel">
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-lg-6 ">
+                          <p>Home Team</p>
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="home-team">
+                                <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                              </div>
+                              <!-- <input type="text" class="form-control" id="homeTeam"  placeholder="{{schedule.homeTeam.teamName}}" aria-label="homeTeam" aria-describedby="basic-addon1" [(ngModel)]="schedule.email" required > -->
+
+                              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="homeTeam" [(ngModel)]="schedule.homeTeam.teamID" required >
+
+                               <!--  <option *ngFor="let division of allDivisions" [ngValue]="division.id" style="color: black">{{division.categoryName}}</option> -->
+
+                               <option *ngFor="let team of allTeams" [ngValue]="team.teamID" style="color: black">{{team.teamName}}</option>
+
+                             </select>
+                           </div>
+                         </div>
+                         <div class="col-lg-6 ">
+                          <p>Score</p>
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="home-team-score">
+                                <i class="fa fa-phone" aria-hidden="true"></i></span>
+                              </div>
+                              <input type="text" class="form-control" id="homeTeamScore" name="homeTeamScore" placeholder="{{schedule.homeTeamScore}}" aria-label="home-team-score" aria-describedby="basic-addon1" [(ngModel)]="schedule.homeTeamScore"required>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-lg-6 ">
+                            <p>Visiting Team</p>
+                            <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="visiting-team">
+                                  <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                                </div>
+                                <!-- <input type="text" class="form-control" id="homeTeam"  placeholder="{{schedule.homeTeam.teamName}}" aria-label="homeTeam" aria-describedby="basic-addon1" [(ngModel)]="schedule.email" required > -->
+
+                                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="visitingTeam" [(ngModel)]="schedule.visitingTeam.teamID" required >
+                                  <option *ngFor="let team of allTeams" [ngValue]="team.teamID" style="color: black">{{team.teamName}}</option>
+
+
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-lg-6 ">
+                              <p>Score</p>
+                              <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="visiting-team-score">
+                                    <i class="fa fa-phone" aria-hidden="true"></i></span>
+                                  </div>
+                                  <input type="text" class="form-control" id="visitingTeamScore" name="visitingTeamScore" placeholder="{{schedule.visitingTeamScore}}" aria-label="visiting-team-score" aria-describedby="basic-addon1" [(ngModel)]="schedule.visitingTeamScore"required>
+                                </div>
+                              </div>
+                            </div>
+
+
+                            <div class="row">
+                              <div class="col-lg-6 ">
+                                <p>Field</p>
+                                <div class="input-group mb-3">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text" id="field-input">
+                                      <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                                    </div>
+
+                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="field" [(ngModel)]="schedule.field.id" required >
+                                      <option *ngFor="let field of allFields" [ngValue]="field.id" style="color: black">{{field.fieldName}}</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-lg-6 ">
+                                  <p>Score</p>
+                                  <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text" id="type-input">
+                                        <i class="fa fa-phone" aria-hidden="true"></i></span>
+                                      </div>
+                                      <input type="text" class="form-control" id="type" name="type" placeholder="{{schedule.type}}" aria-label="type" aria-describedby="basic-addon1" [(ngModel)]="schedule.type"required>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="row">
+                                  <div class="col-lg-6 ">
+                                    <p>Date</p>
+                                    <div class="input-group mb-3">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text" id="date-input">
+                                          <i class="fa fa-phone" aria-hidden="true"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" id="date" name="date" placeholder="{{schedule.date}}" aria-label="date" aria-describedby="basic-addon1" [(ngModel)]="schedule.date"required>
+                                      </div>
+                                    </div>
+                                  </div>
+
+
+
+                        <!-- <div class="row">
+                         <div class="col-lg-6 ">
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="username-2">
+                                <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                              </div>
+                              <input type="text" class="form-control" id="username" formControlName="username" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="newReferee.username" required >
+                            </div>
+                          </div>
+
+                          <div class="col-lg-6 ">
+                            <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="password">
+                                  <i class="fa fa-key" aria-hidden="true"></i></span>
+                                </div>
+                                <input type="password" class="form-control" id="password" formControlName="password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" [(ngModel)]="newReferee.password" required >
+                              </div>
+                            </div>
+                          </div> -->
+
+                         <!--  <div class="row">
+                           <div class="col-lg-6 ">
+                            <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="address">
+                                  <i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                </div>
+                                <input type="text" class="form-control" id="address" formControlName="address" placeholder="Address" aria-label="Address" aria-describedby="basic-addon1" [(ngModel)]="newReferee.address" required >
+                              </div>
+                            </div>
+
+                            <div class="col-lg-6 ">
+                              <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="country">
+                                    <i class="fa fa-globe" aria-hidden="true"></i></span>
+                                  </div>
+                                  <input type="text" class="form-control" id="country" formControlName="country" placeholder="Country" aria-label="Country" aria-describedby="basic-addon1" [(ngModel)]="newReferee.country" required >
+                                </div>
+                              </div>
+                            </div> -->
+
+                           <!--  <div class="row">
+                             <div class="col-lg-6 ">
+                              <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="city">
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                  </div>
+                                  <input type="text" class="form-control" id="city" formControlName="city" placeholder="City" aria-label="City" aria-describedby="basic-addon1" [(ngModel)]="newReferee.city" required >
+                                </div>
+                              </div>
+
+                              <div class="col-lg-6 ">
+                                <div class="input-group mb-3">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text" id="role">
+                                      <i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                                    </div>
+                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" formControlName="roleID" [(ngModel)]="newReferee.roleID" required >
+
+                                      <option *ngFor="let r of roles" [ngValue]="r.id" style="color: black">{{r.roles}}</option>
+
+                                    </select>
+                                  </div>
+                                </div>
+                              </div> -->
+
+                              <br>
+
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Confirm</button>
+                      </div>
+                    </form>
+                  </div>
+
+                </div>
+              </div>
+
+

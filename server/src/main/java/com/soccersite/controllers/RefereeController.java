@@ -1,7 +1,7 @@
 package com.soccersite.controllers;
 
 import java.util.List;
-import java.util.Optional;
+
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.soccersite.model.Referee;
-import com.soccersite.repo.RefereeRepo;
 import com.soccersite.services.RefereeService;
 
 @RestController
@@ -25,13 +24,10 @@ import com.soccersite.services.RefereeService;
 public class RefereeController {
 	
 	private final RefereeService refereeService;
-	private final RefereeRepo refereeRepo;
 
-	public RefereeController(RefereeService refereeService,
-			RefereeRepo refereeRepo) {
+	public RefereeController(RefereeService refereeService) {
 		super();
 		this.refereeService = refereeService;
-		this.refereeRepo = refereeRepo;
 	}
 		
 	@GetMapping("/all")

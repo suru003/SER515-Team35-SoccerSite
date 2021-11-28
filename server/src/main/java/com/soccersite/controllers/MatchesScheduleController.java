@@ -2,7 +2,6 @@ package com.soccersite.controllers;
 
 import java.util.List;
 
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -13,15 +12,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.soccersite.model.MatchesSchedule;
-import com.soccersite.model.Team;
-import com.soccersite.repo.MatchesScheduleRepo;
-import com.soccersite.repo.TeamRepo;
 import com.soccersite.services.MatchesScheduleService;
-import com.soccersite.services.TeamService;
 
 
 @RestController
@@ -31,14 +25,13 @@ public class MatchesScheduleController {
 	
 	
 	private final MatchesScheduleService matchesScheduleService;
-	private final MatchesScheduleRepo matchesScheduleRepo;
 
-	public MatchesScheduleController(MatchesScheduleService matchesScheduleService, MatchesScheduleRepo matchesScheduleRepo) {
+	public MatchesScheduleController(MatchesScheduleService matchesScheduleService) {
 		super();
 		this.matchesScheduleService = matchesScheduleService;
-		this.matchesScheduleRepo = matchesScheduleRepo;
 	}
 		
+	
 	@GetMapping("/all")
 	public ResponseEntity<List<MatchesSchedule>> findAllMatches(){
 		List<MatchesSchedule> list = matchesScheduleService.findAllSchedules();
