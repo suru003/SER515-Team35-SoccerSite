@@ -221,7 +221,7 @@ public class ServerApplication {
 			hotelsRepo.save(hotel3);
 			
 			
-//			add teams
+//			teams
 			
 //			Boy U11 - Premier
 			Team team2 = new Team("Minnesota Giants", cat5, true, "Boys", "11",
