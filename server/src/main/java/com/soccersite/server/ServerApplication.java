@@ -201,7 +201,7 @@ public class ServerApplication {
 			catRepo.save(cat8);
 			
 
-			Field field1 = new Field("Martin Camp Field", false, false, false, "Manoa Rivers");
+			Field field1 = new Field("Martin Camp Field", false, true, true, "Manoa Rivers");
 			Field field2 = new Field("Randy Overt Field", false, false, false, "Vera True");
 			Field field3 = new Field("Amanda Sam Field", false, false, false, "Ronald Shampert");
 			Field field4 = new Field("Island Lane", false, false, false, "Rue Sue");
@@ -221,7 +221,7 @@ public class ServerApplication {
 			hotelsRepo.save(hotel3);
 			
 			
-//			add teams
+//			teams
 			
 //			Boy U11 - Premier
 			Team team2 = new Team("Minnesota Giants", cat5, true, "Boys", "11",
@@ -378,15 +378,15 @@ public class ServerApplication {
 			teamRepo.save(team32);
 			teamRepo.save(team33);
 
-//			MatchesSchedule match3 = new MatchesSchedule(cat1, "9:00", new Field(), team8, "0", team11, "1","Qualifiers","25-12-2021");
-//			MatchesSchedule match4 = new MatchesSchedule(cat1, "10:00", new Field(), team9, "5", team10, "0","Qualifiers", "26-12-2021");
+			MatchesSchedule match3 = new MatchesSchedule(cat1, "9:00am", field1, team8, "0", team11, "1","Qualifiers","25-12-2021");
+			MatchesSchedule match4 = new MatchesSchedule(cat1, "1:00pm", field1, team9, "5", team10, "0","Qualifiers", "26-12-2021");
 //		
 //			MatchesSchedule match = new MatchesSchedule(cat7, "8:00", "Field-A", team4, "3", team5, "1","Qualifiers", "26-12-2021");
 //			MatchesSchedule match2 = new MatchesSchedule(cat7, "8:00", "Field-B", team6, "0", team7, "2","Qualifiers", "25-12-2021");
 //			matchesRepo.save(match);
 //			matchesRepo.save(match2);
-//			matchesRepo.save(match3);
-//			matchesRepo.save(match4);
+			matchesRepo.save(match3);
+			matchesRepo.save(match4);
 
 
 		};
