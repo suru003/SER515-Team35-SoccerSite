@@ -212,9 +212,6 @@ public class ServerApplication {
 			fieldRepo.save(field4);
 
 			// hotels
-			Hotel hotel1 = new Hotel("Hotel 1", "hotel1.com", true);
-			Hotel hotel2 = new Hotel("Hotel teow", "hotel.com", true);
-			Hotel hotel3 = new Hotel("Hotel thereee", "hotelll331.com", true);
 			Hotel hotel1 = new Hotel("Holiday Inn & Suites", "https://www.ihg.com/holidayinn/hotels/", true);
 			Hotel hotel2 = new Hotel("Hyatt Place Tempe", "https://www.hyatt.com/en-US/hotel/", true);
 			Hotel hotel3 = new Hotel("SpringHill Suites", "https://www.marriott.com/hotels/", true);
