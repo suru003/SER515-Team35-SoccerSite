@@ -60,6 +60,19 @@ public class Referee {
 		this.status = status;
 //		this.status = Status.setNewStatus();
 	}
+	
+	public Referee(String firstName, String lastName, String email, long contactNo, String address, String city, String country, int roleID, String status) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.contactNo = contactNo;
+		this.address = address;
+		this.city = city;
+		this.country = country;
+		this.roleID = roleID;
+		this.status = status;
+	}
 
 	public String getId() {
 		return id;

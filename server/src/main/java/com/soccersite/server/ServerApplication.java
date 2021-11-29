@@ -19,6 +19,7 @@ import com.soccersite.model.Coach;
 import com.soccersite.model.Hotel;
 import com.soccersite.model.Field;
 import com.soccersite.model.MatchesSchedule;
+import com.soccersite.model.Referee;
 import com.soccersite.model.Roles;
 import com.soccersite.model.Team;
 import com.soccersite.repo.AdminRepo;
@@ -27,6 +28,7 @@ import com.soccersite.repo.CoachRepo;
 import com.soccersite.repo.HotelsRepo;
 import com.soccersite.repo.FieldRepo;
 import com.soccersite.repo.MatchesScheduleRepo;
+import com.soccersite.repo.RefereeRepo;
 import com.soccersite.repo.RolesRepo;
 import com.soccersite.repo.TeamRepo;
 import com.soccersite.repo.TournamentRepo;
@@ -62,6 +64,9 @@ public class ServerApplication {
 
   @Autowired
 	FieldRepo fieldRepo;
+  
+  @Autowired
+	RefereeRepo refRepo;
 	
 	ServerApplication(){}
 	public static void main(String[] args) {
@@ -83,6 +88,8 @@ public class ServerApplication {
 
 //			Create admins
 			adminRepo.deleteAll();
+			refRepo.deleteAll();
+			
 			AdminUser admin = new AdminUser(1, "TMN_00100", "Manny", "Picao", "mannypicao@gmail.com", 5, "Tournament Director");
 			AdminUser refDirector = new AdminUser(2, "REF_00100", "Umberto", "Gonzales", "umberto@gmail.com", 7, "Referee Director");
 			AdminUser teamDirector = new AdminUser(3, "TEAMDIR_00100", "Chrissy", "Lane", "chrissylane@gmail.com", 6, "Team Director");
@@ -90,7 +97,15 @@ public class ServerApplication {
 			adminRepo.save(admin);
 			adminRepo.save(refDirector);
 			adminRepo.save(teamDirector);
-
+			
+			Referee ref1 = new Referee("Rebecca", "Stanley", "rebecca@gmail.com", +123235263, "Arizona", "Arizona", "United States", 2, "VERIFIED");
+			Referee ref2 = new Referee("David", "King", "davidking@gmail.com", +123235263, "Arizona", "Arizona", "United States", 2, "VERIFIED");
+			Referee ref3 = new Referee("Henry", "MacMahon", "henrymacmahon@gmail.com", +123235263, "Arizona", "Arizona", "United States", 2, "NEW");
+			
+			refRepo.save(ref1);
+			refRepo.save(ref2);
+			refRepo.save(ref3);
+			
 //			create roles
 			Roles role = new Roles(1, "Admin");
 			Roles role1 = new Roles(2, "Coach");
@@ -287,7 +302,7 @@ public class ServerApplication {
 			
 // 			hotels
 			Hotel hotel1 = new Hotel("Hotel 1", "hotel1.com", true);
-			Hotel hotel2 = new Hotel("Hotel teow", "hotel1.com", true);
+			Hotel hotel2 = new Hotel("Hotel teow", "hotel.com", true);
 			Hotel hotel3 = new Hotel("Hotel thereee", "hotelll331.com", true);
 			
 			hotelsRepo.save(hotel1);
