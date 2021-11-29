@@ -78,8 +78,7 @@ import { HotelsComponent } from './hotels/hotels.component';
 
 
 const routes: Routes = [
-{
-
+  {
   path:'app-root', component: AppComponent,
 },
 {
@@ -226,7 +225,9 @@ const routes: Routes = [
  {
    path:'searchMatchesResults', component:SearchResultsComponent
  },
-
+ {
+  path:'', component: Mainpage
+}
 ];
 
 @NgModule({
