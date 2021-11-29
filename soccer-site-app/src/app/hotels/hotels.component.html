@@ -1,1 +1,109 @@
-<p>hotels works!</p>
+<div class="sidebar">
+
+    <div class="logo-section">
+      <div class="logo-name" style="text-align:center; font-size: 1rem;">2020 Highlights</div>
+    </div>
+    <br>
+    <div class="navbar">
+      <div class="highlightsImage">
+        <img src="../assets/images/6.jpeg">
+      </div>
+      <div class="highlightsImage">
+        <img src="../assets/images/5.jpeg">
+      </div>
+      <div class="highlightsImage">
+        <img src="../assets/images/4.jpeg">
+      </div>
+
+    </div>
+  </div>
+
+  <div class="main-page align-vertically">
+    <div class="tournamentDetails row">
+     <div class="col-lg-12 ">
+       <div class="card mb-3 shadow rounded" >
+        <br>
+        <h4> Hotels registration center for the 2021 ASU Sparky Soccer Tournament</h4>
+        <br>
+        <p> <b>APPLICATION INSTRUCTIONS:</b> </p>
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+        <br>
+
+        <br>
+      </div>
+    </div>
+  </div>
+
+  <div class="container second-row">
+    <div class="row">
+      <div class="col-lg-12 ">
+       <div class="card mb-3 shadow rounded" >
+        <br>
+        <p> <b>Hotels REGISTRATION/UPDATES</b> </p>
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <!-- <div *ngIf="noScoreSearch; else scoreResults"> -->
+                <button class="nav-link active" id="nav-accepted-tab" data-bs-toggle="tab" data-bs-target="#nav-accepted-pane" type="button" role="tab" aria-controls="nav-accepted-tab" aria-selected="true">Hotel details</button>
+                <!-- </div> -->
+
+                <button class="nav-link" id="nav-update-tab" data-bs-toggle="tab" data-bs-target="#nav-update-pane" type="button" role="tab" aria-controls="nav-update-tab" aria-selected="false">Register/Update your hotel</button>
+              </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <!-- 1st tab -->
+            <div class="tab-pane fade" id="nav-update-pane" role="tabpanel" aria-labelledby="nav-update-pane">
+                <form [formGroup]="formValue">
+                    <div class="form-group">
+                    <label for="exampleInputEmail1">Hotel name</label>
+                    <input type="text" formControlName="hotelName" class="form-control"  placeholder="Enter Hotel name" required>          
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Link</label>
+                        <input type="text" formControlName="link" class="form-control" placeholder="Enter the complete link" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Availability</label>
+                        <input type="text" formControlName="available" size="1" class="form-control" placeholder="Y/N" required>
+                    </div>
+                    <div class="modal-footer">
+                    <button  type="submit" (click)="updateHotel()" class="btn btn-primary">Register/Update</button>
+                    </div>
+                </form>   
+            </div>
+             <!-- 2nd tab -->
+            <div class="tab-pane fade show active" id="nav-accepted-pane" role="tabpanel" aria-labelledby="nav-accepted-pane">
+                
+                   <form>
+                    <table >
+                        <thead>
+                            <tr>
+                                <th scope="col">NO.</th>
+                                <th style="padding-left: 10%; size: auto;" scope="col">Hotel name</th>
+                                <th style="padding-left: 10%; size: auto;" scope="col">Link</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="width: max-content;" *ngFor="let hotel of availHotels; let i = index">
+                                <td>{{i+1}}</td>
+                    
+                                <td style="padding-left: 10%; width: max-content;">{{hotel.hotelName}}</td>
+                                <td style="padding-left: 10%; width: max-content; color: blue;"><a>{{hotel.link}}</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+                
+           </div>
+            
+        </div>
+        
+        
+  <br>
+</div>
+</div>
+
+
+</div>
+</div>
+
+</div>

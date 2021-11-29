@@ -14,12 +14,20 @@ body{
 .navbar{
 	width: 100%;
 	height: 4rem;
-	background-color: white;
+	background-color:floralwhite;
 	position: fixed;
 	margin-top: 0;
 	/*margin-top: auto;*/
-	padding: 0;
+	padding: 10;
 	z-index: 99;
+	/* background-image: url('https://www.pe.com/wp-content/uploads/2021/05/xxxx_spo_ocr-l-soccer-generic-stock-001-8.jpg?w=1280'); */
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-size: 4rem;
+}
+
+.navbar1{
+	padding: 0;
 }
 
 .navbar a{
@@ -29,6 +37,7 @@ body{
 	padding: 1rem 1.0rem;
 	color: black;
 	text-decoration: none;
+	font-size: 4rem;
 }
 
 .navbar .logo-col{
@@ -40,14 +49,19 @@ body{
 	/*padding-top: 5rem;*/
 	/*height: 100%;
 	padding-bottom: 5rem;*/
+	background-color: #0000;
+	font-size: 4rem;
 }
 .navbar .container{
-	margin-left: 2rem;
+	margin-left: 0rem;
+	font-size: 4rem;
+	
 	/*margin-top: 0;*/
 }
 @media (min-width: 1200px){
 	.navbar .container{
 	max-width: 1200px;
+	font-size: 4rem;
 }
 }
 
@@ -111,6 +125,39 @@ body{
 .menu-col a{
 	font-size: 0.8rem;
 }
+
+.main-page1{
+	width: calc(100vw - 15rem);
+	margin-left: 15rem; 
+	padding: 0.4rem 1rem 0 1rem;
+	/*margin-top: 80px;*/
+	
+}
+
+.align-vertically1{
+	position: absolute;
+	margin-top: 4rem;
+	/*top: 30%;
+	left: 30%;
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+	margin-top: 3rem;*/
+}
+
+.details p{
+	font-size: 0.7rem;
+	margin-bottom: 0.5rem;
+  background-color:"e5e5e5";
+
+}
+
+.card1{
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+
+
 
 
 
@@ -252,12 +299,58 @@ body{
 	left: 0;
 	top: 0;
 	width: 15rem;
-	height: 100%;
+	height: 83%;
 	background-color: #AF272F;
 	padding: 2rem;
 	z-index: 99;
 	float: left;
 }
+.sidebar1{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 15rem;
+	height: 83%;
+	background-color: #AF272F;
+	/*padding: 2rem;*/
+	padding-top: 2rem;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+	z-index: -1;
+	float: left;
+	margin-top: 60px;
+}
+
+.logo-name{
+	color: white;
+	font-size: 1.5rem;
+}
+
+.highlightsImage{
+	height: 10rem;
+	width: 14.5rem;
+	/*background-image: url("../../../assets/images/1.jpg");*/
+	/*background: ;
+	content:url(../assets/images/1.jpg);*/
+	background-color: blue;
+	margin-bottom: 0.2rem;
+}
+.highlightsImage img{
+width: 100%; /* or any custom size */
+    height: 100%; 
+    object-fit: fill;
+}
+a1 {
+	margin-bottom: 2px;
+  }
+
+a:hover {
+	/*background-color: #AF272F;*/
+	color: white;
+    background:  rgba(110, 78, 12, 0.493);
+    text-decoration: none;
+	
+  }
 
 /*
 .second-row .card-title{

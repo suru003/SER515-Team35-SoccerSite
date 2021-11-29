@@ -210,10 +210,21 @@ public class ServerApplication {
 			fieldRepo.save(field2);
 			fieldRepo.save(field3);
 			fieldRepo.save(field4);
+
+			// hotels
+			Hotel hotel1 = new Hotel("Hotel 1", "hotel1.com", true);
+			Hotel hotel2 = new Hotel("Hotel teow", "hotel.com", true);
+			Hotel hotel3 = new Hotel("Hotel thereee", "hotelll331.com", true);
+			Hotel hotel1 = new Hotel("Holiday Inn & Suites", "https://www.ihg.com/holidayinn/hotels/", true);
+			Hotel hotel2 = new Hotel("Hyatt Place Tempe", "https://www.hyatt.com/en-US/hotel/", true);
+			Hotel hotel3 = new Hotel("SpringHill Suites", "https://www.marriott.com/hotels/", true);
+			
+			hotelsRepo.save(hotel1);
+			hotelsRepo.save(hotel2);
+			hotelsRepo.save(hotel3);
 			
 			
 //			add teams
-//			teamRepo.deleteAll();
 			
 //			Boy U11 - Premier
 			Team team2 = new Team("Minnesota Giants", cat5, true, "Boys", "11",
@@ -299,19 +310,8 @@ public class ServerApplication {
 					"Trevor Stewart","Eclipse FC", "Georgia", "Georgia", "Georgia", "Classic League (Girls U11)", "Classic",
 					"White", "Blue", "1-07-2000", "Girls U11 ($530)", "Trevor Stewart", "trevorsteward@gmail.com");
 
+		
 			
-// 			hotels
-			Hotel hotel1 = new Hotel("Hotel 1", "hotel1.com", true);
-			Hotel hotel2 = new Hotel("Hotel teow", "hotel.com", true);
-			Hotel hotel3 = new Hotel("Hotel thereee", "hotelll331.com", true);
-			
-			hotelsRepo.save(hotel1);
-			hotelsRepo.save(hotel2);
-			hotelsRepo.save(hotel3);
-			
-			
-//			teamRepo.save(team3);		
-
       //			Girls U10 - Premier
 			Team team26 = new Team("Lady Warriors", cat3,true, "Girls", "10",
 					"Karl George","Warriors FC", "Georgia", "Georgia", "Georgia", "Premier League (Girls U10)", "Premier",
