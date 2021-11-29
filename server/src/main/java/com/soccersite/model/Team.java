@@ -30,7 +30,7 @@ public class Team implements Serializable{
 	String teamID;
 	
 	
-	@Column(unique= true)
+//	@Column(unique= true)
 	String teamName;
 	
 	// Foreign key
@@ -74,6 +74,34 @@ public class Team implements Serializable{
 	
 
 	public Team() {}
+	
+	public Team(String teamID, String teamName, Category category, 
+			boolean isVerified, String gender, String age, String coachName, String clubName, String city, String state,
+			String association, String league, String playLevel, String primaryJerseyColor, String altJerseyColor,
+			String oldestDOB, String applicationCategory, String teamContactName, String emailAddress) {
+		super();
+		this.teamID = teamID;
+		this.teamName = teamName;
+		this.category = category;
+//		this.coach = coach;
+//		this.tournament = tournament;
+		this.isVerified = isVerified;
+		this.gender = gender;
+		this.age = age;
+		this.coachName = coachName;
+		this.clubName = clubName;
+		this.city = city;
+		this.state = state;
+		this.association = association;
+		this.league = league;
+		this.playLevel = playLevel;
+		this.primaryJerseyColor = primaryJerseyColor;
+		this.altJerseyColor = altJerseyColor;
+		this.oldestDOB = oldestDOB;
+		this.applicationCategory = applicationCategory;
+		this.teamContactName = teamContactName;
+		this.emailAddress = emailAddress;
+	}
 	
 	public Team(String teamName, Category category, 
 			boolean isVerified, String gender, String age, String coachName, String clubName, String city, String state,

@@ -3,7 +3,7 @@
       <h5 class="card-title">{{ title }}</h5>
     </div>
 
-    <div class="col-lg-2">
+    <div class="col-lg-1">
     </div>
 
     <div class="col-lg-1">
@@ -14,8 +14,8 @@
   <form #filterBy ="ngForm" (ngSubmit)="onSubmitFiter(filterBy)">
     <div class="row">
     <div class="col-lg-5">
-      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect"  [(ngModel)]="selectedValue" required>
-        <option value="1">Division</option>
+      <select class="custom-select mr-sm-2" name="selectedValue" id="inlineFormCustomSelect"  [(ngModel)]="selectedValue" required>
+        <option value="1" selected>Division</option>
         <option value="2">Time</option>
         <option value="3">Field</option>
         <option value="4">Date</option>
@@ -24,32 +24,30 @@
 
     
       <div class="col-lg-5" >
-        <ng-container *ngIf="selectedValue == 1">
-          <!-- <select class="custom-select mr-sm-2" id="inlineFormCustomSelect"
-           *ngIf="selectedValue == 1" required> -->
-           <select>
-           <!-- <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" ng-hide="selectedValue != '1'" required> -->
-            <option>Division</option>
-            <option>Division</option>
-            <option>Division</option>
-            <option>Division</option>
-          </select>
-        </ng-container>
-        
 
-          <select class="custom-select mr-sm-2" id="inlineFormCustomSelect"
-           *ngIf="selectedValue == 2" required>
-            <option>Time</option>
-            <option>Time</option>
-            <option>Time</option>
-            <option>Time</option>
+           <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" *ngIf="selectedValue == 1" [(ngModel)]="divisionFilter" name="divisionFilter" required>
+            <option *ngFor="let division of allDivisions" [ngValue]="division.id" style="color: black">{{division.categoryName}}</option>
+          </select>        
+
+          <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" *ngIf="selectedValue == 2" [(ngModel)]="timeFilter" name="timeFilter" required>
+            <option value="9:00am">9:00am</option>
+            <option value="1:00pm">1:00pm</option>
+          </select>
+
+          <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" *ngIf="selectedValue == 3" [(ngModel)]="fieldFilter" name="fieldFilter" required>
+            <option *ngFor="let field of allFields" [ngValue]="field.id" style="color: black">{{field.fieldName}}</option>
+          </select> 
+
+          <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" *ngIf="selectedValue == 4" [(ngModel)]="dateFilter" name="dateFilter" required>
+            <option value="1">25/12/2021</option>
+            <option value="2">26/12/2021</option>
           </select>
         
         </div>
 
         <div class="col-lg-1" >
-         <!-- <button type="submit" [disabled]="!filterBy.form.valid" 
-class="btn btn-primary">Register</button> -->
+         <button type="submit" [disabled]="!filterBy.form.valid" 
+class="btn btn-primary">Search</button>
 
 </div>
 </div>

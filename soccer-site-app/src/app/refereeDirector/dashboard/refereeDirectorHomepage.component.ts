@@ -31,6 +31,7 @@ export class RefereeDirectorComponent implements OnInit{
       // console.log(data);
     });
 
+
     this.refereeService.findByStatus("VERIFIED").subscribe(data => {
       this.verifiedApplications = data;
       // console.log(data);

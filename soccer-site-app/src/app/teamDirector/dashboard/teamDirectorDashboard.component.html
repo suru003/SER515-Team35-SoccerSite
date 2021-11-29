@@ -15,7 +15,6 @@
 
   </div>
   <div class="main-page align-vertically">
-
     <div class="top-bar shadow rounded">
 
       <div class="row">
@@ -30,53 +29,53 @@
       </div> -->
       <!-- <div class="col-lg-2 topbar-icon-col"> -->
         <!-- <a (click)='viewMatches()'><button class="shadow">View Matches</button></a> -->
-      <!-- </div> -->
-            <div class="col-lg-5 topbar-icon-col">
+        <!-- </div> -->
+        <div class="col-lg-5 topbar-icon-col">
 
-        <form #actionForm="ngForm" (ngSubmit)="onSubmit(actionForm)" >
-         <div class="row">
-          <div class="col-lg-6 ">
-           <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="actionChoice" [(ngModel)]="actionChoice">
-            <option value="" disabled selected>More</option>   
-            <!-- <option value="Build a Referee Listing" >Build a Team Listing</option>   -->
-            <!-- <option value="Assign Referees" >Team Referees</option>  -->
-            <option value="View Matches" >View Matches</option> 
-            <!-- <option value="Export Team Applications" >Export Team Applications</option>  -->
-            <option value="Manage Applications" >Manage Applications</option> 
-            <!-- <option value="Add Team" >Add Team</option>  -->
-            <option value="Schedule Matches" >Schedule Matches</option> 
+          <form #actionForm="ngForm" (ngSubmit)="onSubmit(actionForm)" >
+           <div class="row">
+            <div class="col-lg-6 ">
+             <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="actionChoice" [(ngModel)]="actionChoice">
+              <option value="" disabled selected>More</option>   
+              <!-- <option value="Build a Referee Listing" >Build a Team Listing</option>   -->
+              <!-- <option value="Assign Referees" >Team Referees</option>  -->
+              <option value="View Matches" >View Matches</option> 
+              <!-- <option value="Export Team Applications" >Export Team Applications</option>  -->
+              <option value="Manage Applications" >Manage Applications</option> 
+              <!-- <option value="Add Team" >Add Team</option>  -->
+              <option value="Schedule Matches" >Schedule Matches</option> 
 
-          </select>
-          
+            </select>
+            
+          </div>
+          <div class="col-lg-2 "></div>
+          <div class="col-lg-2 ">
+            <button type="submit" [disabled]="!actionForm.form.valid" 
+            class="btn btn-primary">Go!</button>
+          </div>
         </div>
-        <div class="col-lg-2 "></div>
-        <div class="col-lg-2 ">
-          <button type="submit" [disabled]="!actionForm.form.valid" 
-          class="btn btn-primary">Go!</button>
-        </div>
-      </div>
-    </form>
+      </form>
 
-  </div>
-
-      <div class="col-lg-3 topbar-icon-col">
-        <div class="row no-gutters">
-          <div class="col-lg-8 profile-text">
-            <div class="profile-child">
-             <p class="profile-text-title">{{director.firstName}} {{director.lastName}}</p>
-             <!-- <p class="profile-text-title">Chrissy Lane</p> -->
-             <p class="profile-text-subtitle">Team Director</p>
-           </div>
-         </div>
-
-         <div class="col-lg-3">
-          <div class="profile-image"></div>
-        </div>
-      </div>
     </div>
 
+    <div class="col-lg-3 topbar-icon-col">
+      <div class="row no-gutters">
+        <div class="col-lg-8 profile-text">
+          <div class="profile-child">
+           <p class="profile-text-title">{{director.firstName}} {{director.lastName}}</p>
+           <!-- <p class="profile-text-title">Chrissy Lane</p> -->
+           <p class="profile-text-subtitle">Team Director</p>
+         </div>
+       </div>
 
+       <div class="col-lg-3">
+        <div class="profile-image"></div>
+      </div>
+    </div>
   </div>
+
+
+</div>
 </div>
 <br>
 <div class="container second-row">

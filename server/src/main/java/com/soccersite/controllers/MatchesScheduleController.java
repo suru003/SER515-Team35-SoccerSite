@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.soccersite.model.Field;
 import com.soccersite.model.MatchesSchedule;
 import com.soccersite.services.MatchesScheduleService;
 
@@ -52,6 +54,18 @@ public class MatchesScheduleController {
 		return new ResponseEntity<List<MatchesSchedule>>(list, HttpStatus.OK) ;
 	}
 	
+	@GetMapping("/findByDivisionId/{id}")
+	public ResponseEntity<List<MatchesSchedule>>findMatchByDivisionid(@PathVariable("id") String id){
+		List<MatchesSchedule> list = matchesScheduleService.findSchedulesByDivisionId(id);
+		return new ResponseEntity<List<MatchesSchedule>>(list, HttpStatus.OK) ;
+	}
+	
+	@GetMapping("/findByTime/{time}")
+	public ResponseEntity<List<MatchesSchedule>>findMatchByTime(@PathVariable("time") String time){
+		List<MatchesSchedule> list = matchesScheduleService.findSchedulesByDivisionId(time);
+		return new ResponseEntity<List<MatchesSchedule>>(list, HttpStatus.OK) ;
+	}
+	
 	@GetMapping("/findByTeam/{teamID}")
 	public ResponseEntity<List<MatchesSchedule>>findMatchByTeam(@PathVariable("teamID") String teamID){
 		List<MatchesSchedule> list = matchesScheduleService.findSchedulesByTeam(teamID);
@@ -67,6 +81,12 @@ public class MatchesScheduleController {
 	@GetMapping("/findByVenue/{venue}")
 	public ResponseEntity<List<MatchesSchedule>>findMatchByVenue(@PathVariable("venue") String venue){
 		List<MatchesSchedule> list = matchesScheduleService.findSchedulesByVenue(venue);
+		return new ResponseEntity<List<MatchesSchedule>>(list, HttpStatus.OK) ;
+	}
+	
+	@GetMapping("/findByFieldId/{id}")
+	public ResponseEntity<List<MatchesSchedule>>findMatchByFieldID(@PathVariable("id") String id){
+		List<MatchesSchedule> list = matchesScheduleService.findSchedulesByFieldId(id);
 		return new ResponseEntity<List<MatchesSchedule>>(list, HttpStatus.OK) ;
 	}
 	
