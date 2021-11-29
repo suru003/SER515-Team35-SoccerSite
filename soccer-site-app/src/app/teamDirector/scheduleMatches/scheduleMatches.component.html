@@ -1,6 +1,6 @@
   <h5 class="card-title">{{ title }}</h5>
   <br>
-  <form #scheduleForm="ngForm" (ngSubmit)="onSubmit2(scheduleForm)" >
+  <form #scheduleForm="ngForm" (ngSubmit)="onSubmitForm(scheduleForm)" >
 
     <div class="row" style="padding-bottom: 10px;"> 
       <div class="col-lg-2 tournamentApplicationForm">
@@ -9,8 +9,8 @@
       <div class="col-lg-5">
        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="divisionChosen" [(ngModel)]="divisionChosen" required>
 
-        <option value="All Divisions" >All Divisions</option>
-        <option *ngFor="let division of allDivisions" [ngValue]="division" >{{division.categoryName}}</option>
+        <option [ngValue]="1" >All Divisions</option>
+        <option *ngFor="let division of allDivisions; let i = index" [ngValue]="division" >{{division.categoryName}}</option>
 
 
     <!--     <option value="All Divisions" >All Divisions</option>
