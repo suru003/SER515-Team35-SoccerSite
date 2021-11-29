@@ -199,17 +199,24 @@ public class ServerApplication {
 			catRepo.save(cat6);
 			catRepo.save(cat7);
 			catRepo.save(cat8);
-			
 
 			Field field1 = new Field("Martin Camp Field", false, true, true, "Manoa Rivers");
 			Field field2 = new Field("Randy Overt Field", false, false, false, "Vera True");
 			Field field3 = new Field("Amanda Sam Field", false, false, false, "Ronald Shampert");
 			Field field4 = new Field("Island Lane", false, false, false, "Rue Sue");
+			Field field5 = new Field("ASU Field", false, false, false, "Joshua Choi");
+			Field field6 = new Field("Kings Field", false, false, false, "John Rhodes");
+			Field field7 = new Field("Maine Field", false, false, false, "Ria Maine");
+			Field field8 = new Field("Henry Rocket Field", false, false, false, "Jane Kane");
 			
 			fieldRepo.save(field1);
 			fieldRepo.save(field2);
 			fieldRepo.save(field3);
 			fieldRepo.save(field4);
+			fieldRepo.save(field5);
+			fieldRepo.save(field6);
+			fieldRepo.save(field7);
+			fieldRepo.save(field8);
 
 			// hotels
 			Hotel hotel1 = new Hotel("Holiday Inn & Suites", "https://www.ihg.com/holidayinn/hotels/", true);
@@ -219,7 +226,6 @@ public class ServerApplication {
 			hotelsRepo.save(hotel1);
 			hotelsRepo.save(hotel2);
 			hotelsRepo.save(hotel3);
-			
 			
 //			teams
 			
@@ -388,10 +394,8 @@ public class ServerApplication {
 			matchesRepo.save(match3);
 			matchesRepo.save(match4);
 
-
 		};
-		
-
+	
 		
 	}	
 

@@ -193,6 +193,175 @@ export class ScheduleMatchesComponent implements OnInit {
   //         error => console.log(error));  
   // }
 
+  onSubmitForm(scheduleForm: NgForm){
+
+    if(typeof this.divisionChosen === 'object'){
+      // console.log("Is a division");
+      this.scheduleDivision();
+    }else{
+      // console.log("Not a division");
+      this.scheduleAllDivisions();
+    }
+
+  }
+
+  scheduleDivision(){
+    this.teamService.findByDivision(this.divisionChosen.categoryName)  
+    .subscribe(  
+      data => {  
+        this.teamsFoundByDivision = data; 
+        this.schedules2 = [false,false,false,false];
+        for(let i = 0; i < 8; i++) {
+          for(let j = 0; j< 8; j++) {
+            // console.log("[" + i + "]" + "[" + j + "]")
+            if(i==j){
+
+
+            } else if(this.schedules2[i] == true){
+              break;
+            }
+            else{
+              if(this.schedules2[i] == false && this.schedules2[j] == false ){
+                for(let i: number = 0; i < 8; i++) {
+                  if(this.allFields[i].bookedMorning == false || this.allFields[i].bookedAfternoon == false){
+                  this.getFieldTime = this.allFields[i];
+                  break; 
+                }else{
+                  this.getFieldTime = null;
+                }
+              }
+
+              if(this.getFieldTime != null){
+                if(this.getFieldTime.bookedMorning == false){
+                  this.time = this.getFieldTime.morningTime;
+                  this.getFieldTime.bookedMorning = true;
+
+                  this.matchScheduleService.updateField(this.getFieldTime).subscribe(  
+                    data => {
+                    }, 
+                    error => console.log(error)
+                    );
+
+              }else if(this.getFieldTime.bookedAfternoon == false){
+                this.time = this.getFieldTime.afternoonTime;
+                this.getFieldTime.bookedAfternoon = true;
+
+                this.matchScheduleService.updateField(this.getFieldTime).subscribe(  
+                  data => {
+                  }, 
+                  error => console.log(error)
+                  );
+              }
+
+              var match = new MatchesSchedule(this.divisionChosen, this.time, this.getFieldTime,  
+                this.teamsFoundByDivision[i], "0", this.teamsFoundByDivision[j], "0", this.type, this.date);
+              this.schedules2[i] = true;
+              this.schedules2[j] = true;
+
+              this.matchScheduleService.addMatchesSchedule(match).subscribe(  
+                data => {
+                  }, 
+                  error => console.log(error)
+                  );
+            }else{
+              this.openModal();
+            }
+
+            break;
+          }
+        }
+
+
+      }
+    }
+
+    console.log(this.schedules)
+
+  },  
+  error => console.log(error));  
+  }
+
+  scheduleAllDivisions(){
+  //   this.teamService.getAllTeams()  
+  //   .subscribe(  
+  //     data => {  
+  //       this.teamsFoundByDivision = data; 
+  //       console.log(this.teamsFoundByDivision);
+  //       this.schedules2 = [
+  //       false,false,false,false,false,false,false,false,
+  //       false,false,false,false,false,false,false,false,
+  //       false,false,false,false,false,false,false,false,
+  //       false,false,false,false,false,false,false,false];
+  //       for(let i = 0; i < 8; i++) {
+  //         for(let j = 0; j< 8; j++) {
+  //           // console.log("[" + i + "]" + "[" + j + "]")
+  //           if(i==j){
+
+
+  //           } else if(this.schedules2[i] == true){
+  //             break;
+  //           }
+  //           else{
+  //             if(this.schedules2[i] == false && this.schedules2[j] == false ){
+  //               for(let i: number = 0; i < 8; i++) {
+  //                 if(this.allFields[i].bookedMorning == false || this.allFields[i].bookedAfternoon == false){
+  //                 this.getFieldTime = this.allFields[i];
+  //                 break; 
+  //               }else{
+  //                 this.getFieldTime = null;
+  //               }
+  //             }
+
+  //             if(this.getFieldTime != null){
+  //               if(this.getFieldTime.bookedMorning == false){
+  //                 this.time = this.getFieldTime.morningTime;
+  //                 this.getFieldTime.bookedMorning = true;
+
+  //                 this.matchScheduleService.updateField(this.getFieldTime).subscribe(  
+  //                   data => {
+  //                   }, 
+  //                   error => console.log(error)
+  //                   );
+
+  //             }else if(this.getFieldTime.bookedAfternoon == false){
+  //               this.time = this.getFieldTime.afternoonTime;
+  //               this.getFieldTime.bookedAfternoon = true;
+
+  //               this.matchScheduleService.updateField(this.getFieldTime).subscribe(  
+  //                 data => {
+  //                 }, 
+  //                 error => console.log(error)
+  //                 );
+  //             }
+
+  //             var match = new MatchesSchedule(this.divisionChosen, this.time, this.getFieldTime,  
+  //               this.teamsFoundByDivision[i], "0", this.teamsFoundByDivision[j], "0", this.type, this.date);
+  //             this.schedules2[i] = true;
+  //             this.schedules2[j] = true;
+
+  //             this.matchScheduleService.addMatchesSchedule(match).subscribe(  
+  //               data => {
+  //                 }, 
+  //                 error => console.log(error)
+  //                 );
+  //           }else{
+  //             this.openModal();
+  //           }
+
+  //           break;
+  //         }
+  //       }
+
+
+  //     }
+  //   }
+
+  //   console.log(this.schedules)
+
+  // },  
+  // error => console.log(error));  
+  }
+
   onSubmit2(scheduleForm: NgForm){
     this.teamService.findByDivision(this.divisionChosen.categoryName)  
     .subscribe(  
@@ -248,52 +417,52 @@ export class ScheduleMatchesComponent implements OnInit {
                   this.getFieldTime.bookedMorning = true;
 
                   this.matchScheduleService.updateField(this.getFieldTime).subscribe(  
-                  data => {
-                  }, 
-                  error => console.log(error)
-                  );
+                    data => {
+                    }, 
+                    error => console.log(error)
+                    );
 
                 //   console.log("time is");
                 // console.log(this.time);
-                }else if(this.getFieldTime.bookedAfternoon == false){
-                  this.time = this.getFieldTime.afternoonTime;
-                  this.getFieldTime.bookedAfternoon = true;
+              }else if(this.getFieldTime.bookedAfternoon == false){
+                this.time = this.getFieldTime.afternoonTime;
+                this.getFieldTime.bookedAfternoon = true;
 
-                  this.matchScheduleService.updateField(this.getFieldTime).subscribe(  
+                this.matchScheduleService.updateField(this.getFieldTime).subscribe(  
                   data => {
                   }, 
                   error => console.log(error)
                   );
-                }
+              }
 
 
-                var match = new MatchesSchedule(this.divisionChosen, this.time, this.getFieldTime,  
-                  this.teamsFoundByDivision[i], "0", this.teamsFoundByDivision[j], "0", this.type, this.date);
-                this.schedules2[i] = true;
-                this.schedules2[j] = true;
+              var match = new MatchesSchedule(this.divisionChosen, this.time, this.getFieldTime,  
+                this.teamsFoundByDivision[i], "0", this.teamsFoundByDivision[j], "0", this.type, this.date);
+              this.schedules2[i] = true;
+              this.schedules2[j] = true;
 
-                this.matchScheduleService.addMatchesSchedule(match).subscribe(  
-                  data => {
+              this.matchScheduleService.addMatchesSchedule(match).subscribe(  
+                data => {
                     // console.log("match data " + data);
                   }, 
                   error => console.log(error)
                   );
-              }else{
-                this.openModal();
-              }
-
-              break;
+            }else{
+              this.openModal();
             }
+
+            break;
           }
-
-
         }
+
+
       }
+    }
 
-      console.log(this.schedules)
+    console.log(this.schedules)
 
-    },  
-    error => console.log(error));  
+  },  
+  error => console.log(error));  
   }
 
 
@@ -345,7 +514,7 @@ reloadComponent() {
 }
 
 openModal() {
-    $('#no-available-fields-modal').modal('show');
-  }
+  $('#no-available-fields-modal').modal('show');
+}
 
 }

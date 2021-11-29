@@ -45,8 +45,6 @@ export class MatchScheduleService {
     return this.http.get<MatchesSchedule[]>(`${this.serverUrl}/findByVenue/${venue}`);
   }
 
-  
-
   public getMatchesScheduleByTime(time: String):Observable<MatchesSchedule[]>{
     return this.http.get<MatchesSchedule[]>(`${this.serverUrl}/findByTime/${time}`);
   }
