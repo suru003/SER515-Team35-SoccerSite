@@ -37,21 +37,17 @@
          <div class="row">
           <div class="col-lg-6 ">
            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="actionChoice" [(ngModel)]="actionChoice">
-            <option value="" disabled selected>More</option>   
-            <!-- <option value="Build a Referee Listing" >Build a Referee Listing</option>   -->
-            <!-- <option value="Assign Referees" >Assign Referees</option>  -->
-            <option value="View Matches" >View Matches</option> 
-            <!-- <option value="Expor Referee Applications" >Export Referee Applications</option>  -->
-            <option value="Manage Applications" >Manage Applications</option> 
+            <option value="" disabled selected>More</option>
+            <option value="View Matches" >View Matches</option>
+            <option value="Manage Applications" >Manage Applications</option>
             <option value="Add Referees" >Add Referees</option> 
-            <!-- <option value="Publish/Unpublish Referee Schedule" >Publish/Unpublish Referee Schedule</option>  -->
 
           </select>
-          
+
         </div>
         <div class="col-lg-2 "></div>
         <div class="col-lg-2 ">
-          <button type="submit" [disabled]="!actionForm.form.valid" 
+          <button type="submit" [disabled]="!actionForm.form.valid"
           class="btn btn-primary">Go!</button>
         </div>
       </div>
