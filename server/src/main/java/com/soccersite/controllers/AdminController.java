@@ -3,6 +3,7 @@ package com.soccersite.controllers;
 import java.util.List;
 
 
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -69,5 +70,5 @@ public class AdminController {
 		return new ResponseEntity<>("Admin deleted:"+adminID,HttpStatus.OK) ;
 	}
 	
-	
+
 }

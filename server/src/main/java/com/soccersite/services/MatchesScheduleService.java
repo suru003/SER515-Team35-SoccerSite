@@ -60,6 +60,10 @@ public class MatchesScheduleService {
 		return repo.findMatchByTime(time);
 	}
 	
+	public List<MatchesSchedule> findSchedulesByReferee(String id){
+		return repo.findMatchByReferee(id);
+	}
+	
 	public MatchesSchedule updateReferee(MatchesSchedule match) {
 		return repo.save(match);
 	}

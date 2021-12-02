@@ -49,6 +49,10 @@ export class MatchScheduleService {
     return this.http.get<MatchesSchedule[]>(`${this.serverUrl}/findByTime/${time}`);
   }
 
+  public getMatchesScheduleByReferee(id: String):Observable<MatchesSchedule[]>{
+    return this.http.get<MatchesSchedule[]>(`${this.serverUrl}/findByReferee/${id}`);
+  }
+
   // public getAcceptedTeam(categoryName: String):Observable<Team[]>{
   //   return this.http.get<Team[]>(`${this.serverUrl}/find/acceptedTeams/${categoryName}`);
   // }

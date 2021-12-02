@@ -1,7 +1,7 @@
    <div class="sidebar">
 
     <div class="logo-section">
-      <div class="logo-name">Referee Director Dashboard</div>
+      <div class="logo-name">Referee Dashboard</div>
     </div>
 
     <div class="navbar">
@@ -9,49 +9,31 @@
       <a href="#"><i class="fa fa-fw fa-home"></i> Dashboard</a>
       <a href="#"><i class="fa fa-fw fa-search"></i> Coaches</a>
       <a href="#"><i class="fa fa-fw fa-envelope"></i> Referees</a>
-      <a href="#"><i class="fa fa-fw fa-user"></i> Team</a>
+      <a href="#"><i class="fa fa-fw fa-user"></i> Teams</a>
 
     </div>
 
   </div>
   <div class="main-page align-vertically">
 
-    <div class="top-bar shadow rounded">
+    <div class="top-bar shadow rounded" style="height: 150px">
 
-      <div class="row">
-        <div class="col-lg-2 topbar-icon-col">
+      <div class="row" style="padding-bottom:20px; padding-top:20px">
+        <div class="col-lg-6 topbar-icon-col" >
+        <h4>Welcome! </h4>
+        <p>Find details of all the matches you have been assigned to below.</p>
+      </div>
+        <!-- <div class="col-lg-2 topbar-icon-col">
          <a (click)='allRefs()'> <button class="shadow" >Show All Refs</button> </a>
        </div>
-      <!--  <div class="col-lg-2 topbar-icon-col">
-         <a (click)='addRef()'> <button class="shadow" >Add Referee</button> </a>
-       </div> -->
-       <!-- <div class="col-lg-2 topbar-icon-col">
-        <a (click)='allNewApplications()'><button class="shadow">Pending Applications</button></a>
-      </div> -->
       <div class="col-lg-2 topbar-icon-col">
         <a (click)='viewMatches()'><button class="shadow">View Matches</button></a>
-      </div>
-      <div class="col-lg-5 topbar-icon-col">
+      </div> -->
+      
 
-        <form #actionForm="ngForm" (ngSubmit)="onSubmit(actionForm)" >
-         <div class="row">
-          <div class="col-lg-6 ">
-           <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="actionChoice" [(ngModel)]="actionChoice">
-            <option value="" disabled selected>More</option>
-            <option value="View Matches" >View Matches</option>
-            <option value="Manage Applications" >Manage Applications</option>
-            <option value="Add Referees" >Add Referees</option> 
+      <div class="col-lg-3 topbar-icon-col">
 
-          </select>
-
-        </div>
-        <div class="col-lg-2 "></div>
-        <div class="col-lg-2 ">
-          <button type="submit" [disabled]="!actionForm.form.valid"
-          class="btn btn-primary">Go!</button>
-        </div>
-      </div>
-    </form>
+      
 
   </div>
   <div class="col-lg-3 topbar-icon-col">
@@ -59,7 +41,7 @@
       <div class="col-lg-8 profile-text">
         <div class="profile-child">
          <p class="profile-text-title">Jane Doe</p>
-         <p class="profile-text-subtitle">Ref Director</p>
+         <p class="profile-text-subtitle">Referee </p>
        </div>
      </div>
 
@@ -74,7 +56,7 @@
 </div>
 </div>
 <br>
-<div class="container second-row">
+<!-- <div class="container second-row">
   <div class="row">
     <div class="col-lg-4 ">
      <div class="card mb-3 shadow rounded" >
@@ -134,14 +116,52 @@
   </div>
 
 </div>
-</div>
+</div> -->
 
 
 <div class="third-row">
   <div class="card mb-3 shadow rounded">
    <div class="card-body">
+    <div *ngIf="schedule.length == 0; else loggedOut">
+                 No matches scheduled yet.
+                </div>
 
-     <router-outlet></router-outlet>
+
+                
+<ng-template #loggedOut>
+    <div class="row" *ngFor="let schedule of schedule">
+       <div class="col-lg-2 "> 
+        <p><b>Division:</b></p>
+        <p>{{schedule.category.categoryName}}</p>
+       </div>
+       <div class="col-lg-2 "> 
+        <p><b>Time:</b></p>
+        <p>{{schedule.time}}</p>
+       </div>
+
+       <div class="col-lg-2 "> 
+        <p><b>Field:</b></p>
+        <p>{{schedule.field.fieldName}}</p>
+       </div>
+
+       <div class="col-lg-2 "> 
+        <p><b>Home Team:</b></p>
+        <p>{{schedule.homeTeam.teamName}}</p>
+       </div>
+
+       <div class="col-lg-2 "> 
+        <p><b>Visting Team:</b></p>
+        <p>{{schedule.visitingTeam.teamName}}</p>
+       </div>
+
+       <div class="col-lg-2 "> 
+        <p><b>Date:</b></p>
+        <p>{{schedule.date}}</p>
+       </div>
+      
+    </div>
+</ng-template>
+     <!-- <router-outlet></router-outlet> -->
 
    </div>
  </div>

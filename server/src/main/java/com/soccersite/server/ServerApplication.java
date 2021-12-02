@@ -88,7 +88,7 @@ public class ServerApplication {
 
 //			Create admins
 			adminRepo.deleteAll();
-			refRepo.deleteAll();
+			
 			
 			AdminUser admin = new AdminUser(1, "TMN_00100", "Manny", "Picao", "mannypicao@gmail.com", 5, "Tournament Director");
 			AdminUser refDirector = new AdminUser(2, "REF_00100", "Umberto", "Gonzales", "umberto@gmail.com", 7, "Referee Director");
@@ -98,13 +98,7 @@ public class ServerApplication {
 			adminRepo.save(refDirector);
 			adminRepo.save(teamDirector);
 			
-			Referee ref1 = new Referee("Rebecca", "Stanley", "rebecca@gmail.com", +123235263, "Arizona", "Arizona", "United States", 2, "VERIFIED");
-			Referee ref2 = new Referee("David", "King", "davidking@gmail.com", +123235263, "Arizona", "Arizona", "United States", 2, "VERIFIED");
-			Referee ref3 = new Referee("Henry", "MacMahon", "henrymacmahon@gmail.com", +123235263, "Arizona", "Arizona", "United States", 2, "NEW");
 			
-			refRepo.save(ref1);
-			refRepo.save(ref2);
-			refRepo.save(ref3);
 			
 //			create roles
 			Roles role = new Roles(1, "Admin");
@@ -175,10 +169,20 @@ public class ServerApplication {
 
 		
 			matchesRepo.deleteAll();
+			refRepo.deleteAll();
 			teamRepo.deleteAll();
 			catRepo.deleteAll();
 			hotelsRepo.deleteAll();
 			fieldRepo.deleteAll();
+			
+//			referees
+			Referee ref1 = new Referee("REF_24802","Rebecca", "Stanley", "rebecca@gmail.com", +123235263, "Arizona", "Arizona", "United States", 2, "VERIFIED");
+			Referee ref2 = new Referee("David", "King", "davidking@gmail.com", +123235263, "Arizona", "Arizona", "United States", 2, "VERIFIED");
+			Referee ref3 = new Referee("Henry", "MacMahon", "henrymacmahon@gmail.com", +123235263, "Arizona", "Arizona", "United States", 2, "NEW");
+			
+			refRepo.save(ref1);
+			refRepo.save(ref2);
+			refRepo.save(ref3);
 
 			
 			Category cat1 = new Category("B-U10 Premier","B-U10", 9, 10, "Premier", "$650");
@@ -344,6 +348,7 @@ public class ServerApplication {
 					"Green", "Red", "1-07-2000", "Girls U11 ($600)", "Ray Paulus", "raypaulus@gmail.com");
 
 			
+	
 			teamRepo.save(team1);
 			teamRepo.save(team19);
 			teamRepo.save(team20);
@@ -395,6 +400,7 @@ public class ServerApplication {
 			matchesRepo.save(match4);
 
 		};
+	
 	
 		
 	}	
