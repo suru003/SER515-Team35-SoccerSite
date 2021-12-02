@@ -39,8 +39,8 @@
         <br>
         <div class="line"></div> -->
         <br>
-        <p> <b>DISCLAIMER:</b> </p>
-        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+        <p style="font-size: 0.9rem;"> <b>DISCLAIMER:</b> </p>
+         <p style="font-size: 0.9rem;">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
         <br>
        <!--  <p> <b>Click on the button below to register or login in the next section:</b> </p>
 
@@ -55,16 +55,13 @@
       <div class="col-lg-12 ">
        <div class="card mb-3 shadow rounded" >
         <br>
-<!--         <p> <b>APPLICATION INFORMATION </b> </p>
-         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p> -->
-         <!-- <div *ngIf="noSearch || noScoreSearch; else searchResults"> -->
+
           <div *ngIf="noSearch && noScoreSearch">
            <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-              <!-- <div *ngIf="noScoreSearch; else scoreResults"> -->
+
                 <button class="nav-link active" id="nav-schedules-tab" data-bs-toggle="tab" data-bs-target="#nav-schedules-pane" type="button" role="tab" aria-controls="nav-schedules-tab" aria-selected="true">Schedules, Scores and Standings</button>
-                <!-- </div> -->
+
 
                 <button class="nav-link" id="nav-accepted-tab" data-bs-toggle="tab" data-bs-target="#nav-accepted-pane" type="button" role="tab" aria-controls="nav-accepted-tab" aria-selected="false">Accepted Teams</button>
               </div>
@@ -76,7 +73,7 @@
               <div class="tab-pane fade show active" id="nav-schedules-pane" role="tabpanel" aria-labelledby="nav-schedules-pane">
                 <form #searchMatchScheduleForm="ngForm" (ngSubmit)="onSubmit(searchMatchScheduleForm)" >
                   <br>
-                  <div class="row" style="padding-bottom: 10px;"> 
+                  <div class="row" style="padding-bottom: 10px;">
                     <div class="col-lg-2 tournamentApplicationForm">
                       <p class="label"> <b>Search by Division</b> </p>
                     </div>
@@ -86,13 +83,13 @@
 
                         <!-- <option [value]="0" disabled selected>Search by Division</option> -->
                         <option [value]=""  selected></option>
-                        <option *ngFor="let d of divisions" [ngValue]="d.categoryName" style="color: black">{{d.categoryName}}</option>       
+                        <option *ngFor="let d of divisions" [ngValue]="d.categoryName" style="color: black">{{d.categoryName}}</option>
 
                       </select>
                     </div>
                   </div>
 
-                  <div class="row" style="padding-bottom: 10px;"> 
+                  <div class="row" style="padding-bottom: 10px;">
                     <div class="col-lg-2 tournamentApplicationForm">
                       <p class="label"> <b>Search by Date</b> </p>
                     </div>
@@ -108,20 +105,20 @@
                   </div>
                 </div>
 
-                <div class="row" style="padding-bottom: 10px;"> 
+                <div class="row" style="padding-bottom: 10px;">
                   <div class="col-lg-2 tournamentApplicationForm">
                     <p class="label"> <b>Search by Venue</b> </p>
                   </div>
                   <div class="col-lg-5">
                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByVenue" [(ngModel)]="searchByVenue">
 
-                    <option [value]="0" disabled selected>searchByVenue</option>          
+                    <option [value]="0" disabled selected>searchByVenue</option>
 
                   </select>
                 </div>
               </div>
 
-              <div class="row" style="padding-bottom: 10px;"> 
+              <div class="row" style="padding-bottom: 10px;">
                 <div class="col-lg-2 tournamentApplicationForm">
                   <p class="label"> <b>Search by Team</b> </p>
                 </div>
@@ -130,27 +127,27 @@
 
                   <!-- <option [value]="0" disabled selected>Search by Team</option>   -->
                   <option [value]=""  selected></option>
-                  <option *ngFor="let team of allTeams" [ngValue]="team.teamID" style="color: black">{{team.teamName}}</option>         
+                  <option *ngFor="let team of allTeams" [ngValue]="team.teamID" style="color: black">{{team.teamName}}</option>
 
                 </select>
               </div>
             </div>
 
-            <div class="row" style="padding-bottom: 10px;"> 
+            <div class="row" style="padding-bottom: 10px;">
               <div class="col-lg-2 tournamentApplicationForm">
                 <p class="label"> <b>Search by Club</b> </p>
               </div>
               <div class="col-lg-5">
                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchByClub" [(ngModel)]="searchByClub" >
 
-                <option [value]="0" disabled selected>Search by Club</option>          
+                <option [value]="0" disabled selected>Search by Club</option>
 
               </select>
             </div>
           </div>
           <br>
           <br>
-          <button type="submit" [disabled]="!searchMatchScheduleForm.form.valid" 
+          <button type="submit" [disabled]="!searchMatchScheduleForm.form.valid"
           class="btn btn-primary">Search</button>
         </form>
 
@@ -158,7 +155,7 @@
       <div class="tab-pane fade" id="nav-accepted-pane" role="tabpanel" aria-labelledby="nav-accepted-pane">
        <form #searchAcceptedTeamsForm="ngForm" (ngSubmit)="onSubmitSearchTeams(searchAcceptedTeamsForm)" >
         <br>
-        <div class="row" style="padding-bottom: 10px;"> 
+        <div class="row" style="padding-bottom: 10px;">
           <div class="col-lg-2 tournamentApplicationForm">
             <p class="label"> <b>Search by Division</b> </p>
           </div>
@@ -166,7 +163,7 @@
            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="searchTeamByDivision" [(ngModel)]="searchTeamByDivision" required="">
 
             <option [value]="0" disabled selected>Search by Division</option>
-            <option *ngFor="let d of divisions" [ngValue]="d.categoryName" style="color: black">{{d.categoryName}}</option>       
+            <option *ngFor="let d of divisions" [ngValue]="d.categoryName" style="color: black">{{d.categoryName}}</option>
 
           </select>
         </div>
