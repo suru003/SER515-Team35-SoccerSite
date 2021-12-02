@@ -28,9 +28,9 @@ body{
 	border-color: #D8282B;
 }
 
-/*.btn{
+.btn{
 	width: 100%;
-}*/
+}
 
 .container{
 	padding: 0;
@@ -261,8 +261,6 @@ body{
 	font-size: 0.8rem;
 }
 
-tbody, th {
-	font-size: 0.8rem;
-}
+
 
 

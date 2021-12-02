@@ -8,8 +8,8 @@ import { Admin2 } from '../../models/admin2';
 @Injectable()
 export class SharedService {
 
-  private tournamentDirectorID = new BehaviorSubject('TMAN_00000');
-  private directorID = new BehaviorSubject('00000');
+  private tournamentDirectorID = new BehaviorSubject('TMN_00100');
+  private directorID = new BehaviorSubject('TMN_00100');
   private directorRetrieved = new BehaviorSubject(new Admin2());
 
   sharedManagerID = this.tournamentDirectorID.asObservable();

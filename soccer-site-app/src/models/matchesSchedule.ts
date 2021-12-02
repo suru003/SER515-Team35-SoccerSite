@@ -1,6 +1,8 @@
 import { Category } from "./category";
 import { Team } from "./team";
 import { Field } from "./field";
+import { Referee } from "./referee";
+
 
 
 
@@ -15,6 +17,7 @@ export class MatchesSchedule{
     visitingTeamScore!:String;
     type!:String;
     date!:String;
+    referee!:Referee;
 
   public constructor(category: Category, time: String, field: Field, homeTeam: Team, homeTeamScore: String,
         visitingTeam: Team, visitingTeamScore: String, type: String, date:String) {

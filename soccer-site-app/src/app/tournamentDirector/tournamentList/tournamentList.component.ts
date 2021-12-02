@@ -55,18 +55,16 @@ export class TournamentListComponent implements OnInit {
       console.log(data);
     });
 
-      this.tournamentDirectorService.findTournamentDirectorByID(
-        this.tournamentDirectorID).subscribe(data => {
-          this.director = data;
-          // console.log(this.director);
-        });
+    //   this.tournamentDirectorService.findTournamentDirectorByID(
+    //     this.tournamentDirectorID).subscribe(data => {
+    //       this.director = data;
+    //     });
 
-        this.tournamentDirectorService.findAllTournaments(
-          this.tournamentDirectorID).subscribe(data => {
-            this.tournaments = data;
-      // this.tournaments = Array.of(this.tournaments);  
-      console.log(this.tournaments);
-    });
+    //     this.tournamentDirectorService.findAllTournaments(
+    //       this.tournamentDirectorID).subscribe(data => {
+    //         this.tournaments = data;
+    //   console.log(this.tournaments);
+    // });
 
 
 

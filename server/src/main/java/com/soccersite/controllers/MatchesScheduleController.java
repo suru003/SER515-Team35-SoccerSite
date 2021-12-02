@@ -90,6 +90,12 @@ public class MatchesScheduleController {
 		return new ResponseEntity<List<MatchesSchedule>>(list, HttpStatus.OK) ;
 	}
 	
+	@GetMapping("/findByReferee/{id}")
+	public ResponseEntity<List<MatchesSchedule>>findMatchByReferee(@PathVariable("id") String id){
+		List<MatchesSchedule> list = matchesScheduleService.findSchedulesByReferee(id);
+		return new ResponseEntity<List<MatchesSchedule>>(list, HttpStatus.OK) ;
+	}
+	
 	@PostMapping("/insert")
 	public ResponseEntity<MatchesSchedule> insertMatch(@RequestBody MatchesSchedule match){
 		MatchesSchedule response = matchesScheduleService.addMatch(match);

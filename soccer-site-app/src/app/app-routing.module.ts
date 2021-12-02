@@ -22,6 +22,7 @@ import { LoginPageComponent } from './refereeDirector/loginPage/loginPage.compon
 //Referees
 import { LoginOrRegisterComponent } from './refereeDirector/loginOrRegister/loginOrRegister.component';
 import { RegisterRefereeComponent } from './refereeDirector/register/registerReferee.component';
+import { RefereeDashboardComponent } from './referee/dashboard/refereeHomepage.component';
 
 
 // Tournament Director
@@ -94,6 +95,9 @@ const routes: Routes = [
  },
  {
    path:'refereeLoginOrRegister', component:LoginOrRegisterComponent
+ },
+ {
+   path:'refereeHomepage', component:RefereeDashboardComponent
  },
  {
   path:'volunteerLoginOrRegister', component:VolunteerDirectorLoginOrRegisterComponent
@@ -244,4 +248,5 @@ TournamentDirectorDashboardComponent,AddTournamentComponent,TournamentListCompon
 TeamsDashboardComponent, FAQPageComponent, TeamApplicationComponent, RegisterVolunteerComponent, 
 LoginOrRegisterComponent,RegisterRefereeComponent, TeamLoginOrRegisterComponent, VolunteerDirectorLoginOrRegisterComponent, 
 SearchMatchScheduleComponent,TeamDirectorComponent, TeamsListComponent, TeamNewApplicationListComponent,
-AllDirectorLoginPageComponent,sponsors, SearchResultsComponent,ScheduleMatchesComponent,ViewMatchesComponent,Mainpage]
+AllDirectorLoginPageComponent,sponsors, SearchResultsComponent,ScheduleMatchesComponent,ViewMatchesComponent,Mainpage,
+RefereeDashboardComponent]

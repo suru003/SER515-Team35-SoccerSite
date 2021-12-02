@@ -50,6 +50,10 @@ public class MatchesSchedule {
 	String type;
 	boolean isPlayed;
 	
+	@OneToOne()
+    @JoinColumn(name = "referee", referencedColumnName = "id",nullable = true)
+	Referee referee;
+	
 	public MatchesSchedule() {}
 	
 	public MatchesSchedule(Category category, String time, Field field, Team homeTeam,
@@ -66,6 +70,23 @@ public class MatchesSchedule {
 		this.type = type;
 		this.date=date;
 		this.isPlayed = false;
+	}
+	
+	public MatchesSchedule(Category category, String time, Field field, Team homeTeam,
+			String homeTeamScore, Team visitingTeam, String visitingTeamScore, String type, String date, Referee referee) {
+		super();
+//		this.id = id;
+		this.category = category;
+		this.time = time;
+		this.field = field;
+		this.homeTeam = homeTeam;
+		this.homeTeamScore = homeTeamScore;
+		this.visitingTeam = visitingTeam;
+		this.visitingTeamScore = visitingTeamScore;
+		this.type = type;
+		this.date=date;
+		this.isPlayed = false;
+		this.referee = referee;
 	}
 
 	public String getId() {
@@ -132,6 +153,7 @@ public class MatchesSchedule {
 		this.visitingTeamScore = visitingTeamScore;
 	}
 
+	
 	public String getType() {
 		return type;
 	}
@@ -154,6 +176,14 @@ public class MatchesSchedule {
 
 	public void setPlayed(boolean isPlayed) {
 		this.isPlayed = isPlayed;
+	}
+
+	public Referee getReferee() {
+		return referee;
+	}
+
+	public void setReferee(Referee referee) {
+		this.referee = referee;
 	}
 	
 

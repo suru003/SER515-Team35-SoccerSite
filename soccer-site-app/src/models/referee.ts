@@ -12,4 +12,5 @@ export class Referee{
     country!: String;	
     roleID!: Number;
     status!:String;
+    assigned!:boolean;
 }

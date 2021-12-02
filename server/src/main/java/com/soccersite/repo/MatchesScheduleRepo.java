@@ -40,6 +40,9 @@ public interface MatchesScheduleRepo extends JpaRepository<MatchesSchedule, Inte
 	 
 	 @Query("SELECT r FROM MatchesSchedule r WHERE r.time = :time")
 		List<MatchesSchedule> findMatchByTime(@Param("time") String time);
+	 
+	 @Query("SELECT r FROM MatchesSchedule r WHERE r.referee.id = :id")
+		List<MatchesSchedule> findMatchByReferee(@Param("id") String id);
 		
 //		List<MatchesSchedule> findByStatus(String status);
 		

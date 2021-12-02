@@ -43,6 +43,8 @@ import { VolunteerNewApplicationListComponent } from './volunteerDirector/volunt
 //Referees
 import { LoginOrRegisterComponent } from './refereeDirector/loginOrRegister/loginOrRegister.component';
 import { RegisterRefereeComponent } from './refereeDirector/register/registerReferee.component';
+import { RefereeDashboardComponent } from './referee/dashboard/refereeHomepage.component';
+
 
 
 import { VolunteerDirectorLoginOrRegisterComponent } from './volunteerDirector/loginOrRegister/loginOrRegister.component';
@@ -116,7 +118,7 @@ import { HotelsComponent } from './hotels/hotels.component';
     TeamsDashboardComponent,
     FAQPageComponent,
     Mainpage,
-    
+    RefereeDashboardComponent,
     sponsors,
     ScheduleMatchesComponent,
     TeamApplicationComponent, 

@@ -23,30 +23,17 @@ body{
 	background-color: rgba(255, 193, 8, 0.4);
 }
 
-.btn-primary {
-	background-color: #D8282B;
-	border-color: #D8282B;
-}
-
-/*.btn{
-	width: 100%;
-}*/
-
 .container{
 	padding: 0;
 }
 
-.content-row{
-	padding-top: 2rem;
-	padding-bottom: 2rem;
-	
+.edit-user-btn{
+	color: green;
+	padding-right: 20px;
 }
 
-
-.content-row .card-title{
-	text-align: center;
-	font-weight: bold;
-
+.delete-user-btn, .pending-icon{
+	color: #AF272F;
 }
 
 .second-row .icon-col{
@@ -149,6 +136,7 @@ body{
 }
 
 
+
 .sidebar{
 	position: fixed;
 	left: 0;
@@ -218,7 +206,6 @@ body{
 .top-bar .row{
 	height: 4rem;
 	padding-left: 1rem;
-	position: relative;
 }
 
 .top-bar .topbar-icon-col{
@@ -261,8 +248,6 @@ body{
 	font-size: 0.8rem;
 }
 
-tbody, th {
-	font-size: 0.8rem;
-}
+
 
 

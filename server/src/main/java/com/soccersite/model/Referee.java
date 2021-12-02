@@ -40,11 +40,13 @@ public class Referee {
 	String country;
 	int roleID;
 	String status;
+	boolean isAssigned;
 
 	
 	public Referee() {}
 
-	public Referee(String id, String firstName, String lastName, String email, long contactNo, String address, String city, String country, int roleID, String status) {
+	public Referee(String id, String firstName, String lastName, String email, long contactNo, 
+			String address, String city, String country, int roleID, String status) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -58,10 +60,12 @@ public class Referee {
 		this.country = country;
 		this.roleID = roleID;
 		this.status = status;
+		this.isAssigned = false;
 //		this.status = Status.setNewStatus();
 	}
 	
-	public Referee(String firstName, String lastName, String email, long contactNo, String address, String city, String country, int roleID, String status) {
+	public Referee(String firstName, String lastName, String email, long contactNo, String address, 
+			String city, String country, int roleID, String status) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -72,6 +76,7 @@ public class Referee {
 		this.country = country;
 		this.roleID = roleID;
 		this.status = status;
+		this.isAssigned = false;
 	}
 
 	public String getId() {
@@ -170,6 +175,13 @@ public class Referee {
 		this.status = status;
 	}
 
-	
+	public boolean isAssigned() {
+		return isAssigned;
+	}
+
+	public void setAssigned(boolean isAssigned) {
+		this.isAssigned = isAssigned;
+	}
+
 
 }
